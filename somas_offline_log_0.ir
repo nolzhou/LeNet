@@ -1,0 +1,65 @@
+Somas EDGE src=n0, srcstm=4294967295, dst=n1, dststm=4294967295, workspace=0, size=602112, lifelong=0, tid=0, start=0, end=1
+Somas EDGE src=n1, srcstm=4294967295, dst=n2, dststm=4294967295, workspace=0, size=602112, lifelong=0, tid=1, start=1, end=39
+Somas EDGE src=n1, srcstm=4294967295, dst=n38, dststm=4294967295, workspace=0, size=602112, lifelong=0, tid=1, start=1, end=39
+Somas EDGE src=n1, srcstm=4294967295, dst=n39, dststm=4294967295, workspace=0, size=602112, lifelong=0, tid=1, start=1, end=39
+Somas EDGE src=n2, srcstm=4294967295, dst=n3, dststm=4294967295, workspace=0, size=150528, lifelong=0, tid=2, start=2, end=38
+Somas EDGE src=n2, srcstm=4294967295, dst=n35, dststm=4294967295, workspace=0, size=150528, lifelong=0, tid=2, start=2, end=38
+Somas EDGE src=n2, srcstm=4294967295, dst=n38, dststm=4294967295, workspace=0, size=150528, lifelong=0, tid=2, start=2, end=38
+Somas EDGE src=n3, srcstm=4294967295, dst=n4, dststm=4294967295, workspace=0, size=204800, lifelong=0, tid=4, start=3, end=4
+Somas EDGE src=n4, srcstm=4294967295, dst=n5, dststm=4294967295, workspace=0, size=204800, lifelong=0, tid=5, start=4, end=34
+Somas EDGE src=n4, srcstm=4294967295, dst=n32, dststm=4294967295, workspace=0, size=204800, lifelong=0, tid=5, start=4, end=34
+Somas EDGE src=n4, srcstm=4294967295, dst=n34, dststm=4294967295, workspace=0, size=204800, lifelong=0, tid=5, start=4, end=34
+Somas EDGE src=n5, srcstm=4294967295, dst=n6, dststm=4294967295, workspace=0, size=51200, lifelong=0, tid=6, start=5, end=32
+Somas EDGE src=n5, srcstm=4294967295, dst=n32, dststm=4294967295, workspace=0, size=51200, lifelong=0, tid=6, start=5, end=32
+Somas EDGE src=n6, srcstm=4294967295, dst=n7, dststm=4294967295, workspace=0, size=51200, lifelong=0, tid=8, start=6, end=27
+Somas EDGE src=n6, srcstm=4294967295, dst=n27, dststm=4294967295, workspace=0, size=51200, lifelong=0, tid=8, start=6, end=27
+Somas EDGE src=n7, srcstm=4294967295, dst=n8, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=9, start=7, end=8
+Somas EDGE src=n8, srcstm=4294967295, dst=n9, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=10, start=8, end=9
+Somas EDGE src=n9, srcstm=4294967295, dst=n10, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=11, start=9, end=26
+Somas EDGE src=n9, srcstm=4294967295, dst=n23, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=11, start=9, end=26
+Somas EDGE src=n9, srcstm=4294967295, dst=n26, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=11, start=9, end=26
+Somas EDGE src=n10, srcstm=4294967295, dst=n11, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=12, start=10, end=11
+Somas EDGE src=n11, srcstm=4294967295, dst=n12, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=13, start=11, end=12
+Somas EDGE src=n12, srcstm=4294967295, dst=n13, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=14, start=12, end=21
+Somas EDGE src=n12, srcstm=4294967295, dst=n18, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=14, start=12, end=21
+Somas EDGE src=n12, srcstm=4294967295, dst=n21, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=14, start=12, end=21
+Somas EDGE src=n13, srcstm=4294967295, dst=n14, dststm=4294967295, workspace=0, size=1280, lifelong=0, tid=15, start=13, end=14
+Somas EDGE src=n14, srcstm=4294967295, dst=n15, dststm=4294967295, workspace=0, size=1280, lifelong=0, tid=16, start=14, end=16
+Somas EDGE src=n14, srcstm=4294967295, dst=n16, dststm=4294967295, workspace=0, size=1280, lifelong=0, tid=16, start=14, end=16
+Somas EDGE ERROR src=n15, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=4, lifelong=0, tid=17, start=15, end=15
+Somas EDGE src=n16, srcstm=4294967295, dst=n17, dststm=4294967295, workspace=0, size=1280, lifelong=0, tid=19, start=16, end=19
+Somas EDGE src=n16, srcstm=4294967295, dst=n18, dststm=4294967295, workspace=0, size=1280, lifelong=0, tid=19, start=16, end=19
+Somas EDGE src=n16, srcstm=4294967295, dst=n19, dststm=4294967295, workspace=0, size=1280, lifelong=0, tid=19, start=16, end=19
+Somas EDGE src=n17, srcstm=4294967295, dst=n20, dststm=4294967295, workspace=0, size=40, lifelong=0, tid=21, start=17, end=20
+Somas EDGE src=n18, srcstm=4294967295, dst=n25, dststm=4294967295, workspace=0, size=3360, lifelong=0, tid=22, start=18, end=25
+Somas EDGE src=n19, srcstm=4294967295, dst=n21, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=23, start=19, end=21
+Somas EDGE ERROR src=n20, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=40, lifelong=0, tid=24, start=20, end=20
+Somas EDGE src=n21, srcstm=4294967295, dst=n22, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=25, start=21, end=24
+Somas EDGE src=n21, srcstm=4294967295, dst=n23, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=25, start=21, end=24
+Somas EDGE src=n21, srcstm=4294967295, dst=n24, dststm=4294967295, workspace=0, size=10752, lifelong=0, tid=25, start=21, end=24
+Somas EDGE src=n22, srcstm=4294967295, dst=n30, dststm=4294967295, workspace=0, size=336, lifelong=0, tid=26, start=22, end=30
+Somas EDGE src=n23, srcstm=4294967295, dst=n33, dststm=4294967295, workspace=0, size=40320, lifelong=0, tid=27, start=23, end=33
+Somas EDGE src=n24, srcstm=4294967295, dst=n26, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=28, start=24, end=26
+Somas EDGE ERROR src=n25, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=3360, lifelong=0, tid=29, start=25, end=25
+Somas EDGE src=n26, srcstm=4294967295, dst=n27, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=30, start=26, end=29
+Somas EDGE src=n26, srcstm=4294967295, dst=n28, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=30, start=26, end=29
+Somas EDGE src=n26, srcstm=4294967295, dst=n29, dststm=4294967295, workspace=0, size=15360, lifelong=0, tid=30, start=26, end=29
+Somas EDGE src=n27, srcstm=4294967295, dst=n40, dststm=4294967295, workspace=0, size=192000, lifelong=0, tid=31, start=27, end=40
+Somas EDGE src=n28, srcstm=4294967295, dst=n31, dststm=4294967295, workspace=0, size=51200, lifelong=0, tid=32, start=28, end=31
+Somas EDGE src=n29, srcstm=4294967295, dst=n37, dststm=4294967295, workspace=0, size=480, lifelong=0, tid=33, start=29, end=37
+Somas EDGE ERROR src=n30, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=336, lifelong=0, tid=34, start=30, end=30
+Somas EDGE src=n31, srcstm=4294967295, dst=n32, dststm=4294967295, workspace=0, size=51200, lifelong=0, tid=35, start=31, end=32
+Somas EDGE src=n32, srcstm=4294967295, dst=n34, dststm=4294967295, workspace=0, size=204800, lifelong=0, tid=36, start=32, end=34
+Somas EDGE ERROR src=n33, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=40320, lifelong=0, tid=37, start=33, end=33
+Somas EDGE src=n34, srcstm=4294967295, dst=n35, dststm=4294967295, workspace=0, size=204800, lifelong=0, tid=38, start=34, end=36
+Somas EDGE src=n34, srcstm=4294967295, dst=n36, dststm=4294967295, workspace=0, size=204800, lifelong=0, tid=38, start=34, end=36
+Somas EDGE src=n35, srcstm=4294967295, dst=n42, dststm=4294967295, workspace=0, size=9600, lifelong=0, tid=39, start=35, end=42
+Somas EDGE src=n36, srcstm=4294967295, dst=n38, dststm=4294967295, workspace=0, size=150528, lifelong=0, tid=40, start=36, end=38
+Somas EDGE ERROR src=n37, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=480, lifelong=0, tid=41, start=37, end=37
+Somas EDGE src=n38, srcstm=4294967295, dst=n39, dststm=4294967295, workspace=0, size=602112, lifelong=0, tid=42, start=38, end=39
+Somas EDGE src=n39, srcstm=4294967295, dst=n41, dststm=4294967295, workspace=0, size=602112, lifelong=0, tid=43, start=39, end=41
+Somas EDGE ERROR src=n40, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=192000, lifelong=0, tid=44, start=40, end=40
+Somas EDGE src=n41, srcstm=4294967295, dst=n43, dststm=4294967295, workspace=0, size=600, lifelong=0, tid=45, start=41, end=43
+Somas EDGE ERROR src=n42, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=9600, lifelong=0, tid=46, start=42, end=42
+Somas EDGE ERROR src=n43, srcstm=4294967295, dst=nc, dststm=nc, workspace=0, size=600, lifelong=0, tid=47, start=43, end=43
+

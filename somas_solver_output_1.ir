@@ -1,0 +1,20 @@
+
+tensor_id=0	size=602624	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=12	size=11264	offset=15872	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=18	size=1536	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=4	size=205312	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=3	size=37888	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=13	size=11264	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=16	size=1536	offset=1536	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=5	size=205312	offset=205312	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=6	size=51712	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=7	size=13312	offset=51712	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=9	size=15872	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=15	size=1536	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=8	size=51712	offset=51712	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=11	size=15872	offset=0	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=14	size=11264	offset=11264	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=10	size=15872	offset=15872	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=17	size=512	offset=3072	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=1	size=602624	offset=602624	continuous=0	size_aligned=1	offset_aligned=1
+tensor_id=2	size=151040	offset=205312	continuous=0	size_aligned=1	offset_aligned=1

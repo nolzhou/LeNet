@@ -1,0 +1,861 @@
+#IR entry      : @255_construct_wrapper.1276
+#attrs         :
+training : 0
+#Total params  : 10
+
+%para1_data : <Tensor[Float32], (32, 1, 32, 32)>
+%para2_label : <Tensor[Int32], (32)>
+%para3_fc3.bias : <Ref[Tensor(F32)], (10)>
+%para4_fc3.weight : <Ref[Tensor(F32)], (10, 84)>
+%para5_fc2.bias : <Ref[Tensor(F32)], (84)>
+%para6_fc2.weight : <Ref[Tensor(F32)], (84, 120)>
+%para7_conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>
+%para8_fc1.bias : <Ref[Tensor(F32)], (120)>
+%para9_fc1.weight : <Ref[Tensor(F32)], (120, 400)>
+%para10_conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>
+
+#Total subgraph : 51
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @303_construct.1277(%para11_Φlogits, %para12_labels) {
+  %0([CNode]1003) = Switch(true, @304_✓construct.1279, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %1([CNode]1006) = %0[304_✓construct.1279]()
+      : () -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %2([CNode]1007) = Depend(%1, (None, None)) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], ()>, <Tuple[kMetaTypeNone*2], sequence_nodes={node={construct.957:[CNode]952{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]950, [2]: [CNode]951}, elements_use_flags: {ptr: 0x15996020b20, value: [const vector][1, 1]}}, node={ValueNode<ValueTuple> (None, None), elements_use_flags: {ptr: 0x15996020b20, value: [const vector][1, 1]}}}>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  Return(%2)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @305_✓✓construct.1278() {
+  %0(x) = SparseSoftmaxCrossEntropyWithLogits($(@303_construct.1277:para11_Φlogits), $(@303_construct.1277:para12_labels)) {instance name: sparse_softmax_cross_entropy} primitive_attrs: {output_names: [output], input_names: [features, labels], sens: 1.000000, is_grad: false}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(627)/                x = self.sparse_softmax_cross_entropy(logits, labels)/
+  Return(%0)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(628)/                return x/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @304_✓construct.1279() {
+  %0([CNode]998) = Switch(true, @305_✓✓construct.1278, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %1([CNode]1001) = %0[305_✓✓construct.1278]()
+      : () -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  Return(%1)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @302_↓construct.1324(%para13_Φoutputs, %para14_Φlabel) {
+  %0(loss) = call @303_construct.1277(%para13_Φoutputs, %para14_Φlabel)
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  %1([CNode]917) = MakeTuple(%0, %para13_Φoutputs, %para14_Φlabel)
+      : (<Tensor[Float32], ()>, <Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/
+  Return(%1)
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @268_L-↓↓↓↓construct.1280(%para15_Φx) {
+  Return(%para15_Φx)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @266_L-↓↓↓construct.1281(%para16_Φx) {
+  %0([CNode]1031) = Switch(false, DeadNode, @267_L-✗↓↓↓construct.1282)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1034) = %0[267_L-✗↓↓↓construct.1282]()
+      : () -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @267_L-✗↓↓↓construct.1282() {
+  %0([CNode]1030) = call @268_L-↓↓↓↓construct.1280($(@266_L-↓↓↓construct.1281:para16_Φx))
+      : (<Tensor[Float32], (32, 10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @264_L-↓↓construct.1283(%para17_Φx) {
+  %0([CNode]1038) = Switch(false, DeadNode, @265_L-✗↓↓construct.1284)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]1041) = %0[265_L-✗↓↓construct.1284]()
+      : () -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @265_L-✗↓↓construct.1284() {
+  %0([CNode]1037) = call @266_L-↓↓↓construct.1281($(@264_L-↓↓construct.1283:para17_Φx))
+      : (<Tensor[Float32], (32, 10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @262_L-↓construct.1286(%para18_Φx, %para19_u) {
+  %0([CNode]1327) = Load($(@260_L-construct.1285:para22_L-fc3.weight), %para19_u)
+      : (<Ref[Tensor(F32)], (10, 84)>, <UMonad>) -> (<Tensor[Float32], (10, 84)>)
+  %1(x) = MatMul(%para18_Φx, %0) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (10, 84)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %2([CNode]1045) = Switch(true, @263_L-✓↓construct.1287, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1330) = UpdateState(%para19_u, %0)
+      : (<UMonad>, <Tensor[Float32], (10, 84)>) -> (<UMonad>)
+  %4([CNode]1048) = %2[263_L-✓↓construct.1287](%3)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %5([CNode]1331) = UpdateState(%3, %4)
+      : (<UMonad>, <Tensor[Float32], (32, 10)>) -> (<UMonad>)
+  %6([CNode]1048) = Depend(%4, %5) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 10)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%6)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @260_L-construct.1285(%para20_x, %para21_L-fc3.bias, %para22_L-fc3.weight, %para23_u) {
+  %0([CNode]1055) = Switch(false, DeadNode, @261_L-✗construct.1288)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %1([CNode]1058) = %0[261_L-✗construct.1288](%para23_u)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %2([CNode]1059) = Depend(%1, None) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], (32, 10)>, <kMetaTypeNone>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  %3([CNode]1332) = UpdateState(%para23_u, %1)
+      : (<UMonad>, <Tensor[Float32], (32, 10)>) -> (<UMonad>)
+  %4([CNode]1059) = Depend(%2, %3) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 10)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%4)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @263_L-✓↓construct.1287(%para24_u) {
+  %0([CNode]1328) = Load($(@260_L-construct.1285:para21_L-fc3.bias), %para24_u)
+      : (<Ref[Tensor(F32)], (10)>, <UMonad>) -> (<Tensor[Float32], (10)>)
+  %1(x) = BiasAdd($(@262_L-↓construct.1286:x), %0) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], (10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %2([CNode]1043) = call @264_L-↓↓construct.1283(%1)
+      : (<Tensor[Float32], (32, 10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1329) = UpdateState(%para24_u, %0)
+      : (<UMonad>, <Tensor[Float32], (10)>) -> (<UMonad>)
+  %4([CNode]1043) = Depend(%2, %3) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 10)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%4)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @261_L-✗construct.1288(%para25_u) {
+  %0([CNode]1054) = call @262_L-↓construct.1286($(@260_L-construct.1285:para20_x), %para25_u)
+      : (<Tensor[Float32], (32, 84)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @259_construct.1322(%para26_x, %para27_u) {
+  %0([CNode]1273) = call @260_L-construct.1285(%para26_x, $(@255_construct_wrapper.1276:para3_fc3.bias), $(@255_construct_wrapper.1276:para4_fc3.weight), %para27_u)
+      : (<Tensor[Float32], (32, 84)>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10, 84)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @255_construct_wrapper.1276() {
+  %0([CNode]933) = call @256_construct.1325(%para1_data, %para2_label, U)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Int32], (32)>, <UMonad>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+  Return(%0)
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @269_construct.1321(%para28_x) {
+  %0([CNode]1060) = ReLU(%para28_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @279_L-↓↓↓↓construct.1289(%para29_Φx) {
+  Return(%para29_Φx)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @277_L-↓↓↓construct.1290(%para30_Φx) {
+  %0([CNode]1031) = Switch(false, DeadNode, @278_L-✗↓↓↓construct.1291)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1034) = %0[278_L-✗↓↓↓construct.1291]()
+      : () -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @278_L-✗↓↓↓construct.1291() {
+  %0([CNode]1030) = call @279_L-↓↓↓↓construct.1289($(@277_L-↓↓↓construct.1290:para30_Φx))
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @275_L-↓↓construct.1292(%para31_Φx) {
+  %0([CNode]1038) = Switch(false, DeadNode, @276_L-✗↓↓construct.1293)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]1041) = %0[276_L-✗↓↓construct.1293]()
+      : () -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @276_L-✗↓↓construct.1293() {
+  %0([CNode]1037) = call @277_L-↓↓↓construct.1290($(@275_L-↓↓construct.1292:para31_Φx))
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @273_L-↓construct.1295(%para32_Φx, %para33_u) {
+  %0([CNode]1333) = Load($(@271_L-construct.1294:para36_L-fc3.weight), %para33_u)
+      : (<Ref[Tensor(F32)], (84, 120)>, <UMonad>) -> (<Tensor[Float32], (84, 120)>)
+  %1(x) = MatMul(%para32_Φx, %0) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (84, 120)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %2([CNode]1045) = Switch(true, @274_L-✓↓construct.1296, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1336) = UpdateState(%para33_u, %0)
+      : (<UMonad>, <Tensor[Float32], (84, 120)>) -> (<UMonad>)
+  %4([CNode]1048) = %2[274_L-✓↓construct.1296](%3)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %5([CNode]1337) = UpdateState(%3, %4)
+      : (<UMonad>, <Tensor[Float32], (32, 84)>) -> (<UMonad>)
+  %6([CNode]1048) = Depend(%4, %5) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 84)>, <UMonad>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%6)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @271_L-construct.1294(%para34_x, %para35_L-fc3.bias, %para36_L-fc3.weight, %para37_u) {
+  %0([CNode]1055) = Switch(false, DeadNode, @272_L-✗construct.1297)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %1([CNode]1058) = %0[272_L-✗construct.1297](%para37_u)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %2([CNode]1059) = Depend(%1, None) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], (32, 84)>, <kMetaTypeNone>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  %3([CNode]1338) = UpdateState(%para37_u, %1)
+      : (<UMonad>, <Tensor[Float32], (32, 84)>) -> (<UMonad>)
+  %4([CNode]1059) = Depend(%2, %3) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 84)>, <UMonad>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%4)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @274_L-✓↓construct.1296(%para38_u) {
+  %0([CNode]1334) = Load($(@271_L-construct.1294:para35_L-fc3.bias), %para38_u)
+      : (<Ref[Tensor(F32)], (84)>, <UMonad>) -> (<Tensor[Float32], (84)>)
+  %1(x) = BiasAdd($(@273_L-↓construct.1295:x), %0) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %2([CNode]1043) = call @275_L-↓↓construct.1292(%1)
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1335) = UpdateState(%para38_u, %0)
+      : (<UMonad>, <Tensor[Float32], (84)>) -> (<UMonad>)
+  %4([CNode]1043) = Depend(%2, %3) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 84)>, <UMonad>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%4)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @272_L-✗construct.1297(%para39_u) {
+  %0([CNode]1054) = call @273_L-↓construct.1295($(@271_L-construct.1294:para34_x), %para39_u)
+      : (<Tensor[Float32], (32, 120)>, <UMonad>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @270_construct.1320(%para40_x, %para41_u) {
+  %0([CNode]1274) = call @271_L-construct.1294(%para40_x, $(@255_construct_wrapper.1276:para5_fc2.bias), $(@255_construct_wrapper.1276:para6_fc2.weight), %para41_u)
+      : (<Tensor[Float32], (32, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84, 120)>, <UMonad>) -> (<Tensor[Float32], (32, 84)>)
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @280_construct.1319(%para42_x) {
+  %0([CNode]1060) = ReLU(%para42_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @290_L-↓↓↓↓construct.1298(%para43_Φx) {
+  Return(%para43_Φx)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @288_L-↓↓↓construct.1299(%para44_Φx) {
+  %0([CNode]1031) = Switch(false, DeadNode, @289_L-✗↓↓↓construct.1300)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1034) = %0[289_L-✗↓↓↓construct.1300]()
+      : () -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @289_L-✗↓↓↓construct.1300() {
+  %0([CNode]1030) = call @290_L-↓↓↓↓construct.1298($(@288_L-↓↓↓construct.1299:para44_Φx))
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @286_L-↓↓construct.1301(%para45_Φx) {
+  %0([CNode]1038) = Switch(false, DeadNode, @287_L-✗↓↓construct.1302)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]1041) = %0[287_L-✗↓↓construct.1302]()
+      : () -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @287_L-✗↓↓construct.1302() {
+  %0([CNode]1037) = call @288_L-↓↓↓construct.1299($(@286_L-↓↓construct.1301:para45_Φx))
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @284_L-↓construct.1304(%para46_Φx, %para47_u) {
+  %0([CNode]1339) = Load($(@282_L-construct.1303:para50_L-fc3.weight), %para47_u)
+      : (<Ref[Tensor(F32)], (120, 400)>, <UMonad>) -> (<Tensor[Float32], (120, 400)>)
+  %1(x) = MatMul(%para46_Φx, %0) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 400)>, <Tensor[Float32], (120, 400)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %2([CNode]1045) = Switch(true, @285_L-✓↓construct.1305, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1342) = UpdateState(%para47_u, %0)
+      : (<UMonad>, <Tensor[Float32], (120, 400)>) -> (<UMonad>)
+  %4([CNode]1048) = %2[285_L-✓↓construct.1305](%3)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %5([CNode]1343) = UpdateState(%3, %4)
+      : (<UMonad>, <Tensor[Float32], (32, 120)>) -> (<UMonad>)
+  %6([CNode]1048) = Depend(%4, %5) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 120)>, <UMonad>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%6)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @282_L-construct.1303(%para48_x, %para49_L-fc3.bias, %para50_L-fc3.weight, %para51_u) {
+  %0([CNode]1055) = Switch(false, DeadNode, @283_L-✗construct.1306)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %1([CNode]1058) = %0[283_L-✗construct.1306](%para51_u)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %2([CNode]1059) = Depend(%1, None) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], (32, 120)>, <kMetaTypeNone>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  %3([CNode]1344) = UpdateState(%para51_u, %1)
+      : (<UMonad>, <Tensor[Float32], (32, 120)>) -> (<UMonad>)
+  %4([CNode]1059) = Depend(%2, %3) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 120)>, <UMonad>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%4)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @285_L-✓↓construct.1305(%para52_u) {
+  %0([CNode]1340) = Load($(@282_L-construct.1303:para49_L-fc3.bias), %para52_u)
+      : (<Ref[Tensor(F32)], (120)>, <UMonad>) -> (<Tensor[Float32], (120)>)
+  %1(x) = BiasAdd($(@284_L-↓construct.1304:x), %0) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %2([CNode]1043) = call @286_L-↓↓construct.1301(%1)
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1341) = UpdateState(%para52_u, %0)
+      : (<UMonad>, <Tensor[Float32], (120)>) -> (<UMonad>)
+  %4([CNode]1043) = Depend(%2, %3) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 120)>, <UMonad>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%4)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @283_L-✗construct.1306(%para53_u) {
+  %0([CNode]1054) = call @284_L-↓construct.1304($(@282_L-construct.1303:para48_x), %para53_u)
+      : (<Tensor[Float32], (32, 400)>, <UMonad>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @281_construct.1318(%para54_x, %para55_u) {
+  %0([CNode]1275) = call @282_L-construct.1303(%para54_x, $(@255_construct_wrapper.1276:para8_fc1.bias), $(@255_construct_wrapper.1276:para9_fc1.weight), %para55_u)
+      : (<Tensor[Float32], (32, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120, 400)>, <UMonad>) -> (<Tensor[Float32], (32, 120)>)
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @291_construct.1317(%para56_x) {
+  %0([CNode]1163) = Reshape(%para56_x, (32, -1)) primitive_attrs: {output_names: [output], input_names: [tensor, shape]}
+      : (<Tensor[Float32], (32, 16, 5, 5)>, <Tuple[Int64*2], sequence_nodes={node={construct.1184:[CNode]1162{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: [CNode]1160, [2]: [CNode]1161}, elements_use_flags: {ptr: 0x15994821320, value: [const vector][1, 1]}}, node={ValueNode<ValueTuple> (32, -1), elements_use_flags: {ptr: 0x15994821320, value: [const vector][1, 1]}}}>) -> (<Tensor[Float32], (32, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  Return(%0)
+      : (<Tensor[Float32], (32, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @292_construct.1316(%para57_x) {
+  %0(out) = MaxPool(%para57_x) {instance name: max_pool} primitive_attrs: {pad_mode: 2, output_names: [output], kernel_size: (1, 1, 2, 2), format: NCHW, strides: (1, 1, 2, 2), input_names: [x]}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 16, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @293_construct.1315(%para58_x) {
+  %0([CNode]1060) = ReLU(%para58_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @296_↓construct.1307(%para59_Φoutput) {
+  Return(%para59_Φoutput)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @294_construct.1308(%para60_x, %para61_u) {
+  %0([CNode]1345) = Load($(@255_construct_wrapper.1276:para7_conv2.weight), %para61_u)
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>, <UMonad>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+  %1(output) = Conv2D(%para60_x, %0) {instance name: conv2d} primitive_attrs: {kernel_size: (5, 5), mode: 1, out_channel: 16, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: 2, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output]}
+      : (<Tensor[Float32], (32, 6, 14, 14)>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %2([CNode]1169) = Switch(false, DeadNode, @295_✗construct.1309)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %3([CNode]1346) = UpdateState(%para61_u, %0)
+      : (<UMonad>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<UMonad>)
+  %4([CNode]1172) = %2[295_✗construct.1309](%3)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %5([CNode]1347) = UpdateState(%3, %4)
+      : (<UMonad>, <Tensor[Float32], (32, 16, 10, 10)>) -> (<UMonad>)
+  %6([CNode]1172) = Depend(%4, %5) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 16, 10, 10)>, <UMonad>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%6)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @295_✗construct.1309(%para62_u) {
+  %0([CNode]1168) = call @296_↓construct.1307($(@294_construct.1308:output))
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %1([CNode]1168) = Depend(%0, %para62_u) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 16, 10, 10)>, <UMonad>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @297_construct.1314(%para63_x) {
+  %0(out) = MaxPool(%para63_x) {instance name: max_pool} primitive_attrs: {pad_mode: 2, output_names: [output], kernel_size: (1, 1, 2, 2), format: NCHW, strides: (1, 1, 2, 2), input_names: [x]}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 14, 14)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 6, 14, 14)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @298_construct.1313(%para64_x) {
+  %0([CNode]1060) = ReLU(%para64_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 0
+subgraph @301_↓construct.1310(%para65_Φoutput) {
+  Return(%para65_Φoutput)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @299_construct.1311(%para66_x, %para67_u) {
+  %0([CNode]1348) = Load($(@255_construct_wrapper.1276:para10_conv1.weight), %para67_u)
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <UMonad>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+  %1(output) = Conv2D(%para66_x, %0) {instance name: conv2d} primitive_attrs: {kernel_size: (5, 5), mode: 1, out_channel: 6, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: 2, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output]}
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %2([CNode]1178) = Switch(false, DeadNode, @300_✗construct.1312)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %3([CNode]1349) = UpdateState(%para67_u, %0)
+      : (<UMonad>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<UMonad>)
+  %4([CNode]1181) = %2[300_✗construct.1312](%3)
+      : (<UMonad>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %5([CNode]1350) = UpdateState(%3, %4)
+      : (<UMonad>, <Tensor[Float32], (32, 6, 28, 28)>) -> (<UMonad>)
+  %6([CNode]1181) = Depend(%4, %5) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 6, 28, 28)>, <UMonad>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%6)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @300_✗construct.1312(%para68_u) {
+  %0([CNode]1177) = call @301_↓construct.1310($(@299_construct.1311:output))
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %1([CNode]1177) = Depend(%0, %para68_u) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 6, 28, 28)>, <UMonad>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @258_construct.1323(%para69_x, %para70_u) {
+  %0(x) = call @299_construct.1311(%para69_x, %para70_u)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <UMonad>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\PythonCode\LeNet\lenet.py(41)/        x = self.conv1(x)/
+  %1(x) = call @298_construct.1313(%0)
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\PythonCode\LeNet\lenet.py(42)/        x = self.relu(x)/
+  %2(x) = call @297_construct.1314(%1)
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 14, 14)>)
+      # In file D:\PythonCode\LeNet\lenet.py(43)/        x = self.max_pool2d(x)/
+  %3([CNode]1351) = UpdateState(%para70_u, %0)
+      : (<UMonad>, <Tensor[Float32], (32, 6, 28, 28)>) -> (<UMonad>)
+  %4(x) = call @294_construct.1308(%2, %3)
+      : (<Tensor[Float32], (32, 6, 14, 14)>, <UMonad>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(44)/        x = self.conv2(x)/
+  %5(x) = call @293_construct.1315(%4)
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(45)/        x = self.relu(x)/
+  %6(x) = call @292_construct.1316(%5)
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 5, 5)>)
+      # In file D:\PythonCode\LeNet\lenet.py(46)/        x = self.max_pool2d(x)/
+  %7(x) = call @291_construct.1317(%6)
+      : (<Tensor[Float32], (32, 16, 5, 5)>) -> (<Tensor[Float32], (32, 400)>)
+      # In file D:\PythonCode\LeNet\lenet.py(47)/        x = self.flatten(x)/
+  %8([CNode]1352) = UpdateState(%3, %4)
+      : (<UMonad>, <Tensor[Float32], (32, 16, 10, 10)>) -> (<UMonad>)
+  %9(x) = call @281_construct.1318(%7, %8)
+      : (<Tensor[Float32], (32, 400)>, <UMonad>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\PythonCode\LeNet\lenet.py(48)/        x = self.fc1(x)/
+  %10(x) = call @280_construct.1319(%9)
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\PythonCode\LeNet\lenet.py(49)/        x = self.relu(x)/
+  %11([CNode]1353) = UpdateState(%8, %9)
+      : (<UMonad>, <Tensor[Float32], (32, 120)>) -> (<UMonad>)
+  %12(x) = call @270_construct.1320(%10, %11)
+      : (<Tensor[Float32], (32, 120)>, <UMonad>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\PythonCode\LeNet\lenet.py(50)/        x = self.fc2(x)/
+  %13(x) = call @269_construct.1321(%12)
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\PythonCode\LeNet\lenet.py(51)/        x = self.relu(x)/
+  %14([CNode]1354) = UpdateState(%11, %12)
+      : (<UMonad>, <Tensor[Float32], (32, 84)>) -> (<UMonad>)
+  %15(x) = call @259_construct.1322(%13, %14)
+      : (<Tensor[Float32], (32, 84)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  %16([CNode]1355) = UpdateState(%14, %15)
+      : (<UMonad>, <Tensor[Float32], (32, 10)>) -> (<UMonad>)
+  %17(x) = Depend(%15, %16) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], (32, 10)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%17)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(53)/        return x/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @256_construct.1325(%para71_data, %para72_label, %para73_u) {
+  %0(outputs) = call @258_construct.1323(%para71_data, %para73_u)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <UMonad>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/
+  %1([CNode]929) = Switch(false, DeadNode, @257_✗construct.1326)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %2([CNode]1356) = UpdateState(%para73_u, %0)
+      : (<UMonad>, <Tensor[Float32], (32, 10)>) -> (<UMonad>)
+  %3([CNode]932) = %1[257_✗construct.1326](%2)
+      : (<UMonad>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %4([CNode]1357) = UpdateState(%2, %3)
+      : (<UMonad>, <Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>) -> (<UMonad>)
+  %5([CNode]932) = Depend(%3, %4) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>, <UMonad>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%5)
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 0
+subgraph @257_✗construct.1326(%para74_u) {
+  %0([CNode]928) = call @302_↓construct.1324($(@256_construct.1325:outputs), $(@256_construct.1325:para72_label))
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %1([CNode]928) = Depend(%0, %para74_u) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>, <UMonad>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%1)
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={↓construct.927:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: loss, [2]: Φoutputs, [3]: Φlabel}, elements_use_flags: {ptr: 0x1599601e860, value: [const vector][1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+

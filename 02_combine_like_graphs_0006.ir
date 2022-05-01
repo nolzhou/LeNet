@@ -1,0 +1,1528 @@
+#IR entry      : @construct_wrapper.1
+#attrs         :
+training : 1
+#Total params  : 19
+
+%para1_inputs : <null>
+%para2_conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>
+%para3_conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>
+%para4_fc1.weight : <Ref[Tensor(F32)], (120, 400)>
+%para5_fc1.bias : <Ref[Tensor(F32)], (120)>
+%para6_fc2.weight : <Ref[Tensor(F32)], (84, 120)>
+%para7_fc2.bias : <Ref[Tensor(F32)], (84)>
+%para8_fc3.weight : <Ref[Tensor(F32)], (10, 84)>
+%para9_fc3.bias : <Ref[Tensor(F32)], (10)>
+%para10_moments.conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>
+%para11_moments.conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>
+%para12_moments.fc1.weight : <Ref[Tensor(F32)], (120, 400)>
+%para13_moments.fc1.bias : <Ref[Tensor(F32)], (120)>
+%para14_moments.fc2.weight : <Ref[Tensor(F32)], (84, 120)>
+%para15_moments.fc2.bias : <Ref[Tensor(F32)], (84)>
+%para16_moments.fc3.weight : <Ref[Tensor(F32)], (10, 84)>
+%para17_moments.fc3.bias : <Ref[Tensor(F32)], (10)>
+%para18_momentum : <Ref[Tensor(F32)], ()>
+%para19_learning_rate : <Ref[Tensor(F32)], ()>
+
+#Total subgraph : 92
+
+subgraph attr:
+training : 1
+subgraph @construct.45(%para20_Φlogits, %para21_labels) {
+  %0([CNode]35) = S-Prim-_check_is_tensor(logits, %para20_Φlogits, SoftmaxCrossEntropyWithLogits)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(623)/        _check_is_tensor('logits', logits, self.cls_name)/
+  %1([CNode]36) = S-Prim-_check_is_tensor(labels, %para21_labels, SoftmaxCrossEntropyWithLogits)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(624)/        _check_is_tensor('labels', labels, self.cls_name)/
+  %2([CNode]37) = MakeTuple(%0, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+  %3([CNode]38) = stop_gradient(%2)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+  %4([CNode]41) = call @bool_.42(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %5([CNode]91) = Switch(%4, @✓construct.92, @✗construct.93)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %6([CNode]94) = %5()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %7([CNode]95) = Depend(%6, %3) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+  Return(%7)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+subgraph @bool_.42(%para22_x) {
+  %0([CNode]39) = getattr(%para22_x, __bool__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+  %1([CNode]40) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓construct.92() {
+  %0([CNode]43) = S-Prim-equal(mean, mean)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %1([CNode]44) = call @bool_.42(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %2([CNode]86) = Switch(%1, @✓✓construct.87, @✗✓construct.88)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %3([CNode]89) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓✓construct.87() {
+  %0(x) = S-Prim-SparseSoftmaxCrossEntropyWithLogits($(@construct.45:para20_Φlogits), $(@construct.45:para21_labels))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(627)/                x = self.sparse_softmax_cross_entropy(logits, labels)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(628)/                return x/
+}
+
+subgraph attr:
+training : 1
+subgraph @get_loss.59(%para23_x, %para24_weights) {
+  %0([CNode]46) = call @bool_.42(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %1([CNode]47) = Switch(%0, @↰get_loss.48, @↱get_loss.49)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %2([CNode]50) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %3([CNode]51) = call @bool_.42(%2)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %4(Φinput_dtype) = getattr(%para23_x, dtype)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(148)/        x = self.cast(x, input_dtype)/
+  %5(weights) = S-Prim-Cast(%para24_weights, Float32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(142)/        weights = self.cast(weights, mstype.float32)/
+  %6(x) = S-Prim-Cast(%para23_x, Float32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(141)/        x = self.cast(x, mstype.float32)/
+  %7(x) = S-Prim-Mul(%5, %6)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(143)/        x = self.mul(weights, x)/
+  %8([CNode]73) = Switch(%3, @✓get_loss.74, @✗get_loss.75)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %9([CNode]76) = %8()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  Return(%9)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+training : 1
+subgraph @↰get_loss.48() {
+  Return(true)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+training : 1
+subgraph @↱get_loss.49() {
+  Return(true)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓get_loss.62(%para25_Φx) {
+  %0([CNode]52) = call @bool_.42(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %1([CNode]54) = Switch(%0, @↰↓get_loss.55, @↱↓get_loss.56)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %2([CNode]57) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %3([CNode]58) = call @bool_.42(%2)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %4([CNode]66) = Switch(%3, @✓↓get_loss.67, @✗↓get_loss.68)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %5([CNode]69) = %4()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%5)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 1
+subgraph @↰↓get_loss.55() {
+  %0([CNode]53) = S-Prim-logical_not(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 1
+subgraph @↱↓get_loss.56() {
+  Return(true)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓↓get_loss.64(%para26_Φx) {
+  %0(x) = S-Prim-Cast(%para26_Φx, $(@get_loss.59:Φinput_dtype))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(148)/        x = self.cast(x, input_dtype)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(149)/        return x/
+}
+
+subgraph attr:
+training : 1
+subgraph @get_axis.61(%para27_x) {
+  %0(shape) = S-Prim-Shape(%para27_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(100)/        shape = F.shape(x)/
+  %1(length) = S-Prim-tuple_len(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(101)/        length = F.tuple_len(shape)/
+  %2(perm) = S-Prim-make_range(0, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(102)/        perm = F.make_range(0, length)/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(103)/        return perm/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓↓get_loss.67() {
+  %0([CNode]60) = call @get_axis.61($(@↓get_loss.62:para25_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(147)/            x = self.reduce_sum(x, self.get_axis(x))/
+  %1(x) = S-Prim-ReduceSum($(@↓get_loss.62:para25_Φx), %0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(147)/            x = self.reduce_sum(x, self.get_axis(x))/
+  %2([CNode]63) = call @↓↓get_loss.64(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗↓get_loss.68() {
+  %0([CNode]65) = call @↓↓get_loss.64($(@↓get_loss.62:para25_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓get_loss.74() {
+  %0([CNode]70) = call @get_axis.61($(@get_loss.59:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(145)/            x = self.reduce_mean(x, self.get_axis(x))/
+  %1(x) = S-Prim-ReduceMean($(@get_loss.59:x), %0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(145)/            x = self.reduce_mean(x, self.get_axis(x))/
+  %2([CNode]71) = call @↓get_loss.62(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗get_loss.75() {
+  %0([CNode]72) = call @↓get_loss.62($(@get_loss.59:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓construct.83(%para28_Φlabels) {
+  %0([CNode]77) = S-Prim-SoftmaxCrossEntropyWithLogits($(@construct.45:para20_Φlogits), %para28_Φlabels)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(630)/        x = self.softmax_cross_entropy(logits, labels)[0]/
+  %1(x) = S-Prim-getitem(%0, 0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(630)/        x = self.softmax_cross_entropy(logits, labels)[0]/
+  %2([CNode]78) = call @get_loss.59(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(631)/        return self.get_loss(x)/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(631)/        return self.get_loss(x)/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓✓construct.85() {
+  %0([CNode]79) = S-Prim-Shape($(@construct.45:para20_Φlogits))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %1([CNode]80) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %2([CNode]81) = S-Prim-getitem(%0, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %3(labels) = S-Prim-OneHot($(@construct.45:para21_labels), %2, Tensor(shape=[], dtype=Float32, value=1), Tensor(shape=[], dtype=Float32, value=0))
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %4([CNode]82) = call @↓construct.83(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗✓construct.88() {
+  %0([CNode]84) = call @↓✓construct.85()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗construct.93() {
+  %0([CNode]90) = call @↓construct.83($(@construct.45:para21_labels))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-construct.508(%para29_x, %para30_L-fc3.bias, %para31_L-fc3.weight) {
+  %0(Φx_shape) = S-Prim-Shape(%para29_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]96) = S-Prim-check_dense_input_shape(%0, Dense)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(321)/        check_dense_input_shape(x_shape, self.cls_name)/
+  %2([CNode]97) = stop_gradient(%1)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  %3([CNode]100) = call @L-ms_len.506(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %4([CNode]102) = S-Prim-not_equal(%3, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %5([CNode]103) = call @L-bool_.507(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %6([CNode]143) = Switch(%5, @L-✓construct.519, @L-✗construct.520)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %7([CNode]146) = %6()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %8([CNode]147) = Depend(%7, %2) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<null>, <null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%8)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+subgraph @L-bool_.507(%para32_x) {
+  %0([CNode]39) = getattr(%para32_x, __bool__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+  %1([CNode]40) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+}
+
+subgraph attr:
+subgraph @L-ms_len.506(%para33_data) {
+  %0([CNode]98) = getattr(%para33_data, __len__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+  %1([CNode]99) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @L-↓construct.516(%para34_Φx) {
+  %0([CNode]104) = call @L-bool_.507(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %1(x) = S-Prim-MatMul(%para34_Φx, $(@L-construct.508:para31_L-fc3.weight))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %2([CNode]133) = Switch(%0, @L-✓↓construct.517, @L-✗↓construct.518)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]136) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @L-↓↓construct.513(%para35_Φx) {
+  %0([CNode]105) = call @L-bool_.507(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]126) = Switch(%0, @L-✓↓↓construct.514, @L-✗↓↓construct.515)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %2([CNode]129) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @L-↓↓↓construct.509(%para36_Φx) {
+  %0([CNode]106) = call @L-ms_len.506($(@L-construct.508:Φx_shape))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]108) = S-Prim-not_equal(%0, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %2([CNode]109) = call @L-bool_.507(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %3([CNode]119) = Switch(%2, @L-✓↓↓↓construct.511, @L-✗↓↓↓construct.512)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %4([CNode]122) = %3()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @L-↓↓↓↓construct.510(%para37_Φx) {
+  Return(%para37_Φx)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✓↓↓↓construct.511() {
+  %0([CNode]110) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %1([CNode]111) = S-Prim-make_slice(None, %0, None)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %2([CNode]112) = S-Prim-getitem($(@L-construct.508:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %3([CNode]113) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %4([CNode]114) = S-Prim-MakeTuple(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %5(out_shape) = S-Prim-add(%2, %4)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %6(x) = S-Prim-Reshape($(@L-↓↓↓construct.509:para36_Φx), %5)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(331)/            x = self.reshape(x, out_shape)/
+  %7([CNode]116) = call @L-↓↓↓↓construct.510(%6)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%7)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✗↓↓↓construct.512() {
+  %0([CNode]118) = call @L-↓↓↓↓construct.510($(@L-↓↓↓construct.509:para36_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✓↓↓construct.514() {
+  %0(x) = None($(@L-↓↓construct.513:para35_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(328)/            x = self.activation(x)/
+  %1([CNode]124) = call @L-↓↓↓construct.509(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✗↓↓construct.515() {
+  %0([CNode]125) = call @L-↓↓↓construct.509($(@L-↓↓construct.513:para35_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✓↓construct.517() {
+  %0(x) = S-Prim-BiasAdd($(@L-↓construct.516:x), $(@L-construct.508:para30_L-fc3.bias))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %1([CNode]131) = call @L-↓↓construct.513(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✗↓construct.518() {
+  %0([CNode]132) = call @L-↓↓construct.513($(@L-↓construct.516:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✓construct.519() {
+  %0([CNode]137) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %1([CNode]138) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %2([CNode]139) = S-Prim-getitem($(@L-construct.508:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %3([CNode]140) = S-Prim-MakeTuple(%0, %2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %4(x) = S-Prim-Reshape($(@L-construct.508:para29_x), %3)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %5([CNode]141) = call @L-↓construct.516(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%5)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @L-✗construct.520() {
+  %0([CNode]142) = call @L-↓construct.516($(@L-construct.508:para29_x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.107(%para38_x) {
+  %0([CNode]521) = call @L-construct.508(%para38_x, $(@construct_wrapper.1:para9_fc3.bias), $(@construct_wrapper.1:para8_fc3.weight))
+      : (<null>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10, 84)>) -> (<null>)
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct_wrapper.1() {
+  %0([CNode]20) = unpack_call.21(@construct.22, %para1_inputs)
+      : (<null>, <null>) -> (<null>)
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.270(%para39_x) {
+  %0([CNode]148) = S-Prim-ReLU(%para39_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.157(%para40_x) {
+  %0([CNode]522) = call @L-construct.508(%para40_x, $(@construct_wrapper.1:para7_fc2.bias), $(@construct_wrapper.1:para6_fc2.weight))
+      : (<null>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84, 120)>) -> (<null>)
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.206(%para41_x) {
+  %0([CNode]523) = call @L-construct.508(%para41_x, $(@construct_wrapper.1:para5_fc1.bias), $(@construct_wrapper.1:para4_fc1.weight))
+      : (<null>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120, 400)>) -> (<null>)
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.272(%para42_x) {
+  %0([CNode]247) = S-Prim-Shape(%para42_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %1([CNode]248) = S-Prim-getitem(%0, 0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %2([CNode]249) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %3([CNode]250) = S-Prim-MakeTuple(%1, %2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %4([CNode]251) = S-Prim-Reshape(%para42_x, %3)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.271(%para43_x) {
+  %0(out) = S-Prim-MaxPool(%para43_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.253(%para44_x) {
+  %0([CNode]252) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %1(output) = S-Prim-Conv2D(%para44_x, $(@construct_wrapper.1:para3_conv2.weight))
+      : (<null>, <Ref[Tensor(F32)], (16, 6, 5, 5)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %2([CNode]257) = Switch(%0, @✓construct.258, @✗construct.259)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %3([CNode]260) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓construct.255(%para45_Φoutput) {
+  Return(%para45_Φoutput)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓construct.258() {
+  %0(output) = S-Prim-BiasAdd($(@construct.253:output), None)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(268)/            output = self.bias_add(output, self.bias)/
+  %1([CNode]254) = call @↓construct.255(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗construct.259() {
+  %0([CNode]256) = call @↓construct.255($(@construct.253:output))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.262(%para46_x) {
+  %0([CNode]261) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %1(output) = S-Prim-Conv2D(%para46_x, $(@construct_wrapper.1:para2_conv1.weight))
+      : (<null>, <Ref[Tensor(F32)], (6, 1, 5, 5)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %2([CNode]266) = Switch(%0, @✓construct.267, @✗construct.268)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %3([CNode]269) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓construct.264(%para47_Φoutput) {
+  Return(%para47_Φoutput)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓construct.267() {
+  %0(output) = S-Prim-BiasAdd($(@construct.262:output), None)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(268)/            output = self.bias_add(output, self.bias)/
+  %1([CNode]263) = call @↓construct.264(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗construct.268() {
+  %0([CNode]265) = call @↓construct.264($(@construct.262:output))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.273(%para48_x) {
+  %0(x) = call @construct.262(%para48_x)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(41)/        x = self.conv1(x)/
+  %1(x) = call @construct.270(%0)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(42)/        x = self.relu(x)/
+  %2(x) = call @construct.271(%1)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(43)/        x = self.max_pool2d(x)/
+  %3(x) = call @construct.253(%2)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(44)/        x = self.conv2(x)/
+  %4(x) = call @construct.270(%3)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(45)/        x = self.relu(x)/
+  %5(x) = call @construct.271(%4)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(46)/        x = self.max_pool2d(x)/
+  %6(x) = call @construct.272(%5)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(47)/        x = self.flatten(x)/
+  %7(x) = call @construct.206(%6)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(48)/        x = self.fc1(x)/
+  %8(x) = call @construct.270(%7)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(49)/        x = self.relu(x)/
+  %9(x) = call @construct.157(%8)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(50)/        x = self.fc2(x)/
+  %10(x) = call @construct.270(%9)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(51)/        x = self.relu(x)/
+  %11(x) = call @construct.107(%10)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%11)
+      : (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(53)/        return x/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.275(%para49_data, %para50_label) {
+  %0(out) = call @construct.273(%para49_data)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(110)/        out = self._backbone(data)/
+  %1([CNode]274) = call @construct.45(%0, %para50_label)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.22(%para51_inputs) {
+  %0(loss) = unpack_call.5(@construct.275, %para51_inputs)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(361)/        loss = self.network(*inputs)/
+  %1([CNode]394) = MakeTuple($(@construct_wrapper.1:para2_conv1.weight), $(@construct_wrapper.1:para3_conv2.weight), $(@construct_wrapper.1:para4_fc1.weight), $(@construct_wrapper.1:para5_fc1.bias), $(@construct_wrapper.1:para6_fc2.weight), $(@construct_wrapper.1:para7_fc2.bias), $(@construct_wrapper.1:para8_fc3.weight), $(@construct_wrapper.1:para9_fc3.bias))
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %2([CNode]11) = S-Prim-grad(@construct.275, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %3([CNode]14) = getattr(%0, dtype)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %4([CNode]15) = getattr(%0, shape)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %5(sens) = S-Prim-Fill(%3, %4, 1.000000)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %6([CNode]17) = S-Prim-MakeTuple(%5)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %7(grads) = unpack_call.18(%2, %para51_inputs, %6)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %8(grads) = S-Prim-identity(%7)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(364)/        grads = self.grad_reducer(grads)/
+  %9([CNode]19) = call @construct.385(%8)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  %10(loss) = S-Prim-Depend(%0, %9)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  Return(%10)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct.385(%para52_gradients) {
+  %0([CNode]276) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  %1(lr) = call @get_lr.342()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/
+  %2(gradients) = call @decay_weight.369(%para52_gradients)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(173)/        gradients = self.decay_weight(gradients)/
+  %3(gradients) = call @gradients_centralization.355(%2)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(174)/        gradients = self.gradients_centralization(gradients)/
+  %4(gradients) = call @scale_grad.345(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(175)/        gradients = self.scale_grad(gradients)/
+  %5([CNode]383) = MakeTuple($(@construct_wrapper.1:para2_conv1.weight), $(@construct_wrapper.1:para3_conv2.weight), $(@construct_wrapper.1:para4_fc1.weight), $(@construct_wrapper.1:para5_fc1.bias), $(@construct_wrapper.1:para6_fc2.weight), $(@construct_wrapper.1:para7_fc2.bias), $(@construct_wrapper.1:para8_fc3.weight), $(@construct_wrapper.1:para9_fc3.bias))
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(171)/        params = self.params/
+  %6([CNode]384) = MakeTuple($(@construct_wrapper.1:para10_moments.conv1.weight), $(@construct_wrapper.1:para11_moments.conv2.weight), $(@construct_wrapper.1:para12_moments.fc1.weight), $(@construct_wrapper.1:para13_moments.fc1.bias), $(@construct_wrapper.1:para14_moments.fc2.weight), $(@construct_wrapper.1:para15_moments.fc2.bias), $(@construct_wrapper.1:para16_moments.fc3.weight), $(@construct_wrapper.1:para17_moments.fc3.bias))
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(172)/        moments = self.moments/
+  %7([CNode]390) = Switch(%0, @✓construct.391, @✗construct.392)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  %8([CNode]393) = %7()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  Return(%8)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓construct.387(%para53_Φsuccess) {
+  Return(%para53_Φsuccess)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(183)/        return success/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓construct.391() {
+  %0([CNode]277) = S-Prim-Partial(S-Prim-momentum_opt, S-Prim-ApplyMomentum, $(@construct_wrapper.1:para18_momentum))
+      : (<null>, <null>, <Ref[Tensor(F32)], ()>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(178)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum),/
+  %1(success) = S-Prim-hyper_map(%0, $(@construct.385:lr), $(@construct.385:gradients), $(@construct.385:[CNode]383), $(@construct.385:[CNode]384), (false, false, false, false, false, false, false, false), (false, false, false, false, false, false, false, false))
+      : (<null>, <null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(178)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum),/
+  %2([CNode]386) = call @↓construct.387(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+}
+
+subgraph attr:
+training : 1
+subgraph @get_lr.342() {
+  %0([CNode]278) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  %1([CNode]338) = Switch(%0, @✓get_lr.339, @✗get_lr.340)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  %2([CNode]341) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓get_lr.339() {
+  %0([CNode]279) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+  %1([CNode]333) = Switch(%0, @✓✓get_lr.334, @✗✓get_lr.335)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+  %2([CNode]336) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+}
+
+subgraph attr:
+subgraph @ms_len.101(%para54_data) {
+  %0([CNode]98) = getattr(%para54_data, __len__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+  %1([CNode]99) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓✓get_lr.334() {
+  %0([CNode]280) = call @ms_len.101($(@construct_wrapper.1:para19_learning_rate))
+      : (<Ref[Tensor(F32)], ()>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %1([CNode]281) = scalar_lt(%0, 9223372036854775807)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %2([CNode]329) = Switch(%1, @✓✓✓get_lr.330, @✗✓✓get_lr.315)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %3([CNode]331) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+subgraph @hasnext.285(%para55_it) {
+  %0([CNode]282) = getattr(%para55_it, __ms_hasnext__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1441)/    return it.__ms_hasnext__()/
+  %1([CNode]283) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1441)/    return it.__ms_hasnext__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1441)/    return it.__ms_hasnext__()/
+}
+
+subgraph attr:
+training : 1
+subgraph @⤾✓✓✓get_lr.290(%para56_@learning_rate, %para57_Φlr) {
+  %0([CNode]284) = call @hasnext.285(%para56_@learning_rate)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %1([CNode]302) = Switch(%0, @⥁✓✓✓get_lr.303, @↓✓✓✓get_lr.304)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %2([CNode]305) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+subgraph @ms_next.289(%para58_it) {
+  %0([CNode]286) = getattr(%para58_it, __ms_next__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1436)/    return it.__ms_next__()/
+  %1([CNode]287) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1436)/    return it.__ms_next__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1436)/    return it.__ms_next__()/
+}
+
+subgraph attr:
+training : 1
+subgraph @⥁✓✓✓get_lr.303() {
+  %0([CNode]288) = call @ms_next.289($(@⤾✓✓✓get_lr.290:para56_@learning_rate))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %1(@learning_rate) = S-Prim-getitem(%0, 1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %2(learning_rate) = S-Prim-getitem(%0, 0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %3(current_dynamic_lr) = %2(None)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(591)/                    current_dynamic_lr = learning_rate(self.global_step)/
+  %4([CNode]291) = S-Prim-MakeTuple(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(592)/                    lr += (current_dynamic_lr,)/
+  %5(lr) = S-Prim-add($(@⤾✓✓✓get_lr.290:para57_Φlr), %4)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(592)/                    lr += (current_dynamic_lr,)/
+  %6([CNode]292) = call @⤾✓✓✓get_lr.290(%1, %5)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%6)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓✓get_lr.299(%para59_Φself.assignadd, %para60_Φself.global_step, %para61_Φself.global_step_increase_tensor, %para62_Φlr) {
+  %0([CNode]293) = Φself.assignadd(%para60_Φself.global_step, %para61_Φself.global_step_increase_tensor)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(596)/            self.assignadd(self.global_step, self.global_step_increase_tensor)/
+  %1([CNode]294) = stop_gradient(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/
+  %2([CNode]295) = call @↓get_lr.296(%para62_Φlr)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  %3([CNode]297) = Depend(%2, %1) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓get_lr.296(%para63_Φlr) {
+  Return(%para63_Φlr)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(597)/        return lr/
+}
+
+subgraph attr:
+training : 1
+subgraph @↓✓✓get_lr.301(%para64_Φself.assignadd, %para65_Φself.global_step, %para66_Φself.global_step_increase_tensor, %para67_Φlr) {
+  %0([CNode]298) = call @↓✓get_lr.299(%para64_Φself.assignadd, %para65_Φself.global_step, %para66_Φself.global_step_increase_tensor, %para67_Φlr)
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+}
+
+subgraph attr:
+training : 1
+subgraph @↓✓✓✓get_lr.304() {
+  %0([CNode]300) = call @↓✓✓get_lr.301(None, None, Tensor(shape=[], dtype=Int32, value=1), $(@⤾✓✓✓get_lr.290:para57_Φlr))
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+subgraph @ms_iter.308(%para68_xs) {
+  %0([CNode]306) = getattr(%para68_xs, __ms_iter__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1431)/    return xs.__ms_iter__()/
+  %1([CNode]307) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1431)/    return xs.__ms_iter__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1431)/    return xs.__ms_iter__()/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓✓✓get_lr.330() {
+  %0(@learning_rate) = call @ms_iter.308($(@construct_wrapper.1:para19_learning_rate))
+      : (<Ref[Tensor(F32)], ()>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %1([CNode]309) = call @⤾✓✓✓get_lr.290(%0, ())
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+training : 1
+subgraph @⤾✗✓✓get_lr.319(%para69_@[CNode]313, %para70_Φlr) {
+  %0([CNode]310) = class 'mindspore.ops.operations.math_ops.Less'()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %1([CNode]314) = %0(%para69_@[CNode]313, $(@✗✓✓get_lr.315:@[CNode]313))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %2([CNode]323) = Switch(%1, @⥁✗✓✓get_lr.324, @↓✗✓✓get_lr.325)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %3([CNode]326) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗✓✓get_lr.315() {
+  %0([CNode]311) = class 'mindspore.ops.operations.array_ops.ScalarToTensor'()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %1([CNode]312) = call @ms_len.101($(@construct_wrapper.1:para19_learning_rate))
+      : (<Ref[Tensor(F32)], ()>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %2(@[CNode]313) = %0(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %3([CNode]327) = %0(0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %4([CNode]328) = call @⤾✗✓✓get_lr.319(%3, ())
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+training : 1
+subgraph @⥁✗✓✓get_lr.324() {
+  %0([CNode]316) = class 'mindspore.ops.operations.math_ops.Add'()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %1([CNode]317) = class 'mindspore.ops.operations.array_ops.ScalarToTensor'()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %2([CNode]318) = %1(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %3([CNode]313) = %0($(@⤾✗✓✓get_lr.319:para69_@[CNode]313), %2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %4(learning_rate) = S-Prim-getitem($(@construct_wrapper.1:para19_learning_rate), $(@⤾✗✓✓get_lr.319:para69_@[CNode]313))
+      : (<Ref[Tensor(F32)], ()>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  %5(current_dynamic_lr) = %4(None)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(591)/                    current_dynamic_lr = learning_rate(self.global_step)/
+  %6([CNode]320) = S-Prim-MakeTuple(%5)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(592)/                    lr += (current_dynamic_lr,)/
+  %7(lr) = S-Prim-add($(@⤾✗✓✓get_lr.319:para70_Φlr), %6)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(592)/                    lr += (current_dynamic_lr,)/
+  %8([CNode]321) = call @⤾✗✓✓get_lr.319(%3, %7)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%8)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+training : 1
+subgraph @↓✗✓✓get_lr.325() {
+  %0([CNode]322) = call @↓✓✓get_lr.301(None, None, Tensor(shape=[], dtype=Int32, value=1), $(@⤾✗✓✓get_lr.319:para70_Φlr))
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(590)/                for learning_rate in self.learning_rate:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗✓get_lr.335() {
+  %0(lr) = $(@construct_wrapper.1:learning_rate)(None)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(594)/                lr = self.learning_rate(self.global_step)/
+  %1([CNode]332) = call @↓✓get_lr.299(None, None, Tensor(shape=[], dtype=Int32, value=1), %0)
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(588)/            if self.is_group_lr:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗get_lr.340() {
+  %0([CNode]337) = call @↓get_lr.296($(@construct_wrapper.1:para19_learning_rate))
+      : (<Ref[Tensor(F32)], ()>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+}
+
+subgraph attr:
+training : 1
+subgraph @scale_grad.345(%para71_gradients) {
+  %0([CNode]343) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  %1([CNode]349) = Switch(%0, @✓scale_grad.350, @✗scale_grad.351)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  %2([CNode]352) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓scale_grad.347(%para72_Φgradients) {
+  Return(%para72_Φgradients)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(364)/        return gradients/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓scale_grad.350() {
+  %0([CNode]344) = S-Prim-Partial(S-Prim-grad_scale, Tensor(shape=[], dtype=Float32, value=1))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(362)/            gradients = self.map_(F.partial(_grad_scale, self.reciprocal_scale), gradients)/
+  %1(gradients) = S-Prim-map(%0, $(@scale_grad.345:para71_gradients))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(362)/            gradients = self.map_(F.partial(_grad_scale, self.reciprocal_scale), gradients)/
+  %2([CNode]346) = call @↓scale_grad.347(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗scale_grad.351() {
+  %0([CNode]348) = call @↓scale_grad.347($(@scale_grad.345:para71_gradients))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+}
+
+subgraph attr:
+training : 1
+subgraph @gradients_centralization.355(%para73_gradients) {
+  %0([CNode]353) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  %1([CNode]359) = Switch(%0, @✓gradients_centralization.360, @✗gradients_centralization.361)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  %2([CNode]362) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓gradients_centralization.357(%para74_Φgradients) {
+  Return(%para74_Φgradients)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(345)/        return gradients/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓gradients_centralization.360() {
+  %0([CNode]354) = S-Prim-Partial(S-Prim-apply_grad_centralization)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(343)/            gradients = self.map_(F.partial(_apply_grad_centralization), self.grad_centralization_flags, gradients)/
+  %1(gradients) = S-Prim-map(%0, None, $(@gradients_centralization.355:para73_gradients))
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(343)/            gradients = self.map_(F.partial(_apply_grad_centralization), self.grad_centralization_flags, gradients)/
+  %2([CNode]356) = call @↓gradients_centralization.357(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗gradients_centralization.361() {
+  %0([CNode]358) = call @↓gradients_centralization.357($(@gradients_centralization.355:para73_gradients))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+}
+
+subgraph attr:
+training : 1
+subgraph @decay_weight.369(%para75_gradients) {
+  %0([CNode]363) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  %1([CNode]368) = MakeTuple($(@construct_wrapper.1:para2_conv1.weight), $(@construct_wrapper.1:para3_conv2.weight), $(@construct_wrapper.1:para4_fc1.weight), $(@construct_wrapper.1:para5_fc1.bias), $(@construct_wrapper.1:para6_fc2.weight), $(@construct_wrapper.1:para7_fc2.bias), $(@construct_wrapper.1:para8_fc3.weight), $(@construct_wrapper.1:para9_fc3.bias))
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(318)/            params = self.parameters/
+  %2([CNode]379) = Switch(%0, @✓decay_weight.380, @✗decay_weight.381)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  %3([CNode]382) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓decay_weight.380() {
+  %0([CNode]364) = call @bool_.42(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+  %1([CNode]374) = Switch(%0, @✓✓decay_weight.375, @✗✓decay_weight.376)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+  %2([CNode]377) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓decay_weight.366(%para76_Φgradients) {
+  Return(%para76_Φgradients)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(326)/        return gradients/
+}
+
+subgraph attr:
+after_block : 1
+training : 1
+subgraph @↓✓decay_weight.371(%para77_Φgradients) {
+  %0([CNode]365) = call @↓decay_weight.366(%para77_Φgradients)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✓✓decay_weight.375() {
+  %0([CNode]367) = S-Prim-Partial(S-Prim-apply_decay)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(320)/                gradients = self.map_(F.partial(_apply_decay), self.weight_decay_tensor_tuple, self.decay_flags,/
+  %1(gradients) = S-Prim-map(%0, None, (true, true, true, true, true, true, true, true), $(@decay_weight.369:[CNode]368), $(@decay_weight.369:para75_gradients))
+      : (<null>, <null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(320)/                gradients = self.map_(F.partial(_apply_decay), self.weight_decay_tensor_tuple, self.decay_flags,/
+  %2([CNode]370) = call @↓✓decay_weight.371(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗✓decay_weight.376() {
+  %0([CNode]372) = S-Prim-Partial(S-Prim-apply_decay, Tensor(shape=[], dtype=Float32, value=0))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(323)/                gradients = self.map_(F.partial(_apply_decay, self.weight_decay_tensor), self.decay_flags,/
+  %1(gradients) = S-Prim-map(%0, (true, true, true, true, true, true, true, true), $(@decay_weight.369:[CNode]368), $(@decay_weight.369:para75_gradients))
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(323)/                gradients = self.map_(F.partial(_apply_decay, self.weight_decay_tensor), self.decay_flags,/
+  %2([CNode]373) = call @↓✓decay_weight.371(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(319)/            if self.is_group:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗decay_weight.381() {
+  %0([CNode]378) = call @↓decay_weight.366($(@decay_weight.369:para75_gradients))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+}
+
+subgraph attr:
+training : 1
+subgraph @✗construct.392() {
+  %0([CNode]388) = S-Prim-Partial(S-Prim-momentum_opt, S-Prim-ApplyMomentum, $(@construct_wrapper.1:para18_momentum), $(@construct.385:lr))
+      : (<null>, <null>, <Ref[Tensor(F32)], ()>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %1(success) = S-Prim-hyper_map(%0, $(@construct.385:gradients), $(@construct.385:[CNode]383), $(@construct.385:[CNode]384), (false, false, false, false, false, false, false, false), (false, false, false, false, false, false, false, false))
+      : (<null>, <null>, <null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %2([CNode]389) = call @↓construct.387(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+}
+

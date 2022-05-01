@@ -1,0 +1,116 @@
+#IR entry      : @construct_wrapper.911
+#attrs         :
+training : 0
+#Total params  : 2
+
+%para1_data : <null>
+%para2_label : <null>
+
+#Total subgraph : 5
+
+subgraph attr:
+training : 0
+subgraph @construct.920(%para3_data, %para4_label) {
+  %0([CNode]912) = resolve(CommonOPS: 'Namespace:mindspore._extends.parse.trope', bool_)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %1([CNode]913) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>', add_cast_fp32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %2([CNode]914) = %0(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %3([CNode]918) = resolve(SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper', F)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/
+  %4([CNode]921) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>', _network)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/
+  %5(outputs) = %4(%para3_data)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/
+  %6([CNode]922) = resolve(SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper', mstype)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/
+  %7([CNode]929) = Switch(%2, @✓construct.930, @✗construct.931)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %8([CNode]932) = %7()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%8)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.927(%para5_Φoutputs, %para6_Φlabel) {
+  %0([CNode]915) = resolve(CommonOPS: 'Namespace:mindspore._extends.parse.trope', MakeTuple)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/
+  %1([CNode]916) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>', _loss_fn)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  %2(loss) = %1(%para5_Φoutputs, %para6_Φlabel)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  %3([CNode]917) = %0(%2, %para5_Φoutputs, %para6_Φlabel)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.930() {
+  %0([CNode]919) = getattr($(@construct.920:[CNode]918), cast)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(669)/            outputs = F.cast(outputs, mstype.float32)/
+  %1([CNode]923) = getattr($(@construct.920:[CNode]922), float32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(669)/            outputs = F.cast(outputs, mstype.float32)/
+  %2(outputs) = %0($(@construct.920:outputs), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(669)/            outputs = F.cast(outputs, mstype.float32)/
+  %3([CNode]924) = getattr($(@construct.920:[CNode]918), mixed_precision_cast)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/
+  %4([CNode]925) = getattr($(@construct.920:[CNode]922), float32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/
+  %5(label) = %3(%4, $(@construct.920:para4_label))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/
+  %6([CNode]926) = call @↓construct.927(%2, %5)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%6)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.931() {
+  %0([CNode]928) = call @↓construct.927($(@construct.920:outputs), $(@construct.920:para4_label))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct_wrapper.911() {
+  %0([CNode]933) = call @construct.920(%para1_data, %para2_label)
+      : (<null>, <null>) -> (<null>)
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+

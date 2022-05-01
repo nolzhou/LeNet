@@ -1,0 +1,178 @@
+# [No.1] 254_129_1_construct_wrapper.905
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(360)/    def construct(self, *inputs):/
+funcgraph fg_905(
+        %para1 : Tensor(F32)[32, 1, 32, 32]    # inputs0
+        , %para2 : Tensor(I32)[32]    # inputs1
+        , %para3 : Ref[Tensor(F32)][6, 1, 5, 5]    # conv1.weight
+        , %para4 : Ref[Tensor(F32)][16, 6, 5, 5]    # conv2.weight
+        , %para5 : Ref[Tensor(F32)][120, 400]    # fc1.weight
+        , %para6 : Ref[Tensor(F32)][120]    # fc1.bias
+        , %para7 : Ref[Tensor(F32)][84, 120]    # fc2.weight
+        , %para8 : Ref[Tensor(F32)][84]    # fc2.bias
+        , %para9 : Ref[Tensor(F32)][10, 84]    # fc3.weight
+        , %para10 : Ref[Tensor(F32)][10]    # fc3.bias
+        , %para11 : Ref[Tensor(F32)][6, 1, 5, 5]    # moments.conv1.weight
+        , %para12 : Ref[Tensor(F32)][16, 6, 5, 5]    # moments.conv2.weight
+        , %para13 : Ref[Tensor(F32)][120, 400]    # moments.fc1.weight
+        , %para14 : Ref[Tensor(F32)][120]    # moments.fc1.bias
+        , %para15 : Ref[Tensor(F32)][84, 120]    # moments.fc2.weight
+        , %para16 : Ref[Tensor(F32)][84]    # moments.fc2.bias
+        , %para17 : Ref[Tensor(F32)][10, 84]    # moments.fc3.weight
+        , %para18 : Ref[Tensor(F32)][10]    # moments.fc3.bias
+        , %para19 : Ref[Tensor(F32)][]    # momentum
+        , %para20 : Ref[Tensor(F32)][]    # learning_rate
+    ) {
+    %1 : Tensor(F32)[6, 1, 5, 5] = Primitive::Load{prim_type=1}(%para3, UMonad[U])    #(Ref[Tensor(F32)][6, 1, 5, 5], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5
+#equiv[CNode]843
+    %2 : Tensor(F32)[32, 6, 28, 28] = PrimitivePy::Conv2D{prim_type=1}[kernel_size=(I64(5), I64(5)), mode=I64(1), out_channel=I64(6), input_names=["x", "w"], pad=(I64(0), I64(0), I64(0), I64(0)), pad_mode=I64(2), format="NCHW", pad_list=(I64(0), I64(0), I64(0), I64(0)), groups=I64(1), stride=(I64(1), I64(1), I64(1), I64(1)), group=I64(1), dilation=(I64(1), I64(1), I64(1), I64(1)), output_names=["output"]](%para1, %1)    #(Tensor(F32)[32, 1, 32, 32], Tensor(F32)[6, 1, 5, 5]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/#equivoutput
+    %3 : Tensor(F32)[32, 6, 28, 28] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%2)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#equiv[CNode]148
+    %4 : Tensor(F32)[32, 6, 14, 14] = PrimitivePy::MaxPool{prim_type=2}[pad_mode=I64(2), output_names=["output"], kernel_size=(I64(1), I64(1), I64(2), I64(2)), format="NCHW", strides=(I64(1), I64(1), I64(2), I64(2)), input_names=["x"]](%3)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/#equivout
+    %5 : Tensor(F32)[16, 6, 5, 5] = Primitive::Load{prim_type=1}(%para4, UMonad[U])    #(Ref[Tensor(F32)][16, 6, 5, 5], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5
+#equiv[CNode]840
+    %6 : Tensor(F32)[32, 16, 10, 10] = PrimitivePy::Conv2D{prim_type=1}[kernel_size=(I64(5), I64(5)), mode=I64(1), out_channel=I64(16), input_names=["x", "w"], pad=(I64(0), I64(0), I64(0), I64(0)), pad_mode=I64(2), format="NCHW", pad_list=(I64(0), I64(0), I64(0), I64(0)), groups=I64(1), stride=(I64(1), I64(1), I64(1), I64(1)), group=I64(1), dilation=(I64(1), I64(1), I64(1), I64(1)), output_names=["output"]](%4, %5)    #(Tensor(F32)[32, 6, 14, 14], Tensor(F32)[16, 6, 5, 5]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/#equivoutput
+    %7 : Tensor(F32)[32, 16, 10, 10] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%6)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#equiv[CNode]148
+    %8 : Tensor(F32)[32, 16, 5, 5] = PrimitivePy::MaxPool{prim_type=2}[pad_mode=I64(2), output_names=["output"], kernel_size=(I64(1), I64(1), I64(2), I64(2)), format="NCHW", strides=(I64(1), I64(1), I64(2), I64(2)), input_names=["x"]](%7)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/#equivout
+    %9 : Tensor(F32)[32, 400] = PrimitivePy::Reshape{prim_type=2}[output_names=["output"], input_names=["tensor", "shape"]](%8, (I64(32), I64(-1)))    #(Tensor(F32)[32, 16, 5, 5], Tuple[I64*2]) #scope: Default/network-WithLossCell/_backbone-LeNet5/flatten-Flatten
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/#equiv[CNode]251
+    %10 : Tensor(F32)[120, 400] = Primitive::Load{prim_type=1}(%para5, UMonad[U])    #(Ref[Tensor(F32)][120, 400], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+#equiv[CNode]834
+    %11 : Tensor(F32)[32, 120] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(1), transpose_x1=Bool(0), transpose_b=Bool(1)](%9, %10)    #(Tensor(F32)[32, 400], Tensor(F32)[120, 400]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/#equivx
+    %12 : Tensor(F32)[120] = Primitive::Load{prim_type=1}(%para6, UMonad[U])    #(Ref[Tensor(F32)][120], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+#equiv[CNode]835
+    %13 : Tensor(F32)[32, 120] = PrimitivePy::BiasAdd{prim_type=1}[output_names=["output"], format="NCHW", input_names=["x", "b"]](%11, %12)    #(Tensor(F32)[32, 120], Tensor(F32)[120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/#equivx
+    %14 : Tensor(F32)[32, 120] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%13)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#equiv[CNode]148
+    %15 : Tensor(F32)[84, 120] = Primitive::Load{prim_type=1}(%para7, UMonad[U])    #(Ref[Tensor(F32)][84, 120], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+#equiv[CNode]828
+    %16 : Tensor(F32)[32, 84] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(1), transpose_x1=Bool(0), transpose_b=Bool(1)](%14, %15)    #(Tensor(F32)[32, 120], Tensor(F32)[84, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/#equivx
+    %17 : Tensor(F32)[84] = Primitive::Load{prim_type=1}(%para8, UMonad[U])    #(Ref[Tensor(F32)][84], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+#equiv[CNode]829
+    %18 : Tensor(F32)[32, 84] = PrimitivePy::BiasAdd{prim_type=1}[output_names=["output"], format="NCHW", input_names=["x", "b"]](%16, %17)    #(Tensor(F32)[32, 84], Tensor(F32)[84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/#equivx
+    %19 : Tensor(F32)[32, 84] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%18)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#equiv[CNode]148
+    %20 : Tensor(F32)[10, 84] = Primitive::Load{prim_type=1}(%para9, UMonad[U])    #(Ref[Tensor(F32)][10, 84], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+#equiv[CNode]822
+    %21 : Tensor(F32)[32, 10] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(1), transpose_x1=Bool(0), transpose_b=Bool(1)](%19, %20)    #(Tensor(F32)[32, 84], Tensor(F32)[10, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/#equivx
+    %22 : Tensor(F32)[10] = Primitive::Load{prim_type=1}(%para10, UMonad[U])    #(Ref[Tensor(F32)][10], UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+#equiv[CNode]823
+    %23 : Tensor(F32)[32, 10] = PrimitivePy::BiasAdd{prim_type=1}[output_names=["output"], format="NCHW", input_names=["x", "b"]](%21, %22)    #(Tensor(F32)[32, 10], Tensor(F32)[10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/#equivx
+    %24 : Tensor(F32)[] = PrimitivePy::SparseSoftmaxCrossEntropyWithLogits{prim_type=2}[output_names=["output"], input_names=["features", "labels"], sens=F32(1), is_grad=Bool(0)](%23, %para2)    #(Tensor(F32)[32, 10], Tensor(I32)[32]) #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(627)/                x = self.sparse_softmax_cross_entropy(logits, labels)/#equivx
+    %25 : Tensor(F32)[32, 10] = PrimitivePy::SparseSoftmaxCrossEntropyWithLogits{prim_type=2}[output_names=["output"], input_names=["features", "labels"], sens=F32(1), is_grad=Bool(1)](%23, %para2)    #(Tensor(F32)[32, 10], Tensor(I32)[32]) #scope: Gradients/Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits/gradSparseSoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(794)/            grad = grad_op(logits, labels)/#grad
+    %26 : Tensor(F32)[32, 10] = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](%25, %24)    #(Tensor(F32)[32, 10], Tensor(F32)[]) #scope: Gradients/Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits/gradSparseSoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(795)/            grad = F.depend(grad, out)/#grad
+    %27 : Tensor(F32)[32, 84] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(0), transpose_x1=Bool(0), transpose_b=Bool(0)](%26, %20)    #(Tensor(F32)[32, 10], Tensor(F32)[10, 84]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_math_ops.py(191)/            dx = mul1(dout, w)/#dx
+    %28 : Tensor(F32)[32, 84] = PrimitivePy::ReluGrad{prim_type=1}[output_names=["output"], input_names=["y_backprop", "x"]](%27, %19)    #(Tensor(F32)[32, 84], Tensor(F32)[32, 84]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(434)/        dx = input_grad(dout, out)/#dx
+    %29 : Tensor(F32)[32, 120] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(0), transpose_x1=Bool(0), transpose_b=Bool(0)](%28, %15)    #(Tensor(F32)[32, 84], Tensor(F32)[84, 120]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_math_ops.py(191)/            dx = mul1(dout, w)/#dx
+    %30 : Tensor(F32)[32, 120] = PrimitivePy::ReluGrad{prim_type=1}[output_names=["output"], input_names=["y_backprop", "x"]](%29, %14)    #(Tensor(F32)[32, 120], Tensor(F32)[32, 120]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(434)/        dx = input_grad(dout, out)/#dx
+    %31 : Tensor(F32)[32, 400] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(0), transpose_x1=Bool(0), transpose_b=Bool(0)](%30, %10)    #(Tensor(F32)[32, 120], Tensor(F32)[120, 400]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_math_ops.py(191)/            dx = mul1(dout, w)/#dx
+    %32 : Tensor(F32)[32, 16, 5, 5] = PrimitivePy::Reshape{prim_type=2}[output_names=["output"], input_names=["tensor", "shape"]](%31, (I64(32), I64(16), I64(5), I64(5)))    #(Tensor(F32)[32, 400], Tuple[I64*4]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/flatten-Flatten/gradReshape
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_array_ops.py(187)/        return reshape(dout, shapex), zeros_like(shp)/#[CNode]906
+    %33 : Tensor(F32)[32, 16, 10, 10] = PrimitivePy::MaxPoolGrad{prim_type=2}[pad_mode=I64(2), output_names=["output"], kernel_size=(I64(1), I64(1), I64(2), I64(2)), format="NCHW", strides=(I64(1), I64(1), I64(2), I64(2)), input_names=["x_origin", "out_origin", "grad"]](%7, %8, %32)    #(Tensor(F32)[32, 16, 10, 10], Tensor(F32)[32, 16, 5, 5], Tensor(F32)[32, 16, 5, 5]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d/gradMaxPool
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(251)/        dx = maxpool_grad(x, out, dout)/#dx
+    %34 : Tensor(F32)[32, 16, 10, 10] = PrimitivePy::ReluGrad{prim_type=1}[output_names=["output"], input_names=["y_backprop", "x"]](%33, %7)    #(Tensor(F32)[32, 16, 10, 10], Tensor(F32)[32, 16, 10, 10]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(434)/        dx = input_grad(dout, out)/#dx
+    %35 : Tensor(F32)[32, 6, 14, 14] = PrimitivePy::Conv2DBackpropInput{prim_type=1}[kernel_size=(I64(5), I64(5)), mode=I64(1), out_channel=I64(16), input_names=["out_backprop", "filter", "input_sizes"], pad=(I64(0), I64(0), I64(0), I64(0)), pad_mode=I64(2), format="NCHW", pad_list=(I64(0), I64(0), I64(0), I64(0)), groups=I64(1), stride=(I64(1), I64(1), I64(1), I64(1)), group=I64(1), dilation=(I64(1), I64(1), I64(1), I64(1)), output_names=["output"]](%34, %5, (I64(32), I64(6), I64(14), I64(14)))    #(Tensor(F32)[32, 16, 10, 10], Tensor(F32)[16, 6, 5, 5], Tuple[I64*4]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d/gradConv2D
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(64)/        dx = input_grad(dout, w, x_shape)/#dx
+    %36 : Tensor(F32)[32, 6, 28, 28] = PrimitivePy::MaxPoolGrad{prim_type=2}[pad_mode=I64(2), output_names=["output"], kernel_size=(I64(1), I64(1), I64(2), I64(2)), format="NCHW", strides=(I64(1), I64(1), I64(2), I64(2)), input_names=["x_origin", "out_origin", "grad"]](%3, %4, %35)    #(Tensor(F32)[32, 6, 28, 28], Tensor(F32)[32, 6, 14, 14], Tensor(F32)[32, 6, 14, 14]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d/gradMaxPool
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(251)/        dx = maxpool_grad(x, out, dout)/#dx
+    %37 : Tensor(F32)[32, 6, 28, 28] = PrimitivePy::ReluGrad{prim_type=1}[output_names=["output"], input_names=["y_backprop", "x"]](%36, %3)    #(Tensor(F32)[32, 6, 28, 28], Tensor(F32)[32, 6, 28, 28]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(434)/        dx = input_grad(dout, out)/#dx
+    %38 : Tensor(F32)[6, 1, 5, 5] = PrimitivePy::Conv2DBackpropFilter{prim_type=1}[kernel_size=(I64(5), I64(5)), mode=I64(1), out_channel=I64(6), input_names=["out_backprop", "input", "filter_sizes"], pad=(I64(0), I64(0), I64(0), I64(0)), pad_mode=I64(2), format="NCHW", pad_list=(I64(0), I64(0), I64(0), I64(0)), groups=I64(1), stride=(I64(1), I64(1)), group=I64(1), dilation=(I64(1), I64(1), I64(1), I64(1)), output_names=["output"]](%37, %para1, (I64(6), I64(1), I64(5), I64(5)))    #(Tensor(F32)[32, 6, 28, 28], Tensor(F32)[32, 1, 32, 32], Tuple[I64*4]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d/gradConv2D
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(66)/        dw = filter_grad(dout, x, w_shape)/#dw
+    %39 : Tuple[Tensor(F32)*8] = Primitive::MakeTuple{prim_type=1}(%22, %17, %12, %5, %1, %10, %15, %20)    #(Tensor(F32)[10], Tensor(F32)[84], Tensor(F32)[120], Tensor(F32)[16, 6, 5, 5], Tensor(F32)[6, 1, 5, 5], Tensor(F32)[120, 400], Tensor(F32)[84, 120], Tensor(F32)[10, 84]) #scope: Default
+#[CNode]907
+    %40 : UMonad = Primitive::UpdateState{prim_type=1}(UMonad[U], %39)    #(UMonad, Tuple[Tensor(F32)*8]) #scope: Default
+#[CNode]908
+    %41 : Tensor(F32)[10] = PrimitivePy::BiasAddGrad{prim_type=1}[output_names=["output"], format="NCHW", input_names=["dout"]](%26)    #(Tensor(F32)[32, 10]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradBiasAdd
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(36)/        return dout, bias_grad(dout)/#[CNode]909
+    %42 : Tensor(F32)[10] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para10, %para18, %para20, %41, %para19, %40)    #(Ref[Tensor(F32)][10], Ref[Tensor(F32)][10], Ref[Tensor(F32)][], Tensor(F32)[10], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %43 : UMonad = Primitive::UpdateState{prim_type=1}(%40, %42)    #(UMonad, Tensor(F32)[10]) #scope: Default/optimizer-Momentum
+#[CNode]853
+    %44 : Tensor(F32)[10, 84] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(1), input_names=["x1", "x2"], transpose_x2=Bool(0), transpose_x1=Bool(1), transpose_b=Bool(0)](%26, %19)    #(Tensor(F32)[32, 10], Tensor(F32)[32, 84]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_math_ops.py(193)/            dw = mul2(dout, x)/#dw
+    %45 : Tensor(F32)[10, 84] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para9, %para17, %para20, %44, %para19, %43)    #(Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][], Tensor(F32)[10, 84], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %46 : UMonad = Primitive::UpdateState{prim_type=1}(%43, %45)    #(UMonad, Tensor(F32)[10, 84]) #scope: Default/optimizer-Momentum
+#[CNode]855
+    %47 : Tensor(F32)[84] = PrimitivePy::BiasAddGrad{prim_type=1}[output_names=["output"], format="NCHW", input_names=["dout"]](%28)    #(Tensor(F32)[32, 84]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradBiasAdd
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(36)/        return dout, bias_grad(dout)/#[CNode]909
+    %48 : Tensor(F32)[84] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para8, %para16, %para20, %47, %para19, %46)    #(Ref[Tensor(F32)][84], Ref[Tensor(F32)][84], Ref[Tensor(F32)][], Tensor(F32)[84], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %49 : UMonad = Primitive::UpdateState{prim_type=1}(%46, %48)    #(UMonad, Tensor(F32)[84]) #scope: Default/optimizer-Momentum
+#[CNode]857
+    %50 : Tensor(F32)[84, 120] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(1), input_names=["x1", "x2"], transpose_x2=Bool(0), transpose_x1=Bool(1), transpose_b=Bool(0)](%28, %14)    #(Tensor(F32)[32, 84], Tensor(F32)[32, 120]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_math_ops.py(193)/            dw = mul2(dout, x)/#dw
+    %51 : Tensor(F32)[84, 120] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para7, %para15, %para20, %50, %para19, %49)    #(Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][], Tensor(F32)[84, 120], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %52 : UMonad = Primitive::UpdateState{prim_type=1}(%49, %51)    #(UMonad, Tensor(F32)[84, 120]) #scope: Default/optimizer-Momentum
+#[CNode]859
+    %53 : Tensor(F32)[120] = PrimitivePy::BiasAddGrad{prim_type=1}[output_names=["output"], format="NCHW", input_names=["dout"]](%30)    #(Tensor(F32)[32, 120]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradBiasAdd
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(36)/        return dout, bias_grad(dout)/#[CNode]909
+    %54 : Tensor(F32)[120] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para6, %para14, %para20, %53, %para19, %52)    #(Ref[Tensor(F32)][120], Ref[Tensor(F32)][120], Ref[Tensor(F32)][], Tensor(F32)[120], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %55 : UMonad = Primitive::UpdateState{prim_type=1}(%52, %54)    #(UMonad, Tensor(F32)[120]) #scope: Default/optimizer-Momentum
+#[CNode]861
+    %56 : Tensor(F32)[120, 400] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(1), input_names=["x1", "x2"], transpose_x2=Bool(0), transpose_x1=Bool(1), transpose_b=Bool(0)](%30, %9)    #(Tensor(F32)[32, 120], Tensor(F32)[32, 400]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_math_ops.py(193)/            dw = mul2(dout, x)/#dw
+    %57 : Tensor(F32)[120, 400] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para5, %para13, %para20, %56, %para19, %55)    #(Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][], Tensor(F32)[120, 400], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %58 : UMonad = Primitive::UpdateState{prim_type=1}(%55, %57)    #(UMonad, Tensor(F32)[120, 400]) #scope: Default/optimizer-Momentum
+#[CNode]863
+    %59 : Tensor(F32)[16, 6, 5, 5] = PrimitivePy::Conv2DBackpropFilter{prim_type=1}[kernel_size=(I64(5), I64(5)), mode=I64(1), out_channel=I64(16), input_names=["out_backprop", "input", "filter_sizes"], pad=(I64(0), I64(0), I64(0), I64(0)), pad_mode=I64(2), format="NCHW", pad_list=(I64(0), I64(0), I64(0), I64(0)), groups=I64(1), stride=(I64(1), I64(1)), group=I64(1), dilation=(I64(1), I64(1), I64(1), I64(1)), output_names=["output"]](%34, %4, (I64(16), I64(6), I64(5), I64(5)))    #(Tensor(F32)[32, 16, 10, 10], Tensor(F32)[32, 6, 14, 14], Tuple[I64*4]) #scope: Gradients/Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d/gradConv2D
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\_grad\grad_nn_ops.py(66)/        dw = filter_grad(dout, x, w_shape)/#dw
+    %60 : Tensor(F32)[16, 6, 5, 5] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para4, %para12, %para20, %59, %para19, %58)    #(Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][], Tensor(F32)[16, 6, 5, 5], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %61 : UMonad = Primitive::UpdateState{prim_type=1}(%58, %60)    #(UMonad, Tensor(F32)[16, 6, 5, 5]) #scope: Default/optimizer-Momentum
+#[CNode]865
+    %62 : Tensor(F32)[6, 1, 5, 5] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para3, %para11, %para20, %38, %para19, %61)    #(Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][], Tensor(F32)[6, 1, 5, 5], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %63 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %62)    #(Bool, Tensor(F32)[6, 1, 5, 5]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %64 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %60)    #(Bool, Tensor(F32)[16, 6, 5, 5]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %65 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %57)    #(Bool, Tensor(F32)[120, 400]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %66 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %54)    #(Bool, Tensor(F32)[120]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %67 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %51)    #(Bool, Tensor(F32)[84, 120]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %68 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %48)    #(Bool, Tensor(F32)[84]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %69 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %45)    #(Bool, Tensor(F32)[10, 84]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %70 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %42)    #(Bool, Tensor(F32)[10]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %71 : Tuple[Bool*8] = Primitive::MakeTuple{prim_type=1}(%63, %64, %65, %66, %67, %68, %69, %70)    #(Bool, Bool, Bool, Bool, Bool, Bool, Bool, Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %72 : Tensor(F32)[] = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](%24, %71)    #(Tensor(F32)[], Tuple[Bool*8]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#loss
+    %73 : UMonad = Primitive::UpdateState{prim_type=1}(%61, %62)    #(UMonad, Tensor(F32)[6, 1, 5, 5]) #scope: Default/optimizer-Momentum
+#[CNode]852
+    %74 : Tensor(F32)[] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%72, %73)    #(Tensor(F32)[], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#loss
+    Primitive::Return{prim_type=1}(%74)    #(Tensor(F32)[]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/#[CNode]23
+}
+
+
+# num of total function graphs: 1

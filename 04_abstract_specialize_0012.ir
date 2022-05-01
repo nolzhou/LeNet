@@ -1,0 +1,1921 @@
+#IR entry      : @1_construct_wrapper.536
+#attrs         :
+training : 1
+#Total params  : 20
+
+%para1_inputs0 : <Tensor[Float32], (32, 1, 32, 32)>
+%para2_inputs1 : <Tensor[Int32], (32)>
+%para3_conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>
+%para4_conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>
+%para5_fc1.weight : <Ref[Tensor(F32)], (120, 400)>
+%para6_fc1.bias : <Ref[Tensor(F32)], (120)>
+%para7_fc2.weight : <Ref[Tensor(F32)], (84, 120)>
+%para8_fc2.bias : <Ref[Tensor(F32)], (84)>
+%para9_fc3.weight : <Ref[Tensor(F32)], (10, 84)>
+%para10_fc3.bias : <Ref[Tensor(F32)], (10)>
+%para11_moments.conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>
+%para12_moments.conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>
+%para13_moments.fc1.weight : <Ref[Tensor(F32)], (120, 400)>
+%para14_moments.fc1.bias : <Ref[Tensor(F32)], (120)>
+%para15_moments.fc2.weight : <Ref[Tensor(F32)], (84, 120)>
+%para16_moments.fc2.bias : <Ref[Tensor(F32)], (84)>
+%para17_moments.fc3.weight : <Ref[Tensor(F32)], (10, 84)>
+%para18_moments.fc3.bias : <Ref[Tensor(F32)], (10)>
+%para19_momentum : <Ref[Tensor(F32)], ()>
+%para20_learning_rate : <Ref[Tensor(F32)], ()>
+
+#Total subgraph : 128
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @2_UnpackCall.780(%para21_542, %para22_538) {
+  %0(537) = TupleGetItem(%para22_538, 0)
+      : (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={1_construct_wrapper.536:[CNode]539{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x1599619fe50, value: [const vector][1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (32, 1, 32, 32)>)
+  %1(540) = TupleGetItem(%para22_538, 1)
+      : (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={1_construct_wrapper.536:[CNode]539{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x1599619fe50, value: [const vector][1, 1]}}}>, <Int64>) -> (<Tensor[Int32], (32)>)
+  %2(541) = 542[3_construct.543](%0, %1)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+  Return(%2)
+      : (<Tensor[Float32], ()>)
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @4_UnpackCall.600(%para23_549, %para24_545) {
+  %0(544) = TupleGetItem(%para24_545, 0)
+      : (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={3_construct.543:[CNode]546{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x159961679b0, value: [const vector][1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (32, 1, 32, 32)>)
+  %1(547) = TupleGetItem(%para24_545, 1)
+      : (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={3_construct.543:[CNode]546{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x159961679b0, value: [const vector][1, 1]}}}>, <Int64>) -> (<Tensor[Int32], (32)>)
+  %2(548) = 549[5_construct.550](%0, %1)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+  Return(%2)
+      : (<Tensor[Float32], ()>)
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @6_construct.551(%para25_Φlogits, %para26_labels) {
+  %0([CNode]91) = Switch(true, @7_✓construct.553, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %1([CNode]94) = %0[7_✓construct.553]()
+      : () -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %2([CNode]95) = Depend(%1, (None, None)) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], ()>, <Tuple[kMetaTypeNone*2], sequence_nodes={node={construct.554:[CNode]37{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]35, [2]: [CNode]36}, elements_use_flags: {ptr: 0x15996641080, value: [const vector][1, 1]}}, node={ValueNode<ValueTuple> (None, None), elements_use_flags: {ptr: 0x15996641080, value: [const vector][1, 1]}}}>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+  Return(%2)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @8_✓✓construct.552() {
+  %0(x) = SparseSoftmaxCrossEntropyWithLogits($(@6_construct.551:para25_Φlogits), $(@6_construct.551:para26_labels)) {instance name: sparse_softmax_cross_entropy} primitive_attrs: {output_names: [output], input_names: [features, labels], sens: 1.000000, is_grad: false}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(627)/                x = self.sparse_softmax_cross_entropy(logits, labels)/
+  Return(%0)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(628)/                return x/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @7_✓construct.553() {
+  %0([CNode]86) = Switch(true, @8_✓✓construct.552, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %1([CNode]89) = %0[8_✓✓construct.552]()
+      : () -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  Return(%1)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @19_L-↓↓↓↓construct.555(%para27_Φx) {
+  Return(%para27_Φx)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @17_L-↓↓↓construct.556(%para28_Φx) {
+  %0([CNode]119) = Switch(false, DeadNode, @18_L-✗↓↓↓construct.557)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]122) = %0[18_L-✗↓↓↓construct.557]()
+      : () -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @18_L-✗↓↓↓construct.557() {
+  %0([CNode]118) = call @19_L-↓↓↓↓construct.555($(@17_L-↓↓↓construct.556:para28_Φx))
+      : (<Tensor[Float32], (32, 10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @15_L-↓↓construct.558(%para29_Φx) {
+  %0([CNode]126) = Switch(false, DeadNode, @16_L-✗↓↓construct.559)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]129) = %0[16_L-✗↓↓construct.559]()
+      : () -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @16_L-✗↓↓construct.559() {
+  %0([CNode]125) = call @17_L-↓↓↓construct.556($(@15_L-↓↓construct.558:para29_Φx))
+      : (<Tensor[Float32], (32, 10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @13_L-↓construct.561(%para30_Φx) {
+  %0(x) = MatMul(%para30_Φx, $(@11_L-construct.560:para33_L-fc3.weight)) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 84)>, <Ref[Tensor(F32)], (10, 84)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %1([CNode]133) = Switch(true, @14_L-✓↓construct.562, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %2([CNode]136) = %1[14_L-✓↓construct.562]()
+      : () -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%2)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @11_L-construct.560(%para31_x, %para32_L-fc3.bias, %para33_L-fc3.weight) {
+  %0([CNode]143) = Switch(false, DeadNode, @12_L-✗construct.563)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %1([CNode]146) = %0[12_L-✗construct.563]()
+      : () -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %2([CNode]147) = Depend(%1, None) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], (32, 10)>, <kMetaTypeNone>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%2)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @14_L-✓↓construct.562() {
+  %0(x) = BiasAdd($(@13_L-↓construct.561:x), $(@11_L-construct.560:para32_L-fc3.bias)) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 10)>, <Ref[Tensor(F32)], (10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %1([CNode]131) = call @15_L-↓↓construct.558(%0)
+      : (<Tensor[Float32], (32, 10)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @12_L-✗construct.563() {
+  %0([CNode]142) = call @13_L-↓construct.561($(@11_L-construct.560:para31_x))
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @10_construct.598(%para34_x) {
+  %0([CNode]521) = call @11_L-construct.560(%para34_x, $(@1_construct_wrapper.536:para10_fc3.bias), $(@1_construct_wrapper.536:para9_fc3.weight))
+      : (<Tensor[Float32], (32, 84)>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10, 84)>) -> (<Tensor[Float32], (32, 10)>)
+  Return(%0)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 1
+subgraph @1_construct_wrapper.536() {
+  %0([CNode]539) = MakeTuple(%para1_inputs0, %para2_inputs1)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Int32], (32)>) -> (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={1_construct_wrapper.536:[CNode]539{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x1599619fe50, value: [const vector][1, 1]}}}>)
+  %1([CNode]20) = call @2_UnpackCall.780(@3_construct.543, %0)
+      : (<Func>, <Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={1_construct_wrapper.536:[CNode]539{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x1599619fe50, value: [const vector][1, 1]}}}>) -> (<Tensor[Float32], ()>)
+  Return(%1)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @20_construct.597(%para35_x) {
+  %0([CNode]148) = ReLU(%para35_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @30_L-↓↓↓↓construct.564(%para36_Φx) {
+  Return(%para36_Φx)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @28_L-↓↓↓construct.565(%para37_Φx) {
+  %0([CNode]119) = Switch(false, DeadNode, @29_L-✗↓↓↓construct.566)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]122) = %0[29_L-✗↓↓↓construct.566]()
+      : () -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @29_L-✗↓↓↓construct.566() {
+  %0([CNode]118) = call @30_L-↓↓↓↓construct.564($(@28_L-↓↓↓construct.565:para37_Φx))
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @26_L-↓↓construct.567(%para38_Φx) {
+  %0([CNode]126) = Switch(false, DeadNode, @27_L-✗↓↓construct.568)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]129) = %0[27_L-✗↓↓construct.568]()
+      : () -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @27_L-✗↓↓construct.568() {
+  %0([CNode]125) = call @28_L-↓↓↓construct.565($(@26_L-↓↓construct.567:para38_Φx))
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @24_L-↓construct.570(%para39_Φx) {
+  %0(x) = MatMul(%para39_Φx, $(@22_L-construct.569:para42_L-fc3.weight)) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 120)>, <Ref[Tensor(F32)], (84, 120)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %1([CNode]133) = Switch(true, @25_L-✓↓construct.571, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %2([CNode]136) = %1[25_L-✓↓construct.571]()
+      : () -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%2)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @22_L-construct.569(%para40_x, %para41_L-fc3.bias, %para42_L-fc3.weight) {
+  %0([CNode]143) = Switch(false, DeadNode, @23_L-✗construct.572)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %1([CNode]146) = %0[23_L-✗construct.572]()
+      : () -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %2([CNode]147) = Depend(%1, None) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], (32, 84)>, <kMetaTypeNone>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%2)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @25_L-✓↓construct.571() {
+  %0(x) = BiasAdd($(@24_L-↓construct.570:x), $(@22_L-construct.569:para41_L-fc3.bias)) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 84)>, <Ref[Tensor(F32)], (84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %1([CNode]131) = call @26_L-↓↓construct.567(%0)
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @23_L-✗construct.572() {
+  %0([CNode]142) = call @24_L-↓construct.570($(@22_L-construct.569:para40_x))
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @21_construct.596(%para43_x) {
+  %0([CNode]522) = call @22_L-construct.569(%para43_x, $(@1_construct_wrapper.536:para8_fc2.bias), $(@1_construct_wrapper.536:para7_fc2.weight))
+      : (<Tensor[Float32], (32, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84, 120)>) -> (<Tensor[Float32], (32, 84)>)
+  Return(%0)
+      : (<Tensor[Float32], (32, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @31_construct.595(%para44_x) {
+  %0([CNode]148) = ReLU(%para44_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @41_L-↓↓↓↓construct.573(%para45_Φx) {
+  Return(%para45_Φx)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @39_L-↓↓↓construct.574(%para46_Φx) {
+  %0([CNode]119) = Switch(false, DeadNode, @40_L-✗↓↓↓construct.575)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]122) = %0[40_L-✗↓↓↓construct.575]()
+      : () -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @40_L-✗↓↓↓construct.575() {
+  %0([CNode]118) = call @41_L-↓↓↓↓construct.573($(@39_L-↓↓↓construct.574:para46_Φx))
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @37_L-↓↓construct.576(%para47_Φx) {
+  %0([CNode]126) = Switch(false, DeadNode, @38_L-✗↓↓construct.577)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]129) = %0[38_L-✗↓↓construct.577]()
+      : () -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @38_L-✗↓↓construct.577() {
+  %0([CNode]125) = call @39_L-↓↓↓construct.574($(@37_L-↓↓construct.576:para47_Φx))
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @35_L-↓construct.579(%para48_Φx) {
+  %0(x) = MatMul(%para48_Φx, $(@33_L-construct.578:para51_L-fc3.weight)) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 400)>, <Ref[Tensor(F32)], (120, 400)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %1([CNode]133) = Switch(true, @36_L-✓↓construct.580, DeadNode)
+      : (<Bool>, <Func>, <unknown>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %2([CNode]136) = %1[36_L-✓↓construct.580]()
+      : () -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%2)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @33_L-construct.578(%para49_x, %para50_L-fc3.bias, %para51_L-fc3.weight) {
+  %0([CNode]143) = Switch(false, DeadNode, @34_L-✗construct.581)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %1([CNode]146) = %0[34_L-✗construct.581]()
+      : () -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %2([CNode]147) = Depend(%1, None) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<Tensor[Float32], (32, 120)>, <kMetaTypeNone>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%2)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @36_L-✓↓construct.580() {
+  %0(x) = BiasAdd($(@35_L-↓construct.579:x), $(@33_L-construct.578:para50_L-fc3.bias)) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 120)>, <Ref[Tensor(F32)], (120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %1([CNode]131) = call @37_L-↓↓construct.576(%0)
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%1)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @34_L-✗construct.581() {
+  %0([CNode]142) = call @35_L-↓construct.579($(@33_L-construct.578:para49_x))
+      : (<Tensor[Float32], (32, 400)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @32_construct.594(%para52_x) {
+  %0([CNode]523) = call @33_L-construct.578(%para52_x, $(@1_construct_wrapper.536:para6_fc1.bias), $(@1_construct_wrapper.536:para5_fc1.weight))
+      : (<Tensor[Float32], (32, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120, 400)>) -> (<Tensor[Float32], (32, 120)>)
+  Return(%0)
+      : (<Tensor[Float32], (32, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @42_construct.593(%para53_x) {
+  %0([CNode]251) = Reshape(%para53_x, (32, -1)) primitive_attrs: {output_names: [output], input_names: [tensor, shape]}
+      : (<Tensor[Float32], (32, 16, 5, 5)>, <Tuple[Int64*2], sequence_nodes={node={construct.582:[CNode]250{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: [CNode]248, [2]: [CNode]249}, elements_use_flags: {ptr: 0x159961d2220, value: [const vector][1, 1]}}, node={ValueNode<ValueTuple> (32, -1), elements_use_flags: {ptr: 0x159961d2220, value: [const vector][1, 1]}}}>) -> (<Tensor[Float32], (32, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  Return(%0)
+      : (<Tensor[Float32], (32, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @43_construct.592(%para54_x) {
+  %0(out) = MaxPool(%para54_x) {instance name: max_pool} primitive_attrs: {pad_mode: 2, output_names: [output], kernel_size: (1, 1, 2, 2), format: NCHW, strides: (1, 1, 2, 2), input_names: [x]}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 16, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @44_construct.591(%para55_x) {
+  %0([CNode]148) = ReLU(%para55_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @47_↓construct.583(%para56_Φoutput) {
+  Return(%para56_Φoutput)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @45_construct.584(%para57_x) {
+  %0(output) = Conv2D(%para57_x, $(@1_construct_wrapper.536:para4_conv2.weight)) {instance name: conv2d} primitive_attrs: {kernel_size: (5, 5), mode: 1, out_channel: 16, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: 2, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output]}
+      : (<Tensor[Float32], (32, 6, 14, 14)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %1([CNode]257) = Switch(false, DeadNode, @46_✗construct.585)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %2([CNode]260) = %1[46_✗construct.585]()
+      : () -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%2)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @46_✗construct.585() {
+  %0([CNode]256) = call @47_↓construct.583($(@45_construct.584:output))
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @48_construct.590(%para58_x) {
+  %0(out) = MaxPool(%para58_x) {instance name: max_pool} primitive_attrs: {pad_mode: 2, output_names: [output], kernel_size: (1, 1, 2, 2), format: NCHW, strides: (1, 1, 2, 2), input_names: [x]}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 14, 14)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 6, 14, 14)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @49_construct.589(%para59_x) {
+  %0([CNode]148) = ReLU(%para59_x) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @52_↓construct.586(%para60_Φoutput) {
+  Return(%para60_Φoutput)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @50_construct.587(%para61_x) {
+  %0(output) = Conv2D(%para61_x, $(@1_construct_wrapper.536:para3_conv1.weight)) {instance name: conv2d} primitive_attrs: {kernel_size: (5, 5), mode: 1, out_channel: 6, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: 2, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output]}
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %1([CNode]266) = Switch(false, DeadNode, @51_✗construct.588)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %2([CNode]269) = %1[51_✗construct.588]()
+      : () -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%2)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @51_✗construct.588() {
+  %0([CNode]265) = call @52_↓construct.586($(@50_construct.587:output))
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%0)
+      : (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @9_construct.599(%para62_x) {
+  %0(x) = call @50_construct.587(%para62_x)
+      : (<Tensor[Float32], (32, 1, 32, 32)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\PythonCode\LeNet\lenet.py(41)/        x = self.conv1(x)/
+  %1(x) = call @49_construct.589(%0)
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      # In file D:\PythonCode\LeNet\lenet.py(42)/        x = self.relu(x)/
+  %2(x) = call @48_construct.590(%1)
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 14, 14)>)
+      # In file D:\PythonCode\LeNet\lenet.py(43)/        x = self.max_pool2d(x)/
+  %3(x) = call @45_construct.584(%2)
+      : (<Tensor[Float32], (32, 6, 14, 14)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(44)/        x = self.conv2(x)/
+  %4(x) = call @44_construct.591(%3)
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(45)/        x = self.relu(x)/
+  %5(x) = call @43_construct.592(%4)
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 5, 5)>)
+      # In file D:\PythonCode\LeNet\lenet.py(46)/        x = self.max_pool2d(x)/
+  %6(x) = call @42_construct.593(%5)
+      : (<Tensor[Float32], (32, 16, 5, 5)>) -> (<Tensor[Float32], (32, 400)>)
+      # In file D:\PythonCode\LeNet\lenet.py(47)/        x = self.flatten(x)/
+  %7(x) = call @32_construct.594(%6)
+      : (<Tensor[Float32], (32, 400)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\PythonCode\LeNet\lenet.py(48)/        x = self.fc1(x)/
+  %8(x) = call @31_construct.595(%7)
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      # In file D:\PythonCode\LeNet\lenet.py(49)/        x = self.relu(x)/
+  %9(x) = call @21_construct.596(%8)
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\PythonCode\LeNet\lenet.py(50)/        x = self.fc2(x)/
+  %10(x) = call @20_construct.597(%9)
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      # In file D:\PythonCode\LeNet\lenet.py(51)/        x = self.relu(x)/
+  %11(x) = call @10_construct.598(%10)
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%11)
+      : (<Tensor[Float32], (32, 10)>)
+      # In file D:\PythonCode\LeNet\lenet.py(53)/        return x/
+}
+
+subgraph attr:
+defer_inline : 1
+Undeterminate : 0
+training : 1
+subgraph @5_construct.550(%para63_data, %para64_label) {
+  %0(out) = call @9_construct.599(%para63_data)
+      : (<Tensor[Float32], (32, 1, 32, 32)>) -> (<Tensor[Float32], (32, 10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(110)/        out = self._backbone(data)/
+  %1([CNode]274) = call @6_construct.551(%0, %para64_label)
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+  Return(%1)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @3_construct.543(%para65_inputs0, %para66_inputs1) {
+  %0([CNode]546) = MakeTuple(%para65_inputs0, %para66_inputs1)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Int32], (32)>) -> (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={3_construct.543:[CNode]546{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x159961679b0, value: [const vector][1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(360)/    def construct(self, *inputs):/
+  %1(loss) = call @4_UnpackCall.600(@5_construct.550, %0)
+      : (<Func>, <Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={3_construct.543:[CNode]546{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x159961679b0, value: [const vector][1, 1]}}}>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(361)/        loss = self.network(*inputs)/
+  %2([CNode]394) = MakeTuple($(@1_construct_wrapper.536:para3_conv1.weight), $(@1_construct_wrapper.536:para4_conv2.weight), $(@1_construct_wrapper.536:para5_fc1.weight), $(@1_construct_wrapper.536:para6_fc1.bias), $(@1_construct_wrapper.536:para7_fc2.weight), $(@1_construct_wrapper.536:para8_fc2.bias), $(@1_construct_wrapper.536:para9_fc3.weight), $(@1_construct_wrapper.536:para10_fc3.bias))
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10)>) -> (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %3(grads) = call @110_construct.742(@5_construct.550, %2)
+      : (<Func>, <Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %4(grads) = call @109_UnpackCall.779(%3, %0, (Tensor(shape=[], dtype=Float32, value=1)))
+      : (<Func>, <Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={3_construct.543:[CNode]546{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x159961679b0, value: [const vector][1, 1]}}}>, <Tuple[Tensor[Float32]], sequence_nodes={node={ValueNode<ValueTuple> (Tensor(shape=[], dtype=Float32, value=1)), elements_use_flags: {ptr: 0x15996645200, value: [const vector][1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %5(grads) = identity(%4) {instance name: grad_reducer} primitive_attrs: {side_effect_propagate: 1}
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(364)/        grads = self.grad_reducer(grads)/
+  %6([CNode]19) = call @53_construct.621(%5)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  %7(loss) = Depend(%1, %6) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], ()>, <Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  Return(%7)
+      : (<Tensor[Float32], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @61_↓construct.733(%para67_Φsuccess) {
+  Return(%para67_Φsuccess)
+      : (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(183)/        return success/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @67_↓_tensor_run_opt_ext.605(%para68_Φsuccess) {
+  Return(%para68_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @65__tensor_run_opt_ext.603(%para69_opt, %para70_momentum, %para71_learning_rate, %para72_gradient, %para73_weight, %para74_moment, %para75_ps_parameter, %para76_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @66_✗_tensor_run_opt_ext.607)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[66_✗_tensor_run_opt_ext.607]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @66_✗_tensor_run_opt_ext.607() {
+  %0([CNode]602) = ApplyMomentum($(@65__tensor_run_opt_ext.603:para73_weight), $(@65__tensor_run_opt_ext.603:para74_moment), $(@65__tensor_run_opt_ext.603:para71_learning_rate), $(@65__tensor_run_opt_ext.603:para72_gradient), $(@65__tensor_run_opt_ext.603:para70_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (6, 1, 5, 5)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @67_↓_tensor_run_opt_ext.605(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @64_619.620(%para77_781, %para78_610, %para79_611, %para80_612, %para81_613, %para82_614, %para83_782, %para84_783) {
+  %0([CNode]609) = call @65__tensor_run_opt_ext.603(PolyNode, %para78_610, %para79_611, %para80_612, %para81_613, %para82_614, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @60_↓get_lr.615(%para85_Φlr) {
+  Return(%para85_Φlr)
+      : (<Ref[Tensor(F32)], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(597)/        return lr/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @59_✗get_lr.616() {
+  %0([CNode]337) = call @60_↓get_lr.615($(@1_construct_wrapper.536:para20_learning_rate))
+      : (<Ref[Tensor(F32)], ()>) -> (<Ref[Tensor(F32)], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  Return(%0)
+      : (<Ref[Tensor(F32)], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @58_get_lr.617() {
+  %0([CNode]338) = Switch(false, DeadNode, @59_✗get_lr.616)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  %1([CNode]341) = %0[59_✗get_lr.616]()
+      : () -> (<Ref[Tensor(F32)], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+  Return(%1)
+      : (<Ref[Tensor(F32)], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @53_construct.621(%para86_gradients) {
+  %0(lr) = call @58_get_lr.617()
+      : () -> (<Ref[Tensor(F32)], ()>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/
+  %1(gradients) = call @106_decay_weight.731(%para86_gradients)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(173)/        gradients = self.decay_weight(gradients)/
+  %2(gradients) = call @103_gradients_centralization.728(%1)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(174)/        gradients = self.gradients_centralization(gradients)/
+  %3(gradients) = call @55_scale_grad.725(%2)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(175)/        gradients = self.scale_grad(gradients)/
+  %4([CNode]383) = MakeTuple($(@1_construct_wrapper.536:para3_conv1.weight), $(@1_construct_wrapper.536:para4_conv2.weight), $(@1_construct_wrapper.536:para5_fc1.weight), $(@1_construct_wrapper.536:para6_fc1.bias), $(@1_construct_wrapper.536:para7_fc2.weight), $(@1_construct_wrapper.536:para8_fc2.bias), $(@1_construct_wrapper.536:para9_fc3.weight), $(@1_construct_wrapper.536:para10_fc3.bias))
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10)>) -> (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(171)/        params = self.params/
+  %5([CNode]384) = MakeTuple($(@1_construct_wrapper.536:para11_moments.conv1.weight), $(@1_construct_wrapper.536:para12_moments.conv2.weight), $(@1_construct_wrapper.536:para13_moments.fc1.weight), $(@1_construct_wrapper.536:para14_moments.fc1.bias), $(@1_construct_wrapper.536:para15_moments.fc2.weight), $(@1_construct_wrapper.536:para16_moments.fc2.bias), $(@1_construct_wrapper.536:para17_moments.fc3.weight), $(@1_construct_wrapper.536:para18_moments.fc3.bias))
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10)>) -> (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(172)/        moments = self.moments/
+  %6([CNode]390) = Switch(false, DeadNode, @54_✗construct.734)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  %7([CNode]393) = %6[54_✗construct.734]()
+      : () -> (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  Return(%7)
+      : (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @63_hyper_map.638(%para87_[Parameter]784, %para88_[Parameter]622, %para89_[Parameter]623, %para90_[Parameter]624, %para91_[Parameter]785, %para92_[Parameter]786) {
+  %0([CNode]618) = Partial(@64_619.620, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para88_[Parameter]622, %para89_[Parameter]623, %para90_[Parameter]624, false, false)
+      : (<Tensor[Float32], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @62_hyper_map.601(%para93_[Parameter]639, %para94_[Parameter]625, %para95_[Parameter]636, %para96_[Parameter]637, %para97_[Parameter]787, %para98_[Parameter]788) {
+  %0(success) = TupleGetItem(%para94_[Parameter]625, 0)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %1(success) = TupleGetItem(%para95_[Parameter]636, 0)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (6, 1, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %2(success) = TupleGetItem(%para96_[Parameter]637, 0)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (6, 1, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %3(success) = call @63_hyper_map.638(%para93_[Parameter]639, %0, %1, %2, false, false)
+      : (<Func>, <Tensor[Float32], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %4(success) = TupleGetItem(%para94_[Parameter]625, 1)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %5(success) = TupleGetItem(%para95_[Parameter]636, 1)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (16, 6, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %6(success) = TupleGetItem(%para96_[Parameter]637, 1)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (16, 6, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %7(success) = call @68_hyper_map.651(%para93_[Parameter]639, %4, %5, %6, false, false)
+      : (<Func>, <Tensor[Float32], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %8(success) = TupleGetItem(%para94_[Parameter]625, 2)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (120, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %9(success) = TupleGetItem(%para95_[Parameter]636, 2)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (120, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %10(success) = TupleGetItem(%para96_[Parameter]637, 2)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (120, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %11(success) = call @73_hyper_map.663(%para93_[Parameter]639, %8, %9, %10, false, false)
+      : (<Func>, <Tensor[Float32], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %12(success) = TupleGetItem(%para94_[Parameter]625, 3)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %13(success) = TupleGetItem(%para95_[Parameter]636, 3)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %14(success) = TupleGetItem(%para96_[Parameter]637, 3)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %15(success) = call @78_hyper_map.675(%para93_[Parameter]639, %12, %13, %14, false, false)
+      : (<Func>, <Tensor[Float32], (120)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %16(success) = TupleGetItem(%para94_[Parameter]625, 4)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (84, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %17(success) = TupleGetItem(%para95_[Parameter]636, 4)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (84, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %18(success) = TupleGetItem(%para96_[Parameter]637, 4)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (84, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %19(success) = call @83_hyper_map.687(%para93_[Parameter]639, %16, %17, %18, false, false)
+      : (<Func>, <Tensor[Float32], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %20(success) = TupleGetItem(%para94_[Parameter]625, 5)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %21(success) = TupleGetItem(%para95_[Parameter]636, 5)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %22(success) = TupleGetItem(%para96_[Parameter]637, 5)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %23(success) = call @88_hyper_map.699(%para93_[Parameter]639, %20, %21, %22, false, false)
+      : (<Func>, <Tensor[Float32], (84)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %24(success) = TupleGetItem(%para94_[Parameter]625, 6)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (10, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %25(success) = TupleGetItem(%para95_[Parameter]636, 6)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (10, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %26(success) = TupleGetItem(%para96_[Parameter]637, 6)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (10, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %27(success) = call @93_hyper_map.711(%para93_[Parameter]639, %24, %25, %26, false, false)
+      : (<Func>, <Tensor[Float32], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %28(success) = TupleGetItem(%para94_[Parameter]625, 7)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %29(success) = TupleGetItem(%para95_[Parameter]636, 7)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %30(success) = TupleGetItem(%para96_[Parameter]637, 7)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %31(success) = call @98_hyper_map.723(%para93_[Parameter]639, %28, %29, %30, false, false)
+      : (<Func>, <Tensor[Float32], (10)>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10)>, <Bool>, <Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %32(success) = MakeTuple(%3, %7, %11, %15, %19, %23, %27, %31)
+      : (<Bool>, <Bool>, <Bool>, <Bool>, <Bool>, <Bool>, <Bool>, <Bool>) -> (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  Return(%32)
+      : (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @72_↓_tensor_run_opt_ext.641(%para99_Φsuccess) {
+  Return(%para99_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @70__tensor_run_opt_ext.640(%para100_opt, %para101_momentum, %para102_learning_rate, %para103_gradient, %para104_weight, %para105_moment, %para106_ps_parameter, %para107_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @71_✗_tensor_run_opt_ext.642)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[71_✗_tensor_run_opt_ext.642]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @71_✗_tensor_run_opt_ext.642() {
+  %0([CNode]602) = ApplyMomentum($(@70__tensor_run_opt_ext.640:para104_weight), $(@70__tensor_run_opt_ext.640:para105_moment), $(@70__tensor_run_opt_ext.640:para102_learning_rate), $(@70__tensor_run_opt_ext.640:para103_gradient), $(@70__tensor_run_opt_ext.640:para101_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (16, 6, 5, 5)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @72_↓_tensor_run_opt_ext.641(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @69_649.650(%para108_789, %para109_643, %para110_644, %para111_645, %para112_646, %para113_647, %para114_790, %para115_791) {
+  %0([CNode]609) = call @70__tensor_run_opt_ext.640(PolyNode, %para109_643, %para110_644, %para111_645, %para112_646, %para113_647, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @68_hyper_map.651(%para116_[Parameter]784, %para117_[Parameter]622, %para118_[Parameter]623, %para119_[Parameter]624, %para120_[Parameter]785, %para121_[Parameter]786) {
+  %0([CNode]648) = Partial(@69_649.650, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para117_[Parameter]622, %para118_[Parameter]623, %para119_[Parameter]624, false, false)
+      : (<Tensor[Float32], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @77_↓_tensor_run_opt_ext.653(%para122_Φsuccess) {
+  Return(%para122_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @75__tensor_run_opt_ext.652(%para123_opt, %para124_momentum, %para125_learning_rate, %para126_gradient, %para127_weight, %para128_moment, %para129_ps_parameter, %para130_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @76_✗_tensor_run_opt_ext.654)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[76_✗_tensor_run_opt_ext.654]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @76_✗_tensor_run_opt_ext.654() {
+  %0([CNode]602) = ApplyMomentum($(@75__tensor_run_opt_ext.652:para127_weight), $(@75__tensor_run_opt_ext.652:para128_moment), $(@75__tensor_run_opt_ext.652:para125_learning_rate), $(@75__tensor_run_opt_ext.652:para126_gradient), $(@75__tensor_run_opt_ext.652:para124_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (120, 400)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (120, 400)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (120, 400)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @77_↓_tensor_run_opt_ext.653(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @74_661.662(%para131_792, %para132_655, %para133_656, %para134_657, %para135_658, %para136_659, %para137_793, %para138_794) {
+  %0([CNode]609) = call @75__tensor_run_opt_ext.652(PolyNode, %para132_655, %para133_656, %para134_657, %para135_658, %para136_659, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @73_hyper_map.663(%para139_[Parameter]784, %para140_[Parameter]622, %para141_[Parameter]623, %para142_[Parameter]624, %para143_[Parameter]785, %para144_[Parameter]786) {
+  %0([CNode]660) = Partial(@74_661.662, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para140_[Parameter]622, %para141_[Parameter]623, %para142_[Parameter]624, false, false)
+      : (<Tensor[Float32], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @82_↓_tensor_run_opt_ext.665(%para145_Φsuccess) {
+  Return(%para145_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @80__tensor_run_opt_ext.664(%para146_opt, %para147_momentum, %para148_learning_rate, %para149_gradient, %para150_weight, %para151_moment, %para152_ps_parameter, %para153_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @81_✗_tensor_run_opt_ext.666)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[81_✗_tensor_run_opt_ext.666]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @81_✗_tensor_run_opt_ext.666() {
+  %0([CNode]602) = ApplyMomentum($(@80__tensor_run_opt_ext.664:para150_weight), $(@80__tensor_run_opt_ext.664:para151_moment), $(@80__tensor_run_opt_ext.664:para148_learning_rate), $(@80__tensor_run_opt_ext.664:para149_gradient), $(@80__tensor_run_opt_ext.664:para147_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (120)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (120)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @82_↓_tensor_run_opt_ext.665(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @79_673.674(%para154_795, %para155_667, %para156_668, %para157_669, %para158_670, %para159_671, %para160_796, %para161_797) {
+  %0([CNode]609) = call @80__tensor_run_opt_ext.664(PolyNode, %para155_667, %para156_668, %para157_669, %para158_670, %para159_671, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (120)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @78_hyper_map.675(%para162_[Parameter]784, %para163_[Parameter]622, %para164_[Parameter]623, %para165_[Parameter]624, %para166_[Parameter]785, %para167_[Parameter]786) {
+  %0([CNode]672) = Partial(@79_673.674, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para163_[Parameter]622, %para164_[Parameter]623, %para165_[Parameter]624, false, false)
+      : (<Tensor[Float32], (120)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @87_↓_tensor_run_opt_ext.677(%para168_Φsuccess) {
+  Return(%para168_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @85__tensor_run_opt_ext.676(%para169_opt, %para170_momentum, %para171_learning_rate, %para172_gradient, %para173_weight, %para174_moment, %para175_ps_parameter, %para176_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @86_✗_tensor_run_opt_ext.678)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[86_✗_tensor_run_opt_ext.678]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @86_✗_tensor_run_opt_ext.678() {
+  %0([CNode]602) = ApplyMomentum($(@85__tensor_run_opt_ext.676:para173_weight), $(@85__tensor_run_opt_ext.676:para174_moment), $(@85__tensor_run_opt_ext.676:para171_learning_rate), $(@85__tensor_run_opt_ext.676:para172_gradient), $(@85__tensor_run_opt_ext.676:para170_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (84, 120)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (84, 120)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (84, 120)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @87_↓_tensor_run_opt_ext.677(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @84_685.686(%para177_798, %para178_679, %para179_680, %para180_681, %para181_682, %para182_683, %para183_799, %para184_800) {
+  %0([CNode]609) = call @85__tensor_run_opt_ext.676(PolyNode, %para178_679, %para179_680, %para180_681, %para181_682, %para182_683, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @83_hyper_map.687(%para185_[Parameter]784, %para186_[Parameter]622, %para187_[Parameter]623, %para188_[Parameter]624, %para189_[Parameter]785, %para190_[Parameter]786) {
+  %0([CNode]684) = Partial(@84_685.686, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para186_[Parameter]622, %para187_[Parameter]623, %para188_[Parameter]624, false, false)
+      : (<Tensor[Float32], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @92_↓_tensor_run_opt_ext.689(%para191_Φsuccess) {
+  Return(%para191_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @90__tensor_run_opt_ext.688(%para192_opt, %para193_momentum, %para194_learning_rate, %para195_gradient, %para196_weight, %para197_moment, %para198_ps_parameter, %para199_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @91_✗_tensor_run_opt_ext.690)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[91_✗_tensor_run_opt_ext.690]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @91_✗_tensor_run_opt_ext.690() {
+  %0([CNode]602) = ApplyMomentum($(@90__tensor_run_opt_ext.688:para196_weight), $(@90__tensor_run_opt_ext.688:para197_moment), $(@90__tensor_run_opt_ext.688:para194_learning_rate), $(@90__tensor_run_opt_ext.688:para195_gradient), $(@90__tensor_run_opt_ext.688:para193_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (84)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (84)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @92_↓_tensor_run_opt_ext.689(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @89_697.698(%para200_801, %para201_691, %para202_692, %para203_693, %para204_694, %para205_695, %para206_802, %para207_803) {
+  %0([CNode]609) = call @90__tensor_run_opt_ext.688(PolyNode, %para201_691, %para202_692, %para203_693, %para204_694, %para205_695, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (84)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @88_hyper_map.699(%para208_[Parameter]784, %para209_[Parameter]622, %para210_[Parameter]623, %para211_[Parameter]624, %para212_[Parameter]785, %para213_[Parameter]786) {
+  %0([CNode]696) = Partial(@89_697.698, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para209_[Parameter]622, %para210_[Parameter]623, %para211_[Parameter]624, false, false)
+      : (<Tensor[Float32], (84)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @97_↓_tensor_run_opt_ext.701(%para214_Φsuccess) {
+  Return(%para214_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @95__tensor_run_opt_ext.700(%para215_opt, %para216_momentum, %para217_learning_rate, %para218_gradient, %para219_weight, %para220_moment, %para221_ps_parameter, %para222_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @96_✗_tensor_run_opt_ext.702)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[96_✗_tensor_run_opt_ext.702]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @96_✗_tensor_run_opt_ext.702() {
+  %0([CNode]602) = ApplyMomentum($(@95__tensor_run_opt_ext.700:para219_weight), $(@95__tensor_run_opt_ext.700:para220_moment), $(@95__tensor_run_opt_ext.700:para217_learning_rate), $(@95__tensor_run_opt_ext.700:para218_gradient), $(@95__tensor_run_opt_ext.700:para216_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (10, 84)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (10, 84)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (10, 84)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @97_↓_tensor_run_opt_ext.701(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @94_709.710(%para223_804, %para224_703, %para225_704, %para226_705, %para227_706, %para228_707, %para229_805, %para230_806) {
+  %0([CNode]609) = call @95__tensor_run_opt_ext.700(PolyNode, %para224_703, %para225_704, %para226_705, %para227_706, %para228_707, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @93_hyper_map.711(%para231_[Parameter]784, %para232_[Parameter]622, %para233_[Parameter]623, %para234_[Parameter]624, %para235_[Parameter]785, %para236_[Parameter]786) {
+  %0([CNode]708) = Partial(@94_709.710, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para232_[Parameter]622, %para233_[Parameter]623, %para234_[Parameter]624, false, false)
+      : (<Tensor[Float32], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+subgraph @102_↓_tensor_run_opt_ext.713(%para237_Φsuccess) {
+  Return(%para237_Φsuccess)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @100__tensor_run_opt_ext.712(%para238_opt, %para239_momentum, %para240_learning_rate, %para241_gradient, %para242_weight, %para243_moment, %para244_ps_parameter, %para245_cache_enable) {
+  %0([CNode]606) = Switch(false, DeadNode, @101_✗_tensor_run_opt_ext.714)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  %1([CNode]608) = %0[101_✗_tensor_run_opt_ext.714]()
+      : () -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%1)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @101_✗_tensor_run_opt_ext.714() {
+  %0([CNode]602) = ApplyMomentum($(@100__tensor_run_opt_ext.712:para242_weight), $(@100__tensor_run_opt_ext.712:para243_moment), $(@100__tensor_run_opt_ext.712:para240_learning_rate), $(@100__tensor_run_opt_ext.712:para241_gradient), $(@100__tensor_run_opt_ext.712:para239_momentum)) {instance name: opt} primitive_attrs: {output_names: [output], side_effect_mem: true, use_nesterov: false, input_names: [variable, accumulation, learning_rate, gradient, momentum], use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (10)>, <Ref[Tensor(F32)], ()>) -> (<Tensor[Float32], (10)>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %1(success) = Depend(true, %0) primitive_attrs: {side_effect_propagate: 1}
+      : (<Bool>, <Tensor[Float32], (10)>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/
+  %2([CNode]604) = call @102_↓_tensor_run_opt_ext.713(%1)
+      : (<Bool>) -> (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+  Return(%2)
+      : (<Bool>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @99_721.722(%para246_807, %para247_715, %para248_716, %para249_717, %para250_718, %para251_719, %para252_808, %para253_809) {
+  %0([CNode]609) = call @100__tensor_run_opt_ext.712(PolyNode, %para247_715, %para248_716, %para249_717, %para250_718, %para251_719, false, false)
+      : (<unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (10)>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%0)
+      : (<Bool>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @98_hyper_map.723(%para254_[Parameter]784, %para255_[Parameter]622, %para256_[Parameter]623, %para257_[Parameter]624, %para258_[Parameter]785, %para259_[Parameter]786) {
+  %0([CNode]720) = Partial(@99_721.722, S-Prim-ApplyMomentum, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Func>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+  %1([CNode]609) = %0(%para255_[Parameter]622, %para256_[Parameter]623, %para257_[Parameter]624, false, false)
+      : (<Tensor[Float32], (10)>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10)>, <Bool>, <Bool>) -> (<Bool>)
+  Return(%1)
+      : (<Bool>)
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @54_✗construct.734() {
+  %0([CNode]388) = Partial(PolyNode, PolyNode, $(@1_construct_wrapper.536:para19_momentum), $(@53_construct.621:lr)) primitive_attrs: {side_effect_propagate: 1}
+      : (<unknown>, <unknown>, <Ref[Tensor(F32)], ()>, <Ref[Tensor(F32)], ()>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %1(success) = call @62_hyper_map.601(%0, $(@53_construct.621:gradients), $(@53_construct.621:[CNode]383), $(@53_construct.621:[CNode]384), (false, false, false, false, false, false, false, false), (false, false, false, false, false, false, false, false))
+      : (<Func>, <Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]383{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x159966d07d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={53_construct.621:[CNode]384{[0]: ValueNode<Primitive> MakeTuple, [1]: moments.conv1.weight, [2]: moments.conv2.weight, [3]: moments.fc1.weight, [4]: moments.fc1.bias, [5]: moments.fc2.weight, [6]: moments.fc2.bias, [7]: moments.fc3.weight, [8]: moments.fc3.bias}, elements_use_flags: {ptr: 0x159966d02d0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Tuple[Bool*8], sequence_nodes={node={ValueNode<ValueTuple> (false, false, false, false, false, false, false, false), elements_use_flags: {ptr: 0x159966d0490, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Tuple[Bool*8], sequence_nodes={node={ValueNode<ValueTuple> (false, false, false, false, false, false, false, false), elements_use_flags: {ptr: 0x159966d0550, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+  %2([CNode]389) = call @61_↓construct.733(%1)
+      : (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+  Return(%2)
+      : (<Tuple[Bool*8], sequence_nodes={node={62_hyper_map.601:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x15996845170, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @57_↓scale_grad.724(%para260_Φgradients) {
+  Return(%para260_Φgradients)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(364)/        return gradients/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @55_scale_grad.725(%para261_gradients) {
+  %0([CNode]349) = Switch(false, DeadNode, @56_✗scale_grad.726)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  %1([CNode]352) = %0[56_✗scale_grad.726]()
+      : () -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  Return(%1)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @56_✗scale_grad.726() {
+  %0([CNode]348) = call @57_↓scale_grad.724($(@55_scale_grad.725:para261_gradients))
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+  Return(%0)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @105_↓gradients_centralization.727(%para262_Φgradients) {
+  Return(%para262_Φgradients)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(345)/        return gradients/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @103_gradients_centralization.728(%para263_gradients) {
+  %0([CNode]359) = Switch(false, DeadNode, @104_✗gradients_centralization.729)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  %1([CNode]362) = %0[104_✗gradients_centralization.729]()
+      : () -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  Return(%1)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @104_✗gradients_centralization.729() {
+  %0([CNode]358) = call @105_↓gradients_centralization.727($(@103_gradients_centralization.728:para263_gradients))
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+  Return(%0)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+}
+
+subgraph attr:
+after_block : 1
+Undeterminate : 0
+training : 1
+subgraph @108_↓decay_weight.730(%para264_Φgradients) {
+  Return(%para264_Φgradients)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(326)/        return gradients/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @106_decay_weight.731(%para265_gradients) {
+  %0([CNode]379) = Switch(false, DeadNode, @107_✗decay_weight.732)
+      : (<Bool>, <unknown>, <Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  %1([CNode]382) = %0[107_✗decay_weight.732]()
+      : () -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  Return(%1)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+}
+
+subgraph attr:
+Undeterminate : 0
+training : 1
+subgraph @107_✗decay_weight.732() {
+  %0([CNode]378) = call @108_↓decay_weight.730($(@106_decay_weight.731:para265_gradients))
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+  Return(%0)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @109_UnpackCall.779(%para266_739, %para267_736, %para268_810) {
+  %0(735) = TupleGetItem(%para267_736, 0)
+      : (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={3_construct.543:[CNode]546{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x159961679b0, value: [const vector][1, 1]}}}>, <Int64>) -> (<Tensor[Float32], (32, 1, 32, 32)>)
+  %1(737) = TupleGetItem(%para267_736, 1)
+      : (<Tuple[Tensor[Float32],Tensor[Int32]], sequence_nodes={node={3_construct.543:[CNode]546{[0]: ValueNode<Primitive> MakeTuple, [1]: inputs0, [2]: inputs1}, elements_use_flags: {ptr: 0x159961679b0, value: [const vector][1, 1]}}}>, <Int64>) -> (<Tensor[Int32], (32)>)
+  %2(738) = 739[111_construct.740](%0, %1, Tensor(shape=[], dtype=Float32, value=1))
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Int32], (32)>, <Tensor[Float32], (), value=...>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+  Return(%2)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @114__tensor_env_get.744(%para269_env, %para270_parameter) {
+  %0([CNode]741) = RefToEmbed(%para270_parameter)
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para270_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+  %2([CNode]741) = EnvironGet(%para269_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+  Return(%2)
+      : (<Tensor[Float32], (6, 1, 5, 5)>)
+}
+
+subgraph attr:
+core : 1
+Undeterminate : 0
+subgraph @110_construct.742(%para271_[Parameter]811, %para272_778) {
+  %0(grads) = J(@5_construct.550) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  Return(@111_construct.740)
+      : (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+}
+
+subgraph attr:
+k_graph : 1
+core : 1
+Undeterminate : 0
+subgraph @111_construct.740(%para273_construct, %para274_construct, %para275_construct) {
+  %0(grads) = $(@110_construct.742:grads)(%para273_construct, %para274_construct)
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Int32], (32)>) -> (<Tuple[Tensor[Float32],Func]>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %1(grads) = TupleGetItem(%0, 1)
+      : (<Tuple[Tensor[Float32],Func]>, <Int64>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %2(grads) = %1(Tensor(shape=[], dtype=Float32, value=1))
+      : (<Tensor[Float32], (), value=...>) -> (<Tuple[Object:kObjectTypeEnvType,Tensor[Float32],Tensor[Int32]]>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %3(grads) = TupleGetItem(%2, 0)
+      : (<Tuple[Object:kObjectTypeEnvType,Tensor[Float32],Tensor[Int32]]>, <Int64>) -> (<Object:kObjectTypeEnvType>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %4(grads) = Partial(PolyNode, %3) primitive_attrs: {side_effect_propagate: 1}
+      : (<unknown>, <Object:kObjectTypeEnvType>) -> (<Func>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %5(grads) = call @112_hyper_map.626(%4, $(@110_construct.742:para272_778))
+      : (<Func>, <Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  Return(%5)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @113_hyper_map.748(%para276_[Parameter]812, %para277_[Parameter]745) {
+  %0([CNode]743) = Partial(@114__tensor_env_get.744, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para277_[Parameter]745)
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+  Return(%1)
+      : (<Tensor[Float32], (6, 1, 5, 5)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @112_hyper_map.626(%para278_[Parameter]749, %para279_[Parameter]747) {
+  %0([CNode]746) = TupleGetItem(%para279_[Parameter]747, 0)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (6, 1, 5, 5)>)
+  %1([CNode]628) = call @113_hyper_map.748(%para278_[Parameter]749, %0)
+      : (<Func>, <Ref[Tensor(F32)], (6, 1, 5, 5)>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+  %2([CNode]752) = TupleGetItem(%para279_[Parameter]747, 1)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (16, 6, 5, 5)>)
+  %3([CNode]629) = call @115_hyper_map.753(%para278_[Parameter]749, %2)
+      : (<Func>, <Ref[Tensor(F32)], (16, 6, 5, 5)>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+  %4([CNode]756) = TupleGetItem(%para279_[Parameter]747, 2)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (120, 400)>)
+  %5([CNode]630) = call @117_hyper_map.757(%para278_[Parameter]749, %4)
+      : (<Func>, <Ref[Tensor(F32)], (120, 400)>) -> (<Tensor[Float32], (120, 400)>)
+  %6([CNode]760) = TupleGetItem(%para279_[Parameter]747, 3)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (120)>)
+  %7([CNode]631) = call @119_hyper_map.761(%para278_[Parameter]749, %6)
+      : (<Func>, <Ref[Tensor(F32)], (120)>) -> (<Tensor[Float32], (120)>)
+  %8([CNode]764) = TupleGetItem(%para279_[Parameter]747, 4)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (84, 120)>)
+  %9([CNode]632) = call @121_hyper_map.765(%para278_[Parameter]749, %8)
+      : (<Func>, <Ref[Tensor(F32)], (84, 120)>) -> (<Tensor[Float32], (84, 120)>)
+  %10([CNode]768) = TupleGetItem(%para279_[Parameter]747, 5)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (84)>)
+  %11([CNode]633) = call @123_hyper_map.769(%para278_[Parameter]749, %10)
+      : (<Func>, <Ref[Tensor(F32)], (84)>) -> (<Tensor[Float32], (84)>)
+  %12([CNode]772) = TupleGetItem(%para279_[Parameter]747, 6)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (10, 84)>)
+  %13([CNode]634) = call @125_hyper_map.773(%para278_[Parameter]749, %12)
+      : (<Func>, <Ref[Tensor(F32)], (10, 84)>) -> (<Tensor[Float32], (10, 84)>)
+  %14([CNode]776) = TupleGetItem(%para279_[Parameter]747, 7)
+      : (<Tuple[Ref[Tensor(F32)]*8], sequence_nodes={node={3_construct.543:[CNode]394{[0]: ValueNode<Primitive> MakeTuple, [1]: conv1.weight, [2]: conv2.weight, [3]: fc1.weight, [4]: fc1.bias, [5]: fc2.weight, [6]: fc2.bias, [7]: fc3.weight, [8]: fc3.bias}, elements_use_flags: {ptr: 0x15996645840, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Int64>) -> (<Ref[Tensor(F32)], (10)>)
+  %15([CNode]635) = call @127_hyper_map.777(%para278_[Parameter]749, %14)
+      : (<Func>, <Ref[Tensor(F32)], (10)>) -> (<Tensor[Float32], (10)>)
+  %16([CNode]627) = MakeTuple(%1, %3, %5, %7, %9, %11, %13, %15)
+      : (<Tensor[Float32], (6, 1, 5, 5)>, <Tensor[Float32], (16, 6, 5, 5)>, <Tensor[Float32], (120, 400)>, <Tensor[Float32], (120)>, <Tensor[Float32], (84, 120)>, <Tensor[Float32], (84)>, <Tensor[Float32], (10, 84)>, <Tensor[Float32], (10)>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+  Return(%16)
+      : (<Tuple[Tensor[Float32]*8], sequence_nodes={node={112_hyper_map.626:[CNode]627{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]628, [2]: [CNode]629, [3]: [CNode]630, [4]: [CNode]631, [5]: [CNode]632, [6]: [CNode]633, [7]: [CNode]634, [8]: [CNode]635}, elements_use_flags: {ptr: 0x159966acff0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @116__tensor_env_get.751(%para280_env, %para281_parameter) {
+  %0([CNode]741) = RefToEmbed(%para281_parameter)
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para281_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+  %2([CNode]741) = EnvironGet(%para280_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+  Return(%2)
+      : (<Tensor[Float32], (16, 6, 5, 5)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @115_hyper_map.753(%para282_[Parameter]812, %para283_[Parameter]745) {
+  %0([CNode]750) = Partial(@116__tensor_env_get.751, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para283_[Parameter]745)
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+  Return(%1)
+      : (<Tensor[Float32], (16, 6, 5, 5)>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @118__tensor_env_get.755(%para284_env, %para285_parameter) {
+  %0([CNode]741) = RefToEmbed(%para285_parameter)
+      : (<Ref[Tensor(F32)], (120, 400)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para285_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (120, 400)>) -> (<Tensor[Float32], (120, 400)>)
+  %2([CNode]741) = EnvironGet(%para284_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (120, 400)>) -> (<Tensor[Float32], (120, 400)>)
+  Return(%2)
+      : (<Tensor[Float32], (120, 400)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @117_hyper_map.757(%para286_[Parameter]812, %para287_[Parameter]745) {
+  %0([CNode]754) = Partial(@118__tensor_env_get.755, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para287_[Parameter]745)
+      : (<Ref[Tensor(F32)], (120, 400)>) -> (<Tensor[Float32], (120, 400)>)
+  Return(%1)
+      : (<Tensor[Float32], (120, 400)>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @120__tensor_env_get.759(%para288_env, %para289_parameter) {
+  %0([CNode]741) = RefToEmbed(%para289_parameter)
+      : (<Ref[Tensor(F32)], (120)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para289_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (120)>) -> (<Tensor[Float32], (120)>)
+  %2([CNode]741) = EnvironGet(%para288_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (120)>) -> (<Tensor[Float32], (120)>)
+  Return(%2)
+      : (<Tensor[Float32], (120)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @119_hyper_map.761(%para290_[Parameter]812, %para291_[Parameter]745) {
+  %0([CNode]758) = Partial(@120__tensor_env_get.759, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para291_[Parameter]745)
+      : (<Ref[Tensor(F32)], (120)>) -> (<Tensor[Float32], (120)>)
+  Return(%1)
+      : (<Tensor[Float32], (120)>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @122__tensor_env_get.763(%para292_env, %para293_parameter) {
+  %0([CNode]741) = RefToEmbed(%para293_parameter)
+      : (<Ref[Tensor(F32)], (84, 120)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para293_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (84, 120)>) -> (<Tensor[Float32], (84, 120)>)
+  %2([CNode]741) = EnvironGet(%para292_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (84, 120)>) -> (<Tensor[Float32], (84, 120)>)
+  Return(%2)
+      : (<Tensor[Float32], (84, 120)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @121_hyper_map.765(%para294_[Parameter]812, %para295_[Parameter]745) {
+  %0([CNode]762) = Partial(@122__tensor_env_get.763, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para295_[Parameter]745)
+      : (<Ref[Tensor(F32)], (84, 120)>) -> (<Tensor[Float32], (84, 120)>)
+  Return(%1)
+      : (<Tensor[Float32], (84, 120)>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @124__tensor_env_get.767(%para296_env, %para297_parameter) {
+  %0([CNode]741) = RefToEmbed(%para297_parameter)
+      : (<Ref[Tensor(F32)], (84)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para297_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (84)>) -> (<Tensor[Float32], (84)>)
+  %2([CNode]741) = EnvironGet(%para296_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (84)>) -> (<Tensor[Float32], (84)>)
+  Return(%2)
+      : (<Tensor[Float32], (84)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @123_hyper_map.769(%para298_[Parameter]812, %para299_[Parameter]745) {
+  %0([CNode]766) = Partial(@124__tensor_env_get.767, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para299_[Parameter]745)
+      : (<Ref[Tensor(F32)], (84)>) -> (<Tensor[Float32], (84)>)
+  Return(%1)
+      : (<Tensor[Float32], (84)>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @126__tensor_env_get.771(%para300_env, %para301_parameter) {
+  %0([CNode]741) = RefToEmbed(%para301_parameter)
+      : (<Ref[Tensor(F32)], (10, 84)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para301_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (10, 84)>) -> (<Tensor[Float32], (10, 84)>)
+  %2([CNode]741) = EnvironGet(%para300_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (10, 84)>) -> (<Tensor[Float32], (10, 84)>)
+  Return(%2)
+      : (<Tensor[Float32], (10, 84)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @125_hyper_map.773(%para302_[Parameter]812, %para303_[Parameter]745) {
+  %0([CNode]770) = Partial(@126__tensor_env_get.771, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para303_[Parameter]745)
+      : (<Ref[Tensor(F32)], (10, 84)>) -> (<Tensor[Float32], (10, 84)>)
+  Return(%1)
+      : (<Tensor[Float32], (10, 84)>)
+}
+
+subgraph attr:
+Undeterminate : 0
+subgraph @128__tensor_env_get.775(%para304_env, %para305_parameter) {
+  %0([CNode]741) = RefToEmbed(%para305_parameter)
+      : (<Ref[Tensor(F32)], (10)>) -> (<Object:kObjectTypeSymbolicKeyType>)
+  %1([CNode]741) = ZerosLike(%para305_parameter) primitive_attrs: {output_names: [y], input_names: [x]}
+      : (<Ref[Tensor(F32)], (10)>) -> (<Tensor[Float32], (10)>)
+  %2([CNode]741) = EnvironGet(%para304_env, %0, %1)
+      : (<Object:kObjectTypeEnvType>, <Object:kObjectTypeSymbolicKeyType>, <Tensor[Float32], (10)>) -> (<Tensor[Float32], (10)>)
+  Return(%2)
+      : (<Tensor[Float32], (10)>)
+}
+
+subgraph attr:
+spec_param : 1
+core : 1
+Undeterminate : 0
+subgraph @127_hyper_map.777(%para306_[Parameter]812, %para307_[Parameter]745) {
+  %0([CNode]774) = Partial(@128__tensor_env_get.775, $(@111_construct.740:grads)) primitive_attrs: {side_effect_propagate: 1}
+      : (<Func>, <Object:kObjectTypeEnvType>) -> (<Func>)
+  %1([CNode]741) = %0(%para307_[Parameter]745)
+      : (<Ref[Tensor(F32)], (10)>) -> (<Tensor[Float32], (10)>)
+  Return(%1)
+      : (<Tensor[Float32], (10)>)
+}
+

@@ -1,0 +1,129 @@
+All Parameters:
+
+index:	size:	start_addr:	source node name:	node out index:
+%0P	#131072S	&0	inputs0	0
+%1P	#600S	&0	conv1.weight	0
+%2P	#9600S	&0	conv2.weight	0
+%3P	#192000S	&0	fc1.weight	0
+%4P	#480S	&0	fc1.bias	0
+%5P	#40320S	&0	fc2.weight	0
+%6P	#336S	&0	fc2.bias	0
+%7P	#3360S	&0	fc3.weight	0
+%8P	#40S	&0	fc3.bias	0
+%9P	#128S	&0	inputs1	0
+%10P	#40S	&0	moments.fc3.bias	0
+%11P	#4S	&0	learning_rate	0
+%12P	#4S	&0	momentum	0
+%13P	#3360S	&0	moments.fc3.weight	0
+%14P	#336S	&0	moments.fc2.bias	0
+%15P	#40320S	&0	moments.fc2.weight	0
+%16P	#480S	&0	moments.fc1.bias	0
+%17P	#192000S	&0	moments.fc1.weight	0
+%18P	#9600S	&0	moments.conv2.weight	0
+%19P	#600S	&0	moments.conv1.weight	0
+
+
+All Tensors:
+
+index:	size:	real_size:	offset:	addr:	type:	lifelong:	life_start:	life_end:	source node name:
+%0T	#602624S	#602112S	&0	&0x1598eb92040	Common	0	0	1	Conv2D-op77
+%1T	#602624S	#602112S	&602624	&0x1598ec25240	Common	0	1	39	ReLU-op78
+%2T	#151040S	#150528S	&1410560	&0x1598ecea640	Common	0	2	38	MaxPool-op79
+%3T	#37888S	#37632S	&0	&0x1598eb92040	Workspace	0	2	2	MaxPool-op79
+%4T	#205312S	#204800S	&0	&0x1598eb92040	Common	0	3	4	Conv2D-op80
+%5T	#205312S	#204800S	&205312	&0x1598ebc4240	Common	0	4	34	ReLU-op81
+%6T	#51712S	#51200S	&410624	&0x1598ebf6440	Common	0	5	32	MaxPool-op82
+%7T	#13312S	#12800S	&0	&0x1598eb92040	Workspace	0	5	5	MaxPool-op82
+%8T	#51712S	#51200S	&0	&0x1598eb92040	Common	0	6	27	Reshape-op83
+%9T	#15872S	#15360S	&51712	&0x1598eb9ea40	Common	0	7	8	MatMul-op84
+%10T	#15872S	#15360S	&67584	&0x1598eba2840	Common	0	8	9	BiasAdd-op85
+%11T	#15872S	#15360S	&51712	&0x1598eb9ea40	Common	0	9	26	ReLU-op86
+%12T	#11264S	#10752S	&67584	&0x1598eba2840	Common	0	10	11	MatMul-op87
+%13T	#11264S	#10752S	&78848	&0x1598eba5440	Common	0	11	12	BiasAdd-op88
+%14T	#11264S	#10752S	&67584	&0x1598eba2840	Common	0	12	21	ReLU-op89
+%15T	#1536S	#1280S	&78848	&0x1598eba5440	Common	0	13	14	MatMul-op90
+%16T	#1536S	#1280S	&80384	&0x1598eba5a40	Common	0	14	16	BiasAdd-op91
+%17T	#512S	#4S	&81920	&0x1598eba6040	OutputOnly	0	15	15	SparseSoftmaxCrossEntropyWithLogits-op92
+%18T	#1536S	#1280S	&78848	&0x1598eba5440	Workspace	0	15	15	SparseSoftmaxCrossEntropyWithLogits-op92
+%19T	#1536S	#1280S	&90112	&0x1598eba8040	Common	0	16	19	SparseSoftmaxCrossEntropyWithLogits-op93
+%20T	#1536S	#1280S	&78848	&0x1598eba5440	Workspace	0	16	16	SparseSoftmaxCrossEntropyWithLogits-op93
+%21T	#512S	#40S	&91648	&0x1598eba8640	Common	0	17	20	BiasAddGrad-op109
+%22T	#3584S	#3360S	&101376	&0x1598ebaac40	Common	0	18	25	MatMul-op112
+%23T	#11264S	#10752S	&78848	&0x1598eba5440	Common	0	19	21	MatMul-op95
+%24T	#512S	#40S	&90112	&0x1598eba8040	OutputOnly	0	20	20	ApplyMomentum-op110
+%25T	#11264S	#10752S	&90112	&0x1598eba8040	Common	0	21	24	ReluGrad-op96
+%26T	#512S	#336S	&104960	&0x1598ebaba40	Common	0	22	30	BiasAddGrad-op115
+%27T	#40448S	#40320S	&514048	&0x1598ec0f840	Common	0	23	33	MatMul-op118
+%28T	#15872S	#15360S	&67584	&0x1598eba2840	Common	0	24	26	MatMul-op97
+%29T	#3584S	#3360S	&83456	&0x1598eba6640	OutputOnly	0	25	25	ApplyMomentum-op113
+%30T	#15872S	#15360S	&83456	&0x1598eba6640	Common	0	26	29	ReluGrad-op98
+%31T	#192512S	#192000S	&1807872	&0x1598ed4b640	Common	0	27	40	MatMul-op124
+%32T	#51712S	#51200S	&0	&0x1598eb92040	Common	0	28	31	MatMul-op99
+%33T	#512S	#480S	&554496	&0x1598ec19640	Common	0	29	37	BiasAddGrad-op121
+%34T	#512S	#336S	&51712	&0x1598eb9ea40	OutputOnly	0	30	30	ApplyMomentum-op116
+%35T	#51712S	#51200S	&462336	&0x1598ec02e40	Common	0	31	32	Reshape-op100
+%36T	#205312S	#204800S	&0	&0x1598eb92040	Common	0	32	34	MaxPoolGrad-op101
+%37T	#40448S	#40320S	&410624	&0x1598ebf6440	OutputOnly	0	33	33	ApplyMomentum-op119
+%38T	#205312S	#204800S	&1205248	&0x1598ecb8440	Common	0	34	36	ReluGrad-op102
+%39T	#9728S	#9600S	&2000384	&0x1598ed7a640	Common	0	35	42	Conv2DBackpropFilter-op127
+%40T	#151040S	#150528S	&1561600	&0x1598ed0f440	Common	0	36	38	Conv2DBackpropInput-op103
+%41T	#512S	#480S	&0	&0x1598eb92040	OutputOnly	0	37	37	ApplyMomentum-op122
+%42T	#602624S	#602112S	&0	&0x1598eb92040	Common	0	38	39	MaxPoolGrad-op104
+%43T	#602624S	#602112S	&1205248	&0x1598ecb8440	Common	0	39	41	ReluGrad-op105
+%44T	#192512S	#192000S	&0	&0x1598eb92040	OutputOnly	0	40	40	ApplyMomentum-op125
+%45T	#1024S	#600S	&9728	&0x1598eb94640	Common	0	41	43	Conv2DBackpropFilter-op106
+%46T	#9728S	#9600S	&0	&0x1598eb92040	OutputOnly	0	42	42	ApplyMomentum-op128
+%47T	#1024S	#600S	&0	&0x1598eb92040	OutputOnly	0	43	43	ApplyMomentum-op130
+
+
+All Nodes:
+
+$0	Conv2D-op77	0	inputs[%0P, %1P, ]	outputs[%0T, ]	workspace[]	streamID[@4294967295]
+$1	ReLU-op78	0	inputs[%0T, ]	outputs[%1T, ]	workspace[]	streamID[@4294967295]
+$2	MaxPool-op79	0	inputs[%1T, ]	outputs[%2T, ]	workspace[%3T, ]	streamID[@4294967295]
+$3	Conv2D-op80	0	inputs[%2T, %2P, ]	outputs[%4T, ]	workspace[]	streamID[@4294967295]
+$4	ReLU-op81	0	inputs[%4T, ]	outputs[%5T, ]	workspace[]	streamID[@4294967295]
+$5	MaxPool-op82	0	inputs[%5T, ]	outputs[%6T, ]	workspace[%7T, ]	streamID[@4294967295]
+$6	Reshape-op83	0	inputs[%6T, ]	outputs[%8T, ]	workspace[]	streamID[@4294967295]
+$7	MatMul-op84	0	inputs[%8T, %3P, ]	outputs[%9T, ]	workspace[]	streamID[@4294967295]
+$8	BiasAdd-op85	0	inputs[%9T, %4P, ]	outputs[%10T, ]	workspace[]	streamID[@4294967295]
+$9	ReLU-op86	0	inputs[%10T, ]	outputs[%11T, ]	workspace[]	streamID[@4294967295]
+$10	MatMul-op87	0	inputs[%11T, %5P, ]	outputs[%12T, ]	workspace[]	streamID[@4294967295]
+$11	BiasAdd-op88	0	inputs[%12T, %6P, ]	outputs[%13T, ]	workspace[]	streamID[@4294967295]
+$12	ReLU-op89	0	inputs[%13T, ]	outputs[%14T, ]	workspace[]	streamID[@4294967295]
+$13	MatMul-op90	0	inputs[%14T, %7P, ]	outputs[%15T, ]	workspace[]	streamID[@4294967295]
+$14	BiasAdd-op91	0	inputs[%15T, %8P, ]	outputs[%16T, ]	workspace[]	streamID[@4294967295]
+$15	SparseSoftmaxCrossEntropyWithLogits-op92	0	inputs[%16T, %9P, ]	outputs[%17T, ]	workspace[%18T, ]	streamID[@4294967295]
+$16	SparseSoftmaxCrossEntropyWithLogits-op93	0	inputs[%16T, %9P, ]	outputs[%19T, ]	workspace[%20T, ]	streamID[@4294967295]
+$17	BiasAddGrad-op109	0	inputs[%19T, ]	outputs[%21T, ]	workspace[]	streamID[@4294967295]
+$18	MatMul-op112	0	inputs[%19T, %14T, ]	outputs[%22T, ]	workspace[]	streamID[@4294967295]
+$19	MatMul-op95	0	inputs[%19T, %7P, ]	outputs[%23T, ]	workspace[]	streamID[@4294967295]
+$20	ApplyMomentum-op110	0	inputs[%8P, %10P, %11P, %21T, %12P, ]	outputs[%24T, ]	workspace[]	streamID[@4294967295]
+$21	ReluGrad-op96	0	inputs[%23T, %14T, ]	outputs[%25T, ]	workspace[]	streamID[@4294967295]
+$22	BiasAddGrad-op115	0	inputs[%25T, ]	outputs[%26T, ]	workspace[]	streamID[@4294967295]
+$23	MatMul-op118	0	inputs[%25T, %11T, ]	outputs[%27T, ]	workspace[]	streamID[@4294967295]
+$24	MatMul-op97	0	inputs[%25T, %5P, ]	outputs[%28T, ]	workspace[]	streamID[@4294967295]
+$25	ApplyMomentum-op113	0	inputs[%7P, %13P, %11P, %22T, %12P, ]	outputs[%29T, ]	workspace[]	streamID[@4294967295]
+$26	ReluGrad-op98	0	inputs[%28T, %11T, ]	outputs[%30T, ]	workspace[]	streamID[@4294967295]
+$27	MatMul-op124	0	inputs[%30T, %8T, ]	outputs[%31T, ]	workspace[]	streamID[@4294967295]
+$28	MatMul-op99	0	inputs[%30T, %3P, ]	outputs[%32T, ]	workspace[]	streamID[@4294967295]
+$29	BiasAddGrad-op121	0	inputs[%30T, ]	outputs[%33T, ]	workspace[]	streamID[@4294967295]
+$30	ApplyMomentum-op116	0	inputs[%6P, %14P, %11P, %26T, %12P, ]	outputs[%34T, ]	workspace[]	streamID[@4294967295]
+$31	Reshape-op100	0	inputs[%32T, ]	outputs[%35T, ]	workspace[]	streamID[@4294967295]
+$32	MaxPoolGrad-op101	0	inputs[%5T, %6T, %35T, ]	outputs[%36T, ]	workspace[]	streamID[@4294967295]
+$33	ApplyMomentum-op119	0	inputs[%5P, %15P, %11P, %27T, %12P, ]	outputs[%37T, ]	workspace[]	streamID[@4294967295]
+$34	ReluGrad-op102	0	inputs[%36T, %5T, ]	outputs[%38T, ]	workspace[]	streamID[@4294967295]
+$35	Conv2DBackpropFilter-op127	0	inputs[%38T, %2T, ]	outputs[%39T, ]	workspace[]	streamID[@4294967295]
+$36	Conv2DBackpropInput-op103	0	inputs[%38T, %2P, ]	outputs[%40T, ]	workspace[]	streamID[@4294967295]
+$37	ApplyMomentum-op122	0	inputs[%4P, %16P, %11P, %33T, %12P, ]	outputs[%41T, ]	workspace[]	streamID[@4294967295]
+$38	MaxPoolGrad-op104	0	inputs[%1T, %2T, %40T, ]	outputs[%42T, ]	workspace[]	streamID[@4294967295]
+$39	ReluGrad-op105	0	inputs[%42T, %1T, ]	outputs[%43T, ]	workspace[]	streamID[@4294967295]
+$40	ApplyMomentum-op125	0	inputs[%3P, %17P, %11P, %31T, %12P, ]	outputs[%44T, ]	workspace[]	streamID[@4294967295]
+$41	Conv2DBackpropFilter-op106	0	inputs[%43T, %0P, ]	outputs[%45T, ]	workspace[]	streamID[@4294967295]
+$42	ApplyMomentum-op128	0	inputs[%2P, %18P, %11P, %39T, %12P, ]	outputs[%46T, ]	workspace[]	streamID[@4294967295]
+$43	ApplyMomentum-op130	0	inputs[%1P, %19P, %11P, %45T, %12P, ]	outputs[%47T, ]	workspace[]	streamID[@4294967295]
+
+
+All Stream Groups:
+
+

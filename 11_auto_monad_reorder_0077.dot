@@ -1,0 +1,727 @@
+digraph mindspore {
+compound=true
+subgraph cluster_0x15996e20620{
+id=cluster_0x15996e20620
+label="254_129_1_construct_wrapper.905[managed]"
+fontname="Courier New"
+node0x159970de9b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]23)</td></tr>
+</table>>,]
+node0x159970e1470_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(loss)</td></tr>
+</table>>,]
+node0x159970e29d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]852)</td></tr>
+</table>>,]
+node0x159970e2770_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970dba30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]865)</td></tr>
+</table>>,]
+node0x159970e6c50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivoutput)</td></tr>
+</table>>,]
+node0x159970e3f30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]843)</td></tr>
+</table>>,]
+node0x159970dcad0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970dc3b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td></tr>
+<tr><td colspan='5' bgcolor='cornsilk'>CNode([CNode]863)</td></tr>
+</table>>,]
+node0x159970e7110_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970e3cd0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]840)</td></tr>
+</table>>,]
+node0x159970eb5f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970e9250_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(equiv[CNode]148)</td></tr>
+</table>>,]
+node0x159970eb130_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivoutput)</td></tr>
+</table>>,]
+node0x159970e9bd0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(equivout)</td></tr>
+</table>>,]
+node0x159970e8d90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(equiv[CNode]148)</td></tr>
+</table>>,]
+node0x159970e7f50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970e8670_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]906)</td></tr>
+</table>>,]
+node0x159970e7a90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970e3a70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]834)</td></tr>
+</table>>,]
+node0x159970e7830_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970e8410_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(equiv[CNode]148)</td></tr>
+</table>>,]
+node0x159970e4190_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivx)</td></tr>
+</table>>,]
+node0x159970df0d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]835)</td></tr>
+</table>>,]
+node0x159970eaed0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivx)</td></tr>
+</table>>,]
+node0x159970e7370_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]251)</td></tr>
+</table>>,]
+node0x159970e5bb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(equivout)</td></tr>
+</table>>,]
+node0x159970e6eb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970db7d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]828)</td></tr>
+</table>>,]
+node0x159970e94b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970ea7b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(equiv[CNode]148)</td></tr>
+</table>>,]
+node0x159970e9710_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivx)</td></tr>
+</table>>,]
+node0x159970e1930_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]829)</td></tr>
+</table>>,]
+node0x159970e9970_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivx)</td></tr>
+</table>>,]
+node0x159970e7cf0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970dd6b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]822)</td></tr>
+</table>>,]
+node0x159970ebab0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(grad)</td></tr>
+</table>>,]
+node0x159970e16d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivx)</td></tr>
+</table>>,]
+node0x159970e43f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivx)</td></tr>
+</table>>,]
+node0x159970e1b90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equiv[CNode]823)</td></tr>
+</table>>,]
+node0x159970e4650_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(equivx)</td></tr>
+</table>>,]
+node0x159970e8b30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(grad)</td></tr>
+</table>>,]
+node0x159970e1df0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970e03d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td></tr>
+<tr><td colspan='5' bgcolor='cornsilk'>CNode([CNode]861)</td></tr>
+</table>>,]
+node0x159970e2c30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970de4f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]859)</td></tr>
+</table>>,]
+node0x159970dcf90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970e0630_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td></tr>
+<tr><td colspan='5' bgcolor='cornsilk'>CNode([CNode]857)</td></tr>
+</table>>,]
+node0x159970de290_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970dec10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]855)</td></tr>
+</table>>,]
+node0x159970e0af0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970dbef0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td></tr>
+<tr><td colspan='5' bgcolor='cornsilk'>CNode([CNode]853)</td></tr>
+</table>>,]
+node0x159970db0b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td></tr>
+<tr><td colspan='7' bgcolor='cornsilk'>CNode([CNode]602)</td></tr>
+</table>>,]
+node0x159970e4b10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]908)</td></tr>
+</table>>,]
+node0x159970e4d70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td><td port='7'>7</td><td port='8'>8</td></tr>
+<tr><td colspan='9' bgcolor='cornsilk'>CNode([CNode]907)</td></tr>
+</table>>,]
+node0x159970db570_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]909)</td></tr>
+</table>>,]
+node0x159970ebf70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dw)</td></tr>
+</table>>,]
+node0x159970dfa50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]909)</td></tr>
+</table>>,]
+node0x159970e6530_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dw)</td></tr>
+</table>>,]
+node0x159970db310_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]909)</td></tr>
+</table>>,]
+node0x159970eb850_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dw)</td></tr>
+</table>>,]
+node0x159970eaa10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode(dw)</td></tr>
+</table>>,]
+node0x159970ec1d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode(dw)</td></tr>
+</table>>,]
+node0x159970ea090_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970eb390_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode(dx)</td></tr>
+</table>>,]
+node0x159970dd1f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(loss)</td></tr>
+</table>>,]
+node0x159970dc610_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td><td port='7'>7</td><td port='8'>8</td></tr>
+<tr><td colspan='9' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970dcd30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970e0d50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970dd450_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970de750_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970df7f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970dee70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970e0fb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x159970e30f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(success)</td></tr>
+</table>>,]
+node0x1599700f310_0[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700d930_1[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997010f30_2[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700fd30_3[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ebe290_4[fontname="Courier New",shape=octagon,label="conv1.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ebca30_5[fontname="Courier New",shape=octagon,label="moments.conv1.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_6[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_7[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_8[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159970137b0_9[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Conv2D</td></tr><tr><td align='left'>instance name: conv2d<br/></td></tr><tr><td align='left'>kernel_size (5, 5)<br/>mode 1<br/>out_channel 6<br/>input_names [x, w]<br/>pad (0, 0, 0, 0)<br/>pad_mode 2<br/>format NCHW<br/>pad_list (0, 0, 0, 0)<br/>groups 1<br/>stride (1, 1, 1, 1)<br/>group 1<br/>dilation (1, 1, 1, 1)<br/>output_names [output]</td></tr></table>>,]
+node0x15996ec11b0_10[fontname="Courier New",shape=octagon,label="inputs0",style=filled,fillcolor=paleturquoise,]
+node0x1599700e6b0_11[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ebe290_12[fontname="Courier New",shape=octagon,label="conv1.weight",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_13[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x1599700fd30_14[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ec26d0_15[fontname="Courier New",shape=octagon,label="conv2.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec8030_16[fontname="Courier New",shape=octagon,label="moments.conv2.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_17[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_18[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_19[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159970141d0_20[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Conv2DBackpropInput</td></tr><tr><td align='left'></td></tr><tr><td align='left'>kernel_size (5, 5)<br/>mode 1<br/>out_channel 16<br/>input_names [out_backprop, filter, input_sizes]<br/>pad (0, 0, 0, 0)<br/>pad_mode 2<br/>format NCHW<br/>pad_list (0, 0, 0, 0)<br/>groups 1<br/>stride (1, 1, 1, 1)<br/>group 1<br/>dilation (1, 1, 1, 1)<br/>output_names [output]</td></tr></table>>,]
+node0x159970115f0_21[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>ValueTuple</td></tr><tr><td>(32<br/>6<br/>14<br/>14)</td></tr></table>>,]
+node0x1599700e6b0_22[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ec26d0_23[fontname="Courier New",shape=octagon,label="conv2.weight",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_24[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15997011950_25[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReluGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [y_backprop, x]</td></tr></table>>,]
+node0x1599700f430_26[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x15997012370_27[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Conv2D</td></tr><tr><td align='left'>instance name: conv2d<br/></td></tr><tr><td align='left'>kernel_size (5, 5)<br/>mode 1<br/>out_channel 16<br/>input_names [x, w]<br/>pad (0, 0, 0, 0)<br/>pad_mode 2<br/>format NCHW<br/>pad_list (0, 0, 0, 0)<br/>groups 1<br/>stride (1, 1, 1, 1)<br/>group 1<br/>dilation (1, 1, 1, 1)<br/>output_names [output]</td></tr></table>>,]
+node0x15997010ab0_28[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MaxPool</td></tr><tr><td align='left'>instance name: max_pool<br/></td></tr><tr><td align='left'>pad_mode 2<br/>output_names [output]<br/>kernel_size (1, 1, 2, 2)<br/>format NCHW<br/>strides (1, 1, 2, 2)<br/>input_names [x]</td></tr></table>>,]
+node0x1599700f430_29[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x15997011dd0_30[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MaxPoolGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>pad_mode 2<br/>output_names [output]<br/>kernel_size (1, 1, 2, 2)<br/>format NCHW<br/>strides (1, 1, 2, 2)<br/>input_names [x_origin, out_origin, grad]</td></tr></table>>,]
+node0x15997010990_31[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Reshape</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [tensor, shape]</td></tr></table>>,]
+node0x15997013b10_32[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>ValueTuple</td></tr><tr><td>(32<br/>16<br/>5<br/>5)</td></tr></table>>,]
+node0x159970153d0_33[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 false<br/>transpose_x1 false<br/>transpose_b false</td></tr></table>>,]
+node0x1599700e6b0_34[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ec2bb0_35[fontname="Courier New",shape=octagon,label="fc1.weight",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_36[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15997011950_37[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReluGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [y_backprop, x]</td></tr></table>>,]
+node0x1599700f430_38[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x1599700dc90_39[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAdd</td></tr><tr><td align='left'>instance name: bias_add<br/></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [x, b]</td></tr></table>>,]
+node0x1599700e6b0_40[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ec2d50_41[fontname="Courier New",shape=octagon,label="fc1.bias",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_42[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x1599700f0d0_43[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'>instance name: matmul<br/></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 true<br/>transpose_x1 false<br/>transpose_b true</td></tr></table>>,]
+node0x15997010990_44[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Reshape</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [tensor, shape]</td></tr></table>>,]
+node0x1599700ff70_45[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>ValueTuple</td></tr><tr><td>(32<br/>-1)</td></tr></table>>,]
+node0x15997010ab0_46[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MaxPool</td></tr><tr><td align='left'>instance name: max_pool<br/></td></tr><tr><td align='left'>pad_mode 2<br/>output_names [output]<br/>kernel_size (1, 1, 2, 2)<br/>format NCHW<br/>strides (1, 1, 2, 2)<br/>input_names [x]</td></tr></table>>,]
+node0x159970153d0_47[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 false<br/>transpose_x1 false<br/>transpose_b false</td></tr></table>>,]
+node0x1599700e6b0_48[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ebedf0_49[fontname="Courier New",shape=octagon,label="fc2.weight",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_50[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15997011950_51[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReluGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [y_backprop, x]</td></tr></table>>,]
+node0x1599700f430_52[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x1599700dc90_53[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAdd</td></tr><tr><td align='left'>instance name: bias_add<br/></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [x, b]</td></tr></table>>,]
+node0x1599700e6b0_54[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ebf2d0_55[fontname="Courier New",shape=octagon,label="fc2.bias",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_56[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x1599700f0d0_57[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'>instance name: matmul<br/></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 true<br/>transpose_x1 false<br/>transpose_b true</td></tr></table>>,]
+node0x159970153d0_58[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 false<br/>transpose_x1 false<br/>transpose_b false</td></tr></table>>,]
+node0x1599700e6b0_59[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ebd0b0_60[fontname="Courier New",shape=octagon,label="fc3.weight",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_61[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x1599700d930_62[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x1599700ee90_63[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>SparseSoftmaxCrossEntropyWithLogits</td></tr><tr><td align='left'>instance name: sparse_softmax_cross_entropy<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [features, labels]<br/>sens 1.000000<br/>is_grad false</td></tr></table>>,]
+node0x15996ebeab0_64[fontname="Courier New",shape=octagon,label="inputs1",style=filled,fillcolor=paleturquoise,]
+node0x1599700dc90_65[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAdd</td></tr><tr><td align='left'>instance name: bias_add<br/></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [x, b]</td></tr></table>>,]
+node0x1599700e6b0_66[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996ebc890_67[fontname="Courier New",shape=octagon,label="fc3.bias",style=filled,fillcolor=paleturquoise,]
+node0x1599697d960_68[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x1599700f0d0_69[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'>instance name: matmul<br/></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 true<br/>transpose_x1 false<br/>transpose_b true</td></tr></table>>,]
+node0x159970154f0_70[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>SparseSoftmaxCrossEntropyWithLogits</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [features, labels]<br/>sens 1.000000<br/>is_grad true</td></tr></table>>,]
+node0x15996ebeab0_71[fontname="Courier New",shape=octagon,label="inputs1",style=filled,fillcolor=paleturquoise,]
+node0x1599700fd30_72[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ec2bb0_73[fontname="Courier New",shape=octagon,label="fc1.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec79b0_74[fontname="Courier New",shape=octagon,label="moments.fc1.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_75[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_76[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_77[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700fd30_78[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ec2d50_79[fontname="Courier New",shape=octagon,label="fc1.bias",style=filled,fillcolor=paleturquoise,]
+node0x15996ec81d0_80[fontname="Courier New",shape=octagon,label="moments.fc1.bias",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_81[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_82[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_83[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700fd30_84[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ebedf0_85[fontname="Courier New",shape=octagon,label="fc2.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec3d90_86[fontname="Courier New",shape=octagon,label="moments.fc2.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_87[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_88[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_89[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700fd30_90[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ebf2d0_91[fontname="Courier New",shape=octagon,label="fc2.bias",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6b10_92[fontname="Courier New",shape=octagon,label="moments.fc2.bias",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_93[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_94[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_95[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700fd30_96[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ebd0b0_97[fontname="Courier New",shape=octagon,label="fc3.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec7330_98[fontname="Courier New",shape=octagon,label="moments.fc3.weight",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_99[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_100[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_101[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700fd30_102[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ApplyMomentum</td></tr><tr><td align='left'>instance name: opt<br/></td></tr><tr><td align='left'>output_names [output]<br/>side_effect_mem true<br/>use_nesterov false<br/>input_names [variable, accumulation, learning_rate, gradient, momentum]<br/>use_locking false<br/>gradient_scale 1.000000</td></tr></table>>,]
+node0x15996ebc890_103[fontname="Courier New",shape=octagon,label="fc3.bias",style=filled,fillcolor=paleturquoise,]
+node0x15996ec3230_104[fontname="Courier New",shape=octagon,label="moments.fc3.bias",style=filled,fillcolor=paleturquoise,]
+node0x15996ec4270_105[fontname="Courier New",shape=octagon,label="learning_rate",style=filled,fillcolor=paleturquoise,]
+node0x15996ec6150_106[fontname="Courier New",shape=octagon,label="momentum",style=filled,fillcolor=paleturquoise,]
+node0x15997010f30_107[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599697d960_108[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15997014890_109[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700ed70_110[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAddGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [dout]</td></tr></table>>,]
+node0x159970138d0_111[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a true<br/>input_names [x1, x2]<br/>transpose_x2 false<br/>transpose_x1 true<br/>transpose_b false</td></tr></table>>,]
+node0x1599700ed70_112[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAddGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [dout]</td></tr></table>>,]
+node0x159970138d0_113[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a true<br/>input_names [x1, x2]<br/>transpose_x2 false<br/>transpose_x1 true<br/>transpose_b false</td></tr></table>>,]
+node0x1599700ed70_114[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAddGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [dout]</td></tr></table>>,]
+node0x159970138d0_115[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a true<br/>input_names [x1, x2]<br/>transpose_x2 false<br/>transpose_x1 true<br/>transpose_b false</td></tr></table>>,]
+node0x15997011a70_116[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Conv2DBackpropFilter</td></tr><tr><td align='left'></td></tr><tr><td align='left'>kernel_size (5, 5)<br/>mode 1<br/>out_channel 16<br/>input_names [out_backprop, input, filter_sizes]<br/>pad (0, 0, 0, 0)<br/>pad_mode 2<br/>format NCHW<br/>pad_list (0, 0, 0, 0)<br/>groups 1<br/>stride (1, 1)<br/>group 1<br/>dilation (1, 1, 1, 1)<br/>output_names [output]</td></tr></table>>,]
+node0x15997014ad0_117[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>ValueTuple</td></tr><tr><td>(16<br/>6<br/>5<br/>5)</td></tr></table>>,]
+node0x15997014530_118[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Conv2DBackpropFilter</td></tr><tr><td align='left'></td></tr><tr><td align='left'>kernel_size (5, 5)<br/>mode 1<br/>out_channel 6<br/>input_names [out_backprop, input, filter_sizes]<br/>pad (0, 0, 0, 0)<br/>pad_mode 2<br/>format NCHW<br/>pad_list (0, 0, 0, 0)<br/>groups 1<br/>stride (1, 1)<br/>group 1<br/>dilation (1, 1, 1, 1)<br/>output_names [output]</td></tr></table>>,]
+node0x15996ec11b0_119[fontname="Courier New",shape=octagon,label="inputs0",style=filled,fillcolor=paleturquoise,]
+node0x15997012490_120[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>ValueTuple</td></tr><tr><td>(6<br/>1<br/>5<br/>5)</td></tr></table>>,]
+node0x15997011950_121[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReluGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [y_backprop, x]</td></tr></table>>,]
+node0x15997011dd0_122[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MaxPoolGrad</td></tr><tr><td align='left'></td></tr><tr><td align='left'>pad_mode 2<br/>output_names [output]<br/>kernel_size (1, 1, 2, 2)<br/>format NCHW<br/>strides (1, 1, 2, 2)<br/>input_names [x_origin, out_origin, grad]</td></tr></table>>,]
+node0x1599700d930_123[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997014890_124[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599700d930_125[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_126[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+node0x1599700d930_127[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_128[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+node0x1599700d930_129[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_130[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+node0x1599700d930_131[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_132[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+node0x1599700d930_133[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_134[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+node0x1599700d930_135[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_136[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+node0x1599700d930_137[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_138[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+node0x1599700d930_139[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15997013210_140[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e20620[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>inputs0</td></tr><tr><td>inputs1</td></tr><tr><td>conv1.weight[6,1,5,5,]</td></tr><tr><td>conv2.weight[16,6,5,5,]</td></tr><tr><td>fc1.weight[120,400,]</td></tr><tr><td>fc1.bias[120,]</td></tr><tr><td>fc2.weight[84,120,]</td></tr><tr><td>fc2.bias[84,]</td></tr><tr><td>fc3.weight[10,84,]</td></tr><tr><td>fc3.bias[10,]</td></tr>
+<tr><td>moments.conv1.weight[6,1,5,5,]</td></tr><tr><td>moments.conv2.weight[16,6,5,5,]</td></tr><tr><td>moments.fc1.weight[120,400,]</td></tr><tr><td>moments.fc1.bias[120,]</td></tr><tr><td>moments.fc2.weight[84,120,]</td></tr><tr><td>moments.fc2.bias[84,]</td></tr><tr><td>moments.fc3.weight[10,84,]</td></tr><tr><td>moments.fc3.bias[10,]</td></tr><tr><td>momentum[]</td></tr><tr><td>learning_rate[]</td></tr>
+</table>>,];}
+node0x1599700f310_0:core->node0x159970de9b0_0:0[arrowhead=vee,style=dashed]
+node0x159970e1470_0:core->node0x159970de9b0_0:1[arrowhead=vee,]
+node0x1599700d930_1:core->node0x159970e1470_0:0[arrowhead=vee,style=dashed]
+node0x159970dd1f0_0:core->node0x159970e1470_0:1[arrowhead=vee,]
+node0x159970e29d0_0:core->node0x159970e1470_0:2[arrowhead=vee,]
+node0x15997010f30_2:core->node0x159970e29d0_0:0[arrowhead=vee,style=dashed]
+node0x159970dba30_0:core->node0x159970e29d0_0:1[arrowhead=vee,]
+node0x159970e2770_0:core->node0x159970e29d0_0:2[arrowhead=vee,]
+node0x1599700fd30_3:core->node0x159970e2770_0:0[arrowhead=vee,style=dashed]
+node0x15996ebe290_4->node0x159970e2770_0:1[arrowhead=vee,]
+node0x15996ebca30_5->node0x159970e2770_0:2[arrowhead=vee,]
+node0x15996ec4270_6->node0x159970e2770_0:3[arrowhead=vee,]
+node0x159970ec1d0_0:core->node0x159970e2770_0:4[arrowhead=vee,]
+node0x15996ec6150_7->node0x159970e2770_0:5[arrowhead=vee,]
+node0x159970dba30_0:core->node0x159970e2770_0:6[arrowhead=vee,]
+node0x15997010f30_8:core->node0x159970dba30_0:0[arrowhead=vee,style=dashed]
+node0x159970dc3b0_0:core->node0x159970dba30_0:1[arrowhead=vee,]
+node0x159970dcad0_0:core->node0x159970dba30_0:2[arrowhead=vee,]
+node0x159970e6c50_0:core->node0x159970dba30_0:3[arrowhead=vee,]
+node0x159970137b0_9:core->node0x159970e6c50_0:0[arrowhead=vee,style=dashed]
+node0x15996ec11b0_10->node0x159970e6c50_0:1[arrowhead=vee,]
+node0x159970e3f30_0:core->node0x159970e6c50_0:2[arrowhead=vee,]
+node0x1599700e6b0_11:core->node0x159970e3f30_0:0[arrowhead=vee,style=dashed]
+node0x15996ebe290_12->node0x159970e3f30_0:1[arrowhead=vee,]
+node0x1599697d960_13:core->node0x159970e3f30_0:2[arrowhead=vee,]
+node0x1599700fd30_14:core->node0x159970dcad0_0:0[arrowhead=vee,style=dashed]
+node0x15996ec26d0_15->node0x159970dcad0_0:1[arrowhead=vee,]
+node0x15996ec8030_16->node0x159970dcad0_0:2[arrowhead=vee,]
+node0x15996ec4270_17->node0x159970dcad0_0:3[arrowhead=vee,]
+node0x159970eaa10_0:core->node0x159970dcad0_0:4[arrowhead=vee,]
+node0x15996ec6150_18->node0x159970dcad0_0:5[arrowhead=vee,]
+node0x159970dc3b0_0:core->node0x159970dcad0_0:6[arrowhead=vee,]
+node0x15997010f30_19:core->node0x159970dc3b0_0:0[arrowhead=vee,style=dashed]
+node0x159970e03d0_0:core->node0x159970dc3b0_0:1[arrowhead=vee,]
+node0x159970e1df0_0:core->node0x159970dc3b0_0:2[arrowhead=vee,]
+node0x159970eb130_0:core->node0x159970dc3b0_0:3[arrowhead=vee,]
+node0x159970e7110_0:core->node0x159970dc3b0_0:4[arrowhead=vee,]
+node0x159970141d0_20:core->node0x159970e7110_0:0[arrowhead=vee,style=dashed]
+node0x159970eb5f0_0:core->node0x159970e7110_0:1[arrowhead=vee,]
+node0x159970e3cd0_0:core->node0x159970e7110_0:2[arrowhead=vee,]
+node0x159970115f0_21:core->node0x159970e7110_0:3[arrowhead=vee,]
+node0x1599700e6b0_22:core->node0x159970e3cd0_0:0[arrowhead=vee,style=dashed]
+node0x15996ec26d0_23->node0x159970e3cd0_0:1[arrowhead=vee,]
+node0x1599697d960_24:core->node0x159970e3cd0_0:2[arrowhead=vee,]
+node0x15997011950_25:core->node0x159970eb5f0_0:0[arrowhead=vee,style=dashed]
+node0x159970e7f50_0:core->node0x159970eb5f0_0:1[arrowhead=vee,]
+node0x159970e9250_0:core->node0x159970eb5f0_0:2[arrowhead=vee,]
+node0x1599700f430_26:core->node0x159970e9250_0:0[arrowhead=vee,style=dashed]
+node0x159970eb130_0:core->node0x159970e9250_0:1[arrowhead=vee,]
+node0x15997012370_27:core->node0x159970eb130_0:0[arrowhead=vee,style=dashed]
+node0x159970e9bd0_0:core->node0x159970eb130_0:1[arrowhead=vee,]
+node0x159970e3cd0_0:core->node0x159970eb130_0:2[arrowhead=vee,]
+node0x15997010ab0_28:core->node0x159970e9bd0_0:0[arrowhead=vee,style=dashed]
+node0x159970e8d90_0:core->node0x159970e9bd0_0:1[arrowhead=vee,]
+node0x1599700f430_29:core->node0x159970e8d90_0:0[arrowhead=vee,style=dashed]
+node0x159970e6c50_0:core->node0x159970e8d90_0:1[arrowhead=vee,]
+node0x15997011dd0_30:core->node0x159970e7f50_0:0[arrowhead=vee,style=dashed]
+node0x159970e9250_0:core->node0x159970e7f50_0:1[arrowhead=vee,]
+node0x159970e5bb0_0:core->node0x159970e7f50_0:2[arrowhead=vee,]
+node0x159970e8670_0:core->node0x159970e7f50_0:3[arrowhead=vee,]
+node0x15997010990_31:core->node0x159970e8670_0:0[arrowhead=vee,style=dashed]
+node0x159970e7a90_0:core->node0x159970e8670_0:1[arrowhead=vee,]
+node0x15997013b10_32:core->node0x159970e8670_0:2[arrowhead=vee,]
+node0x159970153d0_33:core->node0x159970e7a90_0:0[arrowhead=vee,style=dashed]
+node0x159970e7830_0:core->node0x159970e7a90_0:1[arrowhead=vee,]
+node0x159970e3a70_0:core->node0x159970e7a90_0:2[arrowhead=vee,]
+node0x1599700e6b0_34:core->node0x159970e3a70_0:0[arrowhead=vee,style=dashed]
+node0x15996ec2bb0_35->node0x159970e3a70_0:1[arrowhead=vee,]
+node0x1599697d960_36:core->node0x159970e3a70_0:2[arrowhead=vee,]
+node0x15997011950_37:core->node0x159970e7830_0:0[arrowhead=vee,style=dashed]
+node0x159970e6eb0_0:core->node0x159970e7830_0:1[arrowhead=vee,]
+node0x159970e8410_0:core->node0x159970e7830_0:2[arrowhead=vee,]
+node0x1599700f430_38:core->node0x159970e8410_0:0[arrowhead=vee,style=dashed]
+node0x159970e4190_0:core->node0x159970e8410_0:1[arrowhead=vee,]
+node0x1599700dc90_39:core->node0x159970e4190_0:0[arrowhead=vee,style=dashed]
+node0x159970eaed0_0:core->node0x159970e4190_0:1[arrowhead=vee,]
+node0x159970df0d0_0:core->node0x159970e4190_0:2[arrowhead=vee,]
+node0x1599700e6b0_40:core->node0x159970df0d0_0:0[arrowhead=vee,style=dashed]
+node0x15996ec2d50_41->node0x159970df0d0_0:1[arrowhead=vee,]
+node0x1599697d960_42:core->node0x159970df0d0_0:2[arrowhead=vee,]
+node0x1599700f0d0_43:core->node0x159970eaed0_0:0[arrowhead=vee,style=dashed]
+node0x159970e7370_0:core->node0x159970eaed0_0:1[arrowhead=vee,]
+node0x159970e3a70_0:core->node0x159970eaed0_0:2[arrowhead=vee,]
+node0x15997010990_44:core->node0x159970e7370_0:0[arrowhead=vee,style=dashed]
+node0x159970e5bb0_0:core->node0x159970e7370_0:1[arrowhead=vee,]
+node0x1599700ff70_45:core->node0x159970e7370_0:2[arrowhead=vee,]
+node0x15997010ab0_46:core->node0x159970e5bb0_0:0[arrowhead=vee,style=dashed]
+node0x159970e9250_0:core->node0x159970e5bb0_0:1[arrowhead=vee,]
+node0x159970153d0_47:core->node0x159970e6eb0_0:0[arrowhead=vee,style=dashed]
+node0x159970e94b0_0:core->node0x159970e6eb0_0:1[arrowhead=vee,]
+node0x159970db7d0_0:core->node0x159970e6eb0_0:2[arrowhead=vee,]
+node0x1599700e6b0_48:core->node0x159970db7d0_0:0[arrowhead=vee,style=dashed]
+node0x15996ebedf0_49->node0x159970db7d0_0:1[arrowhead=vee,]
+node0x1599697d960_50:core->node0x159970db7d0_0:2[arrowhead=vee,]
+node0x15997011950_51:core->node0x159970e94b0_0:0[arrowhead=vee,style=dashed]
+node0x159970e7cf0_0:core->node0x159970e94b0_0:1[arrowhead=vee,]
+node0x159970ea7b0_0:core->node0x159970e94b0_0:2[arrowhead=vee,]
+node0x1599700f430_52:core->node0x159970ea7b0_0:0[arrowhead=vee,style=dashed]
+node0x159970e9710_0:core->node0x159970ea7b0_0:1[arrowhead=vee,]
+node0x1599700dc90_53:core->node0x159970e9710_0:0[arrowhead=vee,style=dashed]
+node0x159970e9970_0:core->node0x159970e9710_0:1[arrowhead=vee,]
+node0x159970e1930_0:core->node0x159970e9710_0:2[arrowhead=vee,]
+node0x1599700e6b0_54:core->node0x159970e1930_0:0[arrowhead=vee,style=dashed]
+node0x15996ebf2d0_55->node0x159970e1930_0:1[arrowhead=vee,]
+node0x1599697d960_56:core->node0x159970e1930_0:2[arrowhead=vee,]
+node0x1599700f0d0_57:core->node0x159970e9970_0:0[arrowhead=vee,style=dashed]
+node0x159970e8410_0:core->node0x159970e9970_0:1[arrowhead=vee,]
+node0x159970db7d0_0:core->node0x159970e9970_0:2[arrowhead=vee,]
+node0x159970153d0_58:core->node0x159970e7cf0_0:0[arrowhead=vee,style=dashed]
+node0x159970ebab0_0:core->node0x159970e7cf0_0:1[arrowhead=vee,]
+node0x159970dd6b0_0:core->node0x159970e7cf0_0:2[arrowhead=vee,]
+node0x1599700e6b0_59:core->node0x159970dd6b0_0:0[arrowhead=vee,style=dashed]
+node0x15996ebd0b0_60->node0x159970dd6b0_0:1[arrowhead=vee,]
+node0x1599697d960_61:core->node0x159970dd6b0_0:2[arrowhead=vee,]
+node0x1599700d930_62:core->node0x159970ebab0_0:0[arrowhead=vee,style=dashed]
+node0x159970e8b30_0:core->node0x159970ebab0_0:1[arrowhead=vee,]
+node0x159970e16d0_0:core->node0x159970ebab0_0:2[arrowhead=vee,]
+node0x1599700ee90_63:core->node0x159970e16d0_0:0[arrowhead=vee,style=dashed]
+node0x159970e43f0_0:core->node0x159970e16d0_0:1[arrowhead=vee,]
+node0x15996ebeab0_64->node0x159970e16d0_0:2[arrowhead=vee,]
+node0x1599700dc90_65:core->node0x159970e43f0_0:0[arrowhead=vee,style=dashed]
+node0x159970e4650_0:core->node0x159970e43f0_0:1[arrowhead=vee,]
+node0x159970e1b90_0:core->node0x159970e43f0_0:2[arrowhead=vee,]
+node0x1599700e6b0_66:core->node0x159970e1b90_0:0[arrowhead=vee,style=dashed]
+node0x15996ebc890_67->node0x159970e1b90_0:1[arrowhead=vee,]
+node0x1599697d960_68:core->node0x159970e1b90_0:2[arrowhead=vee,]
+node0x1599700f0d0_69:core->node0x159970e4650_0:0[arrowhead=vee,style=dashed]
+node0x159970ea7b0_0:core->node0x159970e4650_0:1[arrowhead=vee,]
+node0x159970dd6b0_0:core->node0x159970e4650_0:2[arrowhead=vee,]
+node0x159970154f0_70:core->node0x159970e8b30_0:0[arrowhead=vee,style=dashed]
+node0x159970e43f0_0:core->node0x159970e8b30_0:1[arrowhead=vee,]
+node0x15996ebeab0_71->node0x159970e8b30_0:2[arrowhead=vee,]
+node0x1599700fd30_72:core->node0x159970e1df0_0:0[arrowhead=vee,style=dashed]
+node0x15996ec2bb0_73->node0x159970e1df0_0:1[arrowhead=vee,]
+node0x15996ec79b0_74->node0x159970e1df0_0:2[arrowhead=vee,]
+node0x15996ec4270_75->node0x159970e1df0_0:3[arrowhead=vee,]
+node0x159970eb850_0:core->node0x159970e1df0_0:4[arrowhead=vee,]
+node0x15996ec6150_76->node0x159970e1df0_0:5[arrowhead=vee,]
+node0x159970e03d0_0:core->node0x159970e1df0_0:6[arrowhead=vee,]
+node0x15997010f30_77:core->node0x159970e03d0_0:0[arrowhead=vee,style=dashed]
+node0x159970de4f0_0:core->node0x159970e03d0_0:1[arrowhead=vee,]
+node0x159970e2c30_0:core->node0x159970e03d0_0:2[arrowhead=vee,]
+node0x159970eaed0_0:core->node0x159970e03d0_0:3[arrowhead=vee,]
+node0x159970e7a90_0:core->node0x159970e03d0_0:4[arrowhead=vee,]
+node0x1599700fd30_78:core->node0x159970e2c30_0:0[arrowhead=vee,style=dashed]
+node0x15996ec2d50_79->node0x159970e2c30_0:1[arrowhead=vee,]
+node0x15996ec81d0_80->node0x159970e2c30_0:2[arrowhead=vee,]
+node0x15996ec4270_81->node0x159970e2c30_0:3[arrowhead=vee,]
+node0x159970db310_0:core->node0x159970e2c30_0:4[arrowhead=vee,]
+node0x15996ec6150_82->node0x159970e2c30_0:5[arrowhead=vee,]
+node0x159970de4f0_0:core->node0x159970e2c30_0:6[arrowhead=vee,]
+node0x15997010f30_83:core->node0x159970de4f0_0:0[arrowhead=vee,style=dashed]
+node0x159970e0630_0:core->node0x159970de4f0_0:1[arrowhead=vee,]
+node0x159970dcf90_0:core->node0x159970de4f0_0:2[arrowhead=vee,]
+node0x159970e4190_0:core->node0x159970de4f0_0:3[arrowhead=vee,]
+node0x1599700fd30_84:core->node0x159970dcf90_0:0[arrowhead=vee,style=dashed]
+node0x15996ebedf0_85->node0x159970dcf90_0:1[arrowhead=vee,]
+node0x15996ec3d90_86->node0x159970dcf90_0:2[arrowhead=vee,]
+node0x15996ec4270_87->node0x159970dcf90_0:3[arrowhead=vee,]
+node0x159970e6530_0:core->node0x159970dcf90_0:4[arrowhead=vee,]
+node0x15996ec6150_88->node0x159970dcf90_0:5[arrowhead=vee,]
+node0x159970e0630_0:core->node0x159970dcf90_0:6[arrowhead=vee,]
+node0x15997010f30_89:core->node0x159970e0630_0:0[arrowhead=vee,style=dashed]
+node0x159970dec10_0:core->node0x159970e0630_0:1[arrowhead=vee,]
+node0x159970de290_0:core->node0x159970e0630_0:2[arrowhead=vee,]
+node0x159970e9970_0:core->node0x159970e0630_0:3[arrowhead=vee,]
+node0x159970e6eb0_0:core->node0x159970e0630_0:4[arrowhead=vee,]
+node0x1599700fd30_90:core->node0x159970de290_0:0[arrowhead=vee,style=dashed]
+node0x15996ebf2d0_91->node0x159970de290_0:1[arrowhead=vee,]
+node0x15996ec6b10_92->node0x159970de290_0:2[arrowhead=vee,]
+node0x15996ec4270_93->node0x159970de290_0:3[arrowhead=vee,]
+node0x159970dfa50_0:core->node0x159970de290_0:4[arrowhead=vee,]
+node0x15996ec6150_94->node0x159970de290_0:5[arrowhead=vee,]
+node0x159970dec10_0:core->node0x159970de290_0:6[arrowhead=vee,]
+node0x15997010f30_95:core->node0x159970dec10_0:0[arrowhead=vee,style=dashed]
+node0x159970dbef0_0:core->node0x159970dec10_0:1[arrowhead=vee,]
+node0x159970e0af0_0:core->node0x159970dec10_0:2[arrowhead=vee,]
+node0x159970e9710_0:core->node0x159970dec10_0:3[arrowhead=vee,]
+node0x1599700fd30_96:core->node0x159970e0af0_0:0[arrowhead=vee,style=dashed]
+node0x15996ebd0b0_97->node0x159970e0af0_0:1[arrowhead=vee,]
+node0x15996ec7330_98->node0x159970e0af0_0:2[arrowhead=vee,]
+node0x15996ec4270_99->node0x159970e0af0_0:3[arrowhead=vee,]
+node0x159970ebf70_0:core->node0x159970e0af0_0:4[arrowhead=vee,]
+node0x15996ec6150_100->node0x159970e0af0_0:5[arrowhead=vee,]
+node0x159970dbef0_0:core->node0x159970e0af0_0:6[arrowhead=vee,]
+node0x15997010f30_101:core->node0x159970dbef0_0:0[arrowhead=vee,style=dashed]
+node0x159970e4b10_0:core->node0x159970dbef0_0:1[arrowhead=vee,]
+node0x159970db0b0_0:core->node0x159970dbef0_0:2[arrowhead=vee,]
+node0x159970e4650_0:core->node0x159970dbef0_0:3[arrowhead=vee,]
+node0x159970e7cf0_0:core->node0x159970dbef0_0:4[arrowhead=vee,]
+node0x1599700fd30_102:core->node0x159970db0b0_0:0[arrowhead=vee,style=dashed]
+node0x15996ebc890_103->node0x159970db0b0_0:1[arrowhead=vee,]
+node0x15996ec3230_104->node0x159970db0b0_0:2[arrowhead=vee,]
+node0x15996ec4270_105->node0x159970db0b0_0:3[arrowhead=vee,]
+node0x159970db570_0:core->node0x159970db0b0_0:4[arrowhead=vee,]
+node0x15996ec6150_106->node0x159970db0b0_0:5[arrowhead=vee,]
+node0x159970e4b10_0:core->node0x159970db0b0_0:6[arrowhead=vee,]
+node0x15997010f30_107:core->node0x159970e4b10_0:0[arrowhead=vee,style=dashed]
+node0x1599697d960_108:core->node0x159970e4b10_0:1[arrowhead=vee,]
+node0x159970e4d70_0:core->node0x159970e4b10_0:2[arrowhead=vee,]
+node0x159970e43f0_0:core->node0x159970e4b10_0:3[arrowhead=vee,]
+node0x15997014890_109:core->node0x159970e4d70_0:0[arrowhead=vee,style=dashed]
+node0x159970e1b90_0:core->node0x159970e4d70_0:1[arrowhead=vee,]
+node0x159970e1930_0:core->node0x159970e4d70_0:2[arrowhead=vee,]
+node0x159970df0d0_0:core->node0x159970e4d70_0:3[arrowhead=vee,]
+node0x159970e3cd0_0:core->node0x159970e4d70_0:4[arrowhead=vee,]
+node0x159970e3f30_0:core->node0x159970e4d70_0:5[arrowhead=vee,]
+node0x159970e3a70_0:core->node0x159970e4d70_0:6[arrowhead=vee,]
+node0x159970db7d0_0:core->node0x159970e4d70_0:7[arrowhead=vee,]
+node0x159970dd6b0_0:core->node0x159970e4d70_0:8[arrowhead=vee,]
+node0x1599700ed70_110:core->node0x159970db570_0:0[arrowhead=vee,style=dashed]
+node0x159970ebab0_0:core->node0x159970db570_0:1[arrowhead=vee,]
+node0x159970138d0_111:core->node0x159970ebf70_0:0[arrowhead=vee,style=dashed]
+node0x159970ebab0_0:core->node0x159970ebf70_0:1[arrowhead=vee,]
+node0x159970ea7b0_0:core->node0x159970ebf70_0:2[arrowhead=vee,]
+node0x1599700ed70_112:core->node0x159970dfa50_0:0[arrowhead=vee,style=dashed]
+node0x159970e94b0_0:core->node0x159970dfa50_0:1[arrowhead=vee,]
+node0x159970138d0_113:core->node0x159970e6530_0:0[arrowhead=vee,style=dashed]
+node0x159970e94b0_0:core->node0x159970e6530_0:1[arrowhead=vee,]
+node0x159970e8410_0:core->node0x159970e6530_0:2[arrowhead=vee,]
+node0x1599700ed70_114:core->node0x159970db310_0:0[arrowhead=vee,style=dashed]
+node0x159970e7830_0:core->node0x159970db310_0:1[arrowhead=vee,]
+node0x159970138d0_115:core->node0x159970eb850_0:0[arrowhead=vee,style=dashed]
+node0x159970e7830_0:core->node0x159970eb850_0:1[arrowhead=vee,]
+node0x159970e7370_0:core->node0x159970eb850_0:2[arrowhead=vee,]
+node0x15997011a70_116:core->node0x159970eaa10_0:0[arrowhead=vee,style=dashed]
+node0x159970eb5f0_0:core->node0x159970eaa10_0:1[arrowhead=vee,]
+node0x159970e9bd0_0:core->node0x159970eaa10_0:2[arrowhead=vee,]
+node0x15997014ad0_117:core->node0x159970eaa10_0:3[arrowhead=vee,]
+node0x15997014530_118:core->node0x159970ec1d0_0:0[arrowhead=vee,style=dashed]
+node0x159970ea090_0:core->node0x159970ec1d0_0:1[arrowhead=vee,]
+node0x15996ec11b0_119->node0x159970ec1d0_0:2[arrowhead=vee,]
+node0x15997012490_120:core->node0x159970ec1d0_0:3[arrowhead=vee,]
+node0x15997011950_121:core->node0x159970ea090_0:0[arrowhead=vee,style=dashed]
+node0x159970eb390_0:core->node0x159970ea090_0:1[arrowhead=vee,]
+node0x159970e8d90_0:core->node0x159970ea090_0:2[arrowhead=vee,]
+node0x15997011dd0_122:core->node0x159970eb390_0:0[arrowhead=vee,style=dashed]
+node0x159970e8d90_0:core->node0x159970eb390_0:1[arrowhead=vee,]
+node0x159970e9bd0_0:core->node0x159970eb390_0:2[arrowhead=vee,]
+node0x159970e7110_0:core->node0x159970eb390_0:3[arrowhead=vee,]
+node0x1599700d930_123:core->node0x159970dd1f0_0:0[arrowhead=vee,style=dashed]
+node0x159970e16d0_0:core->node0x159970dd1f0_0:1[arrowhead=vee,]
+node0x159970dc610_0:core->node0x159970dd1f0_0:2[arrowhead=vee,]
+node0x15997014890_124:core->node0x159970dc610_0:0[arrowhead=vee,style=dashed]
+node0x159970e30f0_0:core->node0x159970dc610_0:1[arrowhead=vee,]
+node0x159970e0fb0_0:core->node0x159970dc610_0:2[arrowhead=vee,]
+node0x159970dee70_0:core->node0x159970dc610_0:3[arrowhead=vee,]
+node0x159970df7f0_0:core->node0x159970dc610_0:4[arrowhead=vee,]
+node0x159970de750_0:core->node0x159970dc610_0:5[arrowhead=vee,]
+node0x159970dd450_0:core->node0x159970dc610_0:6[arrowhead=vee,]
+node0x159970e0d50_0:core->node0x159970dc610_0:7[arrowhead=vee,]
+node0x159970dcd30_0:core->node0x159970dc610_0:8[arrowhead=vee,]
+node0x1599700d930_125:core->node0x159970dcd30_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_126:core->node0x159970dcd30_0:1[arrowhead=vee,]
+node0x159970db0b0_0:core->node0x159970dcd30_0:2[arrowhead=vee,]
+node0x1599700d930_127:core->node0x159970e0d50_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_128:core->node0x159970e0d50_0:1[arrowhead=vee,]
+node0x159970e0af0_0:core->node0x159970e0d50_0:2[arrowhead=vee,]
+node0x1599700d930_129:core->node0x159970dd450_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_130:core->node0x159970dd450_0:1[arrowhead=vee,]
+node0x159970de290_0:core->node0x159970dd450_0:2[arrowhead=vee,]
+node0x1599700d930_131:core->node0x159970de750_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_132:core->node0x159970de750_0:1[arrowhead=vee,]
+node0x159970dcf90_0:core->node0x159970de750_0:2[arrowhead=vee,]
+node0x1599700d930_133:core->node0x159970df7f0_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_134:core->node0x159970df7f0_0:1[arrowhead=vee,]
+node0x159970e2c30_0:core->node0x159970df7f0_0:2[arrowhead=vee,]
+node0x1599700d930_135:core->node0x159970dee70_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_136:core->node0x159970dee70_0:1[arrowhead=vee,]
+node0x159970e1df0_0:core->node0x159970dee70_0:2[arrowhead=vee,]
+node0x1599700d930_137:core->node0x159970e0fb0_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_138:core->node0x159970e0fb0_0:1[arrowhead=vee,]
+node0x159970dcad0_0:core->node0x159970e0fb0_0:2[arrowhead=vee,]
+node0x1599700d930_139:core->node0x159970e30f0_0:0[arrowhead=vee,style=dashed]
+node0x15997013210_140:core->node0x159970e30f0_0:1[arrowhead=vee,]
+node0x159970e2770_0:core->node0x159970e30f0_0:2[arrowhead=vee,]
+}

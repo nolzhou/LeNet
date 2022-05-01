@@ -1,0 +1,90 @@
+#IR entry      : @construct_wrapper.1
+#attrs         :
+training : 1
+#Total params  : 1
+
+%para1_inputs : <null>
+
+#Total subgraph : 2
+
+subgraph attr:
+training : 1
+subgraph @construct.22(%para2_inputs) {
+  %0([CNode]2) = resolve(SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper', F)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %1([CNode]3) = getattr(%0, depend)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  %2([CNode]4) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', network)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(361)/        loss = self.network(*inputs)/
+  %3(loss) = unpack_call.5(%2, %para2_inputs)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(361)/        loss = self.network(*inputs)/
+  %4([CNode]6) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', optimizer)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  %5([CNode]7) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', grad_reducer)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(364)/        grads = self.grad_reducer(grads)/
+  %6([CNode]8) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', grad)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %7([CNode]9) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', network)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %8([CNode]10) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', weights)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %9([CNode]11) = %6(%7, %8)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %10([CNode]12) = resolve(CommonOPS: 'Namespace:mindspore._extends.parse.trope', MakeTuple)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %11([CNode]13) = getattr(%0, fill)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %12([CNode]14) = getattr(%3, dtype)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %13([CNode]15) = getattr(%3, shape)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %14([CNode]16) = resolve(ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', sens)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %15(sens) = %11(%12, %13, %14)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/
+  %16([CNode]17) = %10(%15)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %17(grads) = unpack_call.18(%9, %para2_inputs, %16)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/
+  %18(grads) = %5(%17)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(364)/        grads = self.grad_reducer(grads)/
+  %19([CNode]19) = %4(%18)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  %20(loss) = %1(%3, %19)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/
+  Return(%20)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/
+}
+
+subgraph attr:
+training : 1
+subgraph @construct_wrapper.1() {
+  %0([CNode]20) = unpack_call.21(@construct.22, %para1_inputs)
+      : (<null>, <null>) -> (<null>)
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/
+}
+

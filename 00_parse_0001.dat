@@ -1,0 +1,101 @@
+# [No.1] construct_wrapper.1
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(360)/    def construct(self, *inputs):/
+funcgraph fg_1(
+        %para1    # inputs
+    ) {
+    %1 = UnpackCall::unpack_call(FuncGraph::fg_22, %para1)    #(Undefined, Undefined)    # fg_22=construct.22 #scope: Default
+#[CNode]20
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/#[CNode]23
+}
+# order:
+#   1: construct_wrapper.1:[CNode]20{[0]: ValueNode<UnpackCall> unpack_call.21, [1]: ValueNode<FuncGraph> construct.22, [2]: inputs}
+#   2: construct_wrapper.1:[CNode]23{[0]: ValueNode<Primitive> Return, [1]: [CNode]20}
+
+
+# [No.2] construct.22
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(360)/    def construct(self, *inputs):/
+funcgraph fg_22(
+        %para2    # inputs
+    ) {
+    %1 = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#[CNode]2
+    %2 = Primitive::getattr{prim_type=1}(%1, "depend")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#[CNode]3
+    %3 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, network)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(361)/        loss = self.network(*inputs)/#[CNode]4
+    %4 = UnpackCall::unpack_call(%3, %para2)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(361)/        loss = self.network(*inputs)/#loss
+    %5 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, optimizer)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#[CNode]6
+    %6 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, grad_reducer)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(364)/        grads = self.grad_reducer(grads)/#[CNode]7
+    %7 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, grad)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]8
+    %8 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, network)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]9
+    %9 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, weights)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]10
+    %10 = %7(%8, %9)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]11
+    %11 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, MakeTuple)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]12
+    %12 = Primitive::getattr{prim_type=1}(%1, "fill")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#[CNode]13
+    %13 = Primitive::getattr{prim_type=1}(%4, "dtype")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#[CNode]14
+    %14 = Primitive::getattr{prim_type=1}(%4, "shape")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#[CNode]15
+    %15 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, sens)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#[CNode]16
+    %16 = %12(%13, %14, %15)    #(Undefined, Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(362)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#sens
+    %17 = %11(%16)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]17
+    %18 = UnpackCall::unpack_call(%10, %para2, %17)    #(Undefined, Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %19 = %6(%18)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(364)/        grads = self.grad_reducer(grads)/#grads
+    %20 = %5(%19)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#[CNode]19
+    %21 = %2(%4, %20)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#loss
+    Primitive::Return{prim_type=1}(%21)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/#[CNode]24
+}
+# order:
+#   1: construct.22:[CNode]4{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', [2]: ValueNode<Symbol> network}
+#   2: construct.22:loss{[0]: ValueNode<UnpackCall> unpack_call.5, [1]: [CNode]4, [2]: inputs}
+#   3: construct.22:[CNode]2{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper', [2]: ValueNode<Symbol> F}
+#   4: construct.22:[CNode]13{[0]: ValueNode<Primitive> getattr, [1]: [CNode]2, [2]: ValueNode<StringImm> fill}
+#   5: construct.22:[CNode]14{[0]: ValueNode<Primitive> getattr, [1]: loss, [2]: ValueNode<StringImm> dtype}
+#   6: construct.22:[CNode]15{[0]: ValueNode<Primitive> getattr, [1]: loss, [2]: ValueNode<StringImm> shape}
+#   7: construct.22:[CNode]16{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', [2]: ValueNode<Symbol> sens}
+#   8: construct.22:[CNode]25{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   9: construct.22:[CNode]26{[0]: [CNode]25, [1]: [CNode]14, [2]: [CNode]15, [3]: [CNode]16}
+#  10: construct.22:sens{[0]: [CNode]13, [1]: [CNode]14, [2]: [CNode]15, [3]: [CNode]16}
+#  11: construct.22:[CNode]8{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', [2]: ValueNode<Symbol> grad}
+#  12: construct.22:[CNode]9{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', [2]: ValueNode<Symbol> network}
+#  13: construct.22:[CNode]10{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', [2]: ValueNode<Symbol> weights}
+#  14: construct.22:[CNode]27{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  15: construct.22:[CNode]28{[0]: [CNode]27, [1]: [CNode]9, [2]: [CNode]10}
+#  16: construct.22:[CNode]11{[0]: [CNode]8, [1]: [CNode]9, [2]: [CNode]10}
+#  17: construct.22:[CNode]12{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  18: construct.22:[CNode]17{[0]: [CNode]12, [1]: sens}
+#  19: construct.22:grads{[0]: ValueNode<UnpackCall> unpack_call.18, [1]: [CNode]11, [2]: inputs, [3]: [CNode]17}
+#  20: construct.22:[CNode]7{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', [2]: ValueNode<Symbol> grad_reducer}
+#  21: construct.22:[CNode]29{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  22: construct.22:[CNode]30{[0]: [CNode]29, [1]: grads}
+#  23: construct.22:grads{[0]: [CNode]7, [1]: grads}
+#  24: construct.22:[CNode]3{[0]: ValueNode<Primitive> getattr, [1]: [CNode]2, [2]: ValueNode<StringImm> depend}
+#  25: construct.22:[CNode]6{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<TrainOneStepCell::1484101703536>', [2]: ValueNode<Symbol> optimizer}
+#  26: construct.22:[CNode]31{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  27: construct.22:[CNode]32{[0]: [CNode]31, [1]: grads}
+#  28: construct.22:[CNode]19{[0]: [CNode]6, [1]: grads}
+#  29: construct.22:[CNode]33{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  30: construct.22:[CNode]34{[0]: [CNode]33, [1]: loss, [2]: [CNode]19}
+#  31: construct.22:loss{[0]: [CNode]3, [1]: loss, [2]: [CNode]19}
+#  32: construct.22:[CNode]24{[0]: ValueNode<Primitive> Return, [1]: loss}
+
+
+# num of total function graphs: 2

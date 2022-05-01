@@ -1,0 +1,83 @@
+#IR entry      : @306_255_construct_wrapper.1358
+#attrs         :
+training : 0
+check_set_strategy_valid_once_only : 1
+#Total params  : 10
+
+%para1_data : <Tensor[Float32], (32, 1, 32, 32)>
+%para2_label : <Tensor[Int32], (32)>
+%para3_fc3.bias : <Ref[Tensor(F32)], (10)>
+%para4_fc3.weight : <Ref[Tensor(F32)], (10, 84)>
+%para5_fc2.bias : <Ref[Tensor(F32)], (84)>
+%para6_fc2.weight : <Ref[Tensor(F32)], (84, 120)>
+%para7_conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>
+%para8_fc1.bias : <Ref[Tensor(F32)], (120)>
+%para9_fc1.weight : <Ref[Tensor(F32)], (120, 400)>
+%para10_conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>
+
+#Total subgraph : 1
+
+subgraph attr:
+training : 0
+check_set_strategy_valid_once_only : 1
+subgraph @306_255_construct_wrapper.1358() {
+  %0([CNode]1348) = Load(%para10_conv1.weight, U)
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <UMonad>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+  %1(output) = Conv2D(%para1_data, %0) {instance name: conv2d} primitive_attrs: {kernel_size: (5, 5), mode: 1, out_channel: 6, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: 2, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output]}
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+  %2([CNode]1060) = ReLU(%1) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+  %3(out) = MaxPool(%2) {instance name: max_pool} primitive_attrs: {pad_mode: 2, output_names: [output], kernel_size: (1, 1, 2, 2), format: NCHW, strides: (1, 1, 2, 2), input_names: [x]}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 14, 14)>)
+  %4([CNode]1345) = Load(%para7_conv2.weight, U)
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>, <UMonad>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+  %5(output) = Conv2D(%3, %4) {instance name: conv2d} primitive_attrs: {kernel_size: (5, 5), mode: 1, out_channel: 16, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: 2, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output]}
+      : (<Tensor[Float32], (32, 6, 14, 14)>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+  %6([CNode]1060) = ReLU(%5) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+  %7(out) = MaxPool(%6) {instance name: max_pool} primitive_attrs: {pad_mode: 2, output_names: [output], kernel_size: (1, 1, 2, 2), format: NCHW, strides: (1, 1, 2, 2), input_names: [x]}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 5, 5)>)
+  %8([CNode]1163) = Reshape(%7, (32, -1)) primitive_attrs: {output_names: [output], input_names: [tensor, shape]}
+      : (<Tensor[Float32], (32, 16, 5, 5)>, <Tuple[Int64*2], sequence_nodes={node={<freed node>}, node={ValueNode<ValueTuple> (32, -1), elements_use_flags: {ptr: 0x15994821320, value: [const vector][1, 1]}}, node={ValueNode<ValueTuple> (32, -1), elements_use_flags: {ptr: 0x15994821320, value: [const vector][1, 1]}}}>) -> (<Tensor[Float32], (32, 400)>)
+  %9([CNode]1339) = Load(%para9_fc1.weight, U)
+      : (<Ref[Tensor(F32)], (120, 400)>, <UMonad>) -> (<Tensor[Float32], (120, 400)>)
+  %10(x) = MatMul(%8, %9) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 400)>, <Tensor[Float32], (120, 400)>) -> (<Tensor[Float32], (32, 120)>)
+  %11([CNode]1340) = Load(%para8_fc1.bias, U)
+      : (<Ref[Tensor(F32)], (120)>, <UMonad>) -> (<Tensor[Float32], (120)>)
+  %12(x) = BiasAdd(%10, %11) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (120)>) -> (<Tensor[Float32], (32, 120)>)
+  %13([CNode]1060) = ReLU(%12) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+  %14([CNode]1333) = Load(%para6_fc2.weight, U)
+      : (<Ref[Tensor(F32)], (84, 120)>, <UMonad>) -> (<Tensor[Float32], (84, 120)>)
+  %15(x) = MatMul(%13, %14) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (84, 120)>) -> (<Tensor[Float32], (32, 84)>)
+  %16([CNode]1334) = Load(%para5_fc2.bias, U)
+      : (<Ref[Tensor(F32)], (84)>, <UMonad>) -> (<Tensor[Float32], (84)>)
+  %17(x) = BiasAdd(%15, %16) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (84)>) -> (<Tensor[Float32], (32, 84)>)
+  %18([CNode]1060) = ReLU(%17) {instance name: relu} primitive_attrs: {output_names: [output], input_names: [x]}
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+  %19([CNode]1327) = Load(%para4_fc3.weight, U)
+      : (<Ref[Tensor(F32)], (10, 84)>, <UMonad>) -> (<Tensor[Float32], (10, 84)>)
+  %20(x) = MatMul(%18, %19) {instance name: matmul} primitive_attrs: {output_names: [output], transpose_a: false, input_names: [x1, x2], transpose_x2: true, transpose_x1: false, transpose_b: true}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (10, 84)>) -> (<Tensor[Float32], (32, 10)>)
+  %21([CNode]1328) = Load(%para3_fc3.bias, U)
+      : (<Ref[Tensor(F32)], (10)>, <UMonad>) -> (<Tensor[Float32], (10)>)
+  %22(x) = BiasAdd(%20, %21) {instance name: bias_add} primitive_attrs: {output_names: [output], format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], (10)>) -> (<Tensor[Float32], (32, 10)>)
+  %23(x) = SparseSoftmaxCrossEntropyWithLogits(%22, %para2_label) {instance name: sparse_softmax_cross_entropy} primitive_attrs: {output_names: [output], input_names: [features, labels], sens: 1.000000, is_grad: false}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+  %24([CNode]917) = MakeTuple(%23, %22, %para2_label)
+      : (<Tensor[Float32], ()>, <Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={306_255_construct_wrapper.1358:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: x, [2]: x, [3]: label}, elements_use_flags: {ptr: 0x1598fda9f20, value: [const vector][1, 1, 1]}}}>)
+  %25([CNode]1359) = MakeTuple(%19, %14, %9, %0, %4, %11, %16, %21)
+      : (<Tensor[Float32], (10, 84)>, <Tensor[Float32], (84, 120)>, <Tensor[Float32], (120, 400)>, <Tensor[Float32], (6, 1, 5, 5)>, <Tensor[Float32], (16, 6, 5, 5)>, <Tensor[Float32], (120)>, <Tensor[Float32], (84)>, <Tensor[Float32], (10)>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={306_255_construct_wrapper.1358:[CNode]1359{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]1327, [2]: [CNode]1333, [3]: [CNode]1339, [4]: [CNode]1348, [5]: [CNode]1345, [6]: [CNode]1340, [7]: [CNode]1334, [8]: [CNode]1328}, elements_use_flags: {ptr: 0x1598fda9fe0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+  %26([CNode]1360) = UpdateState(U, %25)
+      : (<UMonad>, <Tuple[Tensor[Float32]*8], sequence_nodes={node={306_255_construct_wrapper.1358:[CNode]1359{[0]: ValueNode<Primitive> MakeTuple, [1]: [CNode]1327, [2]: [CNode]1333, [3]: [CNode]1339, [4]: [CNode]1348, [5]: [CNode]1345, [6]: [CNode]1340, [7]: [CNode]1334, [8]: [CNode]1328}, elements_use_flags: {ptr: 0x1598fda9fe0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<UMonad>)
+  %27([CNode]932) = Depend(%24, %26) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={306_255_construct_wrapper.1358:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: x, [2]: x, [3]: label}, elements_use_flags: {ptr: 0x1598fda9f20, value: [const vector][1, 1, 1]}}}>, <UMonad>) -> (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={306_255_construct_wrapper.1358:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: x, [2]: x, [3]: label}, elements_use_flags: {ptr: 0x1598fda9f20, value: [const vector][1, 1, 1]}}}>)
+  Return(%27)
+      : (<Tuple[Tensor[Float32]*2,Tensor[Int32]], sequence_nodes={node={306_255_construct_wrapper.1358:[CNode]917{[0]: ValueNode<PrimitivePy> MakeTuple, [1]: x, [2]: x, [3]: label}, elements_use_flags: {ptr: 0x1598fda9f20, value: [const vector][1, 1, 1]}}}>)
+}
+

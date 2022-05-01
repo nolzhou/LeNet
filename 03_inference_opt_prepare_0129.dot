@@ -1,0 +1,1966 @@
+digraph mindspore {
+compound=true
+subgraph cluster_0x15996e0d900{
+id=cluster_0x15996e0d900
+label="construct_wrapper.911[managed]"
+fontname="Courier New"
+node0x15996f1fa20_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]934)</td></tr>
+</table>>,]
+node0x15996f1f7c0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]933)</td></tr>
+</table>>,]
+node0x1598e683930_0[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598e6823d0_1[fontname="Courier New",shape=oval,label="construct.920[mindspore.nn.wrap.cell_wrapper.WithEvalCell_ID1484101704256get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0aff8",]
+node0x159969ca0b0_2[fontname="Courier New",shape=octagon,label="data",style=filled,fillcolor=paleturquoise,]
+node0x159969cb290_3[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+node0x159969cb0f0_35[fontname="Courier New",shape=octagon,label="conv1.weight",style=filled,fillcolor=paleturquoise,]
+node0x159969d3cb0_62[fontname="Courier New",shape=octagon,label="conv2.weight",style=filled,fillcolor=paleturquoise,]
+node0x159969d15b0_84[fontname="Courier New",shape=octagon,label="fc1.bias",style=filled,fillcolor=paleturquoise,]
+node0x159969d1dd0_85[fontname="Courier New",shape=octagon,label="fc1.weight",style=filled,fillcolor=paleturquoise,]
+node0x159969d0a50_179[fontname="Courier New",shape=octagon,label="fc2.bias",style=filled,fillcolor=paleturquoise,]
+node0x159969d18f0_180[fontname="Courier New",shape=octagon,label="fc2.weight",style=filled,fillcolor=paleturquoise,]
+node0x159969d0f30_184[fontname="Courier New",shape=octagon,label="fc3.bias",style=filled,fillcolor=paleturquoise,]
+node0x159969d5b90_185[fontname="Courier New",shape=octagon,label="fc3.weight",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e0d900[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>data</td></tr><tr><td>label</td></tr><tr><td>fc3.bias[10,]</td></tr><tr><td>fc3.weight[10,84,]</td></tr><tr><td>fc2.bias[84,]</td></tr><tr><td>fc2.weight[84,120,]</td></tr><tr><td>conv2.weight[16,6,5,5,]</td></tr><tr><td>fc1.bias[120,]</td></tr><tr><td>fc1.weight[120,400,]</td></tr><tr><td>conv1.weight[6,1,5,5,]</td></tr>
+</table>>,];}
+subgraph cluster_0x15996e0aff0{
+id=cluster_0x15996e0aff0
+label="mindspore.nn.wrap.cell_wrapper.WithEvalCell_ID1484101704256get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f1cd00_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]935)</td></tr>
+</table>>,]
+node0x15996f1bc60_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]932)</td></tr>
+</table>>,]
+node0x15996f1f0a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]929)</td></tr>
+</table>>,]
+node0x15996f18f40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(outputs)</td></tr>
+</table>>,]
+node0x15996f1a960_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]914)</td></tr>
+</table>>,]
+node0x15992c90650_4[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c90410_5[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c93a10_6[fontname="Courier New",shape=oval,label="✓construct.930",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0c238",]
+node0x15992c936b0_7[fontname="Courier New",shape=oval,label="✗construct.931",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e08258",]
+node0x159969cc470_10[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+node0x159956a2a30_11[fontname="Courier New",shape=oval,label="construct.1185[__main__.LeNet5_ID1484101263248get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0b918",]
+node0x159969cc130_12[fontname="Courier New",shape=octagon,label="data",style=filled,fillcolor=paleturquoise,]
+node0x159969cc470_312[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+node0x1598e6770f0_315[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x1598e674990_316[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>false</td></tr></table>>,]
+parameters_0x15996e0aff0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>data</td></tr><tr><td>label</td></tr></table>>,];}
+subgraph cluster_0x15996e08250{
+id=cluster_0x15996e08250
+label="✗construct.931[managed]"
+fontname="Courier New"
+node0x15996f17c40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]943)</td></tr>
+</table>>,]
+node0x15996f1caa0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]928)</td></tr>
+</table>>,]
+node0x15992c92ed0_8[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c94430_9[fontname="Courier New",shape=oval,label="↓construct.927",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0a248",]
+parameters_0x15996e08250[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e0b910{
+id=cluster_0x15996e0b910
+label="__main__.LeNet5_ID1484101263248get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f216a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1187)</td></tr>
+</table>>,]
+node0x15996f21900_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f23580_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f22c00_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f27cc0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f24d40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f262a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f24ae0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f19d80_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f19400_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f20ac0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f1b2e0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f1ae20_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x159956a66f0_13[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ad2990_14[fontname="Courier New",shape=oval,label="construct.1019[mindspore.nn.layer.basic.Dense_ID1484101568768get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0cb58",]
+node0x15992ad3a70_15[fontname="Courier New",shape=oval,label="construct.1182[mindspore.nn.layer.activation.ReLU_ID1484101569648get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e07938",]
+node0x15995790920_16[fontname="Courier New",shape=oval,label="construct.1069[mindspore.nn.layer.basic.Dense_ID1484101567888get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e118e8",]
+node0x15995790a40_17[fontname="Courier New",shape=oval,label="construct.1182[mindspore.nn.layer.activation.ReLU_ID1484101569648get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e07938",]
+node0x1599579ed80_18[fontname="Courier New",shape=oval,label="construct.1118[mindspore.nn.layer.basic.Dense_ID1484101508688get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e15438",]
+node0x159957a0880_19[fontname="Courier New",shape=oval,label="construct.1184[mindspore.nn.layer.basic.Flatten_ID1484101615760get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e181d8",]
+node0x159957a0be0_20[fontname="Courier New",shape=oval,label="construct.1183[mindspore.nn.layer.pooling.MaxPool2d_ID1484101570288get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e178b8",]
+node0x159957a0400_21[fontname="Courier New",shape=oval,label="construct.1182[mindspore.nn.layer.activation.ReLU_ID1484101569648get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e07938",]
+node0x159957932c0_22[fontname="Courier New",shape=oval,label="construct.1165[mindspore.nn.layer.conv.Conv2d_ID1484101507968get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e20f48",]
+node0x15992c94550_23[fontname="Courier New",shape=oval,label="construct.1183[mindspore.nn.layer.pooling.MaxPool2d_ID1484101570288get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e178b8",]
+node0x15992ac9990_24[fontname="Courier New",shape=oval,label="construct.1182[mindspore.nn.layer.activation.ReLU_ID1484101569648get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e07938",]
+node0x159957a0ac0_25[fontname="Courier New",shape=oval,label="construct.1174[mindspore.nn.layer.conv.Conv2d_ID1484101132176get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1aae8",]
+node0x159969ce350_26[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e0b910[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e1aae0{
+id=cluster_0x15996e1aae0
+label="mindspore.nn.layer.conv.Conv2d_ID1484101132176get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996c92f70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1188)</td></tr>
+</table>>,]
+node0x15996c984f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1181)</td></tr>
+</table>>,]
+node0x15996c98290_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1178)</td></tr>
+</table>>,]
+node0x15996c92ab0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(output)</td></tr>
+</table>>,]
+node0x15996c90970_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1173)</td></tr>
+</table>>,]
+node0x159957a1a80_27[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579e480_28[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a0760_29[fontname="Courier New",shape=oval,label="✓construct.1179",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1d3f8",]
+node0x159957a0520_30[fontname="Courier New",shape=oval,label="✗construct.1180",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1fd08",]
+node0x15995793740_33[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Conv2D</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d66f0_34[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x15995783000_42[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x159957921e0_43[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>false</td></tr></table>>,]
+parameters_0x15996e1aae0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e1fd00{
+id=cluster_0x15996e1fd00
+label="✗construct.1180[managed]"
+fontname="Courier New"
+node0x15996c98030_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1198)</td></tr>
+</table>>,]
+node0x15996c957d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1177)</td></tr>
+</table>>,]
+node0x1599579e120_31[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579fc20_32[fontname="Courier New",shape=oval,label="↓construct.1176",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e213d8",]
+parameters_0x15996e1fd00[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e213d0{
+id=cluster_0x15996e213d0
+label="↓construct.1176[managed]"
+fontname="Courier New"
+node0x15996c98750_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1210)</td></tr>
+</table>>,]
+node0x1599579d4c0_36[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d59f0_37[fontname="Courier New",shape=octagon,label="Φoutput",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e213d0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φoutput</td></tr></table>>,];}
+subgraph cluster_0x15996e1d3f0{
+id=cluster_0x15996e1d3f0
+label="✓construct.1179[managed]"
+fontname="Courier New"
+node0x15996c94270_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1197)</td></tr>
+</table>>,]
+node0x15996c8fff0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1175)</td></tr>
+</table>>,]
+node0x15996c963b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(output)</td></tr>
+</table>>,]
+node0x159957943a0_38[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995793e00_39[fontname="Courier New",shape=oval,label="↓construct.1176",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e213d8",]
+node0x15995788fa0_40[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-BiasAdd</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995791100_41[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>None</td></tr><tr><td>None</td></tr></table>>,]
+parameters_0x15996e1d3f0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e086e0{
+id=cluster_0x15996e086e0
+label="functionbool__ID1484154792112get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f1a700_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1186)</td></tr>
+</table>>,]
+node0x15996f1cf60_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]948)</td></tr>
+</table>>,]
+node0x15996f1d8e0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]947)</td></tr>
+</table>>,]
+node0x1598e675290_44[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598e674cf0_45[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969cf1f0_46[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x1598e677330_47[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>__bool__</td></tr></table>>,]
+parameters_0x15996e086e0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e07930{
+id=cluster_0x15996e07930
+label="mindspore.nn.layer.activation.ReLU_ID1484101569648get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f41080_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1189)</td></tr>
+</table>>,]
+node0x15996f41a00_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1060)</td></tr>
+</table>>,]
+node0x15992ac77d0_48[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995791c40_49[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-ReLU</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969cc7b0_50[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e07930[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e178b0{
+id=cluster_0x15996e178b0
+label="mindspore.nn.layer.pooling.MaxPool2d_ID1484101570288get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996c83610_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1190)</td></tr>
+</table>>,]
+node0x15996c7f5f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(out)</td></tr>
+</table>>,]
+node0x1599579d820_51[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992accb10_52[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-MaxPool</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d3970_53[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e178b0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e20f40{
+id=cluster_0x15996e20f40
+label="mindspore.nn.layer.conv.Conv2d_ID1484101507968get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996c92d10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1191)</td></tr>
+</table>>,]
+node0x15996c96ad0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1172)</td></tr>
+</table>>,]
+node0x15996c91c70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1169)</td></tr>
+</table>>,]
+node0x15996c886d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(output)</td></tr>
+</table>>,]
+node0x15996c904b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1164)</td></tr>
+</table>>,]
+node0x15995792780_54[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957848c0_55[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a2020_56[fontname="Courier New",shape=oval,label="✓construct.1170",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1b898",]
+node0x159957a1f00_57[fontname="Courier New",shape=oval,label="✗construct.1171",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1e1a8",]
+node0x15995785640_60[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Conv2D</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d3b10_61[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x15995790c80_69[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x159957920c0_70[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>false</td></tr></table>>,]
+parameters_0x15996e20f40[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e1e1a0{
+id=cluster_0x15996e1e1a0
+label="✗construct.1171[managed]"
+fontname="Courier New"
+node0x15996c8fd90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1200)</td></tr>
+</table>>,]
+node0x15996c94990_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1168)</td></tr>
+</table>>,]
+node0x159957a1cc0_58[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579ea20_59[fontname="Courier New",shape=oval,label="↓construct.1167",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1bd28",]
+parameters_0x15996e1e1a0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e1bd20{
+id=cluster_0x15996e1bd20
+label="↓construct.1167[managed]"
+fontname="Courier New"
+node0x15996c90710_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1211)</td></tr>
+</table>>,]
+node0x159957906e0_63[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d0d90_64[fontname="Courier New",shape=octagon,label="Φoutput",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e1bd20[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φoutput</td></tr></table>>,];}
+subgraph cluster_0x15996e1b890{
+id=cluster_0x15996e1b890
+label="✓construct.1170[managed]"
+fontname="Courier New"
+node0x15996c96870_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1199)</td></tr>
+</table>>,]
+node0x15996c912f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1166)</td></tr>
+</table>>,]
+node0x15996c91090_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(output)</td></tr>
+</table>>,]
+node0x1599579e5a0_65[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579fe60_66[fontname="Courier New",shape=oval,label="↓construct.1167",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1bd28",]
+node0x15995798840_67[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-BiasAdd</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579efc0_68[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>None</td></tr><tr><td>None</td></tr></table>>,]
+parameters_0x15996e1b890[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e181d0{
+id=cluster_0x15996e181d0
+label="mindspore.nn.layer.basic.Flatten_ID1484101615760get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996c7dbd0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1192)</td></tr>
+</table>>,]
+node0x15996c83ad0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1163)</td></tr>
+</table>>,]
+node0x15996c7ea10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1162)</td></tr>
+</table>>,]
+node0x15996c82310_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1161)</td></tr>
+</table>>,]
+node0x15996c81990_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1160)</td></tr>
+</table>>,]
+node0x15996c74d50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1159)</td></tr>
+</table>>,]
+node0x159957a0d00_71[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c8a8f0_72[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Reshape</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d1270_73[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x15992acc210_74[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c92150_75[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-negative</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579f8c0_76[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>1</td></tr></table>>,]
+node0x15992c8c750_77[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-getitem</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579f440_78[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>0</td></tr></table>>,]
+node0x15992c895d0_79[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Shape</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d1270_80[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e181d0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e15430{
+id=cluster_0x15996e15430
+label="mindspore.nn.layer.basic.Dense_ID1484101508688get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996c7de30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1193)</td></tr>
+</table>>,]
+node0x15996c9fbb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1275)</td></tr>
+</table>>,]
+node0x159957a13c0_81[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579fb00_82[fontname="Courier New",shape=oval,label="L-construct.1260",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1af78",]
+node0x159969cd170_83[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e15430[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e1af70{
+id=cluster_0x15996e1af70
+label="L-construct.1260[managed]"
+fontname="Courier New"
+node0x15996c79950_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1195)</td></tr>
+</table>>,]
+node0x15996c77350_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1059)</td></tr>
+</table>>,]
+node0x15996c769d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1009)</td></tr>
+</table>>,]
+node0x15996c7a9f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1008)</td></tr>
+</table>>,]
+node0x15996c74fb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(Φx_shape)</td></tr>
+</table>>,]
+node0x15996c77810_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1058)</td></tr>
+</table>>,]
+node0x15996c77cd0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1055)</td></tr>
+</table>>,]
+node0x15996c73f10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1015)</td></tr>
+</table>>,]
+node0x15996c74630_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1014)</td></tr>
+</table>>,]
+node0x15996c78190_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1012)</td></tr>
+</table>>,]
+node0x15992ad2cf0_86[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ad34d0_87[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15992ad2ab0_88[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>stop_gradient</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957905c0_89[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-check_dense_input_shape</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995792660_90[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>Dense</td></tr></table>>,]
+node0x1599579f680_91[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Shape</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d5d30_92[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x15992ac88b0_93[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579e240_94[fontname="Courier New",shape=oval,label="L-✓construct.1271",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e24178",]
+node0x1599579cf20_95[fontname="Courier New",shape=oval,label="L-✗construct.1272",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1c648",]
+node0x159969d5d30_98[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x159969d5ed0_107[fontname="Courier New",shape=octagon,label="L-fc3.weight",style=filled,fillcolor=paleturquoise,]
+node0x159969d4810_159[fontname="Courier New",shape=octagon,label="L-fc3.bias",style=filled,fillcolor=paleturquoise,]
+node0x159969d5d30_165[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x15995799920_172[fontname="Courier New",shape=oval,label="L-bool_.1259",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1c1b8",]
+node0x1599579f560_173[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-not_equal</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992aca5f0_174[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>2</td></tr></table>>,]
+node0x1599579be40_175[fontname="Courier New",shape=oval,label="L-ms_len.1258",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1a1c8",]
+parameters_0x15996e1af70[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr><tr><td>L-fc3.bias</td></tr><tr><td>L-fc3.weight</td></tr></table>>,];}
+subgraph cluster_0x15996e1c640{
+id=cluster_0x15996e1c640
+label="L-✗construct.1272[managed]"
+fontname="Courier New"
+node0x15996c84910_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1207)</td></tr>
+</table>>,]
+node0x15996c7eed0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1054)</td></tr>
+</table>>,]
+node0x15992acbeb0_96[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579eb40_97[fontname="Courier New",shape=oval,label="L-↓construct.1268",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1a658",]
+parameters_0x15996e1c640[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e1a650{
+id=cluster_0x15996e1a650
+label="L-↓construct.1268[managed]"
+fontname="Courier New"
+node0x15996c7d710_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1214)</td></tr>
+</table>>,]
+node0x15996c801d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1048)</td></tr>
+</table>>,]
+node0x15996c80db0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1045)</td></tr>
+</table>>,]
+node0x15996c7cb30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996c82a30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1016)</td></tr>
+</table>>,]
+node0x15992acfff0_99[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992acfdb0_100[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579d700_101[fontname="Courier New",shape=oval,label="L-✓↓construct.1269",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e22188",]
+node0x159957a00a0_102[fontname="Courier New",shape=oval,label="L-✗↓construct.1270",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1cf68",]
+node0x15995786600_105[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-MatMul</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d4330_106[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x1599579c500_160[fontname="Courier New",shape=oval,label="L-bool_.1259",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1c1b8",]
+node0x15992ac93f0_161[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e1a650[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φx</td></tr></table>>,];}
+subgraph cluster_0x15996e1cf60{
+id=cluster_0x15996e1cf60
+label="L-✗↓construct.1270[managed]"
+fontname="Courier New"
+node0x15996c7cff0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1223)</td></tr>
+</table>>,]
+node0x15996c85290_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1044)</td></tr>
+</table>>,]
+node0x15992ad0d70_103[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579d5e0_104[fontname="Courier New",shape=oval,label="L-↓↓construct.1265",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1d888",]
+parameters_0x15996e1cf60[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e1d880{
+id=cluster_0x15996e1d880
+label="L-↓↓construct.1265[managed]"
+fontname="Courier New"
+node0x15996c7d4b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1228)</td></tr>
+</table>>,]
+node0x15996c7d970_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1041)</td></tr>
+</table>>,]
+node0x15996c854f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1038)</td></tr>
+</table>>,]
+node0x15996c8d2d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1017)</td></tr>
+</table>>,]
+node0x15992ad10d0_108[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ad08f0_109[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a14e0_110[fontname="Courier New",shape=oval,label="L-✓↓↓construct.1266",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e21cf8",]
+node0x1599579ddc0_111[fontname="Courier New",shape=oval,label="L-✗↓↓construct.1267",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1dd18",]
+node0x159969d1f70_114[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x159969d1f70_153[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x1599579b0c0_154[fontname="Courier New",shape=oval,label="L-bool_.1259",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1c1b8",]
+node0x15995782700_155[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>false</td></tr></table>>,]
+parameters_0x15996e1d880[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φx</td></tr></table>>,];}
+subgraph cluster_0x15996e1dd10{
+id=cluster_0x15996e1dd10
+label="L-✗↓↓construct.1267[managed]"
+fontname="Courier New"
+node0x15996c87170_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1238)</td></tr>
+</table>>,]
+node0x15996c86a50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1037)</td></tr>
+</table>>,]
+node0x15992acf150_112[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579f200_113[fontname="Courier New",shape=oval,label="L-↓↓↓construct.1261",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e19d38",]
+parameters_0x15996e1dd10[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e19d30{
+id=cluster_0x15996e19d30
+label="L-↓↓↓construct.1261[managed]"
+fontname="Courier New"
+node0x15996c873d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1243)</td></tr>
+</table>>,]
+node0x15996c87890_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1034)</td></tr>
+</table>>,]
+node0x15996c8af30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1031)</td></tr>
+</table>>,]
+node0x15996c8c950_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1021)</td></tr>
+</table>>,]
+node0x15996c8a0f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1020)</td></tr>
+</table>>,]
+node0x15996c8acd0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1018)</td></tr>
+</table>>,]
+node0x15992ad1e50_115[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ad2090_116[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a12a0_117[fontname="Courier New",shape=oval,label="L-✓↓↓↓construct.1263",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e23ce8",]
+node0x1599579f7a0_118[fontname="Courier New",shape=oval,label="L-✗↓↓↓construct.1264",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e25848",]
+node0x159969d1410_121[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x159969d1410_127[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x1599579c980_138[fontname="Courier New",shape=oval,label="L-bool_.1259",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1c1b8",]
+node0x1599578d560_139[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-not_equal</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992acd1d0_140[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>2</td></tr></table>>,]
+node0x1599579be40_141[fontname="Courier New",shape=oval,label="L-ms_len.1258",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1a1c8",]
+parameters_0x15996e19d30[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φx</td></tr></table>>,];}
+subgraph cluster_0x15996e25840{
+id=cluster_0x15996e25840
+label="L-✗↓↓↓construct.1264[managed]"
+fontname="Courier New"
+node0x15996c86330_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1253)</td></tr>
+</table>>,]
+node0x15996c8f1b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1030)</td></tr>
+</table>>,]
+node0x15992ad23f0_119[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a0640_120[fontname="Courier New",shape=oval,label="L-↓↓↓↓construct.1262",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e21868",]
+parameters_0x15996e25840[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e21860{
+id=cluster_0x15996e21860
+label="L-↓↓↓↓construct.1262[managed]"
+fontname="Courier New"
+node0x15996c8d790_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1257)</td></tr>
+</table>>,]
+node0x15992ad2510_122[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d6890_123[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e21860[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φx</td></tr></table>>,];}
+subgraph cluster_0x15996e23ce0{
+id=cluster_0x15996e23ce0
+label="L-✓↓↓↓construct.1263[managed]"
+fontname="Courier New"
+node0x15996c8f410_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1252)</td></tr>
+</table>>,]
+node0x15996c98c10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1028)</td></tr>
+</table>>,]
+node0x15996c95a30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996c931d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(out_shape)</td></tr>
+</table>>,]
+node0x15996c90e30_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1026)</td></tr>
+</table>>,]
+node0x15996c93b50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1025)</td></tr>
+</table>>,]
+node0x15996c96150_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1024)</td></tr>
+</table>>,]
+node0x15996c94010_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1023)</td></tr>
+</table>>,]
+node0x15996c94730_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1022)</td></tr>
+</table>>,]
+node0x15992ad3710_124[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579ff80_125[fontname="Courier New",shape=oval,label="L-↓↓↓↓construct.1262",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e21868",]
+node0x15995795240_126[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Reshape</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599578f600_128[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-add</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599578e520_129[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579cce0_130[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-negative</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ad3290_131[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>1</td></tr></table>>,]
+node0x1599578e2e0_132[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-getitem</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579b780_133[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-make_slice</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992acfb70_134[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>None</td></tr><tr><td>None</td></tr></table>>,]
+node0x15992ad0590_135[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>None</td></tr><tr><td>None</td></tr></table>>,]
+node0x15995799ec0_136[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-negative</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ad0470_137[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>1</td></tr></table>>,]
+parameters_0x15996e23ce0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e1a1c0{
+id=cluster_0x15996e1a1c0
+label="L-ms_len.1258[managed]"
+fontname="Courier New"
+node0x15996c7aeb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1201)</td></tr>
+</table>>,]
+node0x15996c73330_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1011)</td></tr>
+</table>>,]
+node0x15996c7b5d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1010)</td></tr>
+</table>>,]
+node0x159957a1840_142[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a0e20_143[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d4670_144[fontname="Courier New",shape=octagon,label="data",style=filled,fillcolor=paleturquoise,]
+node0x159957a1060_145[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>__len__</td></tr></table>>,]
+parameters_0x15996e1a1c0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>data</td></tr></table>>,];}
+subgraph cluster_0x15996e1c1b0{
+id=cluster_0x15996e1c1b0
+label="L-bool_.1259[managed]"
+fontname="Courier New"
+node0x15996c7bcf0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1186)</td></tr>
+</table>>,]
+node0x15996c7f850_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]948)</td></tr>
+</table>>,]
+node0x15996c81bf0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]947)</td></tr>
+</table>>,]
+node0x1598e675290_146[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598e674cf0_147[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d22b0_148[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x1598e677330_149[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>__bool__</td></tr></table>>,]
+parameters_0x15996e1c1b0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e21cf0{
+id=cluster_0x15996e21cf0
+label="L-✓↓↓construct.1266[managed]"
+fontname="Courier New"
+node0x15996c99330_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1237)</td></tr>
+</table>>,]
+node0x15996c9afb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1036)</td></tr>
+</table>>,]
+node0x15996c9a890_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15992acd2f0_150[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a1600_151[fontname="Courier New",shape=oval,label="L-↓↓↓construct.1261",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e19d38",]
+node0x15995792d20_152[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>None</td></tr><tr><td>None</td></tr></table>>,]
+parameters_0x15996e21cf0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e22180{
+id=cluster_0x15996e22180
+label="L-✓↓construct.1269[managed]"
+fontname="Courier New"
+node0x15996c9b6d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1222)</td></tr>
+</table>>,]
+node0x15996c99f10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1043)</td></tr>
+</table>>,]
+node0x15996c99cb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15992ace190_156[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579dca0_157[fontname="Courier New",shape=oval,label="L-↓↓construct.1265",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1d888",]
+node0x159957837e0_158[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-BiasAdd</td></tr><tr><td align='left'></td></tr></table>>,]
+parameters_0x15996e22180[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e24170{
+id=cluster_0x15996e24170
+label="L-✓construct.1271[managed]"
+fontname="Courier New"
+node0x15996c9f6f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1206)</td></tr>
+</table>>,]
+node0x15996c99a50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1053)</td></tr>
+</table>>,]
+node0x15996c9f490_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996c9ce90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1052)</td></tr>
+</table>>,]
+node0x15996c9dcd0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1051)</td></tr>
+</table>>,]
+node0x15996c9a170_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1050)</td></tr>
+</table>>,]
+node0x15996ca0790_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1049)</td></tr>
+</table>>,]
+node0x15992aca290_162[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579fd40_163[fontname="Courier New",shape=oval,label="L-↓construct.1268",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1a658",]
+node0x1599579da60_164[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Reshape</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac78f0_166[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c8a470_167[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-getitem</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992aca950_168[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-negative</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992accd50_169[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>1</td></tr></table>>,]
+node0x15992c872f0_170[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-negative</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992aca4d0_171[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>1</td></tr></table>>,]
+parameters_0x15996e24170[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e118e0{
+id=cluster_0x15996e118e0
+label="mindspore.nn.layer.basic.Dense_ID1484101567888get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f16e00_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1194)</td></tr>
+</table>>,]
+node0x15996ca09f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1274)</td></tr>
+</table>>,]
+node0x15995791580_176[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957859a0_177[fontname="Courier New",shape=oval,label="L-construct.1260",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1af78",]
+node0x159969cdb30_178[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e118e0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e0cb50{
+id=cluster_0x15996e0cb50
+label="mindspore.nn.layer.basic.Dense_ID1484101568768get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f42aa0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1195)</td></tr>
+</table>>,]
+node0x15996c9da70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1273)</td></tr>
+</table>>,]
+node0x15992ad2cf0_181[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995782ee0_182[fontname="Courier New",shape=oval,label="L-construct.1260",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1af78",]
+node0x159969cf870_183[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e0cb50[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e0a240{
+id=cluster_0x15996e0a240
+label="↓construct.927[managed]"
+fontname="Courier New"
+node0x15996f1a4a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]944)</td></tr>
+</table>>,]
+node0x15996f1a240_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]917)</td></tr>
+</table>>,]
+node0x15996f1fc80_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(loss)</td></tr>
+</table>>,]
+node0x1598e67fa30_186[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159956a4410_187[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969cf6d0_188[fontname="Courier New",shape=octagon,label="Φoutputs",style=filled,fillcolor=paleturquoise,]
+node0x159969ced10_189[fontname="Courier New",shape=octagon,label="Φlabel",style=filled,fillcolor=paleturquoise,]
+node0x15992ac80d0_190[fontname="Courier New",shape=oval,label="construct.957[mindspore.nn.loss.loss.SoftmaxCrossEntropyWithLogits_ID1484101616080get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0ab68",]
+node0x159969cf6d0_191[fontname="Courier New",shape=octagon,label="Φoutputs",style=filled,fillcolor=paleturquoise,]
+node0x159969ced10_192[fontname="Courier New",shape=octagon,label="Φlabel",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e0a240[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φoutputs</td></tr><tr><td>Φlabel</td></tr></table>>,];}
+subgraph cluster_0x15996e0ab60{
+id=cluster_0x15996e0ab60
+label="mindspore.nn.loss.loss.SoftmaxCrossEntropyWithLogits_ID1484101616080get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f2c8c0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1196)</td></tr>
+</table>>,]
+node0x15996f32a20_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1007)</td></tr>
+</table>>,]
+node0x15996f2c1a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]953)</td></tr>
+</table>>,]
+node0x15996f2bf40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]952)</td></tr>
+</table>>,]
+node0x15996f283e0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]951)</td></tr>
+</table>>,]
+node0x15996f27f20_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]950)</td></tr>
+</table>>,]
+node0x15996f327c0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1006)</td></tr>
+</table>>,]
+node0x15996f2cd80_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]1003)</td></tr>
+</table>>,]
+node0x15996f26040_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]954)</td></tr>
+</table>>,]
+node0x15992ac4d10_193[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac54f0_194[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15992ac40b0_195[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>stop_gradient</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac7110_196[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a02e0_197[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-_check_is_tensor</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c8ab30_198[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>labels</td></tr></table>>,]
+node0x159969cb770_199[fontname="Courier New",shape=octagon,label="labels",style=filled,fillcolor=paleturquoise,]
+node0x1599579e360_200[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>SoftmaxCrossEntropyWithLogits</td></tr></table>>,]
+node0x159957a02e0_201[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-_check_is_tensor</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598cb8b220_202[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>logits</td></tr></table>>,]
+node0x159969cfd50_203[fontname="Courier New",shape=octagon,label="Φlogits",style=filled,fillcolor=paleturquoise,]
+node0x1599579eea0_204[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>SoftmaxCrossEntropyWithLogits</td></tr></table>>,]
+node0x15992ac5850_205[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac5df0_206[fontname="Courier New",shape=oval,label="✓construct.1004",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0d478",]
+node0x15992ac8670_207[fontname="Courier New",shape=oval,label="✗construct.1005",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e09498",]
+node0x159969cb770_210[fontname="Courier New",shape=octagon,label="labels",style=filled,fillcolor=paleturquoise,]
+node0x159969cfd50_216[fontname="Courier New",shape=octagon,label="Φlogits",style=filled,fillcolor=paleturquoise,]
+node0x159969cb770_290[fontname="Courier New",shape=octagon,label="labels",style=filled,fillcolor=paleturquoise,]
+node0x159969cfd50_297[fontname="Courier New",shape=octagon,label="Φlogits",style=filled,fillcolor=paleturquoise,]
+node0x159969cfd50_300[fontname="Courier New",shape=octagon,label="Φlogits",style=filled,fillcolor=paleturquoise,]
+node0x159969cb770_301[fontname="Courier New",shape=octagon,label="labels",style=filled,fillcolor=paleturquoise,]
+node0x159957a0f40_306[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x1599579f320_307[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e0ab60[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φlogits</td></tr><tr><td>labels</td></tr></table>>,];}
+subgraph cluster_0x15996e09490{
+id=cluster_0x15996e09490
+label="✗construct.1005[managed]"
+fontname="Courier New"
+node0x15996f30b40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1209)</td></tr>
+</table>>,]
+node0x15996f30680_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1002)</td></tr>
+</table>>,]
+node0x15992ac6db0_208[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac5610_209[fontname="Courier New",shape=oval,label="↓construct.995",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e07dc8",]
+parameters_0x15996e09490[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e07dc0{
+id=cluster_0x15996e07dc0
+label="↓construct.995[managed]"
+fontname="Courier New"
+node0x15996f2e540_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1217)</td></tr>
+</table>>,]
+node0x15996f320a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]990)</td></tr>
+</table>>,]
+node0x15996f31000_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996f30da0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]989)</td></tr>
+</table>>,]
+node0x15992ac6810_211[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992acc7b0_212[fontname="Courier New",shape=oval,label="get_loss.971[SoftmaxCrossEntropyWithLogits_ID1484101616080methodget_loss_ID14841603755521878088get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e106a8",]
+node0x1599579f0e0_213[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-getitem</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac4410_214[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>0</td></tr></table>>,]
+node0x15992c91190_215[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-SoftmaxCrossEntropyWithLogits</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969ceb70_217[fontname="Courier New",shape=octagon,label="Φlabels",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e07dc0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φlabels</td></tr></table>>,];}
+subgraph cluster_0x15996e106a0{
+id=cluster_0x15996e106a0
+label="SoftmaxCrossEntropyWithLogits_ID1484101616080methodget_loss_ID14841603755521878088get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996c8a810_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1225)</td></tr>
+</table>>,]
+node0x15996c8c490_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]988)</td></tr>
+</table>>,]
+node0x15996c8c230_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]985)</td></tr>
+</table>>,]
+node0x15996c814d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996c841f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996c84b70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(weights)</td></tr>
+</table>>,]
+node0x15996c82570_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(Φinput_dtype)</td></tr>
+</table>>,]
+node0x15996c87af0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]963)</td></tr>
+</table>>,]
+node0x15996c8b3f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]962)</td></tr>
+</table>>,]
+node0x15996c8cbb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]959)</td></tr>
+</table>>,]
+node0x15996c8c6f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]958)</td></tr>
+</table>>,]
+node0x15995784e60_218[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995782940_219[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995782820_220[fontname="Courier New",shape=oval,label="✓get_loss.986",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e19418",]
+node0x15995784b00_221[fontname="Courier New",shape=oval,label="✗get_loss.987",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e18af8",]
+node0x15995786720_224[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Mul</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995784c20_225[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Cast</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969cf390_226[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x1599578f4e0_227[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Float</td></tr><tr><td>Float32</td></tr></table>>,]
+node0x15995785e20_228[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Cast</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d1c30_229[fontname="Courier New",shape=octagon,label="weights",style=filled,fillcolor=paleturquoise,]
+node0x1599578f060_230[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Float</td></tr><tr><td>Float32</td></tr></table>>,]
+node0x159957a2140_241[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969cf390_242[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+node0x159957a1de0_243[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>dtype</td></tr></table>>,]
+node0x15995788460_271[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x159957824c0_272[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957862a0_273[fontname="Courier New",shape=oval,label="↰get_loss.960",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e18668",]
+node0x15995785880_274[fontname="Courier New",shape=oval,label="↱get_loss.961",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e10b38",]
+node0x15995783360_279[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x15995784200_280[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e106a0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr><tr><td>weights</td></tr></table>>,];}
+subgraph cluster_0x15996e18af0{
+id=cluster_0x15996e18af0
+label="✗get_loss.987[managed]"
+fontname="Courier New"
+node0x15996c8a5b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1232)</td></tr>
+</table>>,]
+node0x15996c86f10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]984)</td></tr>
+</table>>,]
+node0x159957849e0_222[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995786a80_223[fontname="Courier New",shape=oval,label="↓get_loss.974",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e18f88",]
+parameters_0x15996e18af0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e18f80{
+id=cluster_0x15996e18f80
+label="↓get_loss.974[managed]"
+fontname="Courier New"
+node0x15996c8ecf0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1240)</td></tr>
+</table>>,]
+node0x15996c8ea90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]981)</td></tr>
+</table>>,]
+node0x15996c8f670_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]978)</td></tr>
+</table>>,]
+node0x15996c8aa70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]970)</td></tr>
+</table>>,]
+node0x15996c87630_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]969)</td></tr>
+</table>>,]
+node0x15996c8b190_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]966)</td></tr>
+</table>>,]
+node0x15996c8d070_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]964)</td></tr>
+</table>>,]
+node0x1599579a6a0_231[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995799da0_232[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995799260_233[fontname="Courier New",shape=oval,label="✓↓get_loss.979",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1f878",]
+node0x1599579a460_234[fontname="Courier New",shape=oval,label="✗↓get_loss.980",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e198a8",]
+node0x159969d2790_237[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x159969d2790_247[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x159969d2790_249[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+node0x15995794b80_256[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x1599578dc20_257[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599578e1c0_258[fontname="Courier New",shape=oval,label="↰↓get_loss.967",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e20ab8",]
+node0x1599578ee20_259[fontname="Courier New",shape=oval,label="↱↓get_loss.968",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e20198",]
+node0x15995797d00_265[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x1599578cfc0_266[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e18f80[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φx</td></tr></table>>,];}
+subgraph cluster_0x15996e198a0{
+id=cluster_0x15996e198a0
+label="✗↓get_loss.980[managed]"
+fontname="Courier New"
+node0x15996c8e830_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1247)</td></tr>
+</table>>,]
+node0x15996c867f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]977)</td></tr>
+</table>>,]
+node0x15995799c80_235[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995799140_236[fontname="Courier New",shape=oval,label="↓↓get_loss.976",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1b408",]
+parameters_0x15996e198a0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e1b400{
+id=cluster_0x15996e1b400
+label="↓↓get_loss.976[managed]"
+fontname="Courier New"
+node0x15996c95ef0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1254)</td></tr>
+</table>>,]
+node0x15996c92390_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15992acbc70_238[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995782dc0_239[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Cast</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d63b0_240[fontname="Courier New",shape=octagon,label="Φx",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e1b400[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φx</td></tr></table>>,];}
+subgraph cluster_0x15996e1f870{
+id=cluster_0x15996e1f870
+label="✓↓get_loss.979[managed]"
+fontname="Courier New"
+node0x15996c8e110_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1246)</td></tr>
+</table>>,]
+node0x15996c8bb10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]975)</td></tr>
+</table>>,]
+node0x15996c8b650_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996c8b8b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]972)</td></tr>
+</table>>,]
+node0x15995798f00_244[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579d3a0_245[fontname="Courier New",shape=oval,label="↓↓get_loss.976",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1b408",]
+node0x15995784560_246[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-ReduceSum</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995785520_248[fontname="Courier New",shape=oval,label="get_axis.973[SoftmaxCrossEntropyWithLogits_ID1484101616080methodget_axis_ID14841562738561878097get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1cad8",]
+parameters_0x15996e1f870[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e1cad0{
+id=cluster_0x15996e1cad0
+label="SoftmaxCrossEntropyWithLogits_ID1484101616080methodget_axis_ID14841562738561878097get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996c9c510_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1239)</td></tr>
+</table>>,]
+node0x15996ca02d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(perm)</td></tr>
+</table>>,]
+node0x15996c9b930_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(length)</td></tr>
+</table>>,]
+node0x15996c98e70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(shape)</td></tr>
+</table>>,]
+node0x15995787ec0_250[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995788220_251[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-make_range</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599578a2c0_252[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>0</td></tr></table>>,]
+node0x15995786060_253[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-tuple_len</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599578fde0_254[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Shape</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d2110_255[fontname="Courier New",shape=octagon,label="x",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e1cad0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>x</td></tr></table>>,];}
+subgraph cluster_0x15996e20190{
+id=cluster_0x15996e20190
+label="↱↓get_loss.968[managed]"
+fontname="Courier New"
+node0x15996c892b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1245)</td></tr>
+</table>>,]
+node0x1599578cea0_260[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599578cfc0_261[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e20190[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e20ab0{
+id=cluster_0x15996e20ab0
+label="↰↓get_loss.967[managed]"
+fontname="Courier New"
+node0x15996c88df0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1244)</td></tr>
+</table>>,]
+node0x15996c88b90_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]965)</td></tr>
+</table>>,]
+node0x1599578c6c0_262[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957a2260_263[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-logical_not</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995788a00_264[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e20ab0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e19410{
+id=cluster_0x15996e19410
+label="✓get_loss.986[managed]"
+fontname="Courier New"
+node0x15996c88930_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1231)</td></tr>
+</table>>,]
+node0x15996c89510_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]983)</td></tr>
+</table>>,]
+node0x15996c88210_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996c89050_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]982)</td></tr>
+</table>>,]
+node0x15995785f40_267[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995786960_268[fontname="Courier New",shape=oval,label="↓get_loss.974",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e18f88",]
+node0x159957918e0_269[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-ReduceMean</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995785520_270[fontname="Courier New",shape=oval,label="get_axis.973[SoftmaxCrossEntropyWithLogits_ID1484101616080methodget_axis_ID14841562738561878097get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e1cad8",]
+parameters_0x15996e19410[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e10b30{
+id=cluster_0x15996e10b30
+label="↱get_loss.961[managed]"
+fontname="Courier New"
+node0x15996c85c10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1230)</td></tr>
+</table>>,]
+node0x159957840e0_275[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995784200_276[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e10b30[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e18660{
+id=cluster_0x15996e18660
+label="↰get_loss.960[managed]"
+fontname="Courier New"
+node0x15996c859b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1229)</td></tr>
+</table>>,]
+node0x15995783ea0_277[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957863c0_278[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>BoolImm</td></tr><tr><td>true</td></tr></table>>,]
+parameters_0x15996e18660[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e0d470{
+id=cluster_0x15996e0d470
+label="✓construct.1004[managed]"
+fontname="Courier New"
+node0x15996f230c0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1208)</td></tr>
+</table>>,]
+node0x15996f23a40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]1001)</td></tr>
+</table>>,]
+node0x15996f24160_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]998)</td></tr>
+</table>>,]
+node0x15996f2a060_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]956)</td></tr>
+</table>>,]
+node0x15996f29e00_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]955)</td></tr>
+</table>>,]
+node0x15996148180_281[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598d0860f0_282[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598d085eb0_283[fontname="Courier New",shape=oval,label="✓✓construct.999",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0dd98",]
+node0x1598d0855b0_284[fontname="Courier New",shape=oval,label="✗✓construct.1000",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0c6c8",]
+node0x1599579db80_302[fontname="Courier New",shape=oval,label="bool_.949[functionbool__ID1484154792112get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e086e8",]
+node0x15995795d80_303[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-equal</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15995794dc0_304[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>mean</td></tr></table>>,]
+node0x1599655af20_305[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>mean</td></tr></table>>,]
+parameters_0x15996e0d470[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e0c6c0{
+id=cluster_0x15996e0c6c0
+label="✗✓construct.1000[managed]"
+fontname="Courier New"
+node0x15996f2a9e0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1216)</td></tr>
+</table>>,]
+node0x15996f237e0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]996)</td></tr>
+</table>>,]
+node0x1598cc2c930_285[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598cc2e1f0_286[fontname="Courier New",shape=oval,label="↓✓construct.997",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e09008",]
+parameters_0x15996e0c6c0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e09000{
+id=cluster_0x15996e09000
+label="↓✓construct.997[managed]"
+fontname="Courier New"
+node0x15996f32c80_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1224)</td></tr>
+</table>>,]
+node0x15996f2ac40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]994)</td></tr>
+</table>>,]
+node0x15996f2dbc0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td></tr>
+<tr><td colspan='5' bgcolor='cornsilk'>CNode(labels)</td></tr>
+</table>>,]
+node0x15996f30420_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]993)</td></tr>
+</table>>,]
+node0x15996f32560_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]992)</td></tr>
+</table>>,]
+node0x15996f301c0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]991)</td></tr>
+</table>>,]
+node0x15992ac6c90_287[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac7b30_288[fontname="Courier New",shape=oval,label="↓construct.995",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e07dc8",]
+node0x1599579e6c0_289[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-OneHot</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579e900_291[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Tensor</td></tr><tr><td>Tensor(shape=[]<br/>dtype=Float32<br/>value=1)</td></tr></table>>,]
+node0x159957898a0_292[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Tensor</td></tr><tr><td>Tensor(shape=[]<br/>dtype=Float32<br/>value=0)</td></tr></table>>,]
+node0x159957928a0_293[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-getitem</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159957917c0_294[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-negative</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15996125500_295[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Int64Imm</td></tr><tr><td>1</td></tr></table>>,]
+node0x15995792e40_296[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Shape</td></tr><tr><td align='left'></td></tr></table>>,]
+parameters_0x15996e09000[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e0dd90{
+id=cluster_0x15996e0dd90
+label="✓✓construct.999[managed]"
+fontname="Courier New"
+node0x15996f229a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1215)</td></tr>
+</table>>,]
+node0x15996f2a780_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x1598cc2c4b0_298[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1599579ce00_299[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-SparseSoftmaxCrossEntropyWithLogits</td></tr><tr><td align='left'></td></tr></table>>,]
+parameters_0x15996e0dd90[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e0c230{
+id=cluster_0x15996e0c230
+label="✓construct.930[managed]"
+fontname="Courier New"
+node0x15996f1e260_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]938)</td></tr>
+</table>>,]
+node0x15996f1c840_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]926)</td></tr>
+</table>>,]
+node0x15996f1bec0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(label)</td></tr>
+</table>>,]
+node0x15996f1ee40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(outputs)</td></tr>
+</table>>,]
+node0x15992c8bd30_308[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c8fe70_309[fontname="Courier New",shape=oval,label="↓construct.927",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0a248",]
+node0x15992ac6150_310[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-mixed_precision_cast</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac6030_311[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Float</td></tr><tr><td>Float32</td></tr></table>>,]
+node0x15992ac5f10_313[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>DoSignaturePrimitive</td></tr><tr><td>S-Prim-Cast</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac6a50_314[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Float</td></tr><tr><td>Float32</td></tr></table>>,]
+parameters_0x15996e0c230[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+node0x1598e683930_0:core->node0x15996f1fa20_0:0[arrowhead=vee,style=dashed]
+node0x15996f1f7c0_0:core->node0x15996f1fa20_0:1[arrowhead=vee,]
+node0x1598e6823d0_1->node0x15996f1f7c0_0:0[arrowhead=vee,style=dashed]
+node0x1598e6823d0_1->node0x15996f1cd00_0[lhead=cluster_0x15996e0aff0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969ca0b0_2->node0x15996f1f7c0_0:1[arrowhead=vee,]
+node0x159969cb290_3->node0x15996f1f7c0_0:2[arrowhead=vee,]
+node0x15992c90650_4:core->node0x15996f1cd00_0:0[arrowhead=vee,style=dashed]
+node0x15996f1bc60_0:core->node0x15996f1cd00_0:1[arrowhead=vee,]
+node0x15996f1f0a0_0:core->node0x15996f1bc60_0:0[arrowhead=vee,]
+node0x15992c90410_5:core->node0x15996f1f0a0_0:0[arrowhead=vee,style=dashed]
+node0x15996f1a960_0:core->node0x15996f1f0a0_0:1[arrowhead=vee,]
+node0x15992c93a10_6->node0x15996f1f0a0_0:2[arrowhead=vee,]
+node0x15992c93a10_6->node0x15996f1e260_0[lhead=cluster_0x15996e0c230,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992c936b0_7->node0x15996f1f0a0_0:3[arrowhead=vee,]
+node0x15992c936b0_7->node0x15996f17c40_0[lhead=cluster_0x15996e08250,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992c92ed0_8:core->node0x15996f17c40_0:0[arrowhead=vee,style=dashed]
+node0x15996f1caa0_0:core->node0x15996f17c40_0:1[arrowhead=vee,]
+node0x15992c94430_9->node0x15996f1caa0_0:0[arrowhead=vee,style=dashed]
+node0x15992c94430_9->node0x15996f1a4a0_0[lhead=cluster_0x15996e0a240,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f18f40_0:core->node0x15996f1caa0_0:1[arrowhead=vee,]
+node0x159969cc470_10->node0x15996f1caa0_0:2[arrowhead=vee,]
+node0x159956a2a30_11->node0x15996f18f40_0:0[arrowhead=vee,style=dashed]
+node0x159956a2a30_11->node0x15996f216a0_0[lhead=cluster_0x15996e0b910,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969cc130_12->node0x15996f18f40_0:1[arrowhead=vee,]
+node0x159956a66f0_13:core->node0x15996f216a0_0:0[arrowhead=vee,style=dashed]
+node0x15996f21900_0:core->node0x15996f216a0_0:1[arrowhead=vee,]
+node0x15992ad2990_14->node0x15996f21900_0:0[arrowhead=vee,style=dashed]
+node0x15992ad2990_14->node0x15996f42aa0_0[lhead=cluster_0x15996e0cb50,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f23580_0:core->node0x15996f21900_0:1[arrowhead=vee,]
+node0x15992ad3a70_15->node0x15996f23580_0:0[arrowhead=vee,style=dashed]
+node0x15992ad3a70_15->node0x15996f41080_0[lhead=cluster_0x15996e07930,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f22c00_0:core->node0x15996f23580_0:1[arrowhead=vee,]
+node0x15995790920_16->node0x15996f22c00_0:0[arrowhead=vee,style=dashed]
+node0x15995790920_16->node0x15996f16e00_0[lhead=cluster_0x15996e118e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f27cc0_0:core->node0x15996f22c00_0:1[arrowhead=vee,]
+node0x15995790a40_17->node0x15996f27cc0_0:0[arrowhead=vee,style=dashed]
+node0x15995790a40_17->node0x15996f41080_0[lhead=cluster_0x15996e07930,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f24d40_0:core->node0x15996f27cc0_0:1[arrowhead=vee,]
+node0x1599579ed80_18->node0x15996f24d40_0:0[arrowhead=vee,style=dashed]
+node0x1599579ed80_18->node0x15996c7de30_0[lhead=cluster_0x15996e15430,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f262a0_0:core->node0x15996f24d40_0:1[arrowhead=vee,]
+node0x159957a0880_19->node0x15996f262a0_0:0[arrowhead=vee,style=dashed]
+node0x159957a0880_19->node0x15996c7dbd0_0[lhead=cluster_0x15996e181d0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f24ae0_0:core->node0x15996f262a0_0:1[arrowhead=vee,]
+node0x159957a0be0_20->node0x15996f24ae0_0:0[arrowhead=vee,style=dashed]
+node0x159957a0be0_20->node0x15996c83610_0[lhead=cluster_0x15996e178b0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f19d80_0:core->node0x15996f24ae0_0:1[arrowhead=vee,]
+node0x159957a0400_21->node0x15996f19d80_0:0[arrowhead=vee,style=dashed]
+node0x159957a0400_21->node0x15996f41080_0[lhead=cluster_0x15996e07930,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f19400_0:core->node0x15996f19d80_0:1[arrowhead=vee,]
+node0x159957932c0_22->node0x15996f19400_0:0[arrowhead=vee,style=dashed]
+node0x159957932c0_22->node0x15996c92d10_0[lhead=cluster_0x15996e20f40,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f20ac0_0:core->node0x15996f19400_0:1[arrowhead=vee,]
+node0x15992c94550_23->node0x15996f20ac0_0:0[arrowhead=vee,style=dashed]
+node0x15992c94550_23->node0x15996c83610_0[lhead=cluster_0x15996e178b0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f1b2e0_0:core->node0x15996f20ac0_0:1[arrowhead=vee,]
+node0x15992ac9990_24->node0x15996f1b2e0_0:0[arrowhead=vee,style=dashed]
+node0x15992ac9990_24->node0x15996f41080_0[lhead=cluster_0x15996e07930,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f1ae20_0:core->node0x15996f1b2e0_0:1[arrowhead=vee,]
+node0x159957a0ac0_25->node0x15996f1ae20_0:0[arrowhead=vee,style=dashed]
+node0x159957a0ac0_25->node0x15996c92f70_0[lhead=cluster_0x15996e1aae0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969ce350_26->node0x15996f1ae20_0:1[arrowhead=vee,]
+node0x159957a1a80_27:core->node0x15996c92f70_0:0[arrowhead=vee,style=dashed]
+node0x15996c984f0_0:core->node0x15996c92f70_0:1[arrowhead=vee,]
+node0x15996c98290_0:core->node0x15996c984f0_0:0[arrowhead=vee,]
+node0x1599579e480_28:core->node0x15996c98290_0:0[arrowhead=vee,style=dashed]
+node0x15996c90970_0:core->node0x15996c98290_0:1[arrowhead=vee,]
+node0x159957a0760_29->node0x15996c98290_0:2[arrowhead=vee,]
+node0x159957a0760_29->node0x15996c94270_0[lhead=cluster_0x15996e1d3f0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957a0520_30->node0x15996c98290_0:3[arrowhead=vee,]
+node0x159957a0520_30->node0x15996c98030_0[lhead=cluster_0x15996e1fd00,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599579e120_31:core->node0x15996c98030_0:0[arrowhead=vee,style=dashed]
+node0x15996c957d0_0:core->node0x15996c98030_0:1[arrowhead=vee,]
+node0x1599579fc20_32->node0x15996c957d0_0:0[arrowhead=vee,style=dashed]
+node0x1599579fc20_32->node0x15996c98750_0[lhead=cluster_0x15996e213d0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c92ab0_0:core->node0x15996c957d0_0:1[arrowhead=vee,]
+node0x15995793740_33:core->node0x15996c92ab0_0:0[arrowhead=vee,style=dashed]
+node0x159969d66f0_34->node0x15996c92ab0_0:1[arrowhead=vee,]
+node0x159969cb0f0_35->node0x15996c92ab0_0:2[arrowhead=vee,]
+node0x1599579d4c0_36:core->node0x15996c98750_0:0[arrowhead=vee,style=dashed]
+node0x159969d59f0_37->node0x15996c98750_0:1[arrowhead=vee,]
+node0x159957943a0_38:core->node0x15996c94270_0:0[arrowhead=vee,style=dashed]
+node0x15996c8fff0_0:core->node0x15996c94270_0:1[arrowhead=vee,]
+node0x15995793e00_39->node0x15996c8fff0_0:0[arrowhead=vee,style=dashed]
+node0x15995793e00_39->node0x15996c98750_0[lhead=cluster_0x15996e213d0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c963b0_0:core->node0x15996c8fff0_0:1[arrowhead=vee,]
+node0x15995788fa0_40:core->node0x15996c963b0_0:0[arrowhead=vee,style=dashed]
+node0x15996c92ab0_0:core->node0x15996c963b0_0:1[arrowhead=vee,]
+node0x15995791100_41:core->node0x15996c963b0_0:2[arrowhead=vee,]
+node0x15995783000_42->node0x15996c90970_0:0[arrowhead=vee,style=dashed]
+node0x15995783000_42->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957921e0_43:core->node0x15996c90970_0:1[arrowhead=vee,]
+node0x1598e675290_44:core->node0x15996f1a700_0:0[arrowhead=vee,style=dashed]
+node0x15996f1cf60_0:core->node0x15996f1a700_0:1[arrowhead=vee,]
+node0x15996f1d8e0_0:core->node0x15996f1cf60_0:0[arrowhead=vee,]
+node0x1598e674cf0_45:core->node0x15996f1d8e0_0:0[arrowhead=vee,style=dashed]
+node0x159969cf1f0_46->node0x15996f1d8e0_0:1[arrowhead=vee,]
+node0x1598e677330_47:core->node0x15996f1d8e0_0:2[arrowhead=vee,]
+node0x15992ac77d0_48:core->node0x15996f41080_0:0[arrowhead=vee,style=dashed]
+node0x15996f41a00_0:core->node0x15996f41080_0:1[arrowhead=vee,]
+node0x15995791c40_49:core->node0x15996f41a00_0:0[arrowhead=vee,style=dashed]
+node0x159969cc7b0_50->node0x15996f41a00_0:1[arrowhead=vee,]
+node0x1599579d820_51:core->node0x15996c83610_0:0[arrowhead=vee,style=dashed]
+node0x15996c7f5f0_0:core->node0x15996c83610_0:1[arrowhead=vee,]
+node0x15992accb10_52:core->node0x15996c7f5f0_0:0[arrowhead=vee,style=dashed]
+node0x159969d3970_53->node0x15996c7f5f0_0:1[arrowhead=vee,]
+node0x15995792780_54:core->node0x15996c92d10_0:0[arrowhead=vee,style=dashed]
+node0x15996c96ad0_0:core->node0x15996c92d10_0:1[arrowhead=vee,]
+node0x15996c91c70_0:core->node0x15996c96ad0_0:0[arrowhead=vee,]
+node0x159957848c0_55:core->node0x15996c91c70_0:0[arrowhead=vee,style=dashed]
+node0x15996c904b0_0:core->node0x15996c91c70_0:1[arrowhead=vee,]
+node0x159957a2020_56->node0x15996c91c70_0:2[arrowhead=vee,]
+node0x159957a2020_56->node0x15996c96870_0[lhead=cluster_0x15996e1b890,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957a1f00_57->node0x15996c91c70_0:3[arrowhead=vee,]
+node0x159957a1f00_57->node0x15996c8fd90_0[lhead=cluster_0x15996e1e1a0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957a1cc0_58:core->node0x15996c8fd90_0:0[arrowhead=vee,style=dashed]
+node0x15996c94990_0:core->node0x15996c8fd90_0:1[arrowhead=vee,]
+node0x1599579ea20_59->node0x15996c94990_0:0[arrowhead=vee,style=dashed]
+node0x1599579ea20_59->node0x15996c90710_0[lhead=cluster_0x15996e1bd20,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c886d0_0:core->node0x15996c94990_0:1[arrowhead=vee,]
+node0x15995785640_60:core->node0x15996c886d0_0:0[arrowhead=vee,style=dashed]
+node0x159969d3b10_61->node0x15996c886d0_0:1[arrowhead=vee,]
+node0x159969d3cb0_62->node0x15996c886d0_0:2[arrowhead=vee,]
+node0x159957906e0_63:core->node0x15996c90710_0:0[arrowhead=vee,style=dashed]
+node0x159969d0d90_64->node0x15996c90710_0:1[arrowhead=vee,]
+node0x1599579e5a0_65:core->node0x15996c96870_0:0[arrowhead=vee,style=dashed]
+node0x15996c912f0_0:core->node0x15996c96870_0:1[arrowhead=vee,]
+node0x1599579fe60_66->node0x15996c912f0_0:0[arrowhead=vee,style=dashed]
+node0x1599579fe60_66->node0x15996c90710_0[lhead=cluster_0x15996e1bd20,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c91090_0:core->node0x15996c912f0_0:1[arrowhead=vee,]
+node0x15995798840_67:core->node0x15996c91090_0:0[arrowhead=vee,style=dashed]
+node0x15996c886d0_0:core->node0x15996c91090_0:1[arrowhead=vee,]
+node0x1599579efc0_68:core->node0x15996c91090_0:2[arrowhead=vee,]
+node0x15995790c80_69->node0x15996c904b0_0:0[arrowhead=vee,style=dashed]
+node0x15995790c80_69->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957920c0_70:core->node0x15996c904b0_0:1[arrowhead=vee,]
+node0x159957a0d00_71:core->node0x15996c7dbd0_0:0[arrowhead=vee,style=dashed]
+node0x15996c83ad0_0:core->node0x15996c7dbd0_0:1[arrowhead=vee,]
+node0x15992c8a8f0_72:core->node0x15996c83ad0_0:0[arrowhead=vee,style=dashed]
+node0x159969d1270_73->node0x15996c83ad0_0:1[arrowhead=vee,]
+node0x15996c7ea10_0:core->node0x15996c83ad0_0:2[arrowhead=vee,]
+node0x15992acc210_74:core->node0x15996c7ea10_0:0[arrowhead=vee,style=dashed]
+node0x15996c81990_0:core->node0x15996c7ea10_0:1[arrowhead=vee,]
+node0x15996c82310_0:core->node0x15996c7ea10_0:2[arrowhead=vee,]
+node0x15992c92150_75:core->node0x15996c82310_0:0[arrowhead=vee,style=dashed]
+node0x1599579f8c0_76:core->node0x15996c82310_0:1[arrowhead=vee,]
+node0x15992c8c750_77:core->node0x15996c81990_0:0[arrowhead=vee,style=dashed]
+node0x15996c74d50_0:core->node0x15996c81990_0:1[arrowhead=vee,]
+node0x1599579f440_78:core->node0x15996c81990_0:2[arrowhead=vee,]
+node0x15992c895d0_79:core->node0x15996c74d50_0:0[arrowhead=vee,style=dashed]
+node0x159969d1270_80->node0x15996c74d50_0:1[arrowhead=vee,]
+node0x159957a13c0_81:core->node0x15996c7de30_0:0[arrowhead=vee,style=dashed]
+node0x15996c9fbb0_0:core->node0x15996c7de30_0:1[arrowhead=vee,]
+node0x1599579fb00_82->node0x15996c9fbb0_0:0[arrowhead=vee,style=dashed]
+node0x1599579fb00_82->node0x15996c79950_0[lhead=cluster_0x15996e1af70,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969cd170_83->node0x15996c9fbb0_0:1[arrowhead=vee,]
+node0x159969d15b0_84->node0x15996c9fbb0_0:2[arrowhead=vee,]
+node0x159969d1dd0_85->node0x15996c9fbb0_0:3[arrowhead=vee,]
+node0x15992ad2cf0_86:core->node0x15996c79950_0:0[arrowhead=vee,style=dashed]
+node0x15996c77350_0:core->node0x15996c79950_0:1[arrowhead=vee,]
+node0x15992ad34d0_87:core->node0x15996c77350_0:0[arrowhead=vee,style=dashed]
+node0x15996c77810_0:core->node0x15996c77350_0:1[arrowhead=vee,]
+node0x15996c769d0_0:core->node0x15996c77350_0:2[arrowhead=vee,]
+node0x15992ad2ab0_88:core->node0x15996c769d0_0:0[arrowhead=vee,style=dashed]
+node0x15996c7a9f0_0:core->node0x15996c769d0_0:1[arrowhead=vee,]
+node0x159957905c0_89:core->node0x15996c7a9f0_0:0[arrowhead=vee,style=dashed]
+node0x15996c74fb0_0:core->node0x15996c7a9f0_0:1[arrowhead=vee,]
+node0x15995792660_90:core->node0x15996c7a9f0_0:2[arrowhead=vee,]
+node0x1599579f680_91:core->node0x15996c74fb0_0:0[arrowhead=vee,style=dashed]
+node0x159969d5d30_92->node0x15996c74fb0_0:1[arrowhead=vee,]
+node0x15996c77cd0_0:core->node0x15996c77810_0:0[arrowhead=vee,]
+node0x15992ac88b0_93:core->node0x15996c77cd0_0:0[arrowhead=vee,style=dashed]
+node0x15996c73f10_0:core->node0x15996c77cd0_0:1[arrowhead=vee,]
+node0x1599579e240_94->node0x15996c77cd0_0:2[arrowhead=vee,]
+node0x1599579e240_94->node0x15996c9f6f0_0[lhead=cluster_0x15996e24170,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599579cf20_95->node0x15996c77cd0_0:3[arrowhead=vee,]
+node0x1599579cf20_95->node0x15996c84910_0[lhead=cluster_0x15996e1c640,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992acbeb0_96:core->node0x15996c84910_0:0[arrowhead=vee,style=dashed]
+node0x15996c7eed0_0:core->node0x15996c84910_0:1[arrowhead=vee,]
+node0x1599579eb40_97->node0x15996c7eed0_0:0[arrowhead=vee,style=dashed]
+node0x1599579eb40_97->node0x15996c7d710_0[lhead=cluster_0x15996e1a650,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969d5d30_98->node0x15996c7eed0_0:1[arrowhead=vee,]
+node0x15992acfff0_99:core->node0x15996c7d710_0:0[arrowhead=vee,style=dashed]
+node0x15996c801d0_0:core->node0x15996c7d710_0:1[arrowhead=vee,]
+node0x15996c80db0_0:core->node0x15996c801d0_0:0[arrowhead=vee,]
+node0x15992acfdb0_100:core->node0x15996c80db0_0:0[arrowhead=vee,style=dashed]
+node0x15996c82a30_0:core->node0x15996c80db0_0:1[arrowhead=vee,]
+node0x1599579d700_101->node0x15996c80db0_0:2[arrowhead=vee,]
+node0x1599579d700_101->node0x15996c9b6d0_0[lhead=cluster_0x15996e22180,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957a00a0_102->node0x15996c80db0_0:3[arrowhead=vee,]
+node0x159957a00a0_102->node0x15996c7cff0_0[lhead=cluster_0x15996e1cf60,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992ad0d70_103:core->node0x15996c7cff0_0:0[arrowhead=vee,style=dashed]
+node0x15996c85290_0:core->node0x15996c7cff0_0:1[arrowhead=vee,]
+node0x1599579d5e0_104->node0x15996c85290_0:0[arrowhead=vee,style=dashed]
+node0x1599579d5e0_104->node0x15996c7d4b0_0[lhead=cluster_0x15996e1d880,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c7cb30_0:core->node0x15996c85290_0:1[arrowhead=vee,]
+node0x15995786600_105:core->node0x15996c7cb30_0:0[arrowhead=vee,style=dashed]
+node0x159969d4330_106->node0x15996c7cb30_0:1[arrowhead=vee,]
+node0x159969d5ed0_107->node0x15996c7cb30_0:2[arrowhead=vee,]
+node0x15992ad10d0_108:core->node0x15996c7d4b0_0:0[arrowhead=vee,style=dashed]
+node0x15996c7d970_0:core->node0x15996c7d4b0_0:1[arrowhead=vee,]
+node0x15996c854f0_0:core->node0x15996c7d970_0:0[arrowhead=vee,]
+node0x15992ad08f0_109:core->node0x15996c854f0_0:0[arrowhead=vee,style=dashed]
+node0x15996c8d2d0_0:core->node0x15996c854f0_0:1[arrowhead=vee,]
+node0x159957a14e0_110->node0x15996c854f0_0:2[arrowhead=vee,]
+node0x159957a14e0_110->node0x15996c99330_0[lhead=cluster_0x15996e21cf0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599579ddc0_111->node0x15996c854f0_0:3[arrowhead=vee,]
+node0x1599579ddc0_111->node0x15996c87170_0[lhead=cluster_0x15996e1dd10,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992acf150_112:core->node0x15996c87170_0:0[arrowhead=vee,style=dashed]
+node0x15996c86a50_0:core->node0x15996c87170_0:1[arrowhead=vee,]
+node0x1599579f200_113->node0x15996c86a50_0:0[arrowhead=vee,style=dashed]
+node0x1599579f200_113->node0x15996c873d0_0[lhead=cluster_0x15996e19d30,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969d1f70_114->node0x15996c86a50_0:1[arrowhead=vee,]
+node0x15992ad1e50_115:core->node0x15996c873d0_0:0[arrowhead=vee,style=dashed]
+node0x15996c87890_0:core->node0x15996c873d0_0:1[arrowhead=vee,]
+node0x15996c8af30_0:core->node0x15996c87890_0:0[arrowhead=vee,]
+node0x15992ad2090_116:core->node0x15996c8af30_0:0[arrowhead=vee,style=dashed]
+node0x15996c8c950_0:core->node0x15996c8af30_0:1[arrowhead=vee,]
+node0x159957a12a0_117->node0x15996c8af30_0:2[arrowhead=vee,]
+node0x159957a12a0_117->node0x15996c8f410_0[lhead=cluster_0x15996e23ce0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599579f7a0_118->node0x15996c8af30_0:3[arrowhead=vee,]
+node0x1599579f7a0_118->node0x15996c86330_0[lhead=cluster_0x15996e25840,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992ad23f0_119:core->node0x15996c86330_0:0[arrowhead=vee,style=dashed]
+node0x15996c8f1b0_0:core->node0x15996c86330_0:1[arrowhead=vee,]
+node0x159957a0640_120->node0x15996c8f1b0_0:0[arrowhead=vee,style=dashed]
+node0x159957a0640_120->node0x15996c8d790_0[lhead=cluster_0x15996e21860,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969d1410_121->node0x15996c8f1b0_0:1[arrowhead=vee,]
+node0x15992ad2510_122:core->node0x15996c8d790_0:0[arrowhead=vee,style=dashed]
+node0x159969d6890_123->node0x15996c8d790_0:1[arrowhead=vee,]
+node0x15992ad3710_124:core->node0x15996c8f410_0:0[arrowhead=vee,style=dashed]
+node0x15996c98c10_0:core->node0x15996c8f410_0:1[arrowhead=vee,]
+node0x1599579ff80_125->node0x15996c98c10_0:0[arrowhead=vee,style=dashed]
+node0x1599579ff80_125->node0x15996c8d790_0[lhead=cluster_0x15996e21860,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c95a30_0:core->node0x15996c98c10_0:1[arrowhead=vee,]
+node0x15995795240_126:core->node0x15996c95a30_0:0[arrowhead=vee,style=dashed]
+node0x159969d1410_127->node0x15996c95a30_0:1[arrowhead=vee,]
+node0x15996c931d0_0:core->node0x15996c95a30_0:2[arrowhead=vee,]
+node0x1599578f600_128:core->node0x15996c931d0_0:0[arrowhead=vee,style=dashed]
+node0x15996c96150_0:core->node0x15996c931d0_0:1[arrowhead=vee,]
+node0x15996c90e30_0:core->node0x15996c931d0_0:2[arrowhead=vee,]
+node0x1599578e520_129:core->node0x15996c90e30_0:0[arrowhead=vee,style=dashed]
+node0x15996c93b50_0:core->node0x15996c90e30_0:1[arrowhead=vee,]
+node0x1599579cce0_130:core->node0x15996c93b50_0:0[arrowhead=vee,style=dashed]
+node0x15992ad3290_131:core->node0x15996c93b50_0:1[arrowhead=vee,]
+node0x1599578e2e0_132:core->node0x15996c96150_0:0[arrowhead=vee,style=dashed]
+node0x15996c74fb0_0:core->node0x15996c96150_0:1[arrowhead=vee,]
+node0x15996c94010_0:core->node0x15996c96150_0:2[arrowhead=vee,]
+node0x1599579b780_133:core->node0x15996c94010_0:0[arrowhead=vee,style=dashed]
+node0x15992acfb70_134:core->node0x15996c94010_0:1[arrowhead=vee,]
+node0x15996c94730_0:core->node0x15996c94010_0:2[arrowhead=vee,]
+node0x15992ad0590_135:core->node0x15996c94010_0:3[arrowhead=vee,]
+node0x15995799ec0_136:core->node0x15996c94730_0:0[arrowhead=vee,style=dashed]
+node0x15992ad0470_137:core->node0x15996c94730_0:1[arrowhead=vee,]
+node0x1599579c980_138->node0x15996c8c950_0:0[arrowhead=vee,style=dashed]
+node0x1599579c980_138->node0x15996c7bcf0_0[lhead=cluster_0x15996e1c1b0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c8a0f0_0:core->node0x15996c8c950_0:1[arrowhead=vee,]
+node0x1599578d560_139:core->node0x15996c8a0f0_0:0[arrowhead=vee,style=dashed]
+node0x15996c8acd0_0:core->node0x15996c8a0f0_0:1[arrowhead=vee,]
+node0x15992acd1d0_140:core->node0x15996c8a0f0_0:2[arrowhead=vee,]
+node0x1599579be40_141->node0x15996c8acd0_0:0[arrowhead=vee,style=dashed]
+node0x1599579be40_141->node0x15996c7aeb0_0[lhead=cluster_0x15996e1a1c0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c74fb0_0:core->node0x15996c8acd0_0:1[arrowhead=vee,]
+node0x159957a1840_142:core->node0x15996c7aeb0_0:0[arrowhead=vee,style=dashed]
+node0x15996c73330_0:core->node0x15996c7aeb0_0:1[arrowhead=vee,]
+node0x15996c7b5d0_0:core->node0x15996c73330_0:0[arrowhead=vee,]
+node0x159957a0e20_143:core->node0x15996c7b5d0_0:0[arrowhead=vee,style=dashed]
+node0x159969d4670_144->node0x15996c7b5d0_0:1[arrowhead=vee,]
+node0x159957a1060_145:core->node0x15996c7b5d0_0:2[arrowhead=vee,]
+node0x1598e675290_146:core->node0x15996c7bcf0_0:0[arrowhead=vee,style=dashed]
+node0x15996c7f850_0:core->node0x15996c7bcf0_0:1[arrowhead=vee,]
+node0x15996c81bf0_0:core->node0x15996c7f850_0:0[arrowhead=vee,]
+node0x1598e674cf0_147:core->node0x15996c81bf0_0:0[arrowhead=vee,style=dashed]
+node0x159969d22b0_148->node0x15996c81bf0_0:1[arrowhead=vee,]
+node0x1598e677330_149:core->node0x15996c81bf0_0:2[arrowhead=vee,]
+node0x15992acd2f0_150:core->node0x15996c99330_0:0[arrowhead=vee,style=dashed]
+node0x15996c9afb0_0:core->node0x15996c99330_0:1[arrowhead=vee,]
+node0x159957a1600_151->node0x15996c9afb0_0:0[arrowhead=vee,style=dashed]
+node0x159957a1600_151->node0x15996c873d0_0[lhead=cluster_0x15996e19d30,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c9a890_0:core->node0x15996c9afb0_0:1[arrowhead=vee,]
+node0x15995792d20_152:core->node0x15996c9a890_0:0[arrowhead=vee,style=dashed]
+node0x159969d1f70_153->node0x15996c9a890_0:1[arrowhead=vee,]
+node0x1599579b0c0_154->node0x15996c8d2d0_0:0[arrowhead=vee,style=dashed]
+node0x1599579b0c0_154->node0x15996c7bcf0_0[lhead=cluster_0x15996e1c1b0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15995782700_155:core->node0x15996c8d2d0_0:1[arrowhead=vee,]
+node0x15992ace190_156:core->node0x15996c9b6d0_0:0[arrowhead=vee,style=dashed]
+node0x15996c99f10_0:core->node0x15996c9b6d0_0:1[arrowhead=vee,]
+node0x1599579dca0_157->node0x15996c99f10_0:0[arrowhead=vee,style=dashed]
+node0x1599579dca0_157->node0x15996c7d4b0_0[lhead=cluster_0x15996e1d880,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c99cb0_0:core->node0x15996c99f10_0:1[arrowhead=vee,]
+node0x159957837e0_158:core->node0x15996c99cb0_0:0[arrowhead=vee,style=dashed]
+node0x15996c7cb30_0:core->node0x15996c99cb0_0:1[arrowhead=vee,]
+node0x159969d4810_159->node0x15996c99cb0_0:2[arrowhead=vee,]
+node0x1599579c500_160->node0x15996c82a30_0:0[arrowhead=vee,style=dashed]
+node0x1599579c500_160->node0x15996c7bcf0_0[lhead=cluster_0x15996e1c1b0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992ac93f0_161:core->node0x15996c82a30_0:1[arrowhead=vee,]
+node0x15992aca290_162:core->node0x15996c9f6f0_0:0[arrowhead=vee,style=dashed]
+node0x15996c99a50_0:core->node0x15996c9f6f0_0:1[arrowhead=vee,]
+node0x1599579fd40_163->node0x15996c99a50_0:0[arrowhead=vee,style=dashed]
+node0x1599579fd40_163->node0x15996c7d710_0[lhead=cluster_0x15996e1a650,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c9f490_0:core->node0x15996c99a50_0:1[arrowhead=vee,]
+node0x1599579da60_164:core->node0x15996c9f490_0:0[arrowhead=vee,style=dashed]
+node0x159969d5d30_165->node0x15996c9f490_0:1[arrowhead=vee,]
+node0x15996c9ce90_0:core->node0x15996c9f490_0:2[arrowhead=vee,]
+node0x15992ac78f0_166:core->node0x15996c9ce90_0:0[arrowhead=vee,style=dashed]
+node0x15996ca0790_0:core->node0x15996c9ce90_0:1[arrowhead=vee,]
+node0x15996c9dcd0_0:core->node0x15996c9ce90_0:2[arrowhead=vee,]
+node0x15992c8a470_167:core->node0x15996c9dcd0_0:0[arrowhead=vee,style=dashed]
+node0x15996c74fb0_0:core->node0x15996c9dcd0_0:1[arrowhead=vee,]
+node0x15996c9a170_0:core->node0x15996c9dcd0_0:2[arrowhead=vee,]
+node0x15992aca950_168:core->node0x15996c9a170_0:0[arrowhead=vee,style=dashed]
+node0x15992accd50_169:core->node0x15996c9a170_0:1[arrowhead=vee,]
+node0x15992c872f0_170:core->node0x15996ca0790_0:0[arrowhead=vee,style=dashed]
+node0x15992aca4d0_171:core->node0x15996ca0790_0:1[arrowhead=vee,]
+node0x15995799920_172->node0x15996c73f10_0:0[arrowhead=vee,style=dashed]
+node0x15995799920_172->node0x15996c7bcf0_0[lhead=cluster_0x15996e1c1b0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c74630_0:core->node0x15996c73f10_0:1[arrowhead=vee,]
+node0x1599579f560_173:core->node0x15996c74630_0:0[arrowhead=vee,style=dashed]
+node0x15996c78190_0:core->node0x15996c74630_0:1[arrowhead=vee,]
+node0x15992aca5f0_174:core->node0x15996c74630_0:2[arrowhead=vee,]
+node0x1599579be40_175->node0x15996c78190_0:0[arrowhead=vee,style=dashed]
+node0x1599579be40_175->node0x15996c7aeb0_0[lhead=cluster_0x15996e1a1c0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c74fb0_0:core->node0x15996c78190_0:1[arrowhead=vee,]
+node0x15995791580_176:core->node0x15996f16e00_0:0[arrowhead=vee,style=dashed]
+node0x15996ca09f0_0:core->node0x15996f16e00_0:1[arrowhead=vee,]
+node0x159957859a0_177->node0x15996ca09f0_0:0[arrowhead=vee,style=dashed]
+node0x159957859a0_177->node0x15996c79950_0[lhead=cluster_0x15996e1af70,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969cdb30_178->node0x15996ca09f0_0:1[arrowhead=vee,]
+node0x159969d0a50_179->node0x15996ca09f0_0:2[arrowhead=vee,]
+node0x159969d18f0_180->node0x15996ca09f0_0:3[arrowhead=vee,]
+node0x15992ad2cf0_181:core->node0x15996f42aa0_0:0[arrowhead=vee,style=dashed]
+node0x15996c9da70_0:core->node0x15996f42aa0_0:1[arrowhead=vee,]
+node0x15995782ee0_182->node0x15996c9da70_0:0[arrowhead=vee,style=dashed]
+node0x15995782ee0_182->node0x15996c79950_0[lhead=cluster_0x15996e1af70,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969cf870_183->node0x15996c9da70_0:1[arrowhead=vee,]
+node0x159969d0f30_184->node0x15996c9da70_0:2[arrowhead=vee,]
+node0x159969d5b90_185->node0x15996c9da70_0:3[arrowhead=vee,]
+node0x1598e67fa30_186:core->node0x15996f1a4a0_0:0[arrowhead=vee,style=dashed]
+node0x15996f1a240_0:core->node0x15996f1a4a0_0:1[arrowhead=vee,]
+node0x159956a4410_187:core->node0x15996f1a240_0:0[arrowhead=vee,style=dashed]
+node0x15996f1fc80_0:core->node0x15996f1a240_0:1[arrowhead=vee,]
+node0x159969cf6d0_188->node0x15996f1a240_0:2[arrowhead=vee,]
+node0x159969ced10_189->node0x15996f1a240_0:3[arrowhead=vee,]
+node0x15992ac80d0_190->node0x15996f1fc80_0:0[arrowhead=vee,style=dashed]
+node0x15992ac80d0_190->node0x15996f2c8c0_0[lhead=cluster_0x15996e0ab60,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969cf6d0_191->node0x15996f1fc80_0:1[arrowhead=vee,]
+node0x159969ced10_192->node0x15996f1fc80_0:2[arrowhead=vee,]
+node0x15992ac4d10_193:core->node0x15996f2c8c0_0:0[arrowhead=vee,style=dashed]
+node0x15996f32a20_0:core->node0x15996f2c8c0_0:1[arrowhead=vee,]
+node0x15992ac54f0_194:core->node0x15996f32a20_0:0[arrowhead=vee,style=dashed]
+node0x15996f327c0_0:core->node0x15996f32a20_0:1[arrowhead=vee,]
+node0x15996f2c1a0_0:core->node0x15996f32a20_0:2[arrowhead=vee,]
+node0x15992ac40b0_195:core->node0x15996f2c1a0_0:0[arrowhead=vee,style=dashed]
+node0x15996f2bf40_0:core->node0x15996f2c1a0_0:1[arrowhead=vee,]
+node0x15992ac7110_196:core->node0x15996f2bf40_0:0[arrowhead=vee,style=dashed]
+node0x15996f27f20_0:core->node0x15996f2bf40_0:1[arrowhead=vee,]
+node0x15996f283e0_0:core->node0x15996f2bf40_0:2[arrowhead=vee,]
+node0x159957a02e0_197:core->node0x15996f283e0_0:0[arrowhead=vee,style=dashed]
+node0x15992c8ab30_198:core->node0x15996f283e0_0:1[arrowhead=vee,]
+node0x159969cb770_199->node0x15996f283e0_0:2[arrowhead=vee,]
+node0x1599579e360_200:core->node0x15996f283e0_0:3[arrowhead=vee,]
+node0x159957a02e0_201:core->node0x15996f27f20_0:0[arrowhead=vee,style=dashed]
+node0x1598cb8b220_202:core->node0x15996f27f20_0:1[arrowhead=vee,]
+node0x159969cfd50_203->node0x15996f27f20_0:2[arrowhead=vee,]
+node0x1599579eea0_204:core->node0x15996f27f20_0:3[arrowhead=vee,]
+node0x15996f2cd80_0:core->node0x15996f327c0_0:0[arrowhead=vee,]
+node0x15992ac5850_205:core->node0x15996f2cd80_0:0[arrowhead=vee,style=dashed]
+node0x15996f26040_0:core->node0x15996f2cd80_0:1[arrowhead=vee,]
+node0x15992ac5df0_206->node0x15996f2cd80_0:2[arrowhead=vee,]
+node0x15992ac5df0_206->node0x15996f230c0_0[lhead=cluster_0x15996e0d470,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992ac8670_207->node0x15996f2cd80_0:3[arrowhead=vee,]
+node0x15992ac8670_207->node0x15996f30b40_0[lhead=cluster_0x15996e09490,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992ac6db0_208:core->node0x15996f30b40_0:0[arrowhead=vee,style=dashed]
+node0x15996f30680_0:core->node0x15996f30b40_0:1[arrowhead=vee,]
+node0x15992ac5610_209->node0x15996f30680_0:0[arrowhead=vee,style=dashed]
+node0x15992ac5610_209->node0x15996f2e540_0[lhead=cluster_0x15996e07dc0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969cb770_210->node0x15996f30680_0:1[arrowhead=vee,]
+node0x15992ac6810_211:core->node0x15996f2e540_0:0[arrowhead=vee,style=dashed]
+node0x15996f320a0_0:core->node0x15996f2e540_0:1[arrowhead=vee,]
+node0x15992acc7b0_212->node0x15996f320a0_0:0[arrowhead=vee,style=dashed]
+node0x15992acc7b0_212->node0x15996c8a810_0[lhead=cluster_0x15996e106a0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f31000_0:core->node0x15996f320a0_0:1[arrowhead=vee,]
+node0x1599579f0e0_213:core->node0x15996f31000_0:0[arrowhead=vee,style=dashed]
+node0x15996f30da0_0:core->node0x15996f31000_0:1[arrowhead=vee,]
+node0x15992ac4410_214:core->node0x15996f31000_0:2[arrowhead=vee,]
+node0x15992c91190_215:core->node0x15996f30da0_0:0[arrowhead=vee,style=dashed]
+node0x159969cfd50_216->node0x15996f30da0_0:1[arrowhead=vee,]
+node0x159969ceb70_217->node0x15996f30da0_0:2[arrowhead=vee,]
+node0x15995784e60_218:core->node0x15996c8a810_0:0[arrowhead=vee,style=dashed]
+node0x15996c8c490_0:core->node0x15996c8a810_0:1[arrowhead=vee,]
+node0x15996c8c230_0:core->node0x15996c8c490_0:0[arrowhead=vee,]
+node0x15995782940_219:core->node0x15996c8c230_0:0[arrowhead=vee,style=dashed]
+node0x15996c87af0_0:core->node0x15996c8c230_0:1[arrowhead=vee,]
+node0x15995782820_220->node0x15996c8c230_0:2[arrowhead=vee,]
+node0x15995782820_220->node0x15996c88930_0[lhead=cluster_0x15996e19410,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15995784b00_221->node0x15996c8c230_0:3[arrowhead=vee,]
+node0x15995784b00_221->node0x15996c8a5b0_0[lhead=cluster_0x15996e18af0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957849e0_222:core->node0x15996c8a5b0_0:0[arrowhead=vee,style=dashed]
+node0x15996c86f10_0:core->node0x15996c8a5b0_0:1[arrowhead=vee,]
+node0x15995786a80_223->node0x15996c86f10_0:0[arrowhead=vee,style=dashed]
+node0x15995786a80_223->node0x15996c8ecf0_0[lhead=cluster_0x15996e18f80,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c814d0_0:core->node0x15996c86f10_0:1[arrowhead=vee,]
+node0x15995786720_224:core->node0x15996c814d0_0:0[arrowhead=vee,style=dashed]
+node0x15996c84b70_0:core->node0x15996c814d0_0:1[arrowhead=vee,]
+node0x15996c841f0_0:core->node0x15996c814d0_0:2[arrowhead=vee,]
+node0x15995784c20_225:core->node0x15996c841f0_0:0[arrowhead=vee,style=dashed]
+node0x159969cf390_226->node0x15996c841f0_0:1[arrowhead=vee,]
+node0x1599578f4e0_227:core->node0x15996c841f0_0:2[arrowhead=vee,]
+node0x15995785e20_228:core->node0x15996c84b70_0:0[arrowhead=vee,style=dashed]
+node0x159969d1c30_229->node0x15996c84b70_0:1[arrowhead=vee,]
+node0x1599578f060_230:core->node0x15996c84b70_0:2[arrowhead=vee,]
+node0x1599579a6a0_231:core->node0x15996c8ecf0_0:0[arrowhead=vee,style=dashed]
+node0x15996c8ea90_0:core->node0x15996c8ecf0_0:1[arrowhead=vee,]
+node0x15996c8f670_0:core->node0x15996c8ea90_0:0[arrowhead=vee,]
+node0x15995799da0_232:core->node0x15996c8f670_0:0[arrowhead=vee,style=dashed]
+node0x15996c8aa70_0:core->node0x15996c8f670_0:1[arrowhead=vee,]
+node0x15995799260_233->node0x15996c8f670_0:2[arrowhead=vee,]
+node0x15995799260_233->node0x15996c8e110_0[lhead=cluster_0x15996e1f870,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599579a460_234->node0x15996c8f670_0:3[arrowhead=vee,]
+node0x1599579a460_234->node0x15996c8e830_0[lhead=cluster_0x15996e198a0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15995799c80_235:core->node0x15996c8e830_0:0[arrowhead=vee,style=dashed]
+node0x15996c867f0_0:core->node0x15996c8e830_0:1[arrowhead=vee,]
+node0x15995799140_236->node0x15996c867f0_0:0[arrowhead=vee,style=dashed]
+node0x15995799140_236->node0x15996c95ef0_0[lhead=cluster_0x15996e1b400,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969d2790_237->node0x15996c867f0_0:1[arrowhead=vee,]
+node0x15992acbc70_238:core->node0x15996c95ef0_0:0[arrowhead=vee,style=dashed]
+node0x15996c92390_0:core->node0x15996c95ef0_0:1[arrowhead=vee,]
+node0x15995782dc0_239:core->node0x15996c92390_0:0[arrowhead=vee,style=dashed]
+node0x159969d63b0_240->node0x15996c92390_0:1[arrowhead=vee,]
+node0x15996c82570_0:core->node0x15996c92390_0:2[arrowhead=vee,]
+node0x159957a2140_241:core->node0x15996c82570_0:0[arrowhead=vee,style=dashed]
+node0x159969cf390_242->node0x15996c82570_0:1[arrowhead=vee,]
+node0x159957a1de0_243:core->node0x15996c82570_0:2[arrowhead=vee,]
+node0x15995798f00_244:core->node0x15996c8e110_0:0[arrowhead=vee,style=dashed]
+node0x15996c8bb10_0:core->node0x15996c8e110_0:1[arrowhead=vee,]
+node0x1599579d3a0_245->node0x15996c8bb10_0:0[arrowhead=vee,style=dashed]
+node0x1599579d3a0_245->node0x15996c95ef0_0[lhead=cluster_0x15996e1b400,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c8b650_0:core->node0x15996c8bb10_0:1[arrowhead=vee,]
+node0x15995784560_246:core->node0x15996c8b650_0:0[arrowhead=vee,style=dashed]
+node0x159969d2790_247->node0x15996c8b650_0:1[arrowhead=vee,]
+node0x15996c8b8b0_0:core->node0x15996c8b650_0:2[arrowhead=vee,]
+node0x15995785520_248->node0x15996c8b8b0_0:0[arrowhead=vee,style=dashed]
+node0x15995785520_248->node0x15996c9c510_0[lhead=cluster_0x15996e1cad0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969d2790_249->node0x15996c8b8b0_0:1[arrowhead=vee,]
+node0x15995787ec0_250:core->node0x15996c9c510_0:0[arrowhead=vee,style=dashed]
+node0x15996ca02d0_0:core->node0x15996c9c510_0:1[arrowhead=vee,]
+node0x15995788220_251:core->node0x15996ca02d0_0:0[arrowhead=vee,style=dashed]
+node0x1599578a2c0_252:core->node0x15996ca02d0_0:1[arrowhead=vee,]
+node0x15996c9b930_0:core->node0x15996ca02d0_0:2[arrowhead=vee,]
+node0x15995786060_253:core->node0x15996c9b930_0:0[arrowhead=vee,style=dashed]
+node0x15996c98e70_0:core->node0x15996c9b930_0:1[arrowhead=vee,]
+node0x1599578fde0_254:core->node0x15996c98e70_0:0[arrowhead=vee,style=dashed]
+node0x159969d2110_255->node0x15996c98e70_0:1[arrowhead=vee,]
+node0x15995794b80_256->node0x15996c8aa70_0:0[arrowhead=vee,style=dashed]
+node0x15995794b80_256->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c87630_0:core->node0x15996c8aa70_0:1[arrowhead=vee,]
+node0x15996c8b190_0:core->node0x15996c87630_0:0[arrowhead=vee,]
+node0x1599578dc20_257:core->node0x15996c8b190_0:0[arrowhead=vee,style=dashed]
+node0x15996c8d070_0:core->node0x15996c8b190_0:1[arrowhead=vee,]
+node0x1599578e1c0_258->node0x15996c8b190_0:2[arrowhead=vee,]
+node0x1599578e1c0_258->node0x15996c88df0_0[lhead=cluster_0x15996e20ab0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599578ee20_259->node0x15996c8b190_0:3[arrowhead=vee,]
+node0x1599578ee20_259->node0x15996c892b0_0[lhead=cluster_0x15996e20190,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599578cea0_260:core->node0x15996c892b0_0:0[arrowhead=vee,style=dashed]
+node0x1599578cfc0_261:core->node0x15996c892b0_0:1[arrowhead=vee,]
+node0x1599578c6c0_262:core->node0x15996c88df0_0:0[arrowhead=vee,style=dashed]
+node0x15996c88b90_0:core->node0x15996c88df0_0:1[arrowhead=vee,]
+node0x159957a2260_263:core->node0x15996c88b90_0:0[arrowhead=vee,style=dashed]
+node0x15995788a00_264:core->node0x15996c88b90_0:1[arrowhead=vee,]
+node0x15995797d00_265->node0x15996c8d070_0:0[arrowhead=vee,style=dashed]
+node0x15995797d00_265->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599578cfc0_266:core->node0x15996c8d070_0:1[arrowhead=vee,]
+node0x15995785f40_267:core->node0x15996c88930_0:0[arrowhead=vee,style=dashed]
+node0x15996c89510_0:core->node0x15996c88930_0:1[arrowhead=vee,]
+node0x15995786960_268->node0x15996c89510_0:0[arrowhead=vee,style=dashed]
+node0x15995786960_268->node0x15996c8ecf0_0[lhead=cluster_0x15996e18f80,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c88210_0:core->node0x15996c89510_0:1[arrowhead=vee,]
+node0x159957918e0_269:core->node0x15996c88210_0:0[arrowhead=vee,style=dashed]
+node0x15996c814d0_0:core->node0x15996c88210_0:1[arrowhead=vee,]
+node0x15996c89050_0:core->node0x15996c88210_0:2[arrowhead=vee,]
+node0x15995785520_270->node0x15996c89050_0:0[arrowhead=vee,style=dashed]
+node0x15995785520_270->node0x15996c9c510_0[lhead=cluster_0x15996e1cad0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c814d0_0:core->node0x15996c89050_0:1[arrowhead=vee,]
+node0x15995788460_271->node0x15996c87af0_0:0[arrowhead=vee,style=dashed]
+node0x15995788460_271->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996c8b3f0_0:core->node0x15996c87af0_0:1[arrowhead=vee,]
+node0x15996c8cbb0_0:core->node0x15996c8b3f0_0:0[arrowhead=vee,]
+node0x159957824c0_272:core->node0x15996c8cbb0_0:0[arrowhead=vee,style=dashed]
+node0x15996c8c6f0_0:core->node0x15996c8cbb0_0:1[arrowhead=vee,]
+node0x159957862a0_273->node0x15996c8cbb0_0:2[arrowhead=vee,]
+node0x159957862a0_273->node0x15996c859b0_0[lhead=cluster_0x15996e18660,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15995785880_274->node0x15996c8cbb0_0:3[arrowhead=vee,]
+node0x15995785880_274->node0x15996c85c10_0[lhead=cluster_0x15996e10b30,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159957840e0_275:core->node0x15996c85c10_0:0[arrowhead=vee,style=dashed]
+node0x15995784200_276:core->node0x15996c85c10_0:1[arrowhead=vee,]
+node0x15995783ea0_277:core->node0x15996c859b0_0:0[arrowhead=vee,style=dashed]
+node0x159957863c0_278:core->node0x15996c859b0_0:1[arrowhead=vee,]
+node0x15995783360_279->node0x15996c8c6f0_0:0[arrowhead=vee,style=dashed]
+node0x15995783360_279->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15995784200_280:core->node0x15996c8c6f0_0:1[arrowhead=vee,]
+node0x15996148180_281:core->node0x15996f230c0_0:0[arrowhead=vee,style=dashed]
+node0x15996f23a40_0:core->node0x15996f230c0_0:1[arrowhead=vee,]
+node0x15996f24160_0:core->node0x15996f23a40_0:0[arrowhead=vee,]
+node0x1598d0860f0_282:core->node0x15996f24160_0:0[arrowhead=vee,style=dashed]
+node0x15996f2a060_0:core->node0x15996f24160_0:1[arrowhead=vee,]
+node0x1598d085eb0_283->node0x15996f24160_0:2[arrowhead=vee,]
+node0x1598d085eb0_283->node0x15996f229a0_0[lhead=cluster_0x15996e0dd90,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1598d0855b0_284->node0x15996f24160_0:3[arrowhead=vee,]
+node0x1598d0855b0_284->node0x15996f2a9e0_0[lhead=cluster_0x15996e0c6c0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1598cc2c930_285:core->node0x15996f2a9e0_0:0[arrowhead=vee,style=dashed]
+node0x15996f237e0_0:core->node0x15996f2a9e0_0:1[arrowhead=vee,]
+node0x1598cc2e1f0_286->node0x15996f237e0_0:0[arrowhead=vee,]
+node0x1598cc2e1f0_286->node0x15996f32c80_0[lhead=cluster_0x15996e09000,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992ac6c90_287:core->node0x15996f32c80_0:0[arrowhead=vee,style=dashed]
+node0x15996f2ac40_0:core->node0x15996f32c80_0:1[arrowhead=vee,]
+node0x15992ac7b30_288->node0x15996f2ac40_0:0[arrowhead=vee,style=dashed]
+node0x15992ac7b30_288->node0x15996f2e540_0[lhead=cluster_0x15996e07dc0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f2dbc0_0:core->node0x15996f2ac40_0:1[arrowhead=vee,]
+node0x1599579e6c0_289:core->node0x15996f2dbc0_0:0[arrowhead=vee,style=dashed]
+node0x159969cb770_290->node0x15996f2dbc0_0:1[arrowhead=vee,]
+node0x15996f30420_0:core->node0x15996f2dbc0_0:2[arrowhead=vee,]
+node0x1599579e900_291:core->node0x15996f2dbc0_0:3[arrowhead=vee,]
+node0x159957898a0_292:core->node0x15996f2dbc0_0:4[arrowhead=vee,]
+node0x159957928a0_293:core->node0x15996f30420_0:0[arrowhead=vee,style=dashed]
+node0x15996f301c0_0:core->node0x15996f30420_0:1[arrowhead=vee,]
+node0x15996f32560_0:core->node0x15996f30420_0:2[arrowhead=vee,]
+node0x159957917c0_294:core->node0x15996f32560_0:0[arrowhead=vee,style=dashed]
+node0x15996125500_295:core->node0x15996f32560_0:1[arrowhead=vee,]
+node0x15995792e40_296:core->node0x15996f301c0_0:0[arrowhead=vee,style=dashed]
+node0x159969cfd50_297->node0x15996f301c0_0:1[arrowhead=vee,]
+node0x1598cc2c4b0_298:core->node0x15996f229a0_0:0[arrowhead=vee,style=dashed]
+node0x15996f2a780_0:core->node0x15996f229a0_0:1[arrowhead=vee,]
+node0x1599579ce00_299:core->node0x15996f2a780_0:0[arrowhead=vee,style=dashed]
+node0x159969cfd50_300->node0x15996f2a780_0:1[arrowhead=vee,]
+node0x159969cb770_301->node0x15996f2a780_0:2[arrowhead=vee,]
+node0x1599579db80_302->node0x15996f2a060_0:0[arrowhead=vee,style=dashed]
+node0x1599579db80_302->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f29e00_0:core->node0x15996f2a060_0:1[arrowhead=vee,]
+node0x15995795d80_303:core->node0x15996f29e00_0:0[arrowhead=vee,style=dashed]
+node0x15995794dc0_304:core->node0x15996f29e00_0:1[arrowhead=vee,]
+node0x1599655af20_305:core->node0x15996f29e00_0:2[arrowhead=vee,]
+node0x159957a0f40_306->node0x15996f26040_0:0[arrowhead=vee,style=dashed]
+node0x159957a0f40_306->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1599579f320_307:core->node0x15996f26040_0:1[arrowhead=vee,]
+node0x15992c8bd30_308:core->node0x15996f1e260_0:0[arrowhead=vee,style=dashed]
+node0x15996f1c840_0:core->node0x15996f1e260_0:1[arrowhead=vee,]
+node0x15992c8fe70_309->node0x15996f1c840_0:0[arrowhead=vee,style=dashed]
+node0x15992c8fe70_309->node0x15996f1a4a0_0[lhead=cluster_0x15996e0a240,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f1ee40_0:core->node0x15996f1c840_0:1[arrowhead=vee,]
+node0x15996f1bec0_0:core->node0x15996f1c840_0:2[arrowhead=vee,]
+node0x15992ac6150_310:core->node0x15996f1bec0_0:0[arrowhead=vee,style=dashed]
+node0x15992ac6030_311:core->node0x15996f1bec0_0:1[arrowhead=vee,]
+node0x159969cc470_312->node0x15996f1bec0_0:2[arrowhead=vee,]
+node0x15992ac5f10_313:core->node0x15996f1ee40_0:0[arrowhead=vee,style=dashed]
+node0x15996f18f40_0:core->node0x15996f1ee40_0:1[arrowhead=vee,]
+node0x15992ac6a50_314:core->node0x15996f1ee40_0:2[arrowhead=vee,]
+node0x1598e6770f0_315->node0x15996f1a960_0:0[arrowhead=vee,style=dashed]
+node0x1598e6770f0_315->node0x15996f1a700_0[lhead=cluster_0x15996e086e0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x1598e674990_316:core->node0x15996f1a960_0:1[arrowhead=vee,]
+}

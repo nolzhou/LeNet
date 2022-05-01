@@ -1,0 +1,62 @@
+All Parameters:
+
+index:	size:	start_addr:	source node name:	node out index:
+%0P	#131072S	&0	data	0
+%1P	#600S	&0	conv1.weight	0
+%2P	#9600S	&0	conv2.weight	0
+%3P	#192000S	&0	fc1.weight	0
+%4P	#480S	&0	fc1.bias	0
+%5P	#40320S	&0	fc2.weight	0
+%6P	#336S	&0	fc2.bias	0
+%7P	#3360S	&0	fc3.weight	0
+%8P	#40S	&0	fc3.bias	0
+%9P	#128S	&0	label	0
+
+
+All Tensors:
+
+index:	size:	real_size:	offset:	addr:	type:	lifelong:	life_start:	life_end:	source node name:
+%0T	#602624S	#602112S	&0	&0	Common	0	0	1	Conv2D-op182
+%1T	#602624S	#602112S	&0	&0	Common	0	1	2	ReLU-op183
+%2T	#151040S	#150528S	&0	&0	Common	0	2	3	MaxPool-op184
+%3T	#37888S	#37632S	&0	&0	Workspace	0	2	2	MaxPool-op184
+%4T	#205312S	#204800S	&0	&0	Common	0	3	4	Conv2D-op185
+%5T	#205312S	#204800S	&0	&0	Common	0	4	5	ReLU-op186
+%6T	#51712S	#51200S	&0	&0	Common	0	5	6	MaxPool-op187
+%7T	#13312S	#12800S	&0	&0	Workspace	0	5	5	MaxPool-op187
+%8T	#51712S	#51200S	&0	&0	Common	0	6	7	Reshape-op188
+%9T	#15872S	#15360S	&0	&0	Common	0	7	8	MatMul-op189
+%10T	#15872S	#15360S	&0	&0	Common	0	8	9	BiasAdd-op190
+%11T	#15872S	#15360S	&0	&0	Common	0	9	10	ReLU-op191
+%12T	#11264S	#10752S	&0	&0	Common	0	10	11	MatMul-op192
+%13T	#11264S	#10752S	&0	&0	Common	0	11	12	BiasAdd-op193
+%14T	#11264S	#10752S	&0	&0	Common	0	12	13	ReLU-op194
+%15T	#1536S	#1280S	&0	&0	Common	0	13	14	MatMul-op195
+%16T	#1536S	#1280S	&0	&0	Common	0	14	15	BiasAdd-op196
+%17T	#512S	#4S	&0	&0	OutputOnly	0	15	15	SparseSoftmaxCrossEntropyWithLogits-op197
+%18T	#1536S	#1280S	&0	&0	Workspace	0	15	15	SparseSoftmaxCrossEntropyWithLogits-op197
+
+
+All Nodes:
+
+$0	Conv2D-op182	0	inputs[%0P, %1P, ]	outputs[%0T, ]	workspace[]	streamID[@4294967295]
+$1	ReLU-op183	0	inputs[%0T, ]	outputs[%1T, ]	workspace[]	streamID[@4294967295]
+$2	MaxPool-op184	0	inputs[%1T, ]	outputs[%2T, ]	workspace[%3T, ]	streamID[@4294967295]
+$3	Conv2D-op185	0	inputs[%2T, %2P, ]	outputs[%4T, ]	workspace[]	streamID[@4294967295]
+$4	ReLU-op186	0	inputs[%4T, ]	outputs[%5T, ]	workspace[]	streamID[@4294967295]
+$5	MaxPool-op187	0	inputs[%5T, ]	outputs[%6T, ]	workspace[%7T, ]	streamID[@4294967295]
+$6	Reshape-op188	0	inputs[%6T, ]	outputs[%8T, ]	workspace[]	streamID[@4294967295]
+$7	MatMul-op189	0	inputs[%8T, %3P, ]	outputs[%9T, ]	workspace[]	streamID[@4294967295]
+$8	BiasAdd-op190	0	inputs[%9T, %4P, ]	outputs[%10T, ]	workspace[]	streamID[@4294967295]
+$9	ReLU-op191	0	inputs[%10T, ]	outputs[%11T, ]	workspace[]	streamID[@4294967295]
+$10	MatMul-op192	0	inputs[%11T, %5P, ]	outputs[%12T, ]	workspace[]	streamID[@4294967295]
+$11	BiasAdd-op193	0	inputs[%12T, %6P, ]	outputs[%13T, ]	workspace[]	streamID[@4294967295]
+$12	ReLU-op194	0	inputs[%13T, ]	outputs[%14T, ]	workspace[]	streamID[@4294967295]
+$13	MatMul-op195	0	inputs[%14T, %7P, ]	outputs[%15T, ]	workspace[]	streamID[@4294967295]
+$14	BiasAdd-op196	0	inputs[%15T, %8P, ]	outputs[%16T, ]	workspace[]	streamID[@4294967295]
+$15	SparseSoftmaxCrossEntropyWithLogits-op197	0	inputs[%16T, %9P, ]	outputs[%17T, ]	workspace[%18T, ]	streamID[@4294967295]
+
+
+All Stream Groups:
+
+

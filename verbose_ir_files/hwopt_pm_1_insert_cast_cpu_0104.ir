@@ -1,0 +1,303 @@
+#IR entry      : @kernel_graph_0
+#attrs         :
+#Total params  : 20
+
+%para1_fc3.bias : <Ref[Tensor(F32)], (10)>  :  <kTypeUnknownxDefaultFormat[const vector][10]>  :  IsWeight:true
+%para2_fc3.weight : <Ref[Tensor(F32)], (10, 84)>  :  <kTypeUnknownxDefaultFormat[const vector][10, 84]>  :  IsWeight:true
+%para3_fc2.bias : <Ref[Tensor(F32)], (84)>  :  <kTypeUnknownxDefaultFormat[const vector][84]>  :  IsWeight:true
+%para4_fc2.weight : <Ref[Tensor(F32)], (84, 120)>  :  <kTypeUnknownxDefaultFormat[const vector][84, 120]>  :  IsWeight:true
+%para5_fc1.bias : <Ref[Tensor(F32)], (120)>  :  <kTypeUnknownxDefaultFormat[const vector][120]>  :  IsWeight:true
+%para6_fc1.weight : <Ref[Tensor(F32)], (120, 400)>  :  <kTypeUnknownxDefaultFormat[const vector][120, 400]>  :  IsWeight:true
+%para7_conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>  :  <kTypeUnknownxDefaultFormat[const vector][16, 6, 5, 5]>  :  IsWeight:true
+%para8_conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>  :  <kTypeUnknownxDefaultFormat[const vector][6, 1, 5, 5]>  :  IsWeight:true
+%para9_inputs0 : <Tensor[Float32], (32, 1, 32, 32)>  :  <Float32xDefaultFormat[const vector][32, 1, 32, 32]>  :  IsWeight:false
+%para10_inputs1 : <Tensor[Int32], (32)>  :  <Int32xDefaultFormat[const vector][32]>  :  IsWeight:false
+%para11_moments.fc3.bias : <Ref[Tensor(F32)], (10)>  :  <kTypeUnknownxDefaultFormat[const vector][10]>  :  IsWeight:true
+%para12_learning_rate : <Ref[Tensor(F32)], ()>  :  <kTypeUnknownxDefaultFormat[const vector][]>  :  IsWeight:true
+%para13_momentum : <Ref[Tensor(F32)], ()>  :  <kTypeUnknownxDefaultFormat[const vector][]>  :  IsWeight:true
+%para14_moments.fc3.weight : <Ref[Tensor(F32)], (10, 84)>  :  <kTypeUnknownxDefaultFormat[const vector][10, 84]>  :  IsWeight:true
+%para15_moments.fc2.bias : <Ref[Tensor(F32)], (84)>  :  <kTypeUnknownxDefaultFormat[const vector][84]>  :  IsWeight:true
+%para16_moments.fc2.weight : <Ref[Tensor(F32)], (84, 120)>  :  <kTypeUnknownxDefaultFormat[const vector][84, 120]>  :  IsWeight:true
+%para17_moments.fc1.bias : <Ref[Tensor(F32)], (120)>  :  <kTypeUnknownxDefaultFormat[const vector][120]>  :  IsWeight:true
+%para18_moments.fc1.weight : <Ref[Tensor(F32)], (120, 400)>  :  <kTypeUnknownxDefaultFormat[const vector][120, 400]>  :  IsWeight:true
+%para19_moments.conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>  :  <kTypeUnknownxDefaultFormat[const vector][16, 6, 5, 5]>  :  IsWeight:true
+%para20_moments.conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>  :  <kTypeUnknownxDefaultFormat[const vector][6, 1, 5, 5]>  :  IsWeight:true
+
+#Total subgraph : 1
+
+subgraph attr:
+subgraph @kernel_graph_0() {
+  %0(equiv[CNode]843) = Load(%para8_conv1.weight, U)
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <UMonad>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+      : (conv1.weight)
+  %1(equivoutput) = Conv2D(%para9_inputs0, %0) {instance name: conv2d} primitive_attrs: {IsFeatureMapInputList: (0), kernel_size: (5, 5), mode: 1, out_channel: 6, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: valid, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output], IsFeatureMapOutput: true}
+      : (<Tensor[Float32], (32, 1, 32, 32)>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      : (<Float32xDefaultFormat[const vector][32, 1, 32, 32]>, <Float32xDefaultFormat[const vector][6, 1, 5, 5]>) -> (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d/Conv2D-op77)
+  %2(equiv[CNode]148) = ReLU(%1) {instance name: relu} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), input_names: [x]}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      : (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>) -> (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/ReLU-op78)
+  %3(equivout) = MaxPool(%2) {instance name: max_pool} primitive_attrs: {IsFeatureMapInputList: (0), kernel_size: (1, 1, 2, 2), strides: (1, 1, 2, 2), input_names: [x], pad_mode: VALID, output_names: [output], IsFeatureMapOutput: true, format: NCHW}
+      : (<Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 14, 14)>)
+      : (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>) -> (<Float32xDefaultFormat[const vector][32, 6, 14, 14]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d/MaxPool-op79)
+  %4(equiv[CNode]840) = Load(%para7_conv2.weight, U)
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>, <UMonad>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+      : (conv2.weight)
+  %5(equivoutput) = Conv2D(%3, %4) {instance name: conv2d} primitive_attrs: {IsFeatureMapInputList: (0), kernel_size: (5, 5), mode: 1, out_channel: 16, input_names: [x, w], pad: (0, 0, 0, 0), pad_mode: valid, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output], IsFeatureMapOutput: true}
+      : (<Tensor[Float32], (32, 6, 14, 14)>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      : (<Float32xDefaultFormat[const vector][32, 6, 14, 14]>, <Float32xDefaultFormat[const vector][16, 6, 5, 5]>) -> (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d/Conv2D-op80)
+  %6(equiv[CNode]148) = ReLU(%5) {instance name: relu} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), input_names: [x]}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      : (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>) -> (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/ReLU-op81)
+  %7(equivout) = MaxPool(%6) {instance name: max_pool} primitive_attrs: {IsFeatureMapInputList: (0), kernel_size: (1, 1, 2, 2), strides: (1, 1, 2, 2), input_names: [x], pad_mode: VALID, output_names: [output], IsFeatureMapOutput: true, format: NCHW}
+      : (<Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 5, 5)>)
+      : (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>) -> (<Float32xDefaultFormat[const vector][32, 16, 5, 5]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d/MaxPool-op82)
+  %8(equiv[CNode]251) = Reshape(%7) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), shape: (32, -1), input_names: [tensor, shape]}
+      : (<Tensor[Float32], (32, 16, 5, 5)>) -> (<Tensor[Float32], (32, 400)>)
+      : (<Float32xDefaultFormat[const vector][32, 16, 5, 5]>) -> (<Float32xDefaultFormat[const vector][32, 400]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/flatten-Flatten/Reshape-op83)
+  %9(equiv[CNode]834) = Load(%para6_fc1.weight, U)
+      : (<Ref[Tensor(F32)], (120, 400)>, <UMonad>) -> (<Tensor[Float32], (120, 400)>)
+      : (fc1.weight)
+  %10(equivx) = MatMul(%8, %9) {instance name: matmul} primitive_attrs: {IsFeatureMapInputList: (0), input_names: [x1, x2], transpose_x2: true, transpose_b: true, output_names: [output], transpose_a: false, IsFeatureMapOutput: true, transpose_x1: false}
+      : (<Tensor[Float32], (32, 400)>, <Tensor[Float32], (120, 400)>) -> (<Tensor[Float32], (32, 120)>)
+      : (<Float32xDefaultFormat[const vector][32, 400]>, <Float32xDefaultFormat[const vector][120, 400]>) -> (<Float32xDefaultFormat[const vector][32, 120]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/MatMul-op84)
+  %11(equiv[CNode]835) = Load(%para5_fc1.bias, U)
+      : (<Ref[Tensor(F32)], (120)>, <UMonad>) -> (<Tensor[Float32], (120)>)
+      : (fc1.bias)
+  %12(equivx) = BiasAdd(%10, %11) {instance name: bias_add} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (120)>) -> (<Tensor[Float32], (32, 120)>)
+      : (<Float32xDefaultFormat[const vector][32, 120]>, <Float32xDefaultFormat[const vector][120]>) -> (<Float32xDefaultFormat[const vector][32, 120]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/BiasAdd-op85)
+  %13(equiv[CNode]148) = ReLU(%12) {instance name: relu} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), input_names: [x]}
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      : (<Float32xDefaultFormat[const vector][32, 120]>) -> (<Float32xDefaultFormat[const vector][32, 120]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/ReLU-op86)
+  %14(equiv[CNode]828) = Load(%para4_fc2.weight, U)
+      : (<Ref[Tensor(F32)], (84, 120)>, <UMonad>) -> (<Tensor[Float32], (84, 120)>)
+      : (fc2.weight)
+  %15(equivx) = MatMul(%13, %14) {instance name: matmul} primitive_attrs: {IsFeatureMapInputList: (0), input_names: [x1, x2], transpose_x2: true, transpose_b: true, output_names: [output], transpose_a: false, IsFeatureMapOutput: true, transpose_x1: false}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (84, 120)>) -> (<Tensor[Float32], (32, 84)>)
+      : (<Float32xDefaultFormat[const vector][32, 120]>, <Float32xDefaultFormat[const vector][84, 120]>) -> (<Float32xDefaultFormat[const vector][32, 84]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/MatMul-op87)
+  %16(equiv[CNode]829) = Load(%para3_fc2.bias, U)
+      : (<Ref[Tensor(F32)], (84)>, <UMonad>) -> (<Tensor[Float32], (84)>)
+      : (fc2.bias)
+  %17(equivx) = BiasAdd(%15, %16) {instance name: bias_add} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (84)>) -> (<Tensor[Float32], (32, 84)>)
+      : (<Float32xDefaultFormat[const vector][32, 84]>, <Float32xDefaultFormat[const vector][84]>) -> (<Float32xDefaultFormat[const vector][32, 84]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/BiasAdd-op88)
+  %18(equiv[CNode]148) = ReLU(%17) {instance name: relu} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), input_names: [x]}
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      : (<Float32xDefaultFormat[const vector][32, 84]>) -> (<Float32xDefaultFormat[const vector][32, 84]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/ReLU-op89)
+  %19(equiv[CNode]822) = Load(%para2_fc3.weight, U)
+      : (<Ref[Tensor(F32)], (10, 84)>, <UMonad>) -> (<Tensor[Float32], (10, 84)>)
+      : (fc3.weight)
+  %20(equivx) = MatMul(%18, %19) {instance name: matmul} primitive_attrs: {IsFeatureMapInputList: (0), input_names: [x1, x2], transpose_x2: true, transpose_b: true, output_names: [output], transpose_a: false, IsFeatureMapOutput: true, transpose_x1: false}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (10, 84)>) -> (<Tensor[Float32], (32, 10)>)
+      : (<Float32xDefaultFormat[const vector][32, 84]>, <Float32xDefaultFormat[const vector][10, 84]>) -> (<Float32xDefaultFormat[const vector][32, 10]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/MatMul-op90)
+  %21(equiv[CNode]823) = Load(%para1_fc3.bias, U)
+      : (<Ref[Tensor(F32)], (10)>, <UMonad>) -> (<Tensor[Float32], (10)>)
+      : (fc3.bias)
+  %22(equivx) = BiasAdd(%20, %21) {instance name: bias_add} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), format: NCHW, input_names: [x, b]}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], (10)>) -> (<Tensor[Float32], (32, 10)>)
+      : (<Float32xDefaultFormat[const vector][32, 10]>, <Float32xDefaultFormat[const vector][10]>) -> (<Float32xDefaultFormat[const vector][32, 10]>)
+      : (Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/BiasAdd-op91)
+  %23(equivx) = SparseSoftmaxCrossEntropyWithLogits(%22, %para10_inputs1) {instance name: sparse_softmax_cross_entropy} primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0, 1), input_names: [features, labels], sens: 1.000000, is_grad: false}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], ()>)
+      : (<Float32xDefaultFormat[const vector][32, 10]>, <Int32xDefaultFormat[const vector][32]>) -> (<Float32xDefaultFormat[const vector][]>)
+      : (Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits-op92)
+  %24(grad) = SparseSoftmaxCrossEntropyWithLogits(%22, %para10_inputs1) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0, 1), input_names: [features, labels], sens: 1.000000, is_grad: true} cnode_primal_attrs: {forward_node_name: SparseSoftmaxCrossEntropyWithLogits_7690}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Int32], (32)>) -> (<Tensor[Float32], (32, 10)>)
+      : (<Float32xDefaultFormat[const vector][32, 10]>, <Int32xDefaultFormat[const vector][32]>) -> (<Float32xDefaultFormat[const vector][32, 10]>)
+      : (Gradients/Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits/gradSparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits-op93)
+  %25(grad) = Depend(%24, %23) primitive_attrs: {side_effect_propagate: 1} cnode_primal_attrs: {forward_node_name: SparseSoftmaxCrossEntropyWithLogits_7690}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], ()>) -> (<Tensor[Float32], (32, 10)>)
+      : (Gradients/Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits/gradSparseSoftmaxCrossEntropyWithLogits/Depend-op94)
+  %26(dx) = MatMul(%25, %19) primitive_attrs: {IsFeatureMapInputList: (0), input_names: [x1, x2], transpose_x2: false, transpose_b: false, output_names: [output], transpose_a: false, IsFeatureMapOutput: true, transpose_x1: false} cnode_primal_attrs: {forward_node_name: MatMul_7787}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], (10, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      : (<Float32xDefaultFormat[const vector][32, 10]>, <Float32xDefaultFormat[const vector][10, 84]>) -> (<Float32xDefaultFormat[const vector][32, 84]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul/MatMul-op95)
+  %27(dx) = ReluGrad(%26, %18) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0, 1), input_names: [y_backprop, x]} cnode_primal_attrs: {forward_node_name: ReLU_7857}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (32, 84)>)
+      : (<Float32xDefaultFormat[const vector][32, 84]>, <Float32xDefaultFormat[const vector][32, 84]>) -> (<Float32xDefaultFormat[const vector][32, 84]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU/ReluGrad-op96)
+  %28(dx) = MatMul(%27, %14) primitive_attrs: {IsFeatureMapInputList: (0), input_names: [x1, x2], transpose_x2: false, transpose_b: false, output_names: [output], transpose_a: false, IsFeatureMapOutput: true, transpose_x1: false} cnode_primal_attrs: {forward_node_name: MatMul_7921}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (84, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      : (<Float32xDefaultFormat[const vector][32, 84]>, <Float32xDefaultFormat[const vector][84, 120]>) -> (<Float32xDefaultFormat[const vector][32, 120]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul/MatMul-op97)
+  %29(dx) = ReluGrad(%28, %13) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0, 1), input_names: [y_backprop, x]} cnode_primal_attrs: {forward_node_name: ReLU_7991}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (32, 120)>)
+      : (<Float32xDefaultFormat[const vector][32, 120]>, <Float32xDefaultFormat[const vector][32, 120]>) -> (<Float32xDefaultFormat[const vector][32, 120]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU/ReluGrad-op98)
+  %30(dx) = MatMul(%29, %9) primitive_attrs: {IsFeatureMapInputList: (0), input_names: [x1, x2], transpose_x2: false, transpose_b: false, output_names: [output], transpose_a: false, IsFeatureMapOutput: true, transpose_x1: false} cnode_primal_attrs: {forward_node_name: MatMul_8055}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (120, 400)>) -> (<Tensor[Float32], (32, 400)>)
+      : (<Float32xDefaultFormat[const vector][32, 120]>, <Float32xDefaultFormat[const vector][120, 400]>) -> (<Float32xDefaultFormat[const vector][32, 400]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul/MatMul-op99)
+  %31([CNode]906) = Reshape(%30) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), shape: (32, 16, 5, 5), input_names: [tensor, shape]} cnode_primal_attrs: {forward_node_name: Reshape_8126}
+      : (<Tensor[Float32], (32, 400)>) -> (<Tensor[Float32], (32, 16, 5, 5)>)
+      : (<Float32xDefaultFormat[const vector][32, 400]>) -> (<Float32xDefaultFormat[const vector][32, 16, 5, 5]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/flatten-Flatten/gradReshape/Reshape-op100)
+  %32(dx) = MaxPoolGrad(%6, %7, %31) primitive_attrs: {IsFeatureMapInputList: (0, 1, 2), kernel_size: (1, 1, 2, 2), strides: (1, 1, 2, 2), input_names: [x_origin, out_origin, grad], pad_mode: VALID, output_names: [output], IsFeatureMapOutput: true, format: NCHW} cnode_primal_attrs: {forward_node_name: MaxPool_8137}
+      : (<Tensor[Float32], (32, 16, 10, 10)>, <Tensor[Float32], (32, 16, 5, 5)>, <Tensor[Float32], (32, 16, 5, 5)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      : (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>, <Float32xDefaultFormat[const vector][32, 16, 5, 5]>, <Float32xDefaultFormat[const vector][32, 16, 5, 5]>) -> (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d/gradMaxPool/MaxPoolGrad-op101)
+  %33(dx) = ReluGrad(%32, %6) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0, 1), input_names: [y_backprop, x]} cnode_primal_attrs: {forward_node_name: ReLU_8149}
+      : (<Tensor[Float32], (32, 16, 10, 10)>, <Tensor[Float32], (32, 16, 10, 10)>) -> (<Tensor[Float32], (32, 16, 10, 10)>)
+      : (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>, <Float32xDefaultFormat[const vector][32, 16, 10, 10]>) -> (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU/ReluGrad-op102)
+  %34(dx) = Conv2DBackpropInput(%33, %4) primitive_attrs: {IsFeatureMapInputList: (0), kernel_size: (5, 5), mode: 1, out_channel: 16, input_names: [out_backprop, filter, input_sizes], pad: (0, 0, 0, 0), pad_mode: VALID, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1, 1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output], IsFeatureMapOutput: true, input_sizes: (32, 6, 14, 14)} cnode_primal_attrs: {forward_node_name: Conv2D_8172}
+      : (<Tensor[Float32], (32, 16, 10, 10)>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<Tensor[Float32], (32, 6, 14, 14)>)
+      : (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>, <Float32xDefaultFormat[const vector][16, 6, 5, 5]>) -> (<Float32xDefaultFormat[const vector][32, 6, 14, 14]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d/gradConv2D/Conv2DBackpropInput-op103)
+  %35(dx) = MaxPoolGrad(%2, %3, %34) primitive_attrs: {IsFeatureMapInputList: (0, 1, 2), kernel_size: (1, 1, 2, 2), strides: (1, 1, 2, 2), input_names: [x_origin, out_origin, grad], pad_mode: VALID, output_names: [output], IsFeatureMapOutput: true, format: NCHW} cnode_primal_attrs: {forward_node_name: MaxPool_8190}
+      : (<Tensor[Float32], (32, 6, 28, 28)>, <Tensor[Float32], (32, 6, 14, 14)>, <Tensor[Float32], (32, 6, 14, 14)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      : (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>, <Float32xDefaultFormat[const vector][32, 6, 14, 14]>, <Float32xDefaultFormat[const vector][32, 6, 14, 14]>) -> (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d/gradMaxPool/MaxPoolGrad-op104)
+  %36(dx) = ReluGrad(%35, %2) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0, 1), input_names: [y_backprop, x]} cnode_primal_attrs: {forward_node_name: ReLU_8202}
+      : (<Tensor[Float32], (32, 6, 28, 28)>, <Tensor[Float32], (32, 6, 28, 28)>) -> (<Tensor[Float32], (32, 6, 28, 28)>)
+      : (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>, <Float32xDefaultFormat[const vector][32, 6, 28, 28]>) -> (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU/gradReLU/ReluGrad-op105)
+  %37(dw) = Conv2DBackpropFilter(%36, %para9_inputs0) primitive_attrs: {IsFeatureMapInputList: (0, 1), kernel_size: (5, 5), mode: 1, out_channel: 6, input_names: [out_backprop, input, filter_sizes], pad: (0, 0, 0, 0), filter_sizes: (6, 1, 5, 5), pad_mode: VALID, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output], IsFeatureMapOutput: true} cnode_primal_attrs: {forward_node_name: Conv2D_8225}
+      : (<Tensor[Float32], (32, 6, 28, 28)>, <Tensor[Float32], (32, 1, 32, 32)>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+      : (<Float32xDefaultFormat[const vector][32, 6, 28, 28]>, <Float32xDefaultFormat[const vector][32, 1, 32, 32]>) -> (<Float32xDefaultFormat[const vector][6, 1, 5, 5]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d/gradConv2D/Conv2DBackpropFilter-op106)
+  %38([CNode]907) = MakeTuple(%21, %16, %11, %4, %0, %9, %14, %19)
+      : (<Tensor[Float32], (10)>, <Tensor[Float32], (84)>, <Tensor[Float32], (120)>, <Tensor[Float32], (16, 6, 5, 5)>, <Tensor[Float32], (6, 1, 5, 5)>, <Tensor[Float32], (120, 400)>, <Tensor[Float32], (84, 120)>, <Tensor[Float32], (10, 84)>) -> (<Tuple[Tensor[Float32]*8], sequence_nodes={node={254_129_1_construct_wrapper.905:[CNode]907{[0]: ValueNode<Primitive> MakeTuple, [1]: equiv[CNode]823, [2]: equiv[CNode]829, [3]: equiv[CNode]835, [4]: equiv[CNode]840, [5]: equiv[CNode]843, [6]: equiv[CNode]834, [7]: equiv[CNode]828, [8]: equiv[CNode]822}, elements_use_flags: {ptr: 0x1599709d4c0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      : (Default/MakeTuple-op107)
+  %39([CNode]908) = UpdateState(U, %38, %22)
+      : (<UMonad>, <Tuple[Tensor[Float32]*8], sequence_nodes={node={254_129_1_construct_wrapper.905:[CNode]907{[0]: ValueNode<Primitive> MakeTuple, [1]: equiv[CNode]823, [2]: equiv[CNode]829, [3]: equiv[CNode]835, [4]: equiv[CNode]840, [5]: equiv[CNode]843, [6]: equiv[CNode]834, [7]: equiv[CNode]828, [8]: equiv[CNode]822}, elements_use_flags: {ptr: 0x1599709d4c0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>, <Tensor[Float32], (32, 10)>) -> (<UMonad>)
+      : (Default/UpdateState-op108)
+  %40([CNode]909) = BiasAddGrad(%25) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), format: NCHW, input_names: [dout]} cnode_primal_attrs: {forward_node_name: BiasAdd_7785}
+      : (<Tensor[Float32], (32, 10)>) -> (<Tensor[Float32], (10)>)
+      : (<Float32xDefaultFormat[const vector][32, 10]>) -> (<Float32xDefaultFormat[const vector][10]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradBiasAdd/BiasAddGrad-op109)
+  %41([CNode]602) = ApplyMomentum(%para1_fc3.bias, %para11_moments.fc3.bias, %para12_learning_rate, %40, %para13_momentum, %39) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], (10)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (10)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (10)>)
+      : (<Float32xDefaultFormat[const vector][10]>, <Float32xDefaultFormat[const vector][10]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][10]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][10]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op110)
+  %42([CNode]853) = UpdateState(%39, %41, %20, %26)
+      : (<UMonad>, <Tensor[Float32], (10)>, <Tensor[Float32], (32, 10)>, <Tensor[Float32], (32, 84)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op111)
+  %43(dw) = MatMul(%25, %18) primitive_attrs: {IsFeatureMapInputList: (0, 1), input_names: [x1, x2], transpose_x2: false, transpose_b: false, output_names: [output], transpose_a: true, IsFeatureMapOutput: true, transpose_x1: true} cnode_primal_attrs: {forward_node_name: MatMul_7787}
+      : (<Tensor[Float32], (32, 10)>, <Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (10, 84)>)
+      : (<Float32xDefaultFormat[const vector][32, 10]>, <Float32xDefaultFormat[const vector][32, 84]>) -> (<Float32xDefaultFormat[const vector][10, 84]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul/MatMul-op112)
+  %44([CNode]602) = ApplyMomentum(%para2_fc3.weight, %para14_moments.fc3.weight, %para12_learning_rate, %43, %para13_momentum, %42) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], (10, 84)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (10, 84)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (10, 84)>)
+      : (<Float32xDefaultFormat[const vector][10, 84]>, <Float32xDefaultFormat[const vector][10, 84]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][10, 84]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][10, 84]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op113)
+  %45([CNode]855) = UpdateState(%42, %44, %17)
+      : (<UMonad>, <Tensor[Float32], (10, 84)>, <Tensor[Float32], (32, 84)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op114)
+  %46([CNode]909) = BiasAddGrad(%27) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), format: NCHW, input_names: [dout]} cnode_primal_attrs: {forward_node_name: BiasAdd_7919}
+      : (<Tensor[Float32], (32, 84)>) -> (<Tensor[Float32], (84)>)
+      : (<Float32xDefaultFormat[const vector][32, 84]>) -> (<Float32xDefaultFormat[const vector][84]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradBiasAdd/BiasAddGrad-op115)
+  %47([CNode]602) = ApplyMomentum(%para3_fc2.bias, %para15_moments.fc2.bias, %para12_learning_rate, %46, %para13_momentum, %45) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], (84)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (84)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (84)>)
+      : (<Float32xDefaultFormat[const vector][84]>, <Float32xDefaultFormat[const vector][84]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][84]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][84]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op116)
+  %48([CNode]857) = UpdateState(%45, %47, %15, %28)
+      : (<UMonad>, <Tensor[Float32], (84)>, <Tensor[Float32], (32, 84)>, <Tensor[Float32], (32, 120)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op117)
+  %49(dw) = MatMul(%27, %13) primitive_attrs: {IsFeatureMapInputList: (0, 1), input_names: [x1, x2], transpose_x2: false, transpose_b: false, output_names: [output], transpose_a: true, IsFeatureMapOutput: true, transpose_x1: true} cnode_primal_attrs: {forward_node_name: MatMul_7921}
+      : (<Tensor[Float32], (32, 84)>, <Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (84, 120)>)
+      : (<Float32xDefaultFormat[const vector][32, 84]>, <Float32xDefaultFormat[const vector][32, 120]>) -> (<Float32xDefaultFormat[const vector][84, 120]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul/MatMul-op118)
+  %50([CNode]602) = ApplyMomentum(%para4_fc2.weight, %para16_moments.fc2.weight, %para12_learning_rate, %49, %para13_momentum, %48) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], (84, 120)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (84, 120)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (84, 120)>)
+      : (<Float32xDefaultFormat[const vector][84, 120]>, <Float32xDefaultFormat[const vector][84, 120]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][84, 120]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][84, 120]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op119)
+  %51([CNode]859) = UpdateState(%48, %50, %12)
+      : (<UMonad>, <Tensor[Float32], (84, 120)>, <Tensor[Float32], (32, 120)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op120)
+  %52([CNode]909) = BiasAddGrad(%29) primitive_attrs: {output_names: [output], IsFeatureMapOutput: true, IsFeatureMapInputList: (0), format: NCHW, input_names: [dout]} cnode_primal_attrs: {forward_node_name: BiasAdd_8053}
+      : (<Tensor[Float32], (32, 120)>) -> (<Tensor[Float32], (120)>)
+      : (<Float32xDefaultFormat[const vector][32, 120]>) -> (<Float32xDefaultFormat[const vector][120]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradBiasAdd/BiasAddGrad-op121)
+  %53([CNode]602) = ApplyMomentum(%para5_fc1.bias, %para17_moments.fc1.bias, %para12_learning_rate, %52, %para13_momentum, %51) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], (120)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (120)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (120)>)
+      : (<Float32xDefaultFormat[const vector][120]>, <Float32xDefaultFormat[const vector][120]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][120]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][120]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op122)
+  %54([CNode]861) = UpdateState(%51, %53, %10, %30)
+      : (<UMonad>, <Tensor[Float32], (120)>, <Tensor[Float32], (32, 120)>, <Tensor[Float32], (32, 400)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op123)
+  %55(dw) = MatMul(%29, %8) primitive_attrs: {IsFeatureMapInputList: (0, 1), input_names: [x1, x2], transpose_x2: false, transpose_b: false, output_names: [output], transpose_a: true, IsFeatureMapOutput: true, transpose_x1: true} cnode_primal_attrs: {forward_node_name: MatMul_8055}
+      : (<Tensor[Float32], (32, 120)>, <Tensor[Float32], (32, 400)>) -> (<Tensor[Float32], (120, 400)>)
+      : (<Float32xDefaultFormat[const vector][32, 120]>, <Float32xDefaultFormat[const vector][32, 400]>) -> (<Float32xDefaultFormat[const vector][120, 400]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense/gradMatMul/MatMul-op124)
+  %56([CNode]602) = ApplyMomentum(%para6_fc1.weight, %para18_moments.fc1.weight, %para12_learning_rate, %55, %para13_momentum, %54) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], (120, 400)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (120, 400)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (120, 400)>)
+      : (<Float32xDefaultFormat[const vector][120, 400]>, <Float32xDefaultFormat[const vector][120, 400]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][120, 400]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][120, 400]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op125)
+  %57([CNode]863) = UpdateState(%54, %56, %5, %34)
+      : (<UMonad>, <Tensor[Float32], (120, 400)>, <Tensor[Float32], (32, 16, 10, 10)>, <Tensor[Float32], (32, 6, 14, 14)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op126)
+  %58(dw) = Conv2DBackpropFilter(%33, %3) primitive_attrs: {IsFeatureMapInputList: (0, 1), kernel_size: (5, 5), mode: 1, out_channel: 16, input_names: [out_backprop, input, filter_sizes], pad: (0, 0, 0, 0), filter_sizes: (16, 6, 5, 5), pad_mode: VALID, format: NCHW, pad_list: (0, 0, 0, 0), groups: 1, stride: (1, 1), group: 1, dilation: (1, 1, 1, 1), output_names: [output], IsFeatureMapOutput: true} cnode_primal_attrs: {forward_node_name: Conv2D_8172}
+      : (<Tensor[Float32], (32, 16, 10, 10)>, <Tensor[Float32], (32, 6, 14, 14)>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+      : (<Float32xDefaultFormat[const vector][32, 16, 10, 10]>, <Float32xDefaultFormat[const vector][32, 6, 14, 14]>) -> (<Float32xDefaultFormat[const vector][16, 6, 5, 5]>)
+      : (Gradients/Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d/gradConv2D/Conv2DBackpropFilter-op127)
+  %59([CNode]602) = ApplyMomentum(%para7_conv2.weight, %para19_moments.conv2.weight, %para12_learning_rate, %58, %para13_momentum, %57) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], (16, 6, 5, 5)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (16, 6, 5, 5)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (16, 6, 5, 5)>)
+      : (<Float32xDefaultFormat[const vector][16, 6, 5, 5]>, <Float32xDefaultFormat[const vector][16, 6, 5, 5]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][16, 6, 5, 5]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][16, 6, 5, 5]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op128)
+  %60([CNode]865) = UpdateState(%57, %59, %1)
+      : (<UMonad>, <Tensor[Float32], (16, 6, 5, 5)>, <Tensor[Float32], (32, 6, 28, 28)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op129)
+  %61([CNode]602) = ApplyMomentum(%para8_conv1.weight, %para20_moments.conv1.weight, %para12_learning_rate, %37, %para13_momentum, %60) {instance name: opt} primitive_attrs: {IsFeatureMapInputList: (3), side_effect_mem: true, input_names: [variable, accumulation, learning_rate, gradient, momentum], output_names: [output], IsFeatureMapOutput: true, use_nesterov: false, use_locking: false, gradient_scale: 1.000000}
+      : (<Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], (6, 1, 5, 5)>, <Ref[Tensor(F32)], ()>, <Tensor[Float32], (6, 1, 5, 5)>, <Ref[Tensor(F32)], ()>, <UMonad>) -> (<Tensor[Float32], (6, 1, 5, 5)>)
+      : (<Float32xDefaultFormat[const vector][6, 1, 5, 5]>, <Float32xDefaultFormat[const vector][6, 1, 5, 5]>, <Float32xDefaultFormat[const vector][]>, <Float32xDefaultFormat[const vector][6, 1, 5, 5]>, <Float32xDefaultFormat[const vector][]>) -> (<Float32xDefaultFormat[const vector][6, 1, 5, 5]>)
+      : (Default/optimizer-Momentum/ApplyMomentum-op130)
+  %62(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %61) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op145)
+  %63(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %59) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (16, 6, 5, 5)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op146)
+  %64(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %56) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (120, 400)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op147)
+  %65(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %53) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (120)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op148)
+  %66(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %50) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (84, 120)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op149)
+  %67(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %47) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (84)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op150)
+  %68(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %44) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (10, 84)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op151)
+  %69(success) = Depend(Tensor(shape=[], dtype=Bool, value=True), %41) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Bool], (), value=...>, <Tensor[Float32], (10)>) -> (<Tensor[Bool], (), value=...>)
+      : (Default/optimizer-Momentum/Depend-op152)
+  %70(success) = MakeTuple(%62, %63, %64, %65, %66, %67, %68, %69)
+      : (<Tensor[Bool], (), value=...>, <Tensor[Bool], (), value=...>, <Tensor[Bool], (), value=...>, <Tensor[Bool], (), value=...>, <Tensor[Bool], (), value=...>, <Tensor[Bool], (), value=...>, <Tensor[Bool], (), value=...>, <Tensor[Bool], (), value=...>) -> (<Tuple[Bool*8], sequence_nodes={node={254_129_1_construct_wrapper.905:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x159970a04c0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>)
+      : (Default/optimizer-Momentum/MakeTuple-op139)
+  %71(loss) = Depend(%23, %70) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], ()>, <Tuple[Bool*8], sequence_nodes={node={254_129_1_construct_wrapper.905:success{[0]: ValueNode<Primitive> MakeTuple, [1]: success, [2]: success, [3]: success, [4]: success, [5]: success, [6]: success, [7]: success, [8]: success}, elements_use_flags: {ptr: 0x159970a04c0, value: [const vector][1, 1, 1, 1, 1, 1, 1, 1]}}}>) -> (<Tensor[Float32], ()>)
+      : (Default/Depend-op140)
+  %72([CNode]852) = UpdateState(%60, %61)
+      : (<UMonad>, <Tensor[Float32], (6, 1, 5, 5)>) -> (<UMonad>)
+      : (Default/optimizer-Momentum/UpdateState-op141)
+  %73(loss) = Depend(%71, %72) primitive_attrs: {side_effect_propagate: 1}
+      : (<Tensor[Float32], ()>, <UMonad>) -> (<Tensor[Float32], ()>)
+      : (Default/Depend-op142)
+  %74([CNode]910) = MakeTuple(%73)
+      : (<Tensor[Float32], ()>) -> (<kMetaTypeNone>)
+      : (Default/MakeTuple-op143)
+  Return(%74)
+      : (<kMetaTypeNone>)
+      : (Default/Return-op144)
+}
+

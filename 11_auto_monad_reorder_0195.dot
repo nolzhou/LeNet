@@ -1,0 +1,262 @@
+digraph mindspore {
+compound=true
+subgraph cluster_0x15996e2f7f0{
+id=cluster_0x15996e2f7f0
+label="306_255_construct_wrapper.1358[managed]"
+fontname="Courier New"
+node0x15996d4a2f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]934)</td></tr>
+</table>>,]
+node0x15996d43a70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]932)</td></tr>
+</table>>,]
+node0x15996d4c1d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1360)</td></tr>
+</table>>,]
+node0x15996d49bd0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td><td port='4'>4</td><td port='5'>5</td><td port='6'>6</td><td port='7'>7</td><td port='8'>8</td></tr>
+<tr><td colspan='9' bgcolor='cornsilk'>CNode([CNode]1359)</td></tr>
+</table>>,]
+node0x15996d47f50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1328)</td></tr>
+</table>>,]
+node0x15996d4bab0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1334)</td></tr>
+</table>>,]
+node0x15996d4bf70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1340)</td></tr>
+</table>>,]
+node0x15996d430f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1345)</td></tr>
+</table>>,]
+node0x15996d49710_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1348)</td></tr>
+</table>>,]
+node0x15996d46c50_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1339)</td></tr>
+</table>>,]
+node0x15996d47cf0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1333)</td></tr>
+</table>>,]
+node0x15996d47830_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1327)</td></tr>
+</table>>,]
+node0x15996d4a7b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]917)</td></tr>
+</table>>,]
+node0x15996d456f0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996d475d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996d4aa10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1060)</td></tr>
+</table>>,]
+node0x15996d4b850_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996d49970_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996d44d70_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1060)</td></tr>
+</table>>,]
+node0x15996d4bd10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996d46530_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15996d435b0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]1163)</td></tr>
+</table>>,]
+node0x15996d462d0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(out)</td></tr>
+</table>>,]
+node0x15996d45230_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1060)</td></tr>
+</table>>,]
+node0x15996d44190_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(output)</td></tr>
+</table>>,]
+node0x15996d4b390_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(out)</td></tr>
+</table>>,]
+node0x15996d45e10_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]1060)</td></tr>
+</table>>,]
+node0x15996d45bb0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(output)</td></tr>
+</table>>,]
+node0x15996d44650_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(x)</td></tr>
+</table>>,]
+node0x15992acc330_0[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac89d0_1[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Depend</td></tr><tr><td align='left'></td></tr><tr><td align='left'>side_effect_propagate 1</td></tr></table>>,]
+node0x15992ac9bd0_2[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>UpdateState</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159956a5730_3[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992accc30_4[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992ac8c10_5[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d9af0_6[fontname="Courier New",shape=octagon,label="fc3.bias",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_7[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992ac8c10_8[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969da170_9[fontname="Courier New",shape=octagon,label="fc2.bias",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_10[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992ac8c10_11[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969da990_12[fontname="Courier New",shape=octagon,label="fc1.bias",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_13[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992ac8c10_14[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969da7f0_15[fontname="Courier New",shape=octagon,label="conv2.weight",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_16[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992ac8c10_17[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969e2b90_18[fontname="Courier New",shape=octagon,label="conv1.weight",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_19[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992ac8c10_20[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969dab30_21[fontname="Courier New",shape=octagon,label="fc1.weight",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_22[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992ac8c10_23[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969da650_24[fontname="Courier New",shape=octagon,label="fc2.weight",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_25[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992ac8c10_26[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Load</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d9c90_27[fontname="Courier New",shape=octagon,label="fc3.weight",style=filled,fillcolor=paleturquoise,]
+node0x159956a5730_28[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>UMonad</td></tr><tr><td>U</td></tr></table>>,]
+node0x15992accc30_29[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>MakeTuple</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969d9950_30[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+node0x15992ac9750_31[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAdd</td></tr><tr><td align='left'>instance name: bias_add<br/></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [x, b]</td></tr></table>>,]
+node0x15992acb5b0_32[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'>instance name: matmul<br/></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 true<br/>transpose_x1 false<br/>transpose_b true</td></tr></table>>,]
+node0x15992acbd90_33[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x15992ac9750_34[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAdd</td></tr><tr><td align='left'>instance name: bias_add<br/></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [x, b]</td></tr></table>>,]
+node0x15992acb5b0_35[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'>instance name: matmul<br/></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 true<br/>transpose_x1 false<br/>transpose_b true</td></tr></table>>,]
+node0x15992acbd90_36[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x15992ac9750_37[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>BiasAdd</td></tr><tr><td align='left'>instance name: bias_add<br/></td></tr><tr><td align='left'>output_names [output]<br/>format NCHW<br/>input_names [x, b]</td></tr></table>>,]
+node0x15992acb5b0_38[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MatMul</td></tr><tr><td align='left'>instance name: matmul<br/></td></tr><tr><td align='left'>output_names [output]<br/>transpose_a false<br/>input_names [x1, x2]<br/>transpose_x2 true<br/>transpose_x1 false<br/>transpose_b true</td></tr></table>>,]
+node0x15992ac9870_39[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Reshape</td></tr><tr><td align='left'></td></tr><tr><td align='left'>output_names [output]<br/>input_names [tensor, shape]</td></tr></table>>,]
+node0x15992acab90_40[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>ValueTuple</td></tr><tr><td>(32<br/>-1)</td></tr></table>>,]
+node0x15992ac9cf0_41[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MaxPool</td></tr><tr><td align='left'>instance name: max_pool<br/></td></tr><tr><td align='left'>pad_mode 2<br/>output_names [output]<br/>kernel_size (1, 1, 2, 2)<br/>format NCHW<br/>strides (1, 1, 2, 2)<br/>input_names [x]</td></tr></table>>,]
+node0x15992acbd90_42[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x15992acb130_43[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Conv2D</td></tr><tr><td align='left'>instance name: conv2d<br/></td></tr><tr><td align='left'>kernel_size (5, 5)<br/>mode 1<br/>out_channel 16<br/>input_names [x, w]<br/>pad (0, 0, 0, 0)<br/>pad_mode 2<br/>format NCHW<br/>pad_list (0, 0, 0, 0)<br/>groups 1<br/>stride (1, 1, 1, 1)<br/>group 1<br/>dilation (1, 1, 1, 1)<br/>output_names [output]</td></tr></table>>,]
+node0x15992ac9cf0_44[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>MaxPool</td></tr><tr><td align='left'>instance name: max_pool<br/></td></tr><tr><td align='left'>pad_mode 2<br/>output_names [output]<br/>kernel_size (1, 1, 2, 2)<br/>format NCHW<br/>strides (1, 1, 2, 2)<br/>input_names [x]</td></tr></table>>,]
+node0x15992acbd90_45[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>ReLU</td></tr><tr><td align='left'>instance name: relu<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [x]</td></tr></table>>,]
+node0x15992ac91b0_46[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>Conv2D</td></tr><tr><td align='left'>instance name: conv2d<br/></td></tr><tr><td align='left'>kernel_size (5, 5)<br/>mode 1<br/>out_channel 6<br/>input_names [x, w]<br/>pad (0, 0, 0, 0)<br/>pad_mode 2<br/>format NCHW<br/>pad_list (0, 0, 0, 0)<br/>groups 1<br/>stride (1, 1, 1, 1)<br/>group 1<br/>dilation (1, 1, 1, 1)<br/>output_names [output]</td></tr></table>>,]
+node0x159969d9610_47[fontname="Courier New",shape=octagon,label="data",style=filled,fillcolor=paleturquoise,]
+node0x15992aca830_48[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>PrimitivePy</td></tr><tr><td>SparseSoftmaxCrossEntropyWithLogits</td></tr><tr><td align='left'>instance name: sparse_softmax_cross_entropy<br/></td></tr><tr><td align='left'>output_names [output]<br/>input_names [features, labels]<br/>sens 1.000000<br/>is_grad false</td></tr></table>>,]
+node0x159969d9950_49[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e2f7f0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>data</td></tr><tr><td>label</td></tr><tr><td>fc3.bias[10,]</td></tr><tr><td>fc3.weight[10,84,]</td></tr><tr><td>fc2.bias[84,]</td></tr><tr><td>fc2.weight[84,120,]</td></tr><tr><td>conv2.weight[16,6,5,5,]</td></tr><tr><td>fc1.bias[120,]</td></tr><tr><td>fc1.weight[120,400,]</td></tr><tr><td>conv1.weight[6,1,5,5,]</td></tr>
+</table>>,];}
+node0x15992acc330_0:core->node0x15996d4a2f0_0:0[arrowhead=vee,style=dashed]
+node0x15996d43a70_0:core->node0x15996d4a2f0_0:1[arrowhead=vee,]
+node0x15992ac89d0_1:core->node0x15996d43a70_0:0[arrowhead=vee,style=dashed]
+node0x15996d4a7b0_0:core->node0x15996d43a70_0:1[arrowhead=vee,]
+node0x15996d4c1d0_0:core->node0x15996d43a70_0:2[arrowhead=vee,]
+node0x15992ac9bd0_2:core->node0x15996d4c1d0_0:0[arrowhead=vee,style=dashed]
+node0x159956a5730_3:core->node0x15996d4c1d0_0:1[arrowhead=vee,]
+node0x15996d49bd0_0:core->node0x15996d4c1d0_0:2[arrowhead=vee,]
+node0x15992accc30_4:core->node0x15996d49bd0_0:0[arrowhead=vee,style=dashed]
+node0x15996d47830_0:core->node0x15996d49bd0_0:1[arrowhead=vee,]
+node0x15996d47cf0_0:core->node0x15996d49bd0_0:2[arrowhead=vee,]
+node0x15996d46c50_0:core->node0x15996d49bd0_0:3[arrowhead=vee,]
+node0x15996d49710_0:core->node0x15996d49bd0_0:4[arrowhead=vee,]
+node0x15996d430f0_0:core->node0x15996d49bd0_0:5[arrowhead=vee,]
+node0x15996d4bf70_0:core->node0x15996d49bd0_0:6[arrowhead=vee,]
+node0x15996d4bab0_0:core->node0x15996d49bd0_0:7[arrowhead=vee,]
+node0x15996d47f50_0:core->node0x15996d49bd0_0:8[arrowhead=vee,]
+node0x15992ac8c10_5:core->node0x15996d47f50_0:0[arrowhead=vee,style=dashed]
+node0x159969d9af0_6->node0x15996d47f50_0:1[arrowhead=vee,]
+node0x159956a5730_7:core->node0x15996d47f50_0:2[arrowhead=vee,]
+node0x15992ac8c10_8:core->node0x15996d4bab0_0:0[arrowhead=vee,style=dashed]
+node0x159969da170_9->node0x15996d4bab0_0:1[arrowhead=vee,]
+node0x159956a5730_10:core->node0x15996d4bab0_0:2[arrowhead=vee,]
+node0x15992ac8c10_11:core->node0x15996d4bf70_0:0[arrowhead=vee,style=dashed]
+node0x159969da990_12->node0x15996d4bf70_0:1[arrowhead=vee,]
+node0x159956a5730_13:core->node0x15996d4bf70_0:2[arrowhead=vee,]
+node0x15992ac8c10_14:core->node0x15996d430f0_0:0[arrowhead=vee,style=dashed]
+node0x159969da7f0_15->node0x15996d430f0_0:1[arrowhead=vee,]
+node0x159956a5730_16:core->node0x15996d430f0_0:2[arrowhead=vee,]
+node0x15992ac8c10_17:core->node0x15996d49710_0:0[arrowhead=vee,style=dashed]
+node0x159969e2b90_18->node0x15996d49710_0:1[arrowhead=vee,]
+node0x159956a5730_19:core->node0x15996d49710_0:2[arrowhead=vee,]
+node0x15992ac8c10_20:core->node0x15996d46c50_0:0[arrowhead=vee,style=dashed]
+node0x159969dab30_21->node0x15996d46c50_0:1[arrowhead=vee,]
+node0x159956a5730_22:core->node0x15996d46c50_0:2[arrowhead=vee,]
+node0x15992ac8c10_23:core->node0x15996d47cf0_0:0[arrowhead=vee,style=dashed]
+node0x159969da650_24->node0x15996d47cf0_0:1[arrowhead=vee,]
+node0x159956a5730_25:core->node0x15996d47cf0_0:2[arrowhead=vee,]
+node0x15992ac8c10_26:core->node0x15996d47830_0:0[arrowhead=vee,style=dashed]
+node0x159969d9c90_27->node0x15996d47830_0:1[arrowhead=vee,]
+node0x159956a5730_28:core->node0x15996d47830_0:2[arrowhead=vee,]
+node0x15992accc30_29:core->node0x15996d4a7b0_0:0[arrowhead=vee,style=dashed]
+node0x15996d44650_0:core->node0x15996d4a7b0_0:1[arrowhead=vee,]
+node0x15996d456f0_0:core->node0x15996d4a7b0_0:2[arrowhead=vee,]
+node0x159969d9950_30->node0x15996d4a7b0_0:3[arrowhead=vee,]
+node0x15992ac9750_31:core->node0x15996d456f0_0:0[arrowhead=vee,style=dashed]
+node0x15996d475d0_0:core->node0x15996d456f0_0:1[arrowhead=vee,]
+node0x15996d47f50_0:core->node0x15996d456f0_0:2[arrowhead=vee,]
+node0x15992acb5b0_32:core->node0x15996d475d0_0:0[arrowhead=vee,style=dashed]
+node0x15996d4aa10_0:core->node0x15996d475d0_0:1[arrowhead=vee,]
+node0x15996d47830_0:core->node0x15996d475d0_0:2[arrowhead=vee,]
+node0x15992acbd90_33:core->node0x15996d4aa10_0:0[arrowhead=vee,style=dashed]
+node0x15996d4b850_0:core->node0x15996d4aa10_0:1[arrowhead=vee,]
+node0x15992ac9750_34:core->node0x15996d4b850_0:0[arrowhead=vee,style=dashed]
+node0x15996d49970_0:core->node0x15996d4b850_0:1[arrowhead=vee,]
+node0x15996d4bab0_0:core->node0x15996d4b850_0:2[arrowhead=vee,]
+node0x15992acb5b0_35:core->node0x15996d49970_0:0[arrowhead=vee,style=dashed]
+node0x15996d44d70_0:core->node0x15996d49970_0:1[arrowhead=vee,]
+node0x15996d47cf0_0:core->node0x15996d49970_0:2[arrowhead=vee,]
+node0x15992acbd90_36:core->node0x15996d44d70_0:0[arrowhead=vee,style=dashed]
+node0x15996d4bd10_0:core->node0x15996d44d70_0:1[arrowhead=vee,]
+node0x15992ac9750_37:core->node0x15996d4bd10_0:0[arrowhead=vee,style=dashed]
+node0x15996d46530_0:core->node0x15996d4bd10_0:1[arrowhead=vee,]
+node0x15996d4bf70_0:core->node0x15996d4bd10_0:2[arrowhead=vee,]
+node0x15992acb5b0_38:core->node0x15996d46530_0:0[arrowhead=vee,style=dashed]
+node0x15996d435b0_0:core->node0x15996d46530_0:1[arrowhead=vee,]
+node0x15996d46c50_0:core->node0x15996d46530_0:2[arrowhead=vee,]
+node0x15992ac9870_39:core->node0x15996d435b0_0:0[arrowhead=vee,style=dashed]
+node0x15996d462d0_0:core->node0x15996d435b0_0:1[arrowhead=vee,]
+node0x15992acab90_40:core->node0x15996d435b0_0:2[arrowhead=vee,]
+node0x15992ac9cf0_41:core->node0x15996d462d0_0:0[arrowhead=vee,style=dashed]
+node0x15996d45230_0:core->node0x15996d462d0_0:1[arrowhead=vee,]
+node0x15992acbd90_42:core->node0x15996d45230_0:0[arrowhead=vee,style=dashed]
+node0x15996d44190_0:core->node0x15996d45230_0:1[arrowhead=vee,]
+node0x15992acb130_43:core->node0x15996d44190_0:0[arrowhead=vee,style=dashed]
+node0x15996d4b390_0:core->node0x15996d44190_0:1[arrowhead=vee,]
+node0x15996d430f0_0:core->node0x15996d44190_0:2[arrowhead=vee,]
+node0x15992ac9cf0_44:core->node0x15996d4b390_0:0[arrowhead=vee,style=dashed]
+node0x15996d45e10_0:core->node0x15996d4b390_0:1[arrowhead=vee,]
+node0x15992acbd90_45:core->node0x15996d45e10_0:0[arrowhead=vee,style=dashed]
+node0x15996d45bb0_0:core->node0x15996d45e10_0:1[arrowhead=vee,]
+node0x15992ac91b0_46:core->node0x15996d45bb0_0:0[arrowhead=vee,style=dashed]
+node0x159969d9610_47->node0x15996d45bb0_0:1[arrowhead=vee,]
+node0x15996d49710_0:core->node0x15996d45bb0_0:2[arrowhead=vee,]
+node0x15992aca830_48:core->node0x15996d44650_0:0[arrowhead=vee,style=dashed]
+node0x15996d456f0_0:core->node0x15996d44650_0:1[arrowhead=vee,]
+node0x159969d9950_49->node0x15996d44650_0:2[arrowhead=vee,]
+}

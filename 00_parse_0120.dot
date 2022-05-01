@@ -1,0 +1,264 @@
+digraph mindspore {
+compound=true
+subgraph cluster_0x15996e0d900{
+id=cluster_0x15996e0d900
+label="construct_wrapper.911[managed]"
+fontname="Courier New"
+node0x15996f1fa20_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]934)</td></tr>
+</table>>,]
+node0x15996f1f7c0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]933)</td></tr>
+</table>>,]
+node0x1598e683930_0[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598e6823d0_1[fontname="Courier New",shape=oval,label="construct.920[mindspore.nn.wrap.cell_wrapper.WithEvalCell_ID1484101704256get_parse_method_of_class]",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0aff8",]
+node0x159969ca0b0_2[fontname="Courier New",shape=octagon,label="data",style=filled,fillcolor=paleturquoise,]
+node0x159969cb290_3[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+parameters_0x15996e0d900[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>data</td></tr><tr><td>label</td></tr></table>>,];}
+subgraph cluster_0x15996e0aff0{
+id=cluster_0x15996e0aff0
+label="mindspore.nn.wrap.cell_wrapper.WithEvalCell_ID1484101704256get_parse_method_of_class[managed]"
+fontname="Courier New"
+node0x15996f1cd00_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]935)</td></tr>
+</table>>,]
+node0x15996f1bc60_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td></tr>
+<tr><td colspan='1' bgcolor='cornsilk'>CNode([CNode]932)</td></tr>
+</table>>,]
+node0x15996f1f0a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]929)</td></tr>
+</table>>,]
+node0x15996f18f40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode(outputs)</td></tr>
+</table>>,]
+node0x15996f1d420_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]921)</td></tr>
+</table>>,]
+node0x15996f1dda0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]922)</td></tr>
+</table>>,]
+node0x15996f1e980_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]918)</td></tr>
+</table>>,]
+node0x15996f1a960_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]914)</td></tr>
+</table>>,]
+node0x15996f1c120_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]913)</td></tr>
+</table>>,]
+node0x15996f1f300_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]912)</td></tr>
+</table>>,]
+node0x15992c90650_4[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c90410_5[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Switch</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c93a10_6[fontname="Courier New",shape=oval,label="✓construct.930",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0c238",]
+node0x15992c936b0_7[fontname="Courier New",shape=oval,label="✗construct.931",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e08258",]
+node0x159969cc470_10[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+node0x159969cc130_11[fontname="Courier New",shape=octagon,label="data",style=filled,fillcolor=paleturquoise,]
+node0x15992c870b0_12[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>resolve</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c8a7d0_13[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>NameSpace</td></tr><tr><td>ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>'</td></tr></table>>,]
+node0x15992c89a50_14[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Symbol</td></tr><tr><td>_network</td></tr></table>>,]
+node0x159969cc470_28[fontname="Courier New",shape=octagon,label="label",style=filled,fillcolor=paleturquoise,]
+node0x15992c89390_31[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>resolve</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c88070_32[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>NameSpace</td></tr><tr><td>SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper'</td></tr></table>>,]
+node0x15992c89c90_33[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Symbol</td></tr><tr><td>mstype</td></tr></table>>,]
+node0x15992c8a590_36[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>resolve</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c87ad0_37[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>NameSpace</td></tr><tr><td>SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper'</td></tr></table>>,]
+node0x15992c8ab30_38[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Symbol</td></tr><tr><td>F</td></tr></table>>,]
+node0x15992c89150_43[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>resolve</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c871d0_44[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>NameSpace</td></tr><tr><td>ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>'</td></tr></table>>,]
+node0x15992c87530_45[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Symbol</td></tr><tr><td>add_cast_fp32</td></tr></table>>,]
+node0x15992c87410_46[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>resolve</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c872f0_47[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>NameSpace</td></tr><tr><td>CommonOPS: 'Namespace:mindspore._extends.parse.trope'</td></tr></table>>,]
+node0x15992c8a470_48[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Symbol</td></tr><tr><td>bool_</td></tr></table>>,]
+parameters_0x15996e0aff0[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>data</td></tr><tr><td>label</td></tr></table>>,];}
+subgraph cluster_0x15996e08250{
+id=cluster_0x15996e08250
+label="✗construct.931[managed]"
+fontname="Courier New"
+node0x15996f17c40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]943)</td></tr>
+</table>>,]
+node0x15996f1caa0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]928)</td></tr>
+</table>>,]
+node0x15992c92ed0_8[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c94430_9[fontname="Courier New",shape=oval,label="↓construct.927",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0a248",]
+parameters_0x15996e08250[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+subgraph cluster_0x15996e0a240{
+id=cluster_0x15996e0a240
+label="↓construct.927[managed]"
+fontname="Courier New"
+node0x15996f1a4a0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]944)</td></tr>
+</table>>,]
+node0x15996f1a240_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td><td port='3'>3</td></tr>
+<tr><td colspan='4' bgcolor='cornsilk'>CNode([CNode]917)</td></tr>
+</table>>,]
+node0x15996f1fc80_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(loss)</td></tr>
+</table>>,]
+node0x15996f17ea0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]916)</td></tr>
+</table>>,]
+node0x15996f1d680_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]915)</td></tr>
+</table>>,]
+node0x1598e67fa30_15[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x159969cf6d0_16[fontname="Courier New",shape=octagon,label="Φoutputs",style=filled,fillcolor=paleturquoise,]
+node0x159969ced10_17[fontname="Courier New",shape=octagon,label="Φlabel",style=filled,fillcolor=paleturquoise,]
+node0x159969cf6d0_18[fontname="Courier New",shape=octagon,label="Φoutputs",style=filled,fillcolor=paleturquoise,]
+node0x159969ced10_19[fontname="Courier New",shape=octagon,label="Φlabel",style=filled,fillcolor=paleturquoise,]
+node0x15992c909b0_20[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>resolve</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c94550_21[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>NameSpace</td></tr><tr><td>ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>'</td></tr></table>>,]
+node0x15992c90d10_22[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Symbol</td></tr><tr><td>_loss_fn</td></tr></table>>,]
+node0x1598e67e3b0_23[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>resolve</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x1598e67f910_24[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>NameSpace</td></tr><tr><td>CommonOPS: 'Namespace:mindspore._extends.parse.trope'</td></tr></table>>,]
+node0x1598e680f90_25[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Symbol</td></tr><tr><td>MakeTuple</td></tr></table>>,]
+parameters_0x15996e0a240[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr><tr><td>Φoutputs</td></tr><tr><td>Φlabel</td></tr></table>>,];}
+subgraph cluster_0x15996e0c230{
+id=cluster_0x15996e0c230
+label="✓construct.930[managed]"
+fontname="Courier New"
+node0x15996f1e260_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td></tr>
+<tr><td colspan='2' bgcolor='cornsilk'>CNode([CNode]938)</td></tr>
+</table>>,]
+node0x15996f1c840_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]926)</td></tr>
+</table>>,]
+node0x15996f1bec0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(label)</td></tr>
+</table>>,]
+node0x15996f185c0_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]925)</td></tr>
+</table>>,]
+node0x15996f18820_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]924)</td></tr>
+</table>>,]
+node0x15996f1ee40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode(outputs)</td></tr>
+</table>>,]
+node0x15996f1f560_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]923)</td></tr>
+</table>>,]
+node0x15996f1db40_0[fontname="Courier New",shape=plaintext,label=<<table port='core'>
+<tr><td port='0'>0</td><td port='1'>1</td><td port='2'>2</td></tr>
+<tr><td colspan='3' bgcolor='cornsilk'>CNode([CNode]919)</td></tr>
+</table>>,]
+node0x15992c8bd30_26[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>Return</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c8fe70_27[fontname="Courier New",shape=oval,label="↓construct.927",style=filled,fillcolor=palegreen,URL="#cluster_0x15996e0a248",]
+node0x15992c89810_29[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c88190_30[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>float32</td></tr></table>>,]
+node0x15992c89270_34[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c87bf0_35[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>mixed_precision_cast</td></tr></table>>,]
+node0x15992c8f7b0_39[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c8d710_40[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>float32</td></tr></table>>,]
+node0x15992c88850_41[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>Primitive</td></tr><tr><td>getattr</td></tr><tr><td align='left'></td></tr></table>>,]
+node0x15992c895d0_42[fontname="Courier New",shape=plaintext,label=<<table port='core' cellborder='0' cellspacing='2' bgcolor='lavender'><tr><td bgcolor='white'>StringImm</td></tr><tr><td>cast</td></tr></table>>,]
+parameters_0x15996e0c230[shape=plaintext label=<<table bgcolor='paleturquoise' cellspacing='0' cellborder='1' border='0'><tr><td>parameters</td></tr></table>>,];}
+node0x1598e683930_0:core->node0x15996f1fa20_0:0[arrowhead=vee,style=dashed]
+node0x15996f1f7c0_0:core->node0x15996f1fa20_0:1[arrowhead=vee,]
+node0x1598e6823d0_1->node0x15996f1f7c0_0:0[arrowhead=vee,style=dashed]
+node0x1598e6823d0_1->node0x15996f1cd00_0[lhead=cluster_0x15996e0aff0,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x159969ca0b0_2->node0x15996f1f7c0_0:1[arrowhead=vee,]
+node0x159969cb290_3->node0x15996f1f7c0_0:2[arrowhead=vee,]
+node0x15992c90650_4:core->node0x15996f1cd00_0:0[arrowhead=vee,style=dashed]
+node0x15996f1bc60_0:core->node0x15996f1cd00_0:1[arrowhead=vee,]
+node0x15996f1f0a0_0:core->node0x15996f1bc60_0:0[arrowhead=vee,]
+node0x15992c90410_5:core->node0x15996f1f0a0_0:0[arrowhead=vee,style=dashed]
+node0x15996f1a960_0:core->node0x15996f1f0a0_0:1[arrowhead=vee,]
+node0x15992c93a10_6->node0x15996f1f0a0_0:2[arrowhead=vee,]
+node0x15992c93a10_6->node0x15996f1e260_0[lhead=cluster_0x15996e0c230,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992c936b0_7->node0x15996f1f0a0_0:3[arrowhead=vee,]
+node0x15992c936b0_7->node0x15996f17c40_0[lhead=cluster_0x15996e08250,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15992c92ed0_8:core->node0x15996f17c40_0:0[arrowhead=vee,style=dashed]
+node0x15996f1caa0_0:core->node0x15996f17c40_0:1[arrowhead=vee,]
+node0x15992c94430_9->node0x15996f1caa0_0:0[arrowhead=vee,style=dashed]
+node0x15992c94430_9->node0x15996f1a4a0_0[lhead=cluster_0x15996e0a240,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f18f40_0:core->node0x15996f1caa0_0:1[arrowhead=vee,]
+node0x159969cc470_10->node0x15996f1caa0_0:2[arrowhead=vee,]
+node0x15996f1d420_0:core->node0x15996f18f40_0:0[arrowhead=vee,style=dashed]
+node0x159969cc130_11->node0x15996f18f40_0:1[arrowhead=vee,]
+node0x15992c870b0_12:core->node0x15996f1d420_0:0[arrowhead=vee,style=dashed]
+node0x15992c8a7d0_13:core->node0x15996f1d420_0:1[arrowhead=vee,]
+node0x15992c89a50_14:core->node0x15996f1d420_0:2[arrowhead=vee,]
+node0x1598e67fa30_15:core->node0x15996f1a4a0_0:0[arrowhead=vee,style=dashed]
+node0x15996f1a240_0:core->node0x15996f1a4a0_0:1[arrowhead=vee,]
+node0x15996f1d680_0:core->node0x15996f1a240_0:0[arrowhead=vee,style=dashed]
+node0x15996f1fc80_0:core->node0x15996f1a240_0:1[arrowhead=vee,]
+node0x159969cf6d0_16->node0x15996f1a240_0:2[arrowhead=vee,]
+node0x159969ced10_17->node0x15996f1a240_0:3[arrowhead=vee,]
+node0x15996f17ea0_0:core->node0x15996f1fc80_0:0[arrowhead=vee,style=dashed]
+node0x159969cf6d0_18->node0x15996f1fc80_0:1[arrowhead=vee,]
+node0x159969ced10_19->node0x15996f1fc80_0:2[arrowhead=vee,]
+node0x15992c909b0_20:core->node0x15996f17ea0_0:0[arrowhead=vee,style=dashed]
+node0x15992c94550_21:core->node0x15996f17ea0_0:1[arrowhead=vee,]
+node0x15992c90d10_22:core->node0x15996f17ea0_0:2[arrowhead=vee,]
+node0x1598e67e3b0_23:core->node0x15996f1d680_0:0[arrowhead=vee,style=dashed]
+node0x1598e67f910_24:core->node0x15996f1d680_0:1[arrowhead=vee,]
+node0x1598e680f90_25:core->node0x15996f1d680_0:2[arrowhead=vee,]
+node0x15992c8bd30_26:core->node0x15996f1e260_0:0[arrowhead=vee,style=dashed]
+node0x15996f1c840_0:core->node0x15996f1e260_0:1[arrowhead=vee,]
+node0x15992c8fe70_27->node0x15996f1c840_0:0[arrowhead=vee,style=dashed]
+node0x15992c8fe70_27->node0x15996f1a4a0_0[lhead=cluster_0x15996e0a240,dir=both,arrowhead=dot,style=filled,color=blue]
+node0x15996f1ee40_0:core->node0x15996f1c840_0:1[arrowhead=vee,]
+node0x15996f1bec0_0:core->node0x15996f1c840_0:2[arrowhead=vee,]
+node0x15996f18820_0:core->node0x15996f1bec0_0:0[arrowhead=vee,style=dashed]
+node0x15996f185c0_0:core->node0x15996f1bec0_0:1[arrowhead=vee,]
+node0x159969cc470_28->node0x15996f1bec0_0:2[arrowhead=vee,]
+node0x15992c89810_29:core->node0x15996f185c0_0:0[arrowhead=vee,style=dashed]
+node0x15996f1dda0_0:core->node0x15996f185c0_0:1[arrowhead=vee,]
+node0x15992c88190_30:core->node0x15996f185c0_0:2[arrowhead=vee,]
+node0x15992c89390_31:core->node0x15996f1dda0_0:0[arrowhead=vee,style=dashed]
+node0x15992c88070_32:core->node0x15996f1dda0_0:1[arrowhead=vee,]
+node0x15992c89c90_33:core->node0x15996f1dda0_0:2[arrowhead=vee,]
+node0x15992c89270_34:core->node0x15996f18820_0:0[arrowhead=vee,style=dashed]
+node0x15996f1e980_0:core->node0x15996f18820_0:1[arrowhead=vee,]
+node0x15992c87bf0_35:core->node0x15996f18820_0:2[arrowhead=vee,]
+node0x15992c8a590_36:core->node0x15996f1e980_0:0[arrowhead=vee,style=dashed]
+node0x15992c87ad0_37:core->node0x15996f1e980_0:1[arrowhead=vee,]
+node0x15992c8ab30_38:core->node0x15996f1e980_0:2[arrowhead=vee,]
+node0x15996f1db40_0:core->node0x15996f1ee40_0:0[arrowhead=vee,style=dashed]
+node0x15996f18f40_0:core->node0x15996f1ee40_0:1[arrowhead=vee,]
+node0x15996f1f560_0:core->node0x15996f1ee40_0:2[arrowhead=vee,]
+node0x15992c8f7b0_39:core->node0x15996f1f560_0:0[arrowhead=vee,style=dashed]
+node0x15996f1dda0_0:core->node0x15996f1f560_0:1[arrowhead=vee,]
+node0x15992c8d710_40:core->node0x15996f1f560_0:2[arrowhead=vee,]
+node0x15992c88850_41:core->node0x15996f1db40_0:0[arrowhead=vee,style=dashed]
+node0x15996f1e980_0:core->node0x15996f1db40_0:1[arrowhead=vee,]
+node0x15992c895d0_42:core->node0x15996f1db40_0:2[arrowhead=vee,]
+node0x15996f1f300_0:core->node0x15996f1a960_0:0[arrowhead=vee,style=dashed]
+node0x15996f1c120_0:core->node0x15996f1a960_0:1[arrowhead=vee,]
+node0x15992c89150_43:core->node0x15996f1c120_0:0[arrowhead=vee,style=dashed]
+node0x15992c871d0_44:core->node0x15996f1c120_0:1[arrowhead=vee,]
+node0x15992c87530_45:core->node0x15996f1c120_0:2[arrowhead=vee,]
+node0x15992c87410_46:core->node0x15996f1f300_0:0[arrowhead=vee,style=dashed]
+node0x15992c872f0_47:core->node0x15996f1f300_0:1[arrowhead=vee,]
+node0x15992c8a470_48:core->node0x15996f1f300_0:2[arrowhead=vee,]
+}

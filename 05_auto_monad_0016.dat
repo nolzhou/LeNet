@@ -1,0 +1,2440 @@
+# [No.1] 1_construct_wrapper.536
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(360)/    def construct(self, *inputs):/
+funcgraph fg_536(
+        %para1 : Tensor(F32)[32, 1, 32, 32]    # inputs0
+        , %para2 : Tensor(I32)[32]    # inputs1
+        , %para3 : Ref[Tensor(F32)][6, 1, 5, 5]    # conv1.weight
+        , %para4 : Ref[Tensor(F32)][16, 6, 5, 5]    # conv2.weight
+        , %para5 : Ref[Tensor(F32)][120, 400]    # fc1.weight
+        , %para6 : Ref[Tensor(F32)][120]    # fc1.bias
+        , %para7 : Ref[Tensor(F32)][84, 120]    # fc2.weight
+        , %para8 : Ref[Tensor(F32)][84]    # fc2.bias
+        , %para9 : Ref[Tensor(F32)][10, 84]    # fc3.weight
+        , %para10 : Ref[Tensor(F32)][10]    # fc3.bias
+        , %para11 : Ref[Tensor(F32)][6, 1, 5, 5]    # moments.conv1.weight
+        , %para12 : Ref[Tensor(F32)][16, 6, 5, 5]    # moments.conv2.weight
+        , %para13 : Ref[Tensor(F32)][120, 400]    # moments.fc1.weight
+        , %para14 : Ref[Tensor(F32)][120]    # moments.fc1.bias
+        , %para15 : Ref[Tensor(F32)][84, 120]    # moments.fc2.weight
+        , %para16 : Ref[Tensor(F32)][84]    # moments.fc2.bias
+        , %para17 : Ref[Tensor(F32)][10, 84]    # moments.fc3.weight
+        , %para18 : Ref[Tensor(F32)][10]    # moments.fc3.bias
+        , %para19 : Ref[Tensor(F32)][]    # momentum
+        , %para20 : Ref[Tensor(F32)][]    # learning_rate
+    ) {
+    %1 : Tuple[Tensor(F32),Tensor(I32)] = Primitive::MakeTuple{prim_type=1}(%para1, %para2)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32]) #scope: Default
+#[CNode]539
+    %2 : Tensor(F32)[] = FuncGraph::fg_780(FuncGraph::fg_543, %1, UMonad[U])    #(Func, Tuple[Tensor(F32),Tensor(I32)], UMonad)    # fg_780=2_UnpackCall.780, fg_543=3_construct.543 #scope: Default
+#[CNode]20
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/#[CNode]23
+}
+
+
+# [No.2] 2_UnpackCall.780
+
+funcgraph fg_780(
+        %para21 : Func    # 542
+        , %para22 : Tuple[Tensor(F32),Tensor(I32)]    # 538
+        , %para23 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 1, 32, 32] = Primitive::TupleGetItem{prim_type=1}(%para22, I64(0))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#537
+    %2 : Tensor(I32)[32] = Primitive::TupleGetItem{prim_type=1}(%para22, I64(1))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#540
+    %3 : Tensor(F32)[] = %para21[3_construct.543](%1, %2, %para23)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+#541
+    Primitive::Return{prim_type=1}(%3)    #(Tensor(F32)[]) #scope: Default
+#813
+}
+
+
+# [No.3] 3_construct.543
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(360)/    def construct(self, *inputs):/
+funcgraph fg_543[fg_536](
+        %para24 : Tensor(F32)[32, 1, 32, 32]    # inputs0
+        , %para25 : Tensor(I32)[32]    # inputs1
+        , %para26 : UMonad    # u
+    ) {
+    %1 : Tuple[Tensor(F32),Tensor(I32)] = Primitive::MakeTuple{prim_type=1}(%para24, %para25)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(360)/    def construct(self, *inputs):/#[CNode]546
+    %2 : Tensor(F32)[] = FuncGraph::fg_600(FuncGraph::fg_550, %1, %para26)    #(Func, Tuple[Tensor(F32),Tensor(I32)], UMonad)    # fg_600=4_UnpackCall.600, fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(361)/        loss = self.network(*inputs)/#loss
+    %3 : Tuple[Ref[Tensor(F32)]*8] = Primitive::MakeTuple{prim_type=1}(%para3, %para4, %para5, %para6, %para7, %para8, %para9, %para10)    #(Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]394
+    %4 : Func = FuncGraph::fg_742(FuncGraph::fg_550, %3)    #(Func, Tuple[Ref[Tensor(F32)]*8])    # fg_742=110_construct.742, fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para26, %2)    #(UMonad, Tensor(F32)[]) #scope: Default
+#[CNode]895
+    %6 : Tuple[Tensor(F32)*8] = FuncGraph::fg_779(%4, %1, (Tensor(43)[]), %5)    #(Func, Tuple[Tensor(F32),Tensor(I32)], Tuple[Tensor(F32)], UMonad)    # fg_779=109_UnpackCall.779 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %7 : Tuple[Tensor(F32)*8] = PrimitivePy::identity{prim_type=1}[side_effect_propagate=I64(1)](%6)    #(Tuple[Tensor(F32)*8]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(364)/        grads = self.grad_reducer(grads)/#grads
+    %8 : UMonad = Primitive::UpdateState{prim_type=1}(%5, %6)    #(UMonad, Tuple[Tensor(F32)*8]) #scope: Default
+#[CNode]896
+    %9 : Tuple[Bool*8] = FuncGraph::fg_621(%7, %8)    #(Tuple[Tensor(F32)*8], UMonad)    # fg_621=53_construct.621 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#[CNode]19
+    %10 : Tensor(F32)[] = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](%2, %9)    #(Tensor(F32)[], Tuple[Bool*8]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#loss
+    %11 : UMonad = Primitive::UpdateState{prim_type=1}(%8, %9)    #(UMonad, Tuple[Bool*8]) #scope: Default
+#[CNode]897
+    %12 : Tensor(F32)[] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%10, %11)    #(Tensor(F32)[], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(365)/        loss = F.depend(loss, self.optimizer(grads))/#loss
+    Primitive::Return{prim_type=1}(%12)    #(Tensor(F32)[]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(366)/        return loss/#[CNode]24
+}
+
+
+# [No.4] 4_UnpackCall.600
+
+funcgraph fg_600(
+        %para27 : Func    # 549
+        , %para28 : Tuple[Tensor(F32),Tensor(I32)]    # 545
+        , %para29 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 1, 32, 32] = Primitive::TupleGetItem{prim_type=1}(%para28, I64(0))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#544
+    %2 : Tensor(I32)[32] = Primitive::TupleGetItem{prim_type=1}(%para28, I64(1))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#547
+    %3 : Tensor(F32)[] = %para27[5_construct.550](%1, %2, %para29)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+#548
+    Primitive::Return{prim_type=1}(%3)    #(Tensor(F32)[]) #scope: Default
+#814
+}
+
+
+# [No.5] 5_construct.550
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(109)/    def construct(self, data, label):/
+funcgraph fg_550[fg_536](
+        %para30 : Tensor(F32)[32, 1, 32, 32]    # data
+        , %para31 : Tensor(I32)[32]    # label
+        , %para32 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 10] = FuncGraph::fg_599(%para30, %para32)    #(Tensor(F32)[32, 1, 32, 32], UMonad)    # fg_599=9_construct.599 #scope: Default/network-WithLossCell
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(110)/        out = self._backbone(data)/#out
+    %2 : Tensor(F32)[] = FuncGraph::fg_551(%1, %para31)    #(Tensor(F32)[32, 10], Tensor(I32)[32])    # fg_551=6_construct.551 #scope: Default/network-WithLossCell
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/#[CNode]274
+    %3 : UMonad = Primitive::UpdateState{prim_type=1}(%para32, %1)    #(UMonad, Tensor(F32)[32, 10]) #scope: Default
+#[CNode]851
+    %4 : Tensor(F32)[] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%2, %3)    #(Tensor(F32)[], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/#[CNode]274
+    Primitive::Return{prim_type=1}(%4)    #(Tensor(F32)[]) #scope: Default/network-WithLossCell
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/#[CNode]395
+}
+
+
+# [No.6] 110_construct.742
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(109)/    def construct(self, data, label):/
+funcgraph fg_742[fg_536](
+        %para33 : Func    # [Parameter]811
+        , %para34 : Tuple[Ref[Tensor(F32)]*8]    # 778
+    ) {
+    Primitive::Return{prim_type=1}(FuncGraph::fg_740)    #(Func)    # fg_740=111_construct.740 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+}
+
+
+# [No.7] 109_UnpackCall.779
+
+funcgraph fg_779(
+        %para35 : Func    # 739
+        , %para36 : Tuple[Tensor(F32),Tensor(I32)]    # 736
+        , %para37 : Tuple[Tensor(F32)]    # 810
+        , %para38 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 1, 32, 32] = Primitive::TupleGetItem{prim_type=1}(%para36, I64(0))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#735
+    %2 : Tensor(I32)[32] = Primitive::TupleGetItem{prim_type=1}(%para36, I64(1))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#737
+    %3 : Tuple[Tensor(F32)*8] = %para35[111_construct.740](%1, %2, Tensor(43)[], %para38)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], Tensor(F32)[](...), UMonad) #scope: Default
+#738
+    Primitive::Return{prim_type=1}(%3)    #(Tuple[Tensor(F32)*8]) #scope: Default
+#815
+}
+
+
+# [No.8] 53_construct.621
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(170)/    def construct(self, gradients):/
+funcgraph fg_621[fg_536](
+        %para39 : Tuple[Tensor(F32)*8]    # gradients
+        , %para40 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_734)    #(Bool, ProblemType, Func)    # fg_734=54_✗construct.734 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/#[CNode]390
+    %2 : Tuple[Bool*8] = %1[54_✗construct.734](%para40)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/#[CNode]393
+    Primitive::Return{prim_type=1}(%2)    #(Tuple[Bool*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/#[CNode]396
+}
+
+
+# [No.9] 9_construct.599
+# In file D:\PythonCode\LeNet\lenet.py(39)/    def construct(self, x):/
+funcgraph fg_599[fg_536](
+        %para41 : Tensor(F32)[32, 1, 32, 32]    # x
+        , %para42 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 6, 28, 28] = FuncGraph::fg_587(%para41, %para42)    #(Tensor(F32)[32, 1, 32, 32], UMonad)    # fg_587=50_construct.587 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(41)/        x = self.conv1(x)/#x
+    %2 : Tensor(F32)[32, 6, 28, 28] = FuncGraph::fg_589(%1)    #(Tensor(F32)[32, 6, 28, 28])    # fg_589=49_construct.589 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(42)/        x = self.relu(x)/#x
+    %3 : Tensor(F32)[32, 6, 14, 14] = FuncGraph::fg_590(%2)    #(Tensor(F32)[32, 6, 28, 28])    # fg_590=48_construct.590 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(43)/        x = self.max_pool2d(x)/#x
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para42, %1)    #(UMonad, Tensor(F32)[32, 6, 28, 28]) #scope: Default
+#[CNode]846
+    %5 : Tensor(F32)[32, 16, 10, 10] = FuncGraph::fg_584(%3, %4)    #(Tensor(F32)[32, 6, 14, 14], UMonad)    # fg_584=45_construct.584 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(44)/        x = self.conv2(x)/#x
+    %6 : Tensor(F32)[32, 16, 10, 10] = FuncGraph::fg_591(%5)    #(Tensor(F32)[32, 16, 10, 10])    # fg_591=44_construct.591 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(45)/        x = self.relu(x)/#x
+    %7 : Tensor(F32)[32, 16, 5, 5] = FuncGraph::fg_592(%6)    #(Tensor(F32)[32, 16, 10, 10])    # fg_592=43_construct.592 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(46)/        x = self.max_pool2d(x)/#x
+    %8 : Tensor(F32)[32, 400] = FuncGraph::fg_593(%7)    #(Tensor(F32)[32, 16, 5, 5])    # fg_593=42_construct.593 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(47)/        x = self.flatten(x)/#x
+    %9 : UMonad = Primitive::UpdateState{prim_type=1}(%4, %5)    #(UMonad, Tensor(F32)[32, 16, 10, 10]) #scope: Default
+#[CNode]847
+    %10 : Tensor(F32)[32, 120] = FuncGraph::fg_594(%8, %9)    #(Tensor(F32)[32, 400], UMonad)    # fg_594=32_construct.594 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(48)/        x = self.fc1(x)/#x
+    %11 : Tensor(F32)[32, 120] = FuncGraph::fg_595(%10)    #(Tensor(F32)[32, 120])    # fg_595=31_construct.595 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(49)/        x = self.relu(x)/#x
+    %12 : UMonad = Primitive::UpdateState{prim_type=1}(%9, %10)    #(UMonad, Tensor(F32)[32, 120]) #scope: Default
+#[CNode]848
+    %13 : Tensor(F32)[32, 84] = FuncGraph::fg_596(%11, %12)    #(Tensor(F32)[32, 120], UMonad)    # fg_596=21_construct.596 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(50)/        x = self.fc2(x)/#x
+    %14 : Tensor(F32)[32, 84] = FuncGraph::fg_597(%13)    #(Tensor(F32)[32, 84])    # fg_597=20_construct.597 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(51)/        x = self.relu(x)/#x
+    %15 : UMonad = Primitive::UpdateState{prim_type=1}(%12, %13)    #(UMonad, Tensor(F32)[32, 84]) #scope: Default
+#[CNode]849
+    %16 : Tensor(F32)[32, 10] = FuncGraph::fg_598(%14, %15)    #(Tensor(F32)[32, 84], UMonad)    # fg_598=10_construct.598 #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#x
+    %17 : UMonad = Primitive::UpdateState{prim_type=1}(%15, %16)    #(UMonad, Tensor(F32)[32, 10]) #scope: Default
+#[CNode]850
+    %18 : Tensor(F32)[32, 10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%16, %17)    #(Tensor(F32)[32, 10], UMonad) #scope: Default
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#x
+    Primitive::Return{prim_type=1}(%18)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5
+      # In file D:\PythonCode\LeNet\lenet.py(53)/        return x/#[CNode]397
+}
+
+
+# [No.10] 6_construct.551
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(622)/    def construct(self, logits, labels):/
+funcgraph fg_551(
+        %para43 : Tensor(F32)[32, 10]    # Φlogits
+        , %para44 : Tensor(I32)[32]    # labels
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(1), FuncGraph::fg_553, "DeadNode")    #(Bool, Func, ProblemType)    # fg_553=7_✓construct.553 #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/#[CNode]91
+    %2 : Tensor(F32)[] = %1[7_✓construct.553]() #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/#[CNode]94
+    %3 : Tensor(F32)[] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%2, (None, None))    #(Tensor(F32)[], Tuple[NoneType*2]) #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(111)/        return self._loss_fn(out, label)/#[CNode]95
+    Primitive::Return{prim_type=1}(%3)    #(Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/#[CNode]398
+}
+
+
+# [No.11] 111_construct.740
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(109)/    def construct(self, data, label):/
+funcgraph fg_740[fg_742](
+        %para45 : Tensor(F32)[32, 1, 32, 32]    # construct
+        , %para46 : Tensor(I32)[32]    # construct
+        , %para47 : Tensor(F32)[](...)    # construct
+        , %para48 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)]("PolyNode", %5)    #(ProblemType, EnvType) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %7 : UMonad = Primitive::UpdateState{prim_type=1}(%para48, %2)    #(UMonad, Tuple[Tensor(F32),Func]) #scope: Default
+#[CNode]893
+    %8 : Tuple[Tensor(F32)*8] = FuncGraph::fg_626(%6, %para34, %7)    #(Func, Tuple[Ref[Tensor(F32)]*8], UMonad)    # fg_626=112_hyper_map.626 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %9 : UMonad = Primitive::UpdateState{prim_type=1}(%7, %8)    #(UMonad, Tuple[Tensor(F32)*8]) #scope: Default
+#[CNode]894
+    %10 : Tuple[Tensor(F32)*8] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%8, %9)    #(Tuple[Tensor(F32)*8], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    Primitive::Return{prim_type=1}(%10)    #(Tuple[Tensor(F32)*8]) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+}
+
+
+# [No.12] 54_✗construct.734
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+funcgraph fg_734[fg_621](
+        %para49 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = PrimitivePy::Partial{prim_type=1}[side_effect_propagate=I64(1)]("PolyNode", "PolyNode", %para19, %1)    #(ProblemType, ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#[CNode]388
+    %3 : $(53_construct.621):Tuple[Tensor(F32)*8] = FuncGraph::fg_731(%para39)    #(Tuple[Tensor(F32)*8])    # fg_731=106_decay_weight.731 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(173)/        gradients = self.decay_weight(gradients)/#gradients
+    %4 : $(53_construct.621):Tuple[Tensor(F32)*8] = FuncGraph::fg_728(%3)    #(Tuple[Tensor(F32)*8])    # fg_728=103_gradients_centralization.728 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(174)/        gradients = self.gradients_centralization(gradients)/#gradients
+    %5 : $(53_construct.621):Tuple[Tensor(F32)*8] = FuncGraph::fg_725(%4)    #(Tuple[Tensor(F32)*8])    # fg_725=55_scale_grad.725 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(175)/        gradients = self.scale_grad(gradients)/#gradients
+    %6 : $(53_construct.621):Tuple[Ref[Tensor(F32)]*8] = Primitive::MakeTuple{prim_type=1}(%para3, %para4, %para5, %para6, %para7, %para8, %para9, %para10)    #(Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(171)/        params = self.params/#[CNode]383
+    %7 : $(53_construct.621):Tuple[Ref[Tensor(F32)]*8] = Primitive::MakeTuple{prim_type=1}(%para11, %para12, %para13, %para14, %para15, %para16, %para17, %para18)    #(Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(172)/        moments = self.moments/#[CNode]384
+    %8 : Tuple[Bool*8] = FuncGraph::fg_601(%2, %5, %6, %7, (Bool(0), Bool(0), Bool(0), Bool(0), Bool(0), Bool(0), Bool(0), Bool(0)), (Bool(0), Bool(0), Bool(0), Bool(0), Bool(0), Bool(0), Bool(0), Bool(0)), %para49)    #(Func, Tuple[Tensor(F32)*8], Tuple[Ref[Tensor(F32)]*8], Tuple[Ref[Tensor(F32)]*8], Tuple[Bool*8], Tuple[Bool*8], UMonad)    # fg_601=62_hyper_map.601 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %9 : Tuple[Bool*8] = FuncGraph::fg_733(%8)    #(Tuple[Bool*8])    # fg_733=61_↓construct.733 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/#[CNode]389
+    %10 : UMonad = Primitive::UpdateState{prim_type=1}(%para49, %8)    #(UMonad, Tuple[Bool*8]) #scope: Default
+#[CNode]868
+    %11 : Tuple[Bool*8] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%9, %10)    #(Tuple[Bool*8], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/#[CNode]389
+    Primitive::Return{prim_type=1}(%11)    #(Tuple[Bool*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/#[CNode]401
+}
+
+
+# [No.13] 50_construct.587
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(265)/    def construct(self, x):/
+funcgraph fg_587[fg_536](
+        %para50 : Tensor(F32)[32, 1, 32, 32]    # x
+        , %para51 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_588)    #(Bool, ProblemType, Func)    # fg_588=51_✗construct.588 #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]266
+    %2 : Tensor(F32)[6, 1, 5, 5] = Primitive::Load{prim_type=1}(%para3, %para51)    #(Ref[Tensor(F32)][6, 1, 5, 5], UMonad) #scope: Default
+#[CNode]843
+    %3 : UMonad = Primitive::UpdateState{prim_type=1}(%para51, %2)    #(UMonad, Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]844
+    %4 : Tensor(F32)[32, 6, 28, 28] = %1[51_✗construct.588](%3)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]269
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%3, %4)    #(UMonad, Tensor(F32)[32, 6, 28, 28]) #scope: Default
+#[CNode]845
+    %6 : Tensor(F32)[32, 6, 28, 28] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[32, 6, 28, 28], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]269
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]402
+}
+
+
+# [No.14] 49_construct.589
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(294)/    def construct(self, x):/
+funcgraph fg_589(
+        %para52 : Tensor(F32)[32, 6, 28, 28]    # x
+    ) {
+    %1 : Tensor(F32)[32, 6, 28, 28] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%para52)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]148
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]403
+}
+
+
+# [No.15] 48_construct.590
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(141)/    def construct(self, x):/
+funcgraph fg_590(
+        %para53 : Tensor(F32)[32, 6, 28, 28]    # x
+    ) {
+    %1 : Tensor(F32)[32, 6, 14, 14] = PrimitivePy::MaxPool{prim_type=2}[pad_mode=I64(2), output_names=["output"], kernel_size=(I64(1), I64(1), I64(2), I64(2)), format="NCHW", strides=(I64(1), I64(1), I64(2), I64(2)), input_names=["x"]](%para53)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/#out
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 6, 14, 14]) #scope: Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/#[CNode]404
+}
+
+
+# [No.16] 45_construct.584
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(265)/    def construct(self, x):/
+funcgraph fg_584[fg_536](
+        %para54 : Tensor(F32)[32, 6, 14, 14]    # x
+        , %para55 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_585)    #(Bool, ProblemType, Func)    # fg_585=46_✗construct.585 #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]257
+    %2 : Tensor(F32)[16, 6, 5, 5] = Primitive::Load{prim_type=1}(%para4, %para55)    #(Ref[Tensor(F32)][16, 6, 5, 5], UMonad) #scope: Default
+#[CNode]840
+    %3 : UMonad = Primitive::UpdateState{prim_type=1}(%para55, %2)    #(UMonad, Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]841
+    %4 : Tensor(F32)[32, 16, 10, 10] = %1[46_✗construct.585](%3)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]260
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%3, %4)    #(UMonad, Tensor(F32)[32, 16, 10, 10]) #scope: Default
+#[CNode]842
+    %6 : Tensor(F32)[32, 16, 10, 10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[32, 16, 10, 10], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]260
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]405
+}
+
+
+# [No.17] 44_construct.591
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(294)/    def construct(self, x):/
+funcgraph fg_591(
+        %para56 : Tensor(F32)[32, 16, 10, 10]    # x
+    ) {
+    %1 : Tensor(F32)[32, 16, 10, 10] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%para56)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]148
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]403
+}
+
+
+# [No.18] 43_construct.592
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(141)/    def construct(self, x):/
+funcgraph fg_592(
+        %para57 : Tensor(F32)[32, 16, 10, 10]    # x
+    ) {
+    %1 : Tensor(F32)[32, 16, 5, 5] = PrimitivePy::MaxPool{prim_type=2}[pad_mode=I64(2), output_names=["output"], kernel_size=(I64(1), I64(1), I64(2), I64(2)), format="NCHW", strides=(I64(1), I64(1), I64(2), I64(2)), input_names=["x"]](%para57)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/#out
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 16, 5, 5]) #scope: Default/network-WithLossCell/_backbone-LeNet5/max_pool2d-MaxPool2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/#[CNode]404
+}
+
+
+# [No.19] 42_construct.593
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(214)/    def construct(self, x):/
+funcgraph fg_593(
+        %para58 : Tensor(F32)[32, 16, 5, 5]    # x
+    ) {
+    %1 : Tensor(F32)[32, 400] = PrimitivePy::Reshape{prim_type=2}[output_names=["output"], input_names=["tensor", "shape"]](%para58, (I64(32), I64(-1)))    #(Tensor(F32)[32, 16, 5, 5], Tuple[I64*2]) #scope: Default/network-WithLossCell/_backbone-LeNet5/flatten-Flatten
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/#[CNode]251
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 400]) #scope: Default/network-WithLossCell/_backbone-LeNet5/flatten-Flatten
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/#[CNode]406
+}
+
+
+# [No.20] 32_construct.594
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(319)/    def construct(self, x):/
+funcgraph fg_594[fg_536](
+        %para59 : Tensor(F32)[32, 400]    # x
+        , %para60 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 120] = FuncGraph::fg_578(%para59, %para6, %para5, %para60)    #(Tensor(F32)[32, 400], Ref[Tensor(F32)][120], Ref[Tensor(F32)][120, 400], UMonad)    # fg_578=33_L-construct.578 #scope: Default
+#[CNode]523
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc1-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]407
+}
+
+
+# [No.21] 31_construct.595
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(294)/    def construct(self, x):/
+funcgraph fg_595(
+        %para61 : Tensor(F32)[32, 120]    # x
+    ) {
+    %1 : Tensor(F32)[32, 120] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%para61)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]148
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]403
+}
+
+
+# [No.22] 21_construct.596
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(319)/    def construct(self, x):/
+funcgraph fg_596[fg_536](
+        %para62 : Tensor(F32)[32, 120]    # x
+        , %para63 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 84] = FuncGraph::fg_569(%para62, %para8, %para7, %para63)    #(Tensor(F32)[32, 120], Ref[Tensor(F32)][84], Ref[Tensor(F32)][84, 120], UMonad)    # fg_569=22_L-construct.569 #scope: Default
+#[CNode]522
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc2-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]408
+}
+
+
+# [No.23] 20_construct.597
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(294)/    def construct(self, x):/
+funcgraph fg_597(
+        %para64 : Tensor(F32)[32, 84]    # x
+    ) {
+    %1 : Tensor(F32)[32, 84] = PrimitivePy::ReLU{prim_type=1}[output_names=["output"], input_names=["x"]](%para64)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]148
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/relu-ReLU
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/#[CNode]403
+}
+
+
+# [No.24] 10_construct.598
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(319)/    def construct(self, x):/
+funcgraph fg_598[fg_536](
+        %para65 : Tensor(F32)[32, 84]    # x
+        , %para66 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 10] = FuncGraph::fg_560(%para65, %para10, %para9, %para66)    #(Tensor(F32)[32, 84], Ref[Tensor(F32)][10], Ref[Tensor(F32)][10, 84], UMonad)    # fg_560=11_L-construct.560 #scope: Default
+#[CNode]521
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]409
+}
+
+
+# [No.25] 7_✓construct.553
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+funcgraph fg_553[fg_551](
+) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(1), FuncGraph::fg_552, "DeadNode")    #(Bool, Func, ProblemType)    # fg_552=8_✓✓construct.552 #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/#[CNode]86
+    %2 : Tensor(F32)[] = %1[8_✓✓construct.552]() #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/#[CNode]89
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/#[CNode]410
+}
+
+
+# [No.26] 112_hyper_map.626
+
+funcgraph fg_626[fg_740](
+        %para67 : Func    # [Parameter]749
+        , %para68 : Tuple[Ref[Tensor(F32)]*8]    # [Parameter]747
+        , %para69 : UMonad    # u
+    ) {
+    %1 : Ref[Tensor(F32)][6, 1, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(0))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]746
+    %2 : Tensor(F32)[6, 1, 5, 5] = FuncGraph::fg_748(%para67, %1, %para69)    #(Func, Ref[Tensor(F32)][6, 1, 5, 5], UMonad)    # fg_748=113_hyper_map.748 #scope: Default
+#[CNode]628
+    %3 : Ref[Tensor(F32)][16, 6, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(1))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]752
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para69, %2)    #(UMonad, Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]873
+    %5 : Tensor(F32)[16, 6, 5, 5] = FuncGraph::fg_753(%para67, %3, %4)    #(Func, Ref[Tensor(F32)][16, 6, 5, 5], UMonad)    # fg_753=115_hyper_map.753 #scope: Default
+#[CNode]629
+    %6 : Ref[Tensor(F32)][120, 400] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(2))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]756
+    %7 : UMonad = Primitive::UpdateState{prim_type=1}(%4, %5)    #(UMonad, Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]876
+    %8 : Tensor(F32)[120, 400] = FuncGraph::fg_757(%para67, %6, %7)    #(Func, Ref[Tensor(F32)][120, 400], UMonad)    # fg_757=117_hyper_map.757 #scope: Default
+#[CNode]630
+    %9 : Ref[Tensor(F32)][120] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(3))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]760
+    %10 : UMonad = Primitive::UpdateState{prim_type=1}(%7, %8)    #(UMonad, Tensor(F32)[120, 400]) #scope: Default
+#[CNode]879
+    %11 : Tensor(F32)[120] = FuncGraph::fg_761(%para67, %9, %10)    #(Func, Ref[Tensor(F32)][120], UMonad)    # fg_761=119_hyper_map.761 #scope: Default
+#[CNode]631
+    %12 : Ref[Tensor(F32)][84, 120] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(4))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]764
+    %13 : UMonad = Primitive::UpdateState{prim_type=1}(%10, %11)    #(UMonad, Tensor(F32)[120]) #scope: Default
+#[CNode]882
+    %14 : Tensor(F32)[84, 120] = FuncGraph::fg_765(%para67, %12, %13)    #(Func, Ref[Tensor(F32)][84, 120], UMonad)    # fg_765=121_hyper_map.765 #scope: Default
+#[CNode]632
+    %15 : Ref[Tensor(F32)][84] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(5))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]768
+    %16 : UMonad = Primitive::UpdateState{prim_type=1}(%13, %14)    #(UMonad, Tensor(F32)[84, 120]) #scope: Default
+#[CNode]885
+    %17 : Tensor(F32)[84] = FuncGraph::fg_769(%para67, %15, %16)    #(Func, Ref[Tensor(F32)][84], UMonad)    # fg_769=123_hyper_map.769 #scope: Default
+#[CNode]633
+    %18 : Ref[Tensor(F32)][10, 84] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(6))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]772
+    %19 : UMonad = Primitive::UpdateState{prim_type=1}(%16, %17)    #(UMonad, Tensor(F32)[84]) #scope: Default
+#[CNode]888
+    %20 : Tensor(F32)[10, 84] = FuncGraph::fg_773(%para67, %18, %19)    #(Func, Ref[Tensor(F32)][10, 84], UMonad)    # fg_773=125_hyper_map.773 #scope: Default
+#[CNode]634
+    %21 : Ref[Tensor(F32)][10] = Primitive::TupleGetItem{prim_type=1}(%para68, I64(7))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default
+#[CNode]776
+    %22 : UMonad = Primitive::UpdateState{prim_type=1}(%19, %20)    #(UMonad, Tensor(F32)[10, 84]) #scope: Default
+#[CNode]891
+    %23 : Tensor(F32)[10] = FuncGraph::fg_777(%para67, %21, %22)    #(Func, Ref[Tensor(F32)][10], UMonad)    # fg_777=127_hyper_map.777 #scope: Default
+#[CNode]635
+    %24 : Tuple[Tensor(F32)*8] = Primitive::MakeTuple{prim_type=1}(%2, %5, %8, %11, %14, %17, %20, %23)    #(Tensor(F32)[6, 1, 5, 5], Tensor(F32)[16, 6, 5, 5], Tensor(F32)[120, 400], Tensor(F32)[120], Tensor(F32)[84, 120], Tensor(F32)[84], Tensor(F32)[10, 84], Tensor(F32)[10]) #scope: Default
+#[CNode]627
+    %25 : UMonad = Primitive::UpdateState{prim_type=1}(%22, %23)    #(UMonad, Tensor(F32)[10]) #scope: Default
+#[CNode]892
+    %26 : Tuple[Tensor(F32)*8] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%24, %25)    #(Tuple[Tensor(F32)*8], UMonad) #scope: Default
+#[CNode]627
+    Primitive::Return{prim_type=1}(%26)    #(Tuple[Tensor(F32)*8]) #scope: Default
+#[CNode]816
+}
+
+
+# [No.27] 58_get_lr.617
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(578)/    def get_lr(self):/
+funcgraph fg_617[fg_536](
+) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_616)    #(Bool, ProblemType, Func)    # fg_616=59_✗get_lr.616 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/#[CNode]338
+    %2 : Ref[Tensor(F32)][] = %1[59_✗get_lr.616]() #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/#[CNode]341
+    Primitive::Return{prim_type=1}(%2)    #(Ref[Tensor(F32)][]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/#[CNode]412
+}
+
+
+# [No.28] 106_decay_weight.731
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(304)/    def decay_weight(self, gradients):/
+funcgraph fg_731(
+        %para70 : Tuple[Tensor(F32)*8]    # gradients
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_732)    #(Bool, ProblemType, Func)    # fg_732=107_✗decay_weight.732 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/#[CNode]379
+    %2 : Tuple[Tensor(F32)*8] = %1[107_✗decay_weight.732]() #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/#[CNode]382
+    Primitive::Return{prim_type=1}(%2)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/#[CNode]413
+}
+
+
+# [No.29] 103_gradients_centralization.728
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(328)/    def gradients_centralization(self, gradients):/
+funcgraph fg_728(
+        %para71 : Tuple[Tensor(F32)*8]    # gradients
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_729)    #(Bool, ProblemType, Func)    # fg_729=104_✗gradients_centralization.729 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/#[CNode]359
+    %2 : Tuple[Tensor(F32)*8] = %1[104_✗gradients_centralization.729]() #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/#[CNode]362
+    Primitive::Return{prim_type=1}(%2)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/#[CNode]414
+}
+
+
+# [No.30] 55_scale_grad.725
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(347)/    def scale_grad(self, gradients):/
+funcgraph fg_725(
+        %para72 : Tuple[Tensor(F32)*8]    # gradients
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_726)    #(Bool, ProblemType, Func)    # fg_726=56_✗scale_grad.726 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/#[CNode]349
+    %2 : Tuple[Tensor(F32)*8] = %1[56_✗scale_grad.726]() #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/#[CNode]352
+    Primitive::Return{prim_type=1}(%2)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/#[CNode]415
+}
+
+
+# [No.31] 62_hyper_map.601
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/
+funcgraph fg_601[fg_621](
+        %para73 : Func    # [Parameter]639
+        , %para74 : Tuple[Tensor(F32)*8]    # [Parameter]625
+        , %para75 : Tuple[Ref[Tensor(F32)]*8]    # [Parameter]636
+        , %para76 : Tuple[Ref[Tensor(F32)]*8]    # [Parameter]637
+        , %para77 : Tuple[Bool*8]    # [Parameter]787
+        , %para78 : Tuple[Bool*8]    # [Parameter]788
+        , %para79 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[6, 1, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(0))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %2 : Ref[Tensor(F32)][6, 1, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(0))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %3 : Ref[Tensor(F32)][6, 1, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(0))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %4 : Tensor(F32)[10] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(7))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %5 : Ref[Tensor(F32)][10] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(7))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %6 : Ref[Tensor(F32)][10] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(7))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %7 : Bool = FuncGraph::fg_723(%para73, %4, %5, %6, Bool(0), Bool(0), %para79)    #(Func, Tensor(F32)[10], Ref[Tensor(F32)][10], Ref[Tensor(F32)][10], Bool, Bool, UMonad)    # fg_723=98_hyper_map.723 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %8 : UMonad = Primitive::UpdateState{prim_type=1}(%para79, %7)    #(UMonad, Bool) #scope: Default
+#[CNode]854
+    %9 : Tensor(F32)[10, 84] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(6))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %10 : Ref[Tensor(F32)][10, 84] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(6))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %11 : Ref[Tensor(F32)][10, 84] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(6))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %12 : Bool = FuncGraph::fg_711(%para73, %9, %10, %11, Bool(0), Bool(0), %8)    #(Func, Tensor(F32)[10, 84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10, 84], Bool, Bool, UMonad)    # fg_711=93_hyper_map.711 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %13 : UMonad = Primitive::UpdateState{prim_type=1}(%8, %12)    #(UMonad, Bool) #scope: Default
+#[CNode]856
+    %14 : Tensor(F32)[84] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(5))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %15 : Ref[Tensor(F32)][84] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(5))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %16 : Ref[Tensor(F32)][84] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(5))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %17 : Bool = FuncGraph::fg_699(%para73, %14, %15, %16, Bool(0), Bool(0), %13)    #(Func, Tensor(F32)[84], Ref[Tensor(F32)][84], Ref[Tensor(F32)][84], Bool, Bool, UMonad)    # fg_699=88_hyper_map.699 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %18 : UMonad = Primitive::UpdateState{prim_type=1}(%13, %17)    #(UMonad, Bool) #scope: Default
+#[CNode]858
+    %19 : Tensor(F32)[84, 120] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(4))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %20 : Ref[Tensor(F32)][84, 120] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(4))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %21 : Ref[Tensor(F32)][84, 120] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(4))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %22 : Bool = FuncGraph::fg_687(%para73, %19, %20, %21, Bool(0), Bool(0), %18)    #(Func, Tensor(F32)[84, 120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84, 120], Bool, Bool, UMonad)    # fg_687=83_hyper_map.687 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %23 : UMonad = Primitive::UpdateState{prim_type=1}(%18, %22)    #(UMonad, Bool) #scope: Default
+#[CNode]860
+    %24 : Tensor(F32)[120] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(3))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %25 : Ref[Tensor(F32)][120] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(3))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %26 : Ref[Tensor(F32)][120] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(3))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %27 : Bool = FuncGraph::fg_675(%para73, %24, %25, %26, Bool(0), Bool(0), %23)    #(Func, Tensor(F32)[120], Ref[Tensor(F32)][120], Ref[Tensor(F32)][120], Bool, Bool, UMonad)    # fg_675=78_hyper_map.675 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %28 : UMonad = Primitive::UpdateState{prim_type=1}(%23, %27)    #(UMonad, Bool) #scope: Default
+#[CNode]862
+    %29 : Tensor(F32)[120, 400] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(2))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %30 : Ref[Tensor(F32)][120, 400] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(2))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %31 : Ref[Tensor(F32)][120, 400] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(2))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %32 : Bool = FuncGraph::fg_663(%para73, %29, %30, %31, Bool(0), Bool(0), %28)    #(Func, Tensor(F32)[120, 400], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120, 400], Bool, Bool, UMonad)    # fg_663=73_hyper_map.663 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %33 : UMonad = Primitive::UpdateState{prim_type=1}(%28, %32)    #(UMonad, Bool) #scope: Default
+#[CNode]864
+    %34 : Tensor(F32)[16, 6, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para74, I64(1))    #(Tuple[Tensor(F32)*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %35 : Ref[Tensor(F32)][16, 6, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para75, I64(1))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %36 : Ref[Tensor(F32)][16, 6, 5, 5] = Primitive::TupleGetItem{prim_type=1}(%para76, I64(1))    #(Tuple[Ref[Tensor(F32)]*8], I64) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %37 : Bool = FuncGraph::fg_651(%para73, %34, %35, %36, Bool(0), Bool(0), %33)    #(Func, Tensor(F32)[16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Bool, Bool, UMonad)    # fg_651=68_hyper_map.651 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %38 : UMonad = Primitive::UpdateState{prim_type=1}(%33, %37)    #(UMonad, Bool) #scope: Default
+#[CNode]866
+    %39 : Bool = FuncGraph::fg_638(%para73, %1, %2, %3, Bool(0), Bool(0), %38)    #(Func, Tensor(F32)[6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Bool, Bool, UMonad)    # fg_638=63_hyper_map.638 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %40 : Tuple[Bool*8] = Primitive::MakeTuple{prim_type=1}(%39, %37, %32, %27, %22, %17, %12, %7)    #(Bool, Bool, Bool, Bool, Bool, Bool, Bool, Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    %41 : UMonad = Primitive::UpdateState{prim_type=1}(%38, %39)    #(UMonad, Bool) #scope: Default
+#[CNode]867
+    %42 : Tuple[Bool*8] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%40, %41)    #(Tuple[Bool*8], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+    Primitive::Return{prim_type=1}(%42)    #(Tuple[Bool*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(181)/            success = self.hyper_map_reverse(F.partial(_momentum_opt, self.opt, self.momentum, lr),/#success
+}
+
+
+# [No.32] 61_↓construct.733
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(177)/        if self.is_group_lr:/
+funcgraph fg_733(
+        %para80 : Tuple[Bool*8]    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para80)    #(Tuple[Bool*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(183)/        return success/#[CNode]416
+}
+
+
+# [No.33] 51_✗construct.588
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+funcgraph fg_588[fg_587](
+        %para81 : UMonad    # u
+    ) {
+    %1 : $(50_construct.587):Tensor(F32)[6, 1, 5, 5] = Primitive::Load{prim_type=1}(%para3, %para51)    #(Ref[Tensor(F32)][6, 1, 5, 5], UMonad) #scope: Default
+#[CNode]843
+    %2 : $(50_construct.587):Tensor(F32)[32, 6, 28, 28] = PrimitivePy::Conv2D{prim_type=1}[kernel_size=(I64(5), I64(5)), mode=I64(1), out_channel=I64(6), input_names=["x", "w"], pad=(I64(0), I64(0), I64(0), I64(0)), pad_mode=I64(2), format="NCHW", pad_list=(I64(0), I64(0), I64(0), I64(0)), groups=I64(1), stride=(I64(1), I64(1), I64(1), I64(1)), group=I64(1), dilation=(I64(1), I64(1), I64(1), I64(1)), output_names=["output"]](%para50, %1)    #(Tensor(F32)[32, 1, 32, 32], Tensor(F32)[6, 1, 5, 5]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/#output
+    %3 : Tensor(F32)[32, 6, 28, 28] = FuncGraph::fg_586(%2)    #(Tensor(F32)[32, 6, 28, 28])    # fg_586=52_↓construct.586 #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]265
+    %4 : Tensor(F32)[32, 6, 28, 28] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %para81)    #(Tensor(F32)[32, 6, 28, 28], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]265
+    Primitive::Return{prim_type=1}(%4)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]418
+}
+
+
+# [No.34] 46_✗construct.585
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+funcgraph fg_585[fg_584](
+        %para82 : UMonad    # u
+    ) {
+    %1 : $(45_construct.584):Tensor(F32)[16, 6, 5, 5] = Primitive::Load{prim_type=1}(%para4, %para55)    #(Ref[Tensor(F32)][16, 6, 5, 5], UMonad) #scope: Default
+#[CNode]840
+    %2 : $(45_construct.584):Tensor(F32)[32, 16, 10, 10] = PrimitivePy::Conv2D{prim_type=1}[kernel_size=(I64(5), I64(5)), mode=I64(1), out_channel=I64(16), input_names=["x", "w"], pad=(I64(0), I64(0), I64(0), I64(0)), pad_mode=I64(2), format="NCHW", pad_list=(I64(0), I64(0), I64(0), I64(0)), groups=I64(1), stride=(I64(1), I64(1), I64(1), I64(1)), group=I64(1), dilation=(I64(1), I64(1), I64(1), I64(1)), output_names=["output"]](%para54, %1)    #(Tensor(F32)[32, 6, 14, 14], Tensor(F32)[16, 6, 5, 5]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/#output
+    %3 : Tensor(F32)[32, 16, 10, 10] = FuncGraph::fg_583(%2)    #(Tensor(F32)[32, 16, 10, 10])    # fg_583=47_↓construct.583 #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]256
+    %4 : Tensor(F32)[32, 16, 10, 10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %para82)    #(Tensor(F32)[32, 16, 10, 10], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]256
+    Primitive::Return{prim_type=1}(%4)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/#[CNode]420
+}
+
+
+# [No.35] 33_L-construct.578
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(319)/    def construct(self, x):/
+funcgraph fg_578(
+        %para83 : Tensor(F32)[32, 400]    # x
+        , %para84 : Ref[Tensor(F32)][120]    # L-fc3.bias
+        , %para85 : Ref[Tensor(F32)][120, 400]    # L-fc3.weight
+        , %para86 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_581)    #(Bool, ProblemType, Func)    # fg_581=34_L-✗construct.581 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]143
+    %2 : Tensor(F32)[32, 120] = %1[34_L-✗construct.581](%para86)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]146
+    %3 : Tensor(F32)[32, 120] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%2, None)    #(Tensor(F32)[32, 120], NoneType) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#[CNode]147
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para86, %2)    #(UMonad, Tensor(F32)[32, 120]) #scope: Default
+#[CNode]839
+    %5 : Tensor(F32)[32, 120] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Tensor(F32)[32, 120], UMonad) #scope: Default
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#[CNode]147
+    Primitive::Return{prim_type=1}(%5)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]409
+}
+
+
+# [No.36] 22_L-construct.569
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(319)/    def construct(self, x):/
+funcgraph fg_569(
+        %para87 : Tensor(F32)[32, 120]    # x
+        , %para88 : Ref[Tensor(F32)][84]    # L-fc3.bias
+        , %para89 : Ref[Tensor(F32)][84, 120]    # L-fc3.weight
+        , %para90 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_572)    #(Bool, ProblemType, Func)    # fg_572=23_L-✗construct.572 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]143
+    %2 : Tensor(F32)[32, 84] = %1[23_L-✗construct.572](%para90)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]146
+    %3 : Tensor(F32)[32, 84] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%2, None)    #(Tensor(F32)[32, 84], NoneType) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#[CNode]147
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para90, %2)    #(UMonad, Tensor(F32)[32, 84]) #scope: Default
+#[CNode]833
+    %5 : Tensor(F32)[32, 84] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Tensor(F32)[32, 84], UMonad) #scope: Default
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#[CNode]147
+    Primitive::Return{prim_type=1}(%5)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]409
+}
+
+
+# [No.37] 11_L-construct.560
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(319)/    def construct(self, x):/
+funcgraph fg_560(
+        %para91 : Tensor(F32)[32, 84]    # x
+        , %para92 : Ref[Tensor(F32)][10]    # L-fc3.bias
+        , %para93 : Ref[Tensor(F32)][10, 84]    # L-fc3.weight
+        , %para94 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_563)    #(Bool, ProblemType, Func)    # fg_563=12_L-✗construct.563 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]143
+    %2 : Tensor(F32)[32, 10] = %1[12_L-✗construct.563](%para94)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]146
+    %3 : Tensor(F32)[32, 10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%2, None)    #(Tensor(F32)[32, 10], NoneType) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#[CNode]147
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para94, %2)    #(UMonad, Tensor(F32)[32, 10]) #scope: Default
+#[CNode]827
+    %5 : Tensor(F32)[32, 10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Tensor(F32)[32, 10], UMonad) #scope: Default
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/#[CNode]147
+    Primitive::Return{prim_type=1}(%5)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]409
+}
+
+
+# [No.38] 8_✓✓construct.552
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+funcgraph fg_552[fg_551](
+) {
+    %1 : Tensor(F32)[] = PrimitivePy::SparseSoftmaxCrossEntropyWithLogits{prim_type=2}[output_names=["output"], input_names=["features", "labels"], sens=F32(1), is_grad=Bool(0)](%para43, %para44)    #(Tensor(F32)[32, 10], Tensor(I32)[32]) #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(627)/                x = self.sparse_softmax_cross_entropy(logits, labels)/#x
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-SoftmaxCrossEntropyWithLogits
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(628)/                return x/#[CNode]428
+}
+
+
+# [No.39] 113_hyper_map.748
+
+funcgraph fg_748[fg_740](
+        %para95 : Func    # [Parameter]812
+        , %para96 : Ref[Tensor(F32)][6, 1, 5, 5]    # [Parameter]745
+        , %para97 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_744, %5)    #(Func, EnvType)    # fg_744=114__tensor_env_get.744 #scope: Default
+#[CNode]743
+    %7 : Tensor(F32)[6, 1, 5, 5] = %6(%para96, %para97)    #(Ref[Tensor(F32)][6, 1, 5, 5], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.40] 115_hyper_map.753
+
+funcgraph fg_753[fg_740](
+        %para98 : Func    # [Parameter]812
+        , %para99 : Ref[Tensor(F32)][16, 6, 5, 5]    # [Parameter]745
+        , %para100 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_751, %5)    #(Func, EnvType)    # fg_751=116__tensor_env_get.751 #scope: Default
+#[CNode]750
+    %7 : Tensor(F32)[16, 6, 5, 5] = %6(%para99, %para100)    #(Ref[Tensor(F32)][16, 6, 5, 5], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.41] 117_hyper_map.757
+
+funcgraph fg_757[fg_740](
+        %para101 : Func    # [Parameter]812
+        , %para102 : Ref[Tensor(F32)][120, 400]    # [Parameter]745
+        , %para103 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_755, %5)    #(Func, EnvType)    # fg_755=118__tensor_env_get.755 #scope: Default
+#[CNode]754
+    %7 : Tensor(F32)[120, 400] = %6(%para102, %para103)    #(Ref[Tensor(F32)][120, 400], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[120, 400]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.42] 119_hyper_map.761
+
+funcgraph fg_761[fg_740](
+        %para104 : Func    # [Parameter]812
+        , %para105 : Ref[Tensor(F32)][120]    # [Parameter]745
+        , %para106 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_759, %5)    #(Func, EnvType)    # fg_759=120__tensor_env_get.759 #scope: Default
+#[CNode]758
+    %7 : Tensor(F32)[120] = %6(%para105, %para106)    #(Ref[Tensor(F32)][120], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[120]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.43] 121_hyper_map.765
+
+funcgraph fg_765[fg_740](
+        %para107 : Func    # [Parameter]812
+        , %para108 : Ref[Tensor(F32)][84, 120]    # [Parameter]745
+        , %para109 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_763, %5)    #(Func, EnvType)    # fg_763=122__tensor_env_get.763 #scope: Default
+#[CNode]762
+    %7 : Tensor(F32)[84, 120] = %6(%para108, %para109)    #(Ref[Tensor(F32)][84, 120], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[84, 120]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.44] 123_hyper_map.769
+
+funcgraph fg_769[fg_740](
+        %para110 : Func    # [Parameter]812
+        , %para111 : Ref[Tensor(F32)][84]    # [Parameter]745
+        , %para112 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_767, %5)    #(Func, EnvType)    # fg_767=124__tensor_env_get.767 #scope: Default
+#[CNode]766
+    %7 : Tensor(F32)[84] = %6(%para111, %para112)    #(Ref[Tensor(F32)][84], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[84]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.45] 125_hyper_map.773
+
+funcgraph fg_773[fg_740](
+        %para113 : Func    # [Parameter]812
+        , %para114 : Ref[Tensor(F32)][10, 84]    # [Parameter]745
+        , %para115 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_771, %5)    #(Func, EnvType)    # fg_771=126__tensor_env_get.771 #scope: Default
+#[CNode]770
+    %7 : Tensor(F32)[10, 84] = %6(%para114, %para115)    #(Ref[Tensor(F32)][10, 84], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[10, 84]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.46] 127_hyper_map.777
+
+funcgraph fg_777[fg_740](
+        %para116 : Func    # [Parameter]812
+        , %para117 : Ref[Tensor(F32)][10]    # [Parameter]745
+        , %para118 : UMonad    # u
+    ) {
+    %1 : $(110_construct.742):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_550)    #(Func)    # fg_550=5_construct.550 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %2 : $(111_construct.740):Tuple[Tensor(F32),Func] = %1(%para45, %para46, %para48)    #(Tensor(F32)[32, 1, 32, 32], Tensor(I32)[32], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %3 : $(111_construct.740):Func = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Tuple[Tensor(F32),Func], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %4 : $(111_construct.740):Tuple[EnvType,Tensor(F32),Tensor(I32)] = %3(Tensor(43)[])    #(Tensor(F32)[](...)) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %5 : $(111_construct.740):EnvType = Primitive::TupleGetItem{prim_type=1}(%4, I64(0))    #(Tuple[EnvType,Tensor(F32),Tensor(I32)], I64) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(363)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %6 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_775, %5)    #(Func, EnvType)    # fg_775=128__tensor_env_get.775 #scope: Default
+#[CNode]774
+    %7 : Tensor(F32)[10] = %6(%para117, %para118)    #(Ref[Tensor(F32)][10], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[10]) #scope: Default
+#[CNode]817
+}
+
+
+# [No.47] 59_✗get_lr.616
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+funcgraph fg_616[fg_536](
+) {
+    %1 : Ref[Tensor(F32)][] = FuncGraph::fg_615(%para20)    #(Ref[Tensor(F32)][])    # fg_615=60_↓get_lr.615 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/#[CNode]337
+    Primitive::Return{prim_type=1}(%1)    #(Ref[Tensor(F32)][]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/#[CNode]432
+}
+
+
+# [No.48] 107_✗decay_weight.732
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+funcgraph fg_732[fg_731](
+) {
+    %1 : Tuple[Tensor(F32)*8] = FuncGraph::fg_730(%para70)    #(Tuple[Tensor(F32)*8])    # fg_730=108_↓decay_weight.730 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/#[CNode]378
+    Primitive::Return{prim_type=1}(%1)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/#[CNode]434
+}
+
+
+# [No.49] 104_✗gradients_centralization.729
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+funcgraph fg_729[fg_728](
+) {
+    %1 : Tuple[Tensor(F32)*8] = FuncGraph::fg_727(%para71)    #(Tuple[Tensor(F32)*8])    # fg_727=105_↓gradients_centralization.727 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/#[CNode]358
+    Primitive::Return{prim_type=1}(%1)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/#[CNode]436
+}
+
+
+# [No.50] 56_✗scale_grad.726
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+funcgraph fg_726[fg_725](
+) {
+    %1 : Tuple[Tensor(F32)*8] = FuncGraph::fg_724(%para72)    #(Tuple[Tensor(F32)*8])    # fg_724=57_↓scale_grad.724 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/#[CNode]348
+    Primitive::Return{prim_type=1}(%1)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/#[CNode]438
+}
+
+
+# [No.51] 98_hyper_map.723
+
+funcgraph fg_723[fg_621](
+        %para119 : Func    # [Parameter]784
+        , %para120 : Tensor(F32)[10]    # [Parameter]622
+        , %para121 : Ref[Tensor(F32)][10]    # [Parameter]623
+        , %para122 : Ref[Tensor(F32)][10]    # [Parameter]624
+        , %para123 : Bool    # [Parameter]785
+        , %para124 : Bool    # [Parameter]786
+        , %para125 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_722, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_722=99_721.722 #scope: Default/optimizer-Momentum
+#[CNode]720
+    %3 : Bool = %2(%para120, %para121, %para122, Bool(0), Bool(0), %para125)    #(Tensor(F32)[10], Ref[Tensor(F32)][10], Ref[Tensor(F32)][10], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.52] 93_hyper_map.711
+
+funcgraph fg_711[fg_621](
+        %para126 : Func    # [Parameter]784
+        , %para127 : Tensor(F32)[10, 84]    # [Parameter]622
+        , %para128 : Ref[Tensor(F32)][10, 84]    # [Parameter]623
+        , %para129 : Ref[Tensor(F32)][10, 84]    # [Parameter]624
+        , %para130 : Bool    # [Parameter]785
+        , %para131 : Bool    # [Parameter]786
+        , %para132 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_710, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_710=94_709.710 #scope: Default/optimizer-Momentum
+#[CNode]708
+    %3 : Bool = %2(%para127, %para128, %para129, Bool(0), Bool(0), %para132)    #(Tensor(F32)[10, 84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10, 84], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.53] 88_hyper_map.699
+
+funcgraph fg_699[fg_621](
+        %para133 : Func    # [Parameter]784
+        , %para134 : Tensor(F32)[84]    # [Parameter]622
+        , %para135 : Ref[Tensor(F32)][84]    # [Parameter]623
+        , %para136 : Ref[Tensor(F32)][84]    # [Parameter]624
+        , %para137 : Bool    # [Parameter]785
+        , %para138 : Bool    # [Parameter]786
+        , %para139 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_698, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_698=89_697.698 #scope: Default/optimizer-Momentum
+#[CNode]696
+    %3 : Bool = %2(%para134, %para135, %para136, Bool(0), Bool(0), %para139)    #(Tensor(F32)[84], Ref[Tensor(F32)][84], Ref[Tensor(F32)][84], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.54] 83_hyper_map.687
+
+funcgraph fg_687[fg_621](
+        %para140 : Func    # [Parameter]784
+        , %para141 : Tensor(F32)[84, 120]    # [Parameter]622
+        , %para142 : Ref[Tensor(F32)][84, 120]    # [Parameter]623
+        , %para143 : Ref[Tensor(F32)][84, 120]    # [Parameter]624
+        , %para144 : Bool    # [Parameter]785
+        , %para145 : Bool    # [Parameter]786
+        , %para146 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_686, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_686=84_685.686 #scope: Default/optimizer-Momentum
+#[CNode]684
+    %3 : Bool = %2(%para141, %para142, %para143, Bool(0), Bool(0), %para146)    #(Tensor(F32)[84, 120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84, 120], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.55] 78_hyper_map.675
+
+funcgraph fg_675[fg_621](
+        %para147 : Func    # [Parameter]784
+        , %para148 : Tensor(F32)[120]    # [Parameter]622
+        , %para149 : Ref[Tensor(F32)][120]    # [Parameter]623
+        , %para150 : Ref[Tensor(F32)][120]    # [Parameter]624
+        , %para151 : Bool    # [Parameter]785
+        , %para152 : Bool    # [Parameter]786
+        , %para153 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_674, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_674=79_673.674 #scope: Default/optimizer-Momentum
+#[CNode]672
+    %3 : Bool = %2(%para148, %para149, %para150, Bool(0), Bool(0), %para153)    #(Tensor(F32)[120], Ref[Tensor(F32)][120], Ref[Tensor(F32)][120], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.56] 73_hyper_map.663
+
+funcgraph fg_663[fg_621](
+        %para154 : Func    # [Parameter]784
+        , %para155 : Tensor(F32)[120, 400]    # [Parameter]622
+        , %para156 : Ref[Tensor(F32)][120, 400]    # [Parameter]623
+        , %para157 : Ref[Tensor(F32)][120, 400]    # [Parameter]624
+        , %para158 : Bool    # [Parameter]785
+        , %para159 : Bool    # [Parameter]786
+        , %para160 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_662, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_662=74_661.662 #scope: Default/optimizer-Momentum
+#[CNode]660
+    %3 : Bool = %2(%para155, %para156, %para157, Bool(0), Bool(0), %para160)    #(Tensor(F32)[120, 400], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120, 400], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.57] 68_hyper_map.651
+
+funcgraph fg_651[fg_621](
+        %para161 : Func    # [Parameter]784
+        , %para162 : Tensor(F32)[16, 6, 5, 5]    # [Parameter]622
+        , %para163 : Ref[Tensor(F32)][16, 6, 5, 5]    # [Parameter]623
+        , %para164 : Ref[Tensor(F32)][16, 6, 5, 5]    # [Parameter]624
+        , %para165 : Bool    # [Parameter]785
+        , %para166 : Bool    # [Parameter]786
+        , %para167 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_650, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_650=69_649.650 #scope: Default/optimizer-Momentum
+#[CNode]648
+    %3 : Bool = %2(%para162, %para163, %para164, Bool(0), Bool(0), %para167)    #(Tensor(F32)[16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.58] 63_hyper_map.638
+
+funcgraph fg_638[fg_621](
+        %para168 : Func    # [Parameter]784
+        , %para169 : Tensor(F32)[6, 1, 5, 5]    # [Parameter]622
+        , %para170 : Ref[Tensor(F32)][6, 1, 5, 5]    # [Parameter]623
+        , %para171 : Ref[Tensor(F32)][6, 1, 5, 5]    # [Parameter]624
+        , %para172 : Bool    # [Parameter]785
+        , %para173 : Bool    # [Parameter]786
+        , %para174 : UMonad    # u
+    ) {
+    %1 : $(53_construct.621):Ref[Tensor(F32)][] = FuncGraph::fg_617()    # fg_617=58_get_lr.617 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(176)/        lr = self.get_lr()/#lr
+    %2 : Func = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](FuncGraph::fg_620, DoSignaturePrimitive::S-Prim-ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)], %para19, %1)    #(Func, Func, Ref[Tensor(F32)][], Ref[Tensor(F32)][])    # fg_620=64_619.620 #scope: Default/optimizer-Momentum
+#[CNode]618
+    %3 : Bool = %2(%para169, %para170, %para171, Bool(0), Bool(0), %para174)    #(Tensor(F32)[6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Bool, Bool, UMonad) #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%3)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]818
+}
+
+
+# [No.59] 52_↓construct.586
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+funcgraph fg_586(
+        %para175 : Tensor(F32)[32, 6, 28, 28]    # Φoutput
+    ) {
+    Primitive::Return{prim_type=1}(%para175)    #(Tensor(F32)[32, 6, 28, 28]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv1-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/#[CNode]439
+}
+
+
+# [No.60] 47_↓construct.583
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+funcgraph fg_583(
+        %para176 : Tensor(F32)[32, 16, 10, 10]    # Φoutput
+    ) {
+    Primitive::Return{prim_type=1}(%para176)    #(Tensor(F32)[32, 16, 10, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/conv2-Conv2d
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/#[CNode]440
+}
+
+
+# [No.61] 34_L-✗construct.581
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+funcgraph fg_581[fg_578](
+        %para177 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 120] = FuncGraph::fg_579(%para83, %para177)    #(Tensor(F32)[32, 400], UMonad)    # fg_579=35_L-↓construct.579 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]142
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]427
+}
+
+
+# [No.62] 23_L-✗construct.572
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+funcgraph fg_572[fg_569](
+        %para178 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 84] = FuncGraph::fg_570(%para87, %para178)    #(Tensor(F32)[32, 120], UMonad)    # fg_570=24_L-↓construct.570 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]142
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]427
+}
+
+
+# [No.63] 12_L-✗construct.563
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+funcgraph fg_563[fg_560](
+        %para179 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[32, 10] = FuncGraph::fg_561(%para91, %para179)    #(Tensor(F32)[32, 84], UMonad)    # fg_561=13_L-↓construct.561 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]142
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/#[CNode]427
+}
+
+
+# [No.64] 114__tensor_env_get.744
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_744(
+        %para180 : EnvType    # env
+        , %para181 : Ref[Tensor(F32)][6, 1, 5, 5]    # parameter
+        , %para182 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para181)    #(Ref[Tensor(F32)][6, 1, 5, 5]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[6, 1, 5, 5] = Primitive::Load{prim_type=1}(%para181, %para182)    #(Ref[Tensor(F32)][6, 1, 5, 5], UMonad) #scope: Default
+#[CNode]869
+    %3 : Tensor(F32)[6, 1, 5, 5] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[6, 1, 5, 5] = PrimitivePy::EnvironGet{prim_type=1}(%para180, %1, %3)    #(EnvType, SymType, Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para182, %2)    #(UMonad, Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]870
+    %6 : Tensor(F32)[6, 1, 5, 5] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[6, 1, 5, 5], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.65] 116__tensor_env_get.751
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_751(
+        %para183 : EnvType    # env
+        , %para184 : Ref[Tensor(F32)][16, 6, 5, 5]    # parameter
+        , %para185 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para184)    #(Ref[Tensor(F32)][16, 6, 5, 5]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[16, 6, 5, 5] = Primitive::Load{prim_type=1}(%para184, %para185)    #(Ref[Tensor(F32)][16, 6, 5, 5], UMonad) #scope: Default
+#[CNode]871
+    %3 : Tensor(F32)[16, 6, 5, 5] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[16, 6, 5, 5] = PrimitivePy::EnvironGet{prim_type=1}(%para183, %1, %3)    #(EnvType, SymType, Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para185, %2)    #(UMonad, Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]872
+    %6 : Tensor(F32)[16, 6, 5, 5] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[16, 6, 5, 5], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.66] 118__tensor_env_get.755
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_755(
+        %para186 : EnvType    # env
+        , %para187 : Ref[Tensor(F32)][120, 400]    # parameter
+        , %para188 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para187)    #(Ref[Tensor(F32)][120, 400]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[120, 400] = Primitive::Load{prim_type=1}(%para187, %para188)    #(Ref[Tensor(F32)][120, 400], UMonad) #scope: Default
+#[CNode]874
+    %3 : Tensor(F32)[120, 400] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[120, 400]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[120, 400] = PrimitivePy::EnvironGet{prim_type=1}(%para186, %1, %3)    #(EnvType, SymType, Tensor(F32)[120, 400]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para188, %2)    #(UMonad, Tensor(F32)[120, 400]) #scope: Default
+#[CNode]875
+    %6 : Tensor(F32)[120, 400] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[120, 400], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[120, 400]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.67] 120__tensor_env_get.759
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_759(
+        %para189 : EnvType    # env
+        , %para190 : Ref[Tensor(F32)][120]    # parameter
+        , %para191 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para190)    #(Ref[Tensor(F32)][120]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[120] = Primitive::Load{prim_type=1}(%para190, %para191)    #(Ref[Tensor(F32)][120], UMonad) #scope: Default
+#[CNode]877
+    %3 : Tensor(F32)[120] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[120]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[120] = PrimitivePy::EnvironGet{prim_type=1}(%para189, %1, %3)    #(EnvType, SymType, Tensor(F32)[120]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para191, %2)    #(UMonad, Tensor(F32)[120]) #scope: Default
+#[CNode]878
+    %6 : Tensor(F32)[120] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[120], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[120]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.68] 122__tensor_env_get.763
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_763(
+        %para192 : EnvType    # env
+        , %para193 : Ref[Tensor(F32)][84, 120]    # parameter
+        , %para194 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para193)    #(Ref[Tensor(F32)][84, 120]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[84, 120] = Primitive::Load{prim_type=1}(%para193, %para194)    #(Ref[Tensor(F32)][84, 120], UMonad) #scope: Default
+#[CNode]880
+    %3 : Tensor(F32)[84, 120] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[84, 120]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[84, 120] = PrimitivePy::EnvironGet{prim_type=1}(%para192, %1, %3)    #(EnvType, SymType, Tensor(F32)[84, 120]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para194, %2)    #(UMonad, Tensor(F32)[84, 120]) #scope: Default
+#[CNode]881
+    %6 : Tensor(F32)[84, 120] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[84, 120], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[84, 120]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.69] 124__tensor_env_get.767
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_767(
+        %para195 : EnvType    # env
+        , %para196 : Ref[Tensor(F32)][84]    # parameter
+        , %para197 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para196)    #(Ref[Tensor(F32)][84]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[84] = Primitive::Load{prim_type=1}(%para196, %para197)    #(Ref[Tensor(F32)][84], UMonad) #scope: Default
+#[CNode]883
+    %3 : Tensor(F32)[84] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[84]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[84] = PrimitivePy::EnvironGet{prim_type=1}(%para195, %1, %3)    #(EnvType, SymType, Tensor(F32)[84]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para197, %2)    #(UMonad, Tensor(F32)[84]) #scope: Default
+#[CNode]884
+    %6 : Tensor(F32)[84] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[84], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[84]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.70] 126__tensor_env_get.771
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_771(
+        %para198 : EnvType    # env
+        , %para199 : Ref[Tensor(F32)][10, 84]    # parameter
+        , %para200 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para199)    #(Ref[Tensor(F32)][10, 84]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[10, 84] = Primitive::Load{prim_type=1}(%para199, %para200)    #(Ref[Tensor(F32)][10, 84], UMonad) #scope: Default
+#[CNode]886
+    %3 : Tensor(F32)[10, 84] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[10, 84]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[10, 84] = PrimitivePy::EnvironGet{prim_type=1}(%para198, %1, %3)    #(EnvType, SymType, Tensor(F32)[10, 84]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para200, %2)    #(UMonad, Tensor(F32)[10, 84]) #scope: Default
+#[CNode]887
+    %6 : Tensor(F32)[10, 84] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[10, 84], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[10, 84]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.71] 128__tensor_env_get.775
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\ops\composite\base.py(865)/def _tensor_env_get(env, parameter):/
+funcgraph fg_775(
+        %para201 : EnvType    # env
+        , %para202 : Ref[Tensor(F32)][10]    # parameter
+        , %para203 : UMonad    # u
+    ) {
+    %1 : SymType = PrimitivePy::RefToEmbed{prim_type=1}(%para202)    #(Ref[Tensor(F32)][10]) #scope: Default
+#[CNode]741
+    %2 : Tensor(F32)[10] = Primitive::Load{prim_type=1}(%para202, %para203)    #(Ref[Tensor(F32)][10], UMonad) #scope: Default
+#[CNode]889
+    %3 : Tensor(F32)[10] = PrimitivePy::ZerosLike{prim_type=1}[output_names=["y"], input_names=["x"]](%2)    #(Tensor(F32)[10]) #scope: Default
+#[CNode]741
+    %4 : Tensor(F32)[10] = PrimitivePy::EnvironGet{prim_type=1}(%para201, %1, %3)    #(EnvType, SymType, Tensor(F32)[10]) #scope: Default
+#[CNode]741
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%para203, %2)    #(UMonad, Tensor(F32)[10]) #scope: Default
+#[CNode]890
+    %6 : Tensor(F32)[10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[10], UMonad) #scope: Default
+#[CNode]741
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[10]) #scope: Default
+#[CNode]741
+}
+
+
+# [No.72] 60_↓get_lr.615
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(587)/        if self.dynamic_lr:/
+funcgraph fg_615(
+        %para204 : Ref[Tensor(F32)][]    # Φlr
+    ) {
+    Primitive::Return{prim_type=1}(%para204)    #(Ref[Tensor(F32)][]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(597)/        return lr/#[CNode]448
+}
+
+
+# [No.73] 108_↓decay_weight.730
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(317)/        if self.exec_weight_decay:/
+funcgraph fg_730(
+        %para205 : Tuple[Tensor(F32)*8]    # Φgradients
+    ) {
+    Primitive::Return{prim_type=1}(%para205)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(326)/        return gradients/#[CNode]451
+}
+
+
+# [No.74] 105_↓gradients_centralization.727
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(342)/        if self.is_group:/
+funcgraph fg_727(
+        %para206 : Tuple[Tensor(F32)*8]    # Φgradients
+    ) {
+    Primitive::Return{prim_type=1}(%para206)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(345)/        return gradients/#[CNode]452
+}
+
+
+# [No.75] 57_↓scale_grad.724
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(361)/        if self.need_scale:/
+funcgraph fg_724(
+        %para207 : Tuple[Tensor(F32)*8]    # Φgradients
+    ) {
+    Primitive::Return{prim_type=1}(%para207)    #(Tuple[Tensor(F32)*8]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\optimizer.py(364)/        return gradients/#[CNode]453
+}
+
+
+# [No.76] 99_721.722
+
+funcgraph fg_722(
+        %para208 : Func    # 807
+        , %para209 : Ref[Tensor(F32)][]    # 715
+        , %para210 : Ref[Tensor(F32)][]    # 716
+        , %para211 : Tensor(F32)[10]    # 717
+        , %para212 : Ref[Tensor(F32)][10]    # 718
+        , %para213 : Ref[Tensor(F32)][10]    # 719
+        , %para214 : Bool    # 808
+        , %para215 : Bool    # 809
+        , %para216 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_712("PolyNode", %para209, %para210, %para211, %para212, %para213, Bool(0), Bool(0), %para216)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[10], Ref[Tensor(F32)][10], Ref[Tensor(F32)][10], Bool, Bool, UMonad)    # fg_712=100__tensor_run_opt_ext.712 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.77] 94_709.710
+
+funcgraph fg_710(
+        %para217 : Func    # 804
+        , %para218 : Ref[Tensor(F32)][]    # 703
+        , %para219 : Ref[Tensor(F32)][]    # 704
+        , %para220 : Tensor(F32)[10, 84]    # 705
+        , %para221 : Ref[Tensor(F32)][10, 84]    # 706
+        , %para222 : Ref[Tensor(F32)][10, 84]    # 707
+        , %para223 : Bool    # 805
+        , %para224 : Bool    # 806
+        , %para225 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_700("PolyNode", %para218, %para219, %para220, %para221, %para222, Bool(0), Bool(0), %para225)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[10, 84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10, 84], Bool, Bool, UMonad)    # fg_700=95__tensor_run_opt_ext.700 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.78] 89_697.698
+
+funcgraph fg_698(
+        %para226 : Func    # 801
+        , %para227 : Ref[Tensor(F32)][]    # 691
+        , %para228 : Ref[Tensor(F32)][]    # 692
+        , %para229 : Tensor(F32)[84]    # 693
+        , %para230 : Ref[Tensor(F32)][84]    # 694
+        , %para231 : Ref[Tensor(F32)][84]    # 695
+        , %para232 : Bool    # 802
+        , %para233 : Bool    # 803
+        , %para234 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_688("PolyNode", %para227, %para228, %para229, %para230, %para231, Bool(0), Bool(0), %para234)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[84], Ref[Tensor(F32)][84], Ref[Tensor(F32)][84], Bool, Bool, UMonad)    # fg_688=90__tensor_run_opt_ext.688 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.79] 84_685.686
+
+funcgraph fg_686(
+        %para235 : Func    # 798
+        , %para236 : Ref[Tensor(F32)][]    # 679
+        , %para237 : Ref[Tensor(F32)][]    # 680
+        , %para238 : Tensor(F32)[84, 120]    # 681
+        , %para239 : Ref[Tensor(F32)][84, 120]    # 682
+        , %para240 : Ref[Tensor(F32)][84, 120]    # 683
+        , %para241 : Bool    # 799
+        , %para242 : Bool    # 800
+        , %para243 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_676("PolyNode", %para236, %para237, %para238, %para239, %para240, Bool(0), Bool(0), %para243)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[84, 120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84, 120], Bool, Bool, UMonad)    # fg_676=85__tensor_run_opt_ext.676 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.80] 79_673.674
+
+funcgraph fg_674(
+        %para244 : Func    # 795
+        , %para245 : Ref[Tensor(F32)][]    # 667
+        , %para246 : Ref[Tensor(F32)][]    # 668
+        , %para247 : Tensor(F32)[120]    # 669
+        , %para248 : Ref[Tensor(F32)][120]    # 670
+        , %para249 : Ref[Tensor(F32)][120]    # 671
+        , %para250 : Bool    # 796
+        , %para251 : Bool    # 797
+        , %para252 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_664("PolyNode", %para245, %para246, %para247, %para248, %para249, Bool(0), Bool(0), %para252)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[120], Ref[Tensor(F32)][120], Ref[Tensor(F32)][120], Bool, Bool, UMonad)    # fg_664=80__tensor_run_opt_ext.664 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.81] 74_661.662
+
+funcgraph fg_662(
+        %para253 : Func    # 792
+        , %para254 : Ref[Tensor(F32)][]    # 655
+        , %para255 : Ref[Tensor(F32)][]    # 656
+        , %para256 : Tensor(F32)[120, 400]    # 657
+        , %para257 : Ref[Tensor(F32)][120, 400]    # 658
+        , %para258 : Ref[Tensor(F32)][120, 400]    # 659
+        , %para259 : Bool    # 793
+        , %para260 : Bool    # 794
+        , %para261 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_652("PolyNode", %para254, %para255, %para256, %para257, %para258, Bool(0), Bool(0), %para261)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[120, 400], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120, 400], Bool, Bool, UMonad)    # fg_652=75__tensor_run_opt_ext.652 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.82] 69_649.650
+
+funcgraph fg_650(
+        %para262 : Func    # 789
+        , %para263 : Ref[Tensor(F32)][]    # 643
+        , %para264 : Ref[Tensor(F32)][]    # 644
+        , %para265 : Tensor(F32)[16, 6, 5, 5]    # 645
+        , %para266 : Ref[Tensor(F32)][16, 6, 5, 5]    # 646
+        , %para267 : Ref[Tensor(F32)][16, 6, 5, 5]    # 647
+        , %para268 : Bool    # 790
+        , %para269 : Bool    # 791
+        , %para270 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_640("PolyNode", %para263, %para264, %para265, %para266, %para267, Bool(0), Bool(0), %para270)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Bool, Bool, UMonad)    # fg_640=70__tensor_run_opt_ext.640 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.83] 64_619.620
+
+funcgraph fg_620(
+        %para271 : Func    # 781
+        , %para272 : Ref[Tensor(F32)][]    # 610
+        , %para273 : Ref[Tensor(F32)][]    # 611
+        , %para274 : Tensor(F32)[6, 1, 5, 5]    # 612
+        , %para275 : Ref[Tensor(F32)][6, 1, 5, 5]    # 613
+        , %para276 : Ref[Tensor(F32)][6, 1, 5, 5]    # 614
+        , %para277 : Bool    # 782
+        , %para278 : Bool    # 783
+        , %para279 : UMonad    # u
+    ) {
+    %1 : Bool = FuncGraph::fg_603("PolyNode", %para272, %para273, %para274, %para275, %para276, Bool(0), Bool(0), %para279)    #(ProblemType, Ref[Tensor(F32)][], Ref[Tensor(F32)][], Tensor(F32)[6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Bool, Bool, UMonad)    # fg_603=65__tensor_run_opt_ext.603 #scope: Default/optimizer-Momentum
+#[CNode]609
+    Primitive::Return{prim_type=1}(%1)    #(Bool) #scope: Default/optimizer-Momentum
+#[CNode]609
+}
+
+
+# [No.84] 35_L-↓construct.579
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+funcgraph fg_579[fg_578](
+        %para280 : Tensor(F32)[32, 400]    # Φx
+        , %para281 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(1), FuncGraph::fg_580, "DeadNode")    #(Bool, Func, ProblemType)    # fg_580=36_L-✓↓construct.580 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]133
+    %2 : Tensor(F32)[120, 400] = Primitive::Load{prim_type=1}(%para85, %para281)    #(Ref[Tensor(F32)][120, 400], UMonad) #scope: Default
+#[CNode]834
+    %3 : UMonad = Primitive::UpdateState{prim_type=1}(%para281, %2)    #(UMonad, Tensor(F32)[120, 400]) #scope: Default
+#[CNode]837
+    %4 : Tensor(F32)[32, 120] = %1[36_L-✓↓construct.580](%3)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]136
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%3, %4)    #(UMonad, Tensor(F32)[32, 120]) #scope: Default
+#[CNode]838
+    %6 : Tensor(F32)[32, 120] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[32, 120], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]136
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]443
+}
+
+
+# [No.85] 24_L-↓construct.570
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+funcgraph fg_570[fg_569](
+        %para282 : Tensor(F32)[32, 120]    # Φx
+        , %para283 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(1), FuncGraph::fg_571, "DeadNode")    #(Bool, Func, ProblemType)    # fg_571=25_L-✓↓construct.571 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]133
+    %2 : Tensor(F32)[84, 120] = Primitive::Load{prim_type=1}(%para89, %para283)    #(Ref[Tensor(F32)][84, 120], UMonad) #scope: Default
+#[CNode]828
+    %3 : UMonad = Primitive::UpdateState{prim_type=1}(%para283, %2)    #(UMonad, Tensor(F32)[84, 120]) #scope: Default
+#[CNode]831
+    %4 : Tensor(F32)[32, 84] = %1[25_L-✓↓construct.571](%3)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]136
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%3, %4)    #(UMonad, Tensor(F32)[32, 84]) #scope: Default
+#[CNode]832
+    %6 : Tensor(F32)[32, 84] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[32, 84], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]136
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]443
+}
+
+
+# [No.86] 13_L-↓construct.561
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+funcgraph fg_561[fg_560](
+        %para284 : Tensor(F32)[32, 84]    # Φx
+        , %para285 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(1), FuncGraph::fg_562, "DeadNode")    #(Bool, Func, ProblemType)    # fg_562=14_L-✓↓construct.562 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]133
+    %2 : Tensor(F32)[10, 84] = Primitive::Load{prim_type=1}(%para93, %para285)    #(Ref[Tensor(F32)][10, 84], UMonad) #scope: Default
+#[CNode]822
+    %3 : UMonad = Primitive::UpdateState{prim_type=1}(%para285, %2)    #(UMonad, Tensor(F32)[10, 84]) #scope: Default
+#[CNode]825
+    %4 : Tensor(F32)[32, 10] = %1[14_L-✓↓construct.562](%3)    #(UMonad) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]136
+    %5 : UMonad = Primitive::UpdateState{prim_type=1}(%3, %4)    #(UMonad, Tensor(F32)[32, 10]) #scope: Default
+#[CNode]826
+    %6 : Tensor(F32)[32, 10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%4, %5)    #(Tensor(F32)[32, 10], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]136
+    Primitive::Return{prim_type=1}(%6)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]443
+}
+
+
+# [No.87] 100__tensor_run_opt_ext.712
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_712(
+        %para286 : Func    # opt
+        , %para287 : Ref[Tensor(F32)][]    # momentum
+        , %para288 : Ref[Tensor(F32)][]    # learning_rate
+        , %para289 : Tensor(F32)[10]    # gradient
+        , %para290 : Ref[Tensor(F32)][10]    # weight
+        , %para291 : Ref[Tensor(F32)][10]    # moment
+        , %para292 : Bool    # ps_parameter
+        , %para293 : Bool    # cache_enable
+        , %para294 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_714)    #(Bool, ProblemType, Func)    # fg_714=101_✗_tensor_run_opt_ext.714 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[101_✗_tensor_run_opt_ext.714](%para294)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.88] 95__tensor_run_opt_ext.700
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_700(
+        %para295 : Func    # opt
+        , %para296 : Ref[Tensor(F32)][]    # momentum
+        , %para297 : Ref[Tensor(F32)][]    # learning_rate
+        , %para298 : Tensor(F32)[10, 84]    # gradient
+        , %para299 : Ref[Tensor(F32)][10, 84]    # weight
+        , %para300 : Ref[Tensor(F32)][10, 84]    # moment
+        , %para301 : Bool    # ps_parameter
+        , %para302 : Bool    # cache_enable
+        , %para303 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_702)    #(Bool, ProblemType, Func)    # fg_702=96_✗_tensor_run_opt_ext.702 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[96_✗_tensor_run_opt_ext.702](%para303)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.89] 90__tensor_run_opt_ext.688
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_688(
+        %para304 : Func    # opt
+        , %para305 : Ref[Tensor(F32)][]    # momentum
+        , %para306 : Ref[Tensor(F32)][]    # learning_rate
+        , %para307 : Tensor(F32)[84]    # gradient
+        , %para308 : Ref[Tensor(F32)][84]    # weight
+        , %para309 : Ref[Tensor(F32)][84]    # moment
+        , %para310 : Bool    # ps_parameter
+        , %para311 : Bool    # cache_enable
+        , %para312 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_690)    #(Bool, ProblemType, Func)    # fg_690=91_✗_tensor_run_opt_ext.690 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[91_✗_tensor_run_opt_ext.690](%para312)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.90] 85__tensor_run_opt_ext.676
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_676(
+        %para313 : Func    # opt
+        , %para314 : Ref[Tensor(F32)][]    # momentum
+        , %para315 : Ref[Tensor(F32)][]    # learning_rate
+        , %para316 : Tensor(F32)[84, 120]    # gradient
+        , %para317 : Ref[Tensor(F32)][84, 120]    # weight
+        , %para318 : Ref[Tensor(F32)][84, 120]    # moment
+        , %para319 : Bool    # ps_parameter
+        , %para320 : Bool    # cache_enable
+        , %para321 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_678)    #(Bool, ProblemType, Func)    # fg_678=86_✗_tensor_run_opt_ext.678 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[86_✗_tensor_run_opt_ext.678](%para321)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.91] 80__tensor_run_opt_ext.664
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_664(
+        %para322 : Func    # opt
+        , %para323 : Ref[Tensor(F32)][]    # momentum
+        , %para324 : Ref[Tensor(F32)][]    # learning_rate
+        , %para325 : Tensor(F32)[120]    # gradient
+        , %para326 : Ref[Tensor(F32)][120]    # weight
+        , %para327 : Ref[Tensor(F32)][120]    # moment
+        , %para328 : Bool    # ps_parameter
+        , %para329 : Bool    # cache_enable
+        , %para330 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_666)    #(Bool, ProblemType, Func)    # fg_666=81_✗_tensor_run_opt_ext.666 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[81_✗_tensor_run_opt_ext.666](%para330)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.92] 75__tensor_run_opt_ext.652
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_652(
+        %para331 : Func    # opt
+        , %para332 : Ref[Tensor(F32)][]    # momentum
+        , %para333 : Ref[Tensor(F32)][]    # learning_rate
+        , %para334 : Tensor(F32)[120, 400]    # gradient
+        , %para335 : Ref[Tensor(F32)][120, 400]    # weight
+        , %para336 : Ref[Tensor(F32)][120, 400]    # moment
+        , %para337 : Bool    # ps_parameter
+        , %para338 : Bool    # cache_enable
+        , %para339 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_654)    #(Bool, ProblemType, Func)    # fg_654=76_✗_tensor_run_opt_ext.654 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[76_✗_tensor_run_opt_ext.654](%para339)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.93] 70__tensor_run_opt_ext.640
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_640(
+        %para340 : Func    # opt
+        , %para341 : Ref[Tensor(F32)][]    # momentum
+        , %para342 : Ref[Tensor(F32)][]    # learning_rate
+        , %para343 : Tensor(F32)[16, 6, 5, 5]    # gradient
+        , %para344 : Ref[Tensor(F32)][16, 6, 5, 5]    # weight
+        , %para345 : Ref[Tensor(F32)][16, 6, 5, 5]    # moment
+        , %para346 : Bool    # ps_parameter
+        , %para347 : Bool    # cache_enable
+        , %para348 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_642)    #(Bool, ProblemType, Func)    # fg_642=71_✗_tensor_run_opt_ext.642 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[71_✗_tensor_run_opt_ext.642](%para348)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.94] 65__tensor_run_opt_ext.603
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(28)/def _tensor_run_opt_ext(opt, momentum, learning_rate, gradient, weight, moment, ps_parameter, cache_enable):/
+funcgraph fg_603(
+        %para349 : Func    # opt
+        , %para350 : Ref[Tensor(F32)][]    # momentum
+        , %para351 : Ref[Tensor(F32)][]    # learning_rate
+        , %para352 : Tensor(F32)[6, 1, 5, 5]    # gradient
+        , %para353 : Ref[Tensor(F32)][6, 1, 5, 5]    # weight
+        , %para354 : Ref[Tensor(F32)][6, 1, 5, 5]    # moment
+        , %para355 : Bool    # ps_parameter
+        , %para356 : Bool    # cache_enable
+        , %para357 : UMonad    # u
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_607)    #(Bool, ProblemType, Func)    # fg_607=66_✗_tensor_run_opt_ext.607 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]606
+    %2 : Bool = %1[66_✗_tensor_run_opt_ext.607](%para357)    #(UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]608
+    Primitive::Return{prim_type=1}(%2)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]819
+}
+
+
+# [No.95] 36_L-✓↓construct.580
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+funcgraph fg_580[fg_579](
+        %para358 : UMonad    # u
+    ) {
+    %1 : $(35_L-↓construct.579):Tensor(F32)[120, 400] = Primitive::Load{prim_type=1}(%para85, %para281)    #(Ref[Tensor(F32)][120, 400], UMonad) #scope: Default
+#[CNode]834
+    %2 : $(35_L-↓construct.579):Tensor(F32)[32, 120] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(1), transpose_x1=Bool(0), transpose_b=Bool(1)](%para280, %1)    #(Tensor(F32)[32, 400], Tensor(F32)[120, 400]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/#x
+    %3 : Tensor(F32)[120] = Primitive::Load{prim_type=1}(%para84, %para358)    #(Ref[Tensor(F32)][120], UMonad) #scope: Default
+#[CNode]835
+    %4 : Tensor(F32)[32, 120] = PrimitivePy::BiasAdd{prim_type=1}[output_names=["output"], format="NCHW", input_names=["x", "b"]](%2, %3)    #(Tensor(F32)[32, 120], Tensor(F32)[120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/#x
+    %5 : Tensor(F32)[32, 120] = FuncGraph::fg_576(%4)    #(Tensor(F32)[32, 120])    # fg_576=37_L-↓↓construct.576 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]131
+    %6 : UMonad = Primitive::UpdateState{prim_type=1}(%para358, %3)    #(UMonad, Tensor(F32)[120]) #scope: Default
+#[CNode]836
+    %7 : Tensor(F32)[32, 120] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%5, %6)    #(Tensor(F32)[32, 120], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]131
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]458
+}
+
+
+# [No.96] 25_L-✓↓construct.571
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+funcgraph fg_571[fg_570](
+        %para359 : UMonad    # u
+    ) {
+    %1 : $(24_L-↓construct.570):Tensor(F32)[84, 120] = Primitive::Load{prim_type=1}(%para89, %para283)    #(Ref[Tensor(F32)][84, 120], UMonad) #scope: Default
+#[CNode]828
+    %2 : $(24_L-↓construct.570):Tensor(F32)[32, 84] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(1), transpose_x1=Bool(0), transpose_b=Bool(1)](%para282, %1)    #(Tensor(F32)[32, 120], Tensor(F32)[84, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/#x
+    %3 : Tensor(F32)[84] = Primitive::Load{prim_type=1}(%para88, %para359)    #(Ref[Tensor(F32)][84], UMonad) #scope: Default
+#[CNode]829
+    %4 : Tensor(F32)[32, 84] = PrimitivePy::BiasAdd{prim_type=1}[output_names=["output"], format="NCHW", input_names=["x", "b"]](%2, %3)    #(Tensor(F32)[32, 84], Tensor(F32)[84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/#x
+    %5 : Tensor(F32)[32, 84] = FuncGraph::fg_567(%4)    #(Tensor(F32)[32, 84])    # fg_567=26_L-↓↓construct.567 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]131
+    %6 : UMonad = Primitive::UpdateState{prim_type=1}(%para359, %3)    #(UMonad, Tensor(F32)[84]) #scope: Default
+#[CNode]830
+    %7 : Tensor(F32)[32, 84] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%5, %6)    #(Tensor(F32)[32, 84], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]131
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]458
+}
+
+
+# [No.97] 14_L-✓↓construct.562
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+funcgraph fg_562[fg_561](
+        %para360 : UMonad    # u
+    ) {
+    %1 : $(13_L-↓construct.561):Tensor(F32)[10, 84] = Primitive::Load{prim_type=1}(%para93, %para285)    #(Ref[Tensor(F32)][10, 84], UMonad) #scope: Default
+#[CNode]822
+    %2 : $(13_L-↓construct.561):Tensor(F32)[32, 10] = PrimitivePy::MatMul{prim_type=4}[output_names=["output"], transpose_a=Bool(0), input_names=["x1", "x2"], transpose_x2=Bool(1), transpose_x1=Bool(0), transpose_b=Bool(1)](%para284, %1)    #(Tensor(F32)[32, 84], Tensor(F32)[10, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/#x
+    %3 : Tensor(F32)[10] = Primitive::Load{prim_type=1}(%para92, %para360)    #(Ref[Tensor(F32)][10], UMonad) #scope: Default
+#[CNode]823
+    %4 : Tensor(F32)[32, 10] = PrimitivePy::BiasAdd{prim_type=1}[output_names=["output"], format="NCHW", input_names=["x", "b"]](%2, %3)    #(Tensor(F32)[32, 10], Tensor(F32)[10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/#x
+    %5 : Tensor(F32)[32, 10] = FuncGraph::fg_558(%4)    #(Tensor(F32)[32, 10])    # fg_558=15_L-↓↓construct.558 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]131
+    %6 : UMonad = Primitive::UpdateState{prim_type=1}(%para360, %3)    #(UMonad, Tensor(F32)[10]) #scope: Default
+#[CNode]824
+    %7 : Tensor(F32)[32, 10] = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%5, %6)    #(Tensor(F32)[32, 10], UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]131
+    Primitive::Return{prim_type=1}(%7)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/#[CNode]458
+}
+
+
+# [No.98] 101_✗_tensor_run_opt_ext.714
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_714[fg_712](
+        %para361 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[10] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para290, %para291, %para288, %para289, %para287, %para361)    #(Ref[Tensor(F32)][10], Ref[Tensor(F32)][10], Ref[Tensor(F32)][], Tensor(F32)[10], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[10]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_713(%2)    #(Bool)    # fg_713=102_↓_tensor_run_opt_ext.713 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para361, %1)    #(UMonad, Tensor(F32)[10]) #scope: Default
+#[CNode]853
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.99] 96_✗_tensor_run_opt_ext.702
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_702[fg_700](
+        %para362 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[10, 84] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para299, %para300, %para297, %para298, %para296, %para362)    #(Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][10, 84], Ref[Tensor(F32)][], Tensor(F32)[10, 84], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[10, 84]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_701(%2)    #(Bool)    # fg_701=97_↓_tensor_run_opt_ext.701 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para362, %1)    #(UMonad, Tensor(F32)[10, 84]) #scope: Default
+#[CNode]855
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.100] 91_✗_tensor_run_opt_ext.690
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_690[fg_688](
+        %para363 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[84] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para308, %para309, %para306, %para307, %para305, %para363)    #(Ref[Tensor(F32)][84], Ref[Tensor(F32)][84], Ref[Tensor(F32)][], Tensor(F32)[84], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[84]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_689(%2)    #(Bool)    # fg_689=92_↓_tensor_run_opt_ext.689 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para363, %1)    #(UMonad, Tensor(F32)[84]) #scope: Default
+#[CNode]857
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.101] 86_✗_tensor_run_opt_ext.678
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_678[fg_676](
+        %para364 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[84, 120] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para317, %para318, %para315, %para316, %para314, %para364)    #(Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][84, 120], Ref[Tensor(F32)][], Tensor(F32)[84, 120], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[84, 120]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_677(%2)    #(Bool)    # fg_677=87_↓_tensor_run_opt_ext.677 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para364, %1)    #(UMonad, Tensor(F32)[84, 120]) #scope: Default
+#[CNode]859
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.102] 81_✗_tensor_run_opt_ext.666
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_666[fg_664](
+        %para365 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[120] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para326, %para327, %para324, %para325, %para323, %para365)    #(Ref[Tensor(F32)][120], Ref[Tensor(F32)][120], Ref[Tensor(F32)][], Tensor(F32)[120], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[120]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_665(%2)    #(Bool)    # fg_665=82_↓_tensor_run_opt_ext.665 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para365, %1)    #(UMonad, Tensor(F32)[120]) #scope: Default
+#[CNode]861
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.103] 76_✗_tensor_run_opt_ext.654
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_654[fg_652](
+        %para366 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[120, 400] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para335, %para336, %para333, %para334, %para332, %para366)    #(Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][120, 400], Ref[Tensor(F32)][], Tensor(F32)[120, 400], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[120, 400]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_653(%2)    #(Bool)    # fg_653=77_↓_tensor_run_opt_ext.653 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para366, %1)    #(UMonad, Tensor(F32)[120, 400]) #scope: Default
+#[CNode]863
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.104] 71_✗_tensor_run_opt_ext.642
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_642[fg_640](
+        %para367 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[16, 6, 5, 5] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para344, %para345, %para342, %para343, %para341, %para367)    #(Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][16, 6, 5, 5], Ref[Tensor(F32)][], Tensor(F32)[16, 6, 5, 5], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[16, 6, 5, 5]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_641(%2)    #(Bool)    # fg_641=72_↓_tensor_run_opt_ext.641 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para367, %1)    #(UMonad, Tensor(F32)[16, 6, 5, 5]) #scope: Default
+#[CNode]865
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.105] 66_✗_tensor_run_opt_ext.607
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_607[fg_603](
+        %para368 : UMonad    # u
+    ) {
+    %1 : Tensor(F32)[6, 1, 5, 5] = PrimitivePy::ApplyMomentum{prim_type=1}[output_names=["output"], side_effect_mem=Bool(1), use_nesterov=Bool(0), input_names=["variable", "accumulation", "learning_rate", "gradient", "momentum"], use_locking=Bool(0), gradient_scale=F32(1)](%para353, %para354, %para351, %para352, %para350, %para368)    #(Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][6, 1, 5, 5], Ref[Tensor(F32)][], Tensor(F32)[6, 1, 5, 5], Ref[Tensor(F32)][], UMonad) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#[CNode]602
+    %2 : Bool = PrimitivePy::Depend{prim_type=1}[side_effect_propagate=I64(1)](Bool(1), %1)    #(Bool, Tensor(F32)[6, 1, 5, 5]) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(37)/        success = F.depend(True, opt(weight, moment, learning_rate, gradient, momentum))/#success
+    %3 : Bool = FuncGraph::fg_605(%2)    #(Bool)    # fg_605=67_↓_tensor_run_opt_ext.605 #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    %4 : UMonad = Primitive::UpdateState{prim_type=1}(%para368, %1)    #(UMonad, Tensor(F32)[6, 1, 5, 5]) #scope: Default
+#[CNode]852
+    %5 : Bool = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%3, %4)    #(Bool, UMonad) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]604
+    Primitive::Return{prim_type=1}(%5)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/#[CNode]820
+}
+
+
+# [No.106] 37_L-↓↓construct.576
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+funcgraph fg_576(
+        %para369 : Tensor(F32)[32, 120]    # Φx
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_577)    #(Bool, ProblemType, Func)    # fg_577=38_L-✗↓↓construct.577 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]126
+    %2 : Tensor(F32)[32, 120] = %1[38_L-✗↓↓construct.577]() #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]129
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]470
+}
+
+
+# [No.107] 26_L-↓↓construct.567
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+funcgraph fg_567(
+        %para370 : Tensor(F32)[32, 84]    # Φx
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_568)    #(Bool, ProblemType, Func)    # fg_568=27_L-✗↓↓construct.568 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]126
+    %2 : Tensor(F32)[32, 84] = %1[27_L-✗↓↓construct.568]() #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]129
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]470
+}
+
+
+# [No.108] 15_L-↓↓construct.558
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+funcgraph fg_558(
+        %para371 : Tensor(F32)[32, 10]    # Φx
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_559)    #(Bool, ProblemType, Func)    # fg_559=16_L-✗↓↓construct.559 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]126
+    %2 : Tensor(F32)[32, 10] = %1[16_L-✗↓↓construct.559]() #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]129
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]470
+}
+
+
+# [No.109] 102_↓_tensor_run_opt_ext.713
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_713(
+        %para372 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para372)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.110] 97_↓_tensor_run_opt_ext.701
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_701(
+        %para373 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para373)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.111] 92_↓_tensor_run_opt_ext.689
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_689(
+        %para374 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para374)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.112] 87_↓_tensor_run_opt_ext.677
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_677(
+        %para375 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para375)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.113] 82_↓_tensor_run_opt_ext.665
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_665(
+        %para376 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para376)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.114] 77_↓_tensor_run_opt_ext.653
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_653(
+        %para377 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para377)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.115] 72_↓_tensor_run_opt_ext.641
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_641(
+        %para378 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para378)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.116] 67_↓_tensor_run_opt_ext.605
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(30)/    if ps_parameter and not cache_enable:/
+funcgraph fg_605(
+        %para379 : Bool    # Φsuccess
+    ) {
+    Primitive::Return{prim_type=1}(%para379)    #(Bool) #scope: Default/optimizer-Momentum
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\optim\momentum.py(38)/    return success/#[CNode]821
+}
+
+
+# [No.117] 38_L-✗↓↓construct.577
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+funcgraph fg_577[fg_576](
+) {
+    %1 : Tensor(F32)[32, 120] = FuncGraph::fg_574(%para369)    #(Tensor(F32)[32, 120])    # fg_574=39_L-↓↓↓construct.574 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]125
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]481
+}
+
+
+# [No.118] 27_L-✗↓↓construct.568
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+funcgraph fg_568[fg_567](
+) {
+    %1 : Tensor(F32)[32, 84] = FuncGraph::fg_565(%para370)    #(Tensor(F32)[32, 84])    # fg_565=28_L-↓↓↓construct.565 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]125
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]481
+}
+
+
+# [No.119] 16_L-✗↓↓construct.559
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+funcgraph fg_559[fg_558](
+) {
+    %1 : Tensor(F32)[32, 10] = FuncGraph::fg_556(%para371)    #(Tensor(F32)[32, 10])    # fg_556=17_L-↓↓↓construct.556 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]125
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/#[CNode]481
+}
+
+
+# [No.120] 39_L-↓↓↓construct.574
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+funcgraph fg_574(
+        %para380 : Tensor(F32)[32, 120]    # Φx
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_575)    #(Bool, ProblemType, Func)    # fg_575=40_L-✗↓↓↓construct.575 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]119
+    %2 : Tensor(F32)[32, 120] = %1[40_L-✗↓↓↓construct.575]() #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]122
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]493
+}
+
+
+# [No.121] 28_L-↓↓↓construct.565
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+funcgraph fg_565(
+        %para381 : Tensor(F32)[32, 84]    # Φx
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_566)    #(Bool, ProblemType, Func)    # fg_566=29_L-✗↓↓↓construct.566 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]119
+    %2 : Tensor(F32)[32, 84] = %1[29_L-✗↓↓↓construct.566]() #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]122
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]493
+}
+
+
+# [No.122] 17_L-↓↓↓construct.556
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+funcgraph fg_556(
+        %para382 : Tensor(F32)[32, 10]    # Φx
+    ) {
+    %1 : Func = Primitive::Switch{prim_type=1}(Bool(0), "DeadNode", FuncGraph::fg_557)    #(Bool, ProblemType, Func)    # fg_557=18_L-✗↓↓↓construct.557 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]119
+    %2 : Tensor(F32)[32, 10] = %1[18_L-✗↓↓↓construct.557]() #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]122
+    Primitive::Return{prim_type=1}(%2)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]493
+}
+
+
+# [No.123] 40_L-✗↓↓↓construct.575
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+funcgraph fg_575[fg_574](
+) {
+    %1 : Tensor(F32)[32, 120] = FuncGraph::fg_573(%para380)    #(Tensor(F32)[32, 120])    # fg_573=41_L-↓↓↓↓construct.573 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]118
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]502
+}
+
+
+# [No.124] 29_L-✗↓↓↓construct.566
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+funcgraph fg_566[fg_565](
+) {
+    %1 : Tensor(F32)[32, 84] = FuncGraph::fg_564(%para381)    #(Tensor(F32)[32, 84])    # fg_564=30_L-↓↓↓↓construct.564 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]118
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]502
+}
+
+
+# [No.125] 18_L-✗↓↓↓construct.557
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+funcgraph fg_557[fg_556](
+) {
+    %1 : Tensor(F32)[32, 10] = FuncGraph::fg_555(%para382)    #(Tensor(F32)[32, 10])    # fg_555=19_L-↓↓↓↓construct.555 #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]118
+    Primitive::Return{prim_type=1}(%1)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/#[CNode]502
+}
+
+
+# [No.126] 41_L-↓↓↓↓construct.573
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+funcgraph fg_573(
+        %para383 : Tensor(F32)[32, 120]    # Φx
+    ) {
+    Primitive::Return{prim_type=1}(%para383)    #(Tensor(F32)[32, 120]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/#[CNode]505
+}
+
+
+# [No.127] 30_L-↓↓↓↓construct.564
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+funcgraph fg_564(
+        %para384 : Tensor(F32)[32, 84]    # Φx
+    ) {
+    Primitive::Return{prim_type=1}(%para384)    #(Tensor(F32)[32, 84]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/#[CNode]505
+}
+
+
+# [No.128] 19_L-↓↓↓↓construct.555
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+funcgraph fg_555(
+        %para385 : Tensor(F32)[32, 10]    # Φx
+    ) {
+    Primitive::Return{prim_type=1}(%para385)    #(Tensor(F32)[32, 10]) #scope: Default/network-WithLossCell/_backbone-LeNet5/fc3-Dense
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/#[CNode]505
+}
+
+
+# num of total function graphs: 128

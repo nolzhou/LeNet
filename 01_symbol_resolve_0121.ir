@@ -1,0 +1,1337 @@
+#IR entry      : @construct_wrapper.911
+#attrs         :
+training : 0
+#Total params  : 10
+
+%para1_data : <null>
+%para2_label : <null>
+%para3_fc3.bias : <Ref[Tensor(F32)], (10)>
+%para4_fc3.weight : <Ref[Tensor(F32)], (10, 84)>
+%para5_fc2.bias : <Ref[Tensor(F32)], (84)>
+%para6_fc2.weight : <Ref[Tensor(F32)], (84, 120)>
+%para7_conv2.weight : <Ref[Tensor(F32)], (16, 6, 5, 5)>
+%para8_fc1.bias : <Ref[Tensor(F32)], (120)>
+%para9_fc1.weight : <Ref[Tensor(F32)], (120, 400)>
+%para10_conv1.weight : <Ref[Tensor(F32)], (6, 1, 5, 5)>
+
+#Total subgraph : 77
+
+subgraph attr:
+subgraph @bool_.949(%para11_x) {
+  %0([CNode]947) = getattr(%para11_x, __bool__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+  %1([CNode]948) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1481)/    return x.__bool__()/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.920(%para12_data, %para13_label) {
+  %0([CNode]914) = call @bool_.949(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %1(outputs) = call @construct.1185(%para12_data)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/
+  %2([CNode]929) = Switch(%0, @✓construct.930, @✗construct.931)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  %3([CNode]932) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.957(%para14_Φlogits, %para15_labels) {
+  %0([CNode]950) = S-Prim-_check_is_tensor(logits, %para14_Φlogits, SoftmaxCrossEntropyWithLogits)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(623)/        _check_is_tensor('logits', logits, self.cls_name)/
+  %1([CNode]951) = S-Prim-_check_is_tensor(labels, %para15_labels, SoftmaxCrossEntropyWithLogits)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(624)/        _check_is_tensor('labels', labels, self.cls_name)/
+  %2([CNode]952) = MakeTuple(%0, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  %3([CNode]953) = stop_gradient(%2)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  %4([CNode]954) = call @bool_.949(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %5([CNode]1003) = Switch(%4, @✓construct.1004, @✗construct.1005)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %6([CNode]1006) = %5()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  %7([CNode]1007) = Depend(%6, %3) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  Return(%7)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.1004() {
+  %0([CNode]955) = S-Prim-equal(mean, mean)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %1([CNode]956) = call @bool_.949(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %2([CNode]998) = Switch(%1, @✓✓construct.999, @✗✓construct.1000)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  %3([CNode]1001) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓✓construct.999() {
+  %0(x) = S-Prim-SparseSoftmaxCrossEntropyWithLogits($(@construct.957:para14_Φlogits), $(@construct.957:para15_labels))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(627)/                x = self.sparse_softmax_cross_entropy(logits, labels)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(628)/                return x/
+}
+
+subgraph attr:
+training : 0
+subgraph @get_loss.971(%para16_x, %para17_weights) {
+  %0([CNode]958) = call @bool_.949(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %1([CNode]959) = Switch(%0, @↰get_loss.960, @↱get_loss.961)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %2([CNode]962) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %3([CNode]963) = call @bool_.949(%2)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %4(Φinput_dtype) = getattr(%para16_x, dtype)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(148)/        x = self.cast(x, input_dtype)/
+  %5(weights) = S-Prim-Cast(%para17_weights, Float32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(142)/        weights = self.cast(weights, mstype.float32)/
+  %6(x) = S-Prim-Cast(%para16_x, Float32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(141)/        x = self.cast(x, mstype.float32)/
+  %7(x) = S-Prim-Mul(%5, %6)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(143)/        x = self.mul(weights, x)/
+  %8([CNode]985) = Switch(%3, @✓get_loss.986, @✗get_loss.987)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  %9([CNode]988) = %8()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  Return(%9)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+training : 0
+subgraph @↰get_loss.960() {
+  Return(true)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+training : 0
+subgraph @↱get_loss.961() {
+  Return(true)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓get_loss.974(%para18_Φx) {
+  %0([CNode]964) = call @bool_.949(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %1([CNode]966) = Switch(%0, @↰↓get_loss.967, @↱↓get_loss.968)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %2([CNode]969) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %3([CNode]970) = call @bool_.949(%2)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %4([CNode]978) = Switch(%3, @✓↓get_loss.979, @✗↓get_loss.980)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  %5([CNode]981) = %4()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%5)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 0
+subgraph @↰↓get_loss.967() {
+  %0([CNode]965) = S-Prim-logical_not(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 0
+subgraph @↱↓get_loss.968() {
+  Return(true)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓get_loss.976(%para19_Φx) {
+  %0(x) = S-Prim-Cast(%para19_Φx, $(@get_loss.971:Φinput_dtype))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(148)/        x = self.cast(x, input_dtype)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(149)/        return x/
+}
+
+subgraph attr:
+training : 0
+subgraph @get_axis.973(%para20_x) {
+  %0(shape) = S-Prim-Shape(%para20_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(100)/        shape = F.shape(x)/
+  %1(length) = S-Prim-tuple_len(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(101)/        length = F.tuple_len(shape)/
+  %2(perm) = S-Prim-make_range(0, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(102)/        perm = F.make_range(0, length)/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(103)/        return perm/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓get_loss.979() {
+  %0([CNode]972) = call @get_axis.973($(@↓get_loss.974:para18_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(147)/            x = self.reduce_sum(x, self.get_axis(x))/
+  %1(x) = S-Prim-ReduceSum($(@↓get_loss.974:para18_Φx), %0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(147)/            x = self.reduce_sum(x, self.get_axis(x))/
+  %2([CNode]975) = call @↓↓get_loss.976(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓get_loss.980() {
+  %0([CNode]977) = call @↓↓get_loss.976($(@↓get_loss.974:para18_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(146)/        if self.reduce and not self.average:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓get_loss.986() {
+  %0([CNode]982) = call @get_axis.973($(@get_loss.971:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(145)/            x = self.reduce_mean(x, self.get_axis(x))/
+  %1(x) = S-Prim-ReduceMean($(@get_loss.971:x), %0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(145)/            x = self.reduce_mean(x, self.get_axis(x))/
+  %2([CNode]983) = call @↓get_loss.974(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗get_loss.987() {
+  %0([CNode]984) = call @↓get_loss.974($(@get_loss.971:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(144)/        if self.reduce and self.average:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.995(%para21_Φlabels) {
+  %0([CNode]989) = S-Prim-SoftmaxCrossEntropyWithLogits($(@construct.957:para14_Φlogits), %para21_Φlabels)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(630)/        x = self.softmax_cross_entropy(logits, labels)[0]/
+  %1(x) = S-Prim-getitem(%0, 0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(630)/        x = self.softmax_cross_entropy(logits, labels)[0]/
+  %2([CNode]990) = call @get_loss.971(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(631)/        return self.get_loss(x)/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(631)/        return self.get_loss(x)/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓✓construct.997() {
+  %0([CNode]991) = S-Prim-Shape($(@construct.957:para14_Φlogits))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %1([CNode]992) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %2([CNode]993) = S-Prim-getitem(%0, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %3(labels) = S-Prim-OneHot($(@construct.957:para15_labels), %2, Tensor(shape=[], dtype=Float32, value=1), Tensor(shape=[], dtype=Float32, value=0))
+      : (<null>, <null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(629)/            labels = self.one_hot(labels, F.shape(logits)[-1], self.on_value, self.off_value)/
+  %4([CNode]994) = call @↓construct.995(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗✓construct.1000() {
+  %0([CNode]996) = call @↓✓construct.997()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(626)/            if self.reduction == 'mean':/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.1005() {
+  %0([CNode]1002) = call @↓construct.995($(@construct.957:para15_labels))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\loss\loss.py(625)/        if self.sparse:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.927(%para22_Φoutputs, %para23_Φlabel) {
+  %0(loss) = call @construct.957(%para22_Φoutputs, %para23_Φlabel)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/
+  %1([CNode]917) = S-Prim-MakeTuple(%0, %para22_Φoutputs, %para23_Φlabel)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1019(%para24_x) {
+  %0(Φx_shape) = S-Prim-Shape(%para24_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1008) = S-Prim-check_dense_input_shape(%0, Dense)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(321)/        check_dense_input_shape(x_shape, self.cls_name)/
+  %2([CNode]1009) = stop_gradient(%1)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  %3([CNode]1012) = call @ms_len.1013(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %4([CNode]1014) = S-Prim-not_equal(%3, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %5([CNode]1015) = call @bool_.949(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %6([CNode]1055) = Switch(%5, @✓construct.1056, @✗construct.1057)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %7([CNode]1058) = %6()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %8([CNode]1059) = Depend(%7, %2) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<null>, <null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%8)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+subgraph @ms_len.1013(%para25_data) {
+  %0([CNode]1010) = getattr(%para25_data, __len__)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+  %1([CNode]1011) = %0()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\_extends\parse\standard_method.py(1446)/    return data.__len__()/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.1042(%para26_Φx) {
+  %0([CNode]1016) = call @bool_.949(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %1(x) = S-Prim-MatMul(%para26_Φx, $(@construct_wrapper.911:para4_fc3.weight))
+      : (<null>, <Ref[Tensor(F32)], (10, 84)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %2([CNode]1045) = Switch(%0, @✓↓construct.1046, @✗↓construct.1047)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1048) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓construct.1035(%para27_Φx) {
+  %0([CNode]1017) = call @bool_.949(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]1038) = Switch(%0, @✓↓↓construct.1039, @✗↓↓construct.1040)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %2([CNode]1041) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓↓construct.1027(%para28_Φx) {
+  %0([CNode]1018) = call @ms_len.1013($(@construct.1019:Φx_shape))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1020) = S-Prim-not_equal(%0, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %2([CNode]1021) = call @bool_.949(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %3([CNode]1031) = Switch(%2, @✓↓↓↓construct.1032, @✗↓↓↓construct.1033)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %4([CNode]1034) = %3()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓↓↓construct.1029(%para29_Φx) {
+  Return(%para29_Φx)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓↓↓construct.1032() {
+  %0([CNode]1022) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %1([CNode]1023) = S-Prim-make_slice(None, %0, None)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %2([CNode]1024) = S-Prim-getitem($(@construct.1019:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %3([CNode]1025) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %4([CNode]1026) = S-Prim-MakeTuple(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %5(out_shape) = S-Prim-add(%2, %4)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %6(x) = S-Prim-Reshape($(@↓↓↓construct.1027:para28_Φx), %5)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(331)/            x = self.reshape(x, out_shape)/
+  %7([CNode]1028) = call @↓↓↓↓construct.1029(%6)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%7)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓↓↓construct.1033() {
+  %0([CNode]1030) = call @↓↓↓↓construct.1029($(@↓↓↓construct.1027:para28_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓↓construct.1039() {
+  %0(x) = None($(@↓↓construct.1035:para27_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(328)/            x = self.activation(x)/
+  %1([CNode]1036) = call @↓↓↓construct.1027(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓↓construct.1040() {
+  %0([CNode]1037) = call @↓↓↓construct.1027($(@↓↓construct.1035:para27_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct_wrapper.911() {
+  %0([CNode]933) = call @construct.920(%para1_data, %para2_label)
+      : (<null>, <null>) -> (<null>)
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓construct.1046() {
+  %0(x) = S-Prim-BiasAdd($(@↓construct.1042:x), $(@construct_wrapper.911:para3_fc3.bias))
+      : (<null>, <Ref[Tensor(F32)], (10)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %1([CNode]1043) = call @↓↓construct.1035(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓construct.1047() {
+  %0([CNode]1044) = call @↓↓construct.1035($(@↓construct.1042:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.1056() {
+  %0([CNode]1049) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %1([CNode]1050) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %2([CNode]1051) = S-Prim-getitem($(@construct.1019:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %3([CNode]1052) = S-Prim-MakeTuple(%0, %2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %4(x) = S-Prim-Reshape($(@construct.1019:para24_x), %3)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %5([CNode]1053) = call @↓construct.1042(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%5)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.1057() {
+  %0([CNode]1054) = call @↓construct.1042($(@construct.1019:para24_x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1182(%para30_x) {
+  %0([CNode]1060) = S-Prim-ReLU(%para30_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\activation.py(295)/        return self.relu(x)/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1069(%para31_x) {
+  %0(Φx_shape) = S-Prim-Shape(%para31_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1061) = S-Prim-check_dense_input_shape(%0, Dense)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(321)/        check_dense_input_shape(x_shape, self.cls_name)/
+  %2([CNode]1062) = stop_gradient(%1)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(50)/        x = self.fc2(x)/
+  %3([CNode]1063) = call @ms_len.1013(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %4([CNode]1064) = S-Prim-not_equal(%3, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %5([CNode]1065) = call @bool_.949(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %6([CNode]1105) = Switch(%5, @✓construct.1106, @✗construct.1107)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %7([CNode]1108) = %6()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %8([CNode]1109) = Depend(%7, %2) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<null>, <null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(50)/        x = self.fc2(x)/
+  Return(%8)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.1092(%para32_Φx) {
+  %0([CNode]1066) = call @bool_.949(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %1(x) = S-Prim-MatMul(%para32_Φx, $(@construct_wrapper.911:para6_fc2.weight))
+      : (<null>, <Ref[Tensor(F32)], (84, 120)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %2([CNode]1095) = Switch(%0, @✓↓construct.1096, @✗↓construct.1097)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1098) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓construct.1085(%para33_Φx) {
+  %0([CNode]1067) = call @bool_.949(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]1088) = Switch(%0, @✓↓↓construct.1089, @✗↓↓construct.1090)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %2([CNode]1091) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓↓construct.1077(%para34_Φx) {
+  %0([CNode]1068) = call @ms_len.1013($(@construct.1069:Φx_shape))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1070) = S-Prim-not_equal(%0, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %2([CNode]1071) = call @bool_.949(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %3([CNode]1081) = Switch(%2, @✓↓↓↓construct.1082, @✗↓↓↓construct.1083)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %4([CNode]1084) = %3()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓↓↓construct.1079(%para35_Φx) {
+  Return(%para35_Φx)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓↓↓construct.1082() {
+  %0([CNode]1072) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %1([CNode]1073) = S-Prim-make_slice(None, %0, None)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %2([CNode]1074) = S-Prim-getitem($(@construct.1069:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %3([CNode]1075) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %4([CNode]1076) = S-Prim-MakeTuple(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %5(out_shape) = S-Prim-add(%2, %4)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %6(x) = S-Prim-Reshape($(@↓↓↓construct.1077:para34_Φx), %5)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(331)/            x = self.reshape(x, out_shape)/
+  %7([CNode]1078) = call @↓↓↓↓construct.1079(%6)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%7)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓↓↓construct.1083() {
+  %0([CNode]1080) = call @↓↓↓↓construct.1079($(@↓↓↓construct.1077:para34_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓↓construct.1089() {
+  %0(x) = None($(@↓↓construct.1085:para33_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(328)/            x = self.activation(x)/
+  %1([CNode]1086) = call @↓↓↓construct.1077(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓↓construct.1090() {
+  %0([CNode]1087) = call @↓↓↓construct.1077($(@↓↓construct.1085:para33_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓construct.1096() {
+  %0(x) = S-Prim-BiasAdd($(@↓construct.1092:x), $(@construct_wrapper.911:para5_fc2.bias))
+      : (<null>, <Ref[Tensor(F32)], (84)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %1([CNode]1093) = call @↓↓construct.1085(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓construct.1097() {
+  %0([CNode]1094) = call @↓↓construct.1085($(@↓construct.1092:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.1106() {
+  %0([CNode]1099) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %1([CNode]1100) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %2([CNode]1101) = S-Prim-getitem($(@construct.1069:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %3([CNode]1102) = S-Prim-MakeTuple(%0, %2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %4(x) = S-Prim-Reshape($(@construct.1069:para31_x), %3)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %5([CNode]1103) = call @↓construct.1092(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%5)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.1107() {
+  %0([CNode]1104) = call @↓construct.1092($(@construct.1069:para31_x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1118(%para36_x) {
+  %0(Φx_shape) = S-Prim-Shape(%para36_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1110) = S-Prim-check_dense_input_shape(%0, Dense)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(321)/        check_dense_input_shape(x_shape, self.cls_name)/
+  %2([CNode]1111) = stop_gradient(%1)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(48)/        x = self.fc1(x)/
+  %3([CNode]1112) = call @ms_len.1013(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %4([CNode]1113) = S-Prim-not_equal(%3, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %5([CNode]1114) = call @bool_.949(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %6([CNode]1154) = Switch(%5, @✓construct.1155, @✗construct.1156)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %7([CNode]1157) = %6()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  %8([CNode]1158) = Depend(%7, %2) primitive_attrs: {side_effect_propagate: 1} cnode_attrs: {topo_sort_rhs_first: true}
+      : (<null>, <null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(48)/        x = self.fc1(x)/
+  Return(%8)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.1141(%para37_Φx) {
+  %0([CNode]1115) = call @bool_.949(true)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %1(x) = S-Prim-MatMul(%para37_Φx, $(@construct_wrapper.911:para9_fc1.weight))
+      : (<null>, <Ref[Tensor(F32)], (120, 400)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(324)/        x = self.matmul(x, self.weight)/
+  %2([CNode]1144) = Switch(%0, @✓↓construct.1145, @✗↓construct.1146)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  %3([CNode]1147) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓construct.1134(%para38_Φx) {
+  %0([CNode]1116) = call @bool_.949(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %1([CNode]1137) = Switch(%0, @✓↓↓construct.1138, @✗↓↓construct.1139)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  %2([CNode]1140) = %1()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓↓construct.1126(%para39_Φx) {
+  %0([CNode]1117) = call @ms_len.1013($(@construct.1118:Φx_shape))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %1([CNode]1119) = S-Prim-not_equal(%0, 2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %2([CNode]1120) = call @bool_.949(%1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %3([CNode]1130) = Switch(%2, @✓↓↓↓construct.1131, @✗↓↓↓construct.1132)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  %4([CNode]1133) = %3()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓↓↓↓construct.1128(%para40_Φx) {
+  Return(%para40_Φx)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(332)/        return x/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓↓↓construct.1131() {
+  %0([CNode]1121) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %1([CNode]1122) = S-Prim-make_slice(None, %0, None)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %2([CNode]1123) = S-Prim-getitem($(@construct.1118:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %3([CNode]1124) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %4([CNode]1125) = S-Prim-MakeTuple(%3)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %5(out_shape) = S-Prim-add(%2, %4)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(330)/            out_shape = x_shape[:-1] + (-1,)/
+  %6(x) = S-Prim-Reshape($(@↓↓↓construct.1126:para39_Φx), %5)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(331)/            x = self.reshape(x, out_shape)/
+  %7([CNode]1127) = call @↓↓↓↓construct.1128(%6)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%7)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓↓↓construct.1132() {
+  %0([CNode]1129) = call @↓↓↓↓construct.1128($(@↓↓↓construct.1126:para39_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(329)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓↓construct.1138() {
+  %0(x) = None($(@↓↓construct.1134:para38_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(328)/            x = self.activation(x)/
+  %1([CNode]1135) = call @↓↓↓construct.1126(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓↓construct.1139() {
+  %0([CNode]1136) = call @↓↓↓construct.1126($(@↓↓construct.1134:para38_Φx))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(327)/        if self.activation_flag:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓↓construct.1145() {
+  %0(x) = S-Prim-BiasAdd($(@↓construct.1141:x), $(@construct_wrapper.911:para8_fc1.bias))
+      : (<null>, <Ref[Tensor(F32)], (120)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(326)/            x = self.bias_add(x, self.bias)/
+  %1([CNode]1142) = call @↓↓construct.1134(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗↓construct.1146() {
+  %0([CNode]1143) = call @↓↓construct.1134($(@↓construct.1141:x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(325)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.1155() {
+  %0([CNode]1148) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %1([CNode]1149) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %2([CNode]1150) = S-Prim-getitem($(@construct.1118:Φx_shape), %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %3([CNode]1151) = S-Prim-MakeTuple(%0, %2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %4(x) = S-Prim-Reshape($(@construct.1118:para36_x), %3)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(323)/            x = self.reshape(x, (-1, x_shape[-1]))/
+  %5([CNode]1152) = call @↓construct.1141(%4)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%5)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.1156() {
+  %0([CNode]1153) = call @↓construct.1141($(@construct.1118:para36_x))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(322)/        if len(x_shape) != 2:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1184(%para41_x) {
+  %0([CNode]1159) = S-Prim-Shape(%para41_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %1([CNode]1160) = S-Prim-getitem(%0, 0)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %2([CNode]1161) = S-Prim-negative(1)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %3([CNode]1162) = S-Prim-MakeTuple(%1, %2)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  %4([CNode]1163) = S-Prim-Reshape(%para41_x, %3)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+  Return(%4)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\basic.py(215)/        return F.reshape(x, (F.shape(x)[0], -1))/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1183(%para42_x) {
+  %0(out) = S-Prim-MaxPool(%para42_x)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(142)/        out = self.max_pool(x)/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\pooling.py(143)/        return out/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1165(%para43_x) {
+  %0([CNode]1164) = call @bool_.949(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %1(output) = S-Prim-Conv2D(%para43_x, $(@construct_wrapper.911:para7_conv2.weight))
+      : (<null>, <Ref[Tensor(F32)], (16, 6, 5, 5)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %2([CNode]1169) = Switch(%0, @✓construct.1170, @✗construct.1171)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %3([CNode]1172) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.1167(%para44_Φoutput) {
+  Return(%para44_Φoutput)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.1170() {
+  %0(output) = S-Prim-BiasAdd($(@construct.1165:output), None)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(268)/            output = self.bias_add(output, self.bias)/
+  %1([CNode]1166) = call @↓construct.1167(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.1171() {
+  %0([CNode]1168) = call @↓construct.1167($(@construct.1165:output))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1174(%para45_x) {
+  %0([CNode]1173) = call @bool_.949(false)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %1(output) = S-Prim-Conv2D(%para45_x, $(@construct_wrapper.911:para10_conv1.weight))
+      : (<null>, <Ref[Tensor(F32)], (6, 1, 5, 5)>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(266)/        output = self.conv2d(x, self.weight)/
+  %2([CNode]1178) = Switch(%0, @✓construct.1179, @✗construct.1180)
+      : (<null>, <null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  %3([CNode]1181) = %2()
+      : () -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%3)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+after_block : 1
+training : 0
+subgraph @↓construct.1176(%para46_Φoutput) {
+  Return(%para46_Φoutput)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(269)/        return output/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.1179() {
+  %0(output) = S-Prim-BiasAdd($(@construct.1174:output), None)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(268)/            output = self.bias_add(output, self.bias)/
+  %1([CNode]1175) = call @↓construct.1176(%0)
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%1)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.1180() {
+  %0([CNode]1177) = call @↓construct.1176($(@construct.1174:output))
+      : (<null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\layer\conv.py(267)/        if self.has_bias:/
+}
+
+subgraph attr:
+training : 0
+subgraph @construct.1185(%para47_x) {
+  %0(x) = call @construct.1174(%para47_x)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(41)/        x = self.conv1(x)/
+  %1(x) = call @construct.1182(%0)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(42)/        x = self.relu(x)/
+  %2(x) = call @construct.1183(%1)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(43)/        x = self.max_pool2d(x)/
+  %3(x) = call @construct.1165(%2)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(44)/        x = self.conv2(x)/
+  %4(x) = call @construct.1182(%3)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(45)/        x = self.relu(x)/
+  %5(x) = call @construct.1183(%4)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(46)/        x = self.max_pool2d(x)/
+  %6(x) = call @construct.1184(%5)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(47)/        x = self.flatten(x)/
+  %7(x) = call @construct.1118(%6)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(48)/        x = self.fc1(x)/
+  %8(x) = call @construct.1182(%7)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(49)/        x = self.relu(x)/
+  %9(x) = call @construct.1069(%8)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(50)/        x = self.fc2(x)/
+  %10(x) = call @construct.1182(%9)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(51)/        x = self.relu(x)/
+  %11(x) = call @construct.1019(%10)
+      : (<null>) -> (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(52)/        x = self.fc3(x)/
+  Return(%11)
+      : (<null>)
+      # In file D:\PythonCode\LeNet\lenet.py(53)/        return x/
+}
+
+subgraph attr:
+training : 0
+subgraph @✓construct.930() {
+  %0(outputs) = S-Prim-Cast($(@construct.920:outputs), Float32)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(669)/            outputs = F.cast(outputs, mstype.float32)/
+  %1(label) = S-Prim-mixed_precision_cast(Float32, $(@construct.920:para13_label))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/
+  %2([CNode]926) = call @↓construct.927(%0, %1)
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%2)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+
+subgraph attr:
+training : 0
+subgraph @✗construct.931() {
+  %0([CNode]928) = call @↓construct.927($(@construct.920:outputs), $(@construct.920:para13_label))
+      : (<null>, <null>) -> (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+  Return(%0)
+      : (<null>)
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+}
+

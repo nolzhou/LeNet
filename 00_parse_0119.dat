@@ -1,0 +1,140 @@
+# [No.1] construct_wrapper.911
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(665)/    def construct(self, data, label):/
+funcgraph fg_911(
+        %para1    # data
+        , %para2    # label
+    ) {
+    %1 = FuncGraph::fg_920(%para1, %para2)    #(Undefined, Undefined)    # fg_920=construct.920 #scope: Default
+#[CNode]933
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]934
+}
+# order:
+#   1: construct_wrapper.911:[CNode]933{[0]: ValueNode<FuncGraph> construct.920, [1]: data, [2]: label}
+#   2: construct_wrapper.911:[CNode]934{[0]: ValueNode<Primitive> Return, [1]: [CNode]933}
+
+
+# [No.2] construct.920
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(665)/    def construct(self, data, label):/
+funcgraph fg_920(
+        %para3    # data
+        , %para4    # label
+    ) {
+    %1 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]912
+    %2 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, add_cast_fp32)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]913
+    %3 = %1(%2)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]914
+    %4 = Primitive::Switch{prim_type=1}(%3, FuncGraph::fg_930, FuncGraph::fg_931)    #(Undefined, Undefined, Undefined)    # fg_930=✓construct.930, fg_931=✗construct.931 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]929
+    %5 = %4() #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]932
+    Primitive::Return{prim_type=1}(%5)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]935
+}
+# order:
+#   1: construct.920:[CNode]921{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>', [2]: ValueNode<Symbol> _network}
+#   2: construct.920:[CNode]936{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   3: construct.920:[CNode]937{[0]: [CNode]936, [1]: data}
+#   4: construct.920:outputs{[0]: [CNode]921, [1]: data}
+#   5: construct.920:[CNode]913{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>', [2]: ValueNode<Symbol> add_cast_fp32}
+#   6: construct.920:[CNode]912{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> bool_}
+#   7: construct.920:[CNode]914{[0]: [CNode]912, [1]: [CNode]913}
+#   8: construct.920:[CNode]918{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper', [2]: ValueNode<Symbol> F}
+#   9: construct.920:[CNode]922{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> SymbolStr: 'Namespace:mindspore.nn.wrap.cell_wrapper', [2]: ValueNode<Symbol> mstype}
+#  10: construct.920:[CNode]929{[0]: ValueNode<Primitive> Switch, [1]: [CNode]914, [2]: ValueNode<FuncGraph> ✓construct.930, [3]: ValueNode<FuncGraph> ✗construct.931}
+#  11: construct.920:[CNode]932{[0]: [CNode]929}
+#  12: construct.920:[CNode]935{[0]: ValueNode<Primitive> Return, [1]: [CNode]932}
+
+
+# [No.3] ✓construct.930
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+funcgraph fg_930[fg_920](
+) {
+    %1 = $(construct.920):Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/#[CNode]918
+    %2 = Primitive::getattr{prim_type=1}(%1, "cast")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(669)/            outputs = F.cast(outputs, mstype.float32)/#[CNode]919
+    %3 = $(construct.920):Primitive::resolve{prim_type=1}(NameSpace::ClassMember, _network)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/#[CNode]921
+    %4 = $(construct.920):%3(%para3)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/#outputs
+    %5 = $(construct.920):Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, mstype)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/#[CNode]922
+    %6 = Primitive::getattr{prim_type=1}(%5, "float32")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(669)/            outputs = F.cast(outputs, mstype.float32)/#[CNode]923
+    %7 = %2(%4, %6)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(669)/            outputs = F.cast(outputs, mstype.float32)/#outputs
+    %8 = Primitive::getattr{prim_type=1}(%1, "mixed_precision_cast")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/#[CNode]924
+    %9 = Primitive::getattr{prim_type=1}(%5, "float32")    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/#[CNode]925
+    %10 = %8(%9, %para4)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(668)/            label = F.mixed_precision_cast(mstype.float32, label)/#label
+    %11 = FuncGraph::fg_927(%7, %10)    #(Undefined, Undefined)    # fg_927=↓construct.927 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]926
+    Primitive::Return{prim_type=1}(%11)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]938
+}
+# order:
+#   1: ✓construct.930:[CNode]924{[0]: ValueNode<Primitive> getattr, [1]: [CNode]918, [2]: ValueNode<StringImm> mixed_precision_cast}
+#   2: ✓construct.930:[CNode]925{[0]: ValueNode<Primitive> getattr, [1]: [CNode]922, [2]: ValueNode<StringImm> float32}
+#   3: ✓construct.930:[CNode]939{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   4: ✓construct.930:[CNode]940{[0]: [CNode]939, [1]: [CNode]925, [2]: label}
+#   5: ✓construct.930:label{[0]: [CNode]924, [1]: [CNode]925, [2]: label}
+#   6: ✓construct.930:[CNode]919{[0]: ValueNode<Primitive> getattr, [1]: [CNode]918, [2]: ValueNode<StringImm> cast}
+#   7: ✓construct.930:[CNode]923{[0]: ValueNode<Primitive> getattr, [1]: [CNode]922, [2]: ValueNode<StringImm> float32}
+#   8: ✓construct.930:[CNode]941{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   9: ✓construct.930:[CNode]942{[0]: [CNode]941, [1]: outputs, [2]: [CNode]923}
+#  10: ✓construct.930:outputs{[0]: [CNode]919, [1]: outputs, [2]: [CNode]923}
+#  11: ✓construct.930:[CNode]926{[0]: ValueNode<FuncGraph> ↓construct.927, [1]: outputs, [2]: label}
+#  12: ✓construct.930:[CNode]938{[0]: ValueNode<Primitive> Return, [1]: [CNode]926}
+
+
+# [No.4] ✗construct.931
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+funcgraph fg_931[fg_920](
+) {
+    %1 = $(construct.920):Primitive::resolve{prim_type=1}(NameSpace::ClassMember, _network)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/#[CNode]921
+    %2 = $(construct.920):%1(%para3)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(666)/        outputs = self._network(data)/#outputs
+    %3 = FuncGraph::fg_927(%2, %para4)    #(Undefined, Undefined)    # fg_927=↓construct.927 #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]928
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/#[CNode]943
+}
+# order:
+#   1: ✗construct.931:[CNode]928{[0]: ValueNode<FuncGraph> ↓construct.927, [1]: outputs, [2]: label}
+#   2: ✗construct.931:[CNode]943{[0]: ValueNode<Primitive> Return, [1]: [CNode]928}
+
+
+# [No.5] ↓construct.927
+# In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(667)/        if self.add_cast_fp32:/
+funcgraph fg_927(
+        %para5    # Φoutputs
+        , %para6    # Φlabel
+    ) {
+    %1 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, MakeTuple)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/#[CNode]915
+    %2 = Primitive::resolve{prim_type=1}(NameSpace::ClassMember, _loss_fn)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/#[CNode]916
+    %3 = %2(%para5, %para6)    #(Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(670)/        loss = self._loss_fn(outputs, label)/#loss
+    %4 = %1(%3, %para5, %para6)    #(Undefined, Undefined, Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/#[CNode]917
+    Primitive::Return{prim_type=1}(%4)    #(Undefined) #scope: Default
+      # In file D:\Users\nol\anaconda3\envs\mindspore_py39\lib\site-packages\mindspore\nn\wrap\cell_wrapper.py(671)/        return loss, outputs, label/#[CNode]944
+}
+# order:
+#   1: ↓construct.927:[CNode]916{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:mindspore.nn.wrap.cell_wrapper..<WithEvalCell::1484101704256>', [2]: ValueNode<Symbol> _loss_fn}
+#   2: ↓construct.927:[CNode]945{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   3: ↓construct.927:[CNode]946{[0]: [CNode]945, [1]: Φoutputs, [2]: Φlabel}
+#   4: ↓construct.927:loss{[0]: [CNode]916, [1]: Φoutputs, [2]: Φlabel}
+#   5: ↓construct.927:[CNode]915{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   6: ↓construct.927:[CNode]917{[0]: [CNode]915, [1]: loss, [2]: Φoutputs, [3]: Φlabel}
+#   7: ↓construct.927:[CNode]944{[0]: ValueNode<Primitive> Return, [1]: [CNode]917}
+
+
+# num of total function graphs: 5
