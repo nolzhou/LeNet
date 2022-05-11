@@ -13,7 +13,8 @@ from mindspore.common.initializer import Normal
 
 # 导入模型训练需要的库
 from mindspore.nn import Accuracy
-from mindspore.train.callback import LossMonitor
+from mindspore.profiler import Profiler
+from mindspore.train.callback import LossMonitor, SummaryCollector
 from mindspore import Model
 
 from mindspore.train.callback import ModelCheckpoint, CheckpointConfig
@@ -84,11 +85,18 @@ def create_dataset(data_path, batch_size=32, repeat_size=1,
     return mnist_ds
 
 
-def train_net(model, epoch_size, data_path, repeat_size, ckpoint_cb, sink_mode):
-    """定义训练的方法"""
-    # 加载训练数据集
-    ds_train = create_dataset(os.path.join(data_path, "train"), 32, repeat_size)
-    model.train(epoch_size, ds_train, callbacks=[ckpoint_cb, LossMonitor(125)], dataset_sink_mode=sink_mode)
+# def train_net(model, epoch_size, data_path, repeat_size, ckpoint_cb, sink_mode):
+#     """定义训练的方法"""
+#     specified = {"collect_metric": True, "histogram_regular": "^conv1.*|^conv2.*", "collect_graph": True,
+#                  "collect_dataset_graph": True}
+#
+#     summary_collector = SummaryCollector(summary_dir="./summary_dir/summary_01", collect_specified_data=specified,
+#                                          collect_freq=1, keep_default_action=False, collect_tensor_freq=200)
+#
+#     # 加载训练数据集
+#     ds_train = create_dataset(os.path.join(data_path, "train"), 32, repeat_size)
+#     model.train(epoch_size, ds_train, callbacks=[ckpoint_cb, LossMonitor(125), summary_collector],
+#                 dataset_sink_mode=False)
 
 
 def test_net(model, data_path):
@@ -104,6 +112,8 @@ if __name__ == '__main__':
 
     args = parser.parse_known_args()[0]
     context.set_context(mode=context.GRAPH_MODE, device_target=args.device_target, save_graphs=True)
+
+    profiler = Profiler(output_path='./profiler_data')
 
     # 实例化网络
     net = LeNet5()
@@ -123,6 +133,19 @@ if __name__ == '__main__':
     mnist_path = "./datasets/MNIST_Data"
     dataset_size = 1
     model = Model(net, net_loss, net_opt, metrics={"Accuracy": Accuracy()})
-    train_net(model, train_epoch, mnist_path, dataset_size, ckpoint, False)
-    test_net(model, mnist_path)
+    # train_net(model, train_epoch, mnist_path, dataset_size, ckpoint, False)
+    """定义训练的方法"""
+    specified = {"collect_metric": True, "histogram_regular": "^conv1.*|^conv2.*", "collect_graph": True,
+                 "collect_dataset_graph": True}
 
+    summary_collector = SummaryCollector(summary_dir="./summary_dir/summary_01", collect_specified_data=specified,
+                                         collect_freq=1, keep_default_action=False, collect_tensor_freq=200)
+
+    # 加载训练数据集
+    ds_train = create_dataset(os.path.join(mnist_path, "train"), 32, dataset_size)
+    model.train(train_epoch, ds_train, callbacks=[ckpoint, LossMonitor(125), summary_collector],
+                dataset_sink_mode=False)
+
+    profiler.analyse()
+
+    test_net(model, mnist_path)
